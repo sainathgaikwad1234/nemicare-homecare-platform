@@ -1,0 +1,419 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/01/20 18:53 GMT+05:30 – Transcript
+Attendees
+AK, ASK, DV, MP, RD, SG, SS, SO, SP, SP
+Transcript
+SS: I am ready.
+SS: I think it's been given.
+AK: Okay. …
+AK: we didn't get access it yet regarding quick base. Can you please share that access now?
+MP: Beautiful.
+SS: Have you checked your junk email?
+AK: No click.
+SS: Okay, no worries. I'll get it checked out today. but yeah, it was given on Friday itself. no HRMS also that more access was given to.
+AK: We have received only HRMS access not big quick base access.
+SS: So if you I think relog in you will see the residence and everything on the left side.
+MP: Okay, fine.
+AK: Okay. yeah.
+MP: We will check just a sec.
+SS: Okay, perfect. Okay. I
+AK: Till the time we can start with the design. Shoubam can I please share your screen?
+SP: Hello Good morning. So yeah as per our recent discussion in the last call we had a kind of a quick demo from your side and after that I have set up one Figma file setup for this project.
+SP: So right now we didn't had the clearer idea that what exact the name you need to follow for this particular product. So right now we have considered from the website itself the naming care and just for the safe side…
+SS: That's the perfect one.
+SS: Yes, it is. I think the logo I would like to use this one.
+SP: because when you had demonstrated the product we had seen this logo in that one so I thought it might need it but this is the one we will be going forward with
+SP: Okay. Yeah,…
+SS: The number two. Yes. Where your cursor is. Number two. Yep. That's the one.
+SP: this one.
+SS: Yeah. …
+SP: So the naming care and this bridge to care cloth we need to add.
+SS: if you can add that would be great. Yeah,…
+SP: So the combination of this logo and the name should be nameare bridge to care path right cool I'll be updating this logo and…
+SS: that's right. Reach to clear is just a slogan. Yeah. Mhm.
+SP: we'll be finalizing that accordingly okay and…
+SS: Perfect. Yeah,…
+SP: the naming care color we had this one so this is the kind of like primary color we have shortlisted for the color palette as well and…
+SS: that's perfect.
+SP: fortunately it was kind of like
+SP: passing the contrast ratio and it was accessible. So we have made the color palette for that one and the naming here this color we have made it as a secondary in case we will be needing any extra the platform itself. Okay. So I'll be creating the color theory accordingly and…
+SS: Yep. Sure. Mhm.
+SP: the logos accordingly and I'll be finalizing one after this meeting and whatever the extra color palette systems we had needed from the perspective of in future whatever the color color palette we will be needing for the product component those are listed accordingly like this and have been documented as well some kind of gradient system from the typography formation we
+MP: Got it.
+SP: have finalized the interfont from the better visibility and readability and accessibility perspective and whatever categories we needed starting from the button text to bottom text to headers and all. So that has been documented as Short listing of the grid layouts also we have did from the top navigation consideration to sidenav in case we will so for now we have decided to go with the top navigation to make sure that we will be getting the moreover space at the very bottom of the product and in case we will be having a kind of data heavy structure in future merging together most of the flows and…
+SS: Sounds good. Yep.
+SP: all then maybe we will be deciding to go with making the combination of the top navigation and the side navigation pattern itself like this one. 1440 pixel break point for the screen layout we have finalized for now.
+SP: And these are the kind of like a shadow effects eventually we will be utilizing and the documentation have been also mapped under.
+00:05:00
+MP: Okay.
+SP: So that is the kind of overall update from the brand assets and foundation stuff for the product. logo I have already mentioned that we will be finalizing after this considering the icon sets for icon library we have finalized for this one…
+SS: Okay.
+SP: because this has a kind of vast capabilities and all and customizations also we have available then aftars and some of the kind of other important components we have shortlisted the country flags and all then from the component perspective also we have established a particular name component
+SP: library or the design system kind of stuff. from the general perspective like whatever the badges, pattern sets, chips, input fields as we are going to deal with most of the type of forms. overall the table structures and…
+SS: Okay.
+SP: everything has been mapped under this proper component library and with the particular documentation and guidelines as well and eventually we are going to utilize it in the UI formation itself and starting from the sample layout perspective. So this is the kind of UI layout we have created for the listing page and by taking the kind of screenshot from the demonstration which you provided on the last call and this is the kind of all list of the restaurants and the headers and all.
+SP: So don't worry about the content is going to differ afterwards as well when we will be going deeper in terms of what we can say in the workflows formations and…
+SP: So by then we will be finalizing the content for the site. Yeah. So this is the kind of overall look and…
+MP: Okay.
+SP: feel perspective. does that work for you? It looks fine.
+SS: Yeah, looks good. Yeah. Yeah,…
+SP: Then this is finalized. And this is a kind of a sample layout from the perspective of when we are going to see the profile of that particular resident.
+SP: the profile details, medications, progress note, vital, allergy alerts and allergies, care plans, assessments. So this is also kind of like a demi data we have available and the dummy card layouts and…
+SS: Okay.
+SP: all but overall it is going to be changed afterwards. Cool. Yes.
+SS: Yep. Sounds good.
+MP: Yeah, thanks thanks Sham.
+MP: So yeah apart from these so basically we also created the workflow of the member …
+MP: we are adding a member and how the remaining stuff that we are doing. so maybe Anita can share the screen and then show you that flow and yeah just manually let me know once you are ready.
+SS: Go. Okay.
+AK: Yes sir flowchart diagram based on our last discussion like creating a lead and…
+SS: Okay. Mhm. Yeah.
+AK: onboarding the client. you can kindly share your screen.
+MP: Yes. Okay.
+DV: Sharing the screen is it visible? So, based on our previous discussion we came to know that we have the lead coming to us. as you mentioned there is a option where patient or the client can come walk in directly to the office location and…
+DV: there is a scenario where we can receive referrals. So these are the two sources we can consider where we will be having our leads or is there any other source like websites or campaigns? Mhm.
+SS: Correct.
+SS: So just go ahead and add the third one. and this is where we are going to be doing the API integration with them. Right. And I will tell you so you can start referring that documentation for the API as Pretty easy. a place for mom.
+AK: Hold on.
+DV: the third one.
+SS: As an apple. a place for mom. That's the name of the company.
+DV: Okay. Mhm.
+MP: It's not for a moment.
+SS: A place for mom.
+DV: …
+SS: This is a platform.
+DV: this is the platform a website Okay,…
+SS: 
+SS: This is a platform.
+SS: And then the next one is caring.com.
+00:10:00
+DV: I'll just add it here as of now.
+SS: Yeah, just add it over there.
+DV: Okay. Yes.
+SS: Yes, Because they both have an open integration. So we can go and…
+MP: Mhm. Okay.
+SS: then download that documentation and then make sure that we can establish the connection and then we go through their testing process and…
+DV: Okay. Mhm.
+SS: then they will let us basically get their data directly into our system.
+MP: Okay, great. Yeah, we'll do that.
+SS: Caring.com. Yeah. And if you do the Google search like open integration or the AI integration or whatever it is, then they'll have a pretty good documentation on that one. And whatever the tools that you require to do the integration,…
+MP: Okay, great.
+SS: they have that. Okay. Yep.
+MP: Okay, we'll check that. place for mom and…
+SS: Okay.
+MP: caring.com these are the two integration that we need to do and…
+SS: These are the two integration right and…
+MP: the lead with yeah
+SS: the other integration is that we're going to be doing it for the lead to come in is from the CRM system we had talked about it give me a second I'll tell you in a
+SS: HLM highle marketing this and…
+SS: that integration you already have it right. So the marketing CRM website Yeah.
+DV: So these are the four sources …
+MP: Yeah, we need to take it like …
+MP: but yeah HLM we are aware of that
+DV: which we will be having the lead from and referral. these are going to be the known service locations or known providers which are going to refer the clients to us. Mhm.
+SS: That is correct.
+MP: Okay.
+SS: 
+SS: And then So within walk-in we can do a lot of those things that underneath we can create those custom fields to capture all the data right. Yep. Yeah.
+DV: And for these platforms let's say we have an inquiry which is raised on any of these platforms. So what is the workflow after that? If we receive the basic information and the inquiry for a specific service let's say senior living service. So after that what happens from our facility is there any call confirmation or do we register the client as a guide and then we go with the
+SS: So what we do is that very first thing is that whenever the inquiry kind of comes in the very next thing the call takes place so our marketing person will make a phone call. They will gather some of the information like a patient condition what there are and then what are the current medical condition what are the current living condition any diet restrictions any disease and all any medication they're taking it. So also a kind of good summary for a patient and then based on that we're going to say we can accept this patient or we cannot accept this patient right and let's say if we accept this patient then in that case we're going to go ahead and send them basically thank you email with a rate card and say if you move into a private room this is what we have available and…
+DV: Welcome.
+MP: Mhm.
+SS: this is what the dollar amount for that these are the extra services or the semi-private shared bed and this is what it is so that kind of custom email will go out. They're going to come back and say okay we like it we want to schedule the visit to the actual facility all takes place or the email exchange and then they come to see the facility. After they come to see the facility then they're going to say okay we like In that case what we're going to do is that this one form and the contract we're going to send it out to them. So they fill out that form.
+SS: And that is all the information they're going to have it there. Biographic medication information, living arrangements, bill, advanced medical directive, sorts of things. Basically, who will be the primary contact in an event of emergency? Who is their pharmacy? and I'll provide you that late. So they will fill out that template and also sign the contract that on a monthly basis this is what I will pay and all those things and then if I don't pay on time their rights and responsibilities our rights and responsibilities and kind of those things we will do those things and then they will fill it in and once they sign off on that contract it's going to come back to us to the nurse and nurse is going to sign off on some of the documents and the office manager will sign off on some of the documents.
+00:15:00
+SS: ments and once the documents are signed off and the initial deposit is received basically we're going to lock in their room and then we're going to decide the move in date and then at the same event what happens that once the contract is signed off and the deposit is received right or the full payment is received for the first month and the security deposit we go ahead and assign the room and convert that lead into the resident okay so that same data will go into the resident tab and…
+SS: then whatever the documents that they had filled in with all their biographic information, medication, alerts, allergies and kind of those things, it's going to transfer into our resident database automatically and also the document they had signed it those are going to become a PDF in terms of going into the documents for that particular resident. Yep.
+DV: So going back a little you mentioned that we will call the person…
+DV: who has reached an inquiry on any of these particular platform and our marketing person is going to contact them to get all the details. so we can decide to provide an service and provide an thank you email to them.
+DV: So when the marketing person is going to contact them,…
+SS: correct? Yes.
+DV: are they going to make any note of what they discuss with the client and do we want that to be stored?
+SS: 
+SS: Yes, there will be and that's where I think what we want to do is that we want to capture those things using the AI tools basically whatever it's available and then probably it can capture the note it can capture the email and then it'll convert into the summary and sorts of things basically okay yep correct and…
+DV: So when they are on the call, we want that notes to be captured and transcribed rather than adding it manually.
+SS: that'll also become the trail, for the communication, right? We can have it in the system.
+DV: And the call facility which we want is from out of the system or…
+MP: Mhm.
+DV: we want the capability to have in the system to connect to the client.
+SS: Yeah. …
+DV: And after that we will beh
+SS: so we're using for the corporate phone system, and all the facilities are using the ring central. So probably when we try to do the integration we can try to look into the ring central integration which is an open source as well pretty much we can do an integration on that. So when you see the phone number and the phones kind of on the resident tab or…
+SS: the potential tab and you click on the phone it'll give you an option that do you want to send a text or you want to make a phone call and then it will capture that in the back end. Yeah, correct.
+MP: And the SMS as well we can send the message as well for them as well.
+MP: We are going to integrate with the ring central as you already have the account.
+SS: Got it.
+MP: Call and…
+SS: Yeah. Yep.
+MP: the SMS feature we are going to use the ring central and then the transcribe as well we will check if the ring central is providing a transcribe if they are providing so using that transcribe we are going to send those trans transcribe to the AI to generate a summary of the call all the details and action items will be there just …
+MP: based on the conversation if you want to basically send the message SMS or…
+DV: All right.
+MP: the mail onboard to the client or not. So based on that AI only we are going to generate everything.
+SS: Correct. Mhm.
+MP: So just in previous call as you mentioned our facility and services will be like the adult health assisted living home care.
+MP: So these things we are talking about the assisted living where okay yeah…
+SS: I think this is standard right for anything that in our model we do this lead source is standard kind of Okay.
+MP: but the next thing that you talk you were explaining about the booking a room and all for the patient so those stuff like that will be also common for all of the services or the facility that we are going to on board.
+00:20:00
+SS: No, it won't be like for the adult day health. There is no room assignment,…
+MP: Yeah, exactly.
+SS: right? Home care,…
+MP: Yeah. Yeah.
+SS: there is no room assignment. There is a caregiver assignment.
+MP: So yeah that's what we wanted to know now a previous call also like you mentioned lots of things and we are just summarizing all those stuff and then creating a workflow based on that and yeah maybe firstly what we can do once we are done with this workflow. So we can start from the base like how we are onboarding the clinic specialties and…
+MP: and all the other things as well so how we are doing all those stuff and then we will check the flow of the clinics based on the onboarding that staff as …
+SS: Correct.
+MP: how we are going to onboard that and the other feature as well for the admin as a super admin…
+SS: Mhm. That's right. Yeah,
+MP: 
+MP: what other feature that we can do. So we are going to discuss that. so yeah maybe like Nanuri you can just finish this flow first if you are having any question then we can discuss that and then later we are going to move to the clinic on boarding flow.
+DV: Yes, so back to this we have the lead we have called them. We have the transcribe note at our end and then the marketing person will make the decision. based on the conversation do we need to schedule or provide service to this lead and after that we will trigger the welcome email…
+DV: which will be having all the information regarding the services and it will also having the prices for partic Okay,
+SS: That is Yeah.
+SS: I think we will have to think about it.
+MP: And from the prices like…
+MP: how we are going to decide the prices is there any charts or any configuration that we are going to do and based on that Uh-huh.
+SS: We will need to take a separate call on that. And then also I will need some guidance from you guys in terms of how do because it's a dynamic pricing. So when you go from one facility to the other facility it's a dynamic pricing. When you go from one state to the other state, So for a bed in Georgia let's say that I'm charging $4,500 on a private private room.
+MP: Mhm.
+SS: The same private room in the state of Washington will be $8,500. Right?
+SS: If you go to New York,…
+MP: Yeah. Yeah, thank
+SS: it might be $10,000, right? So, even in Georgia, if you're in a metro area, if you're in a Pune central, it might cost you five um 10,000 rupees, but if you go 50 kilometers out of Pune, then it might cost you probably twothird of the price. kind of that so it depends that what we want to do is that we want to create a model basically that it can be done at facility level those charges we can't c it at the top and…
+MP: Mhm. Yeah.
+SS: then these are the fluctuating right pricing and it is totally up to the facility how they want to charge if there is a high competition they want to move up the prices if there is a low competition that they want to
+SS: over the prices, they want to do the seasonal marketing and…
+MP: Yeah. Yeah,…
+SS: say "Okay, we are approaching the Christmas time." And say " yeah. If you commit right now, then we have $300 off every month." kind of those things. Yep.
+MP: So yeah, basically what we can do based on the area we can have the different charges plus on top of that we can see basically the availability as well if we are having the very less the rooms available then maybe we can create the algorithm in a So charges will get increased by 20% something like that and also we are going to provide an option where we can apply the discount as well we are going to send some of the coupon code or…
+SS: Yep.
+MP: something to let us to apply that coupon this kind of stuff that we can provide them we will work
+SS: No level of care is going to be part of onboarding process or…
+AK: So level of care we are not considering it right up now right.
+SS: the kind of probably when they sign the contract we can go ahead and…
+SS: do so yeah level of care I think we can do it afterwards. Correct. Mhm.
+MP: Okay fine.
+AK: Okay.
+MP: So yeah as we know these are the different platform where we once we get a lead then are the marketing or the sales guys going to call them and then that call will be using the central reach only we are going to basically transcribe using the AI we are going to summarize the call and based on that we will decide whether we want to proceed with this lead or we want to reject that lead and then all those stuff will get the AI generated and
+00:25:00
+MP: Yeah, these are the stuff we are clear and then rooms and all as well based on the rooms or the area as well as the availability of the room. So that the pricing will be the dynamic. So these are the stuff that we are clear as of now. yeah then actually we can move to the next Contract.
+DV: And…
+DV: we will be inviting them to view the facility and once we get the confirmation then only we will share them the contract. So the contract is going to be for the senior living and for others like ADH we will be having.
+SS: correct. Yeah.
+SS: ADH as well and the home care too. Yes. And I can provide you everything.
+DV: So don't for the ADH and…
+SS: Yep. Yes.
+MP: Yeah, contract means is there the text that we are sending them to sign them and anything that if at the time of the contract are we going to ask them to pay some of the amount just to confirm?
+SS: Yes. Yes.
+MP: Okay.
+DV: home care we will be providing the intake not the contact contract right.
+SS: 
+SS: Intake.
+SS: I mean you can call but it's kind of contract and intake and everything together we just need to come up with some con naming convention that what we're calling it. Okay. Yeah. No format is going to be different for all line of businesses. and…
+DV: The format is going to be same for every client.
+DV: Okay. Mhm.
+SS: plus what's going to happen is that some of those things are going to go by the state. So let's say that in Georgia versus if you have an assisted living in Washington it would be different. So we have to figure that out which document that we're kicking in when we are sending it out to them and that will be an automated workflow right. So, an office manager in Seattle is sending out u a contract for a potential resident. then it'll pick up all the state of Washington documentation, when somebody is sending it out in Atlanta, it'll be state of Georgia, they'll pick up, So, we need to do that dynamic things, so set of documents and then those headers and kind of that, they need it.
+SS: Same thing with that. this is the similar stuff when we go into the HRMS when we had an employee in Georgia versus Washington or…
+SS: Texas and Canada. So, some of the forms that you're going to be doing it, it is based on that respective state.
+DV: So we will be differentiating the forms based on the state from…
+DV: which the lead is and…
+SS: Correct.
+DV: accordingly we will share that form. and
+SS: And also on the header the facility name in Washington is ABC living versus Georgia is XYZ assisted living right so that should basically pick up the name from the application instance and…
+SS: somebody is sending it out from the Atlanta location 10 so the name is XYZ assisted living something like So that should pull up on all the documents at the header,…
+DV: Yes. Yes.
+SS: Yep. Because they're not signing a contract with the parent company. They're signing a contract with the facility. Okay. Yep.
+DV: After that when adding the client into the system are we categorizing them as Medicaid private pay.
+SS: 
+SS: Yes, we are. And that data would come in directly from the lead management because we already asked that question in the lead source we already asked the question that are you Medicaid Medicare or…
+DV: So in case of Mhm.
+SS: private pay or the private insurance company right yep correct yeah it'll be part of the referral right exactly and…
+DV: And the referral will also have that information like it will be mentioned. So, okay.
+SS: 
+SS: if not then when we do the communication with a potential resident or we capture that information and fill it in manually. Yep.
+DV: So based on the client type the flow will trigger differently for a private pay registration as we discussed it will be a easy and simplified process where we will get the basic information which we will have from the lead itself. Then we will be getting the medical information…
+00:30:00
+DV: which is necessary.
+DV: We will collect some documents, the medical records, the consents if needed and we will set the financial setup based on our contract rates if they agree to it or do we want to add any additional discount for that specific plant and accordingly we will set up the invoice for per month and it will be autogenerating every month for that specific plant.
+SS: Yeah. Mhm.
+DV: And when this process is completed the service is defined. So the term for the client will be member in our system we had it as a lead and…
+SS: Can you repeat that?
+DV: when we have the services defined we have all the documents so it will be called as a member in our system right.
+SS: 
+SS: Yeah. For the ADHD and the home care, it'll be a member.
+SS: For the assisted living, it'll be called as resident.
+DV: And the service will be defined previously whenever we will be having the source.
+DV: So we have home care,…
+SS: Correct. That's right.
+DV: assistant living and ADH as a services.
+SS: Home care, memory care, assisted living, health, independent living. Add one more category, independent living.
+DV: Independently and…
+SS: Right. Then correct transportation and…
+DV: transportation is going to be a part of ADH itself. It's not a special.
+SS: the food will be part of the ADH.
+DV: Yes. So this is the flow which we will consider for the private pay lead. After that we have So for Medicaid registration we will be having the basic information.
+DV: We will be collecting the insurance details of the Medicaid client and we will be providing them the medical condition, the current treatment, the care plans, the activities and we will have some signatures of the client which needs to be done on that specific assessment. So after that we will be collecting the documents…
+SS: Perfect. Mhm.
+DV: which are the state required document and we will create a referral…
+SS: Correct.
+DV: if you want to send to the referring agency.
+SS: You got it.
+DV: So while sending the referral to the referring agency,…
+DV: we will be having an contact added there for the manager,…
+DV: the referral manager or the point of contact and…
+SS: I mean they have pretty much the assigned people to work on the potentials right when we submit it.
+DV: that contact we will be having at our end to select from or it depends how we will identify the contact manager which one to assign to.
+SS: So it'll be a office manager at XYZ case management agency.
+SS: And then we usually know their generic emails and kind of those things. So it should be okay Yep. That is correct.
+DV: So we will keep this process as manually entering the manager right details set.
+DV: So the case manager will review and coordinate and when the state has provided the submission package or the approval package to us then from that package we will be having all the data for the patient …
+DV: which treatment should be given to that patient along with the CPT code and along with the provider's details in it right so this response we will
+SS: That is correct.
+DV: get for all of them like assistant living, the home care and ADHD or the response varies we will be getting the CPT codes in prior authorization and…
+DV: also the provider details in prior authorization for all of the services.
+SS: That is correct.
+SS: That is correct. That is only for the Medicaid patients and the private insurance patient. If it's a private pay,…
+DV: Mhm. Okay.
+SS: we skip that step. Right. no so we do have to have the nurse practitioner I mean RN basically for the signature and…
+DV: but you mentioned in assistant living bind any nurse practitioner or clinician to the client. Anyone who is present there can provide the service to the client. But if we have the Mhm.
+SS: the kind of those things but most of the caregivers will be CNA or…
+SS: LPN. That is correct.
+DV: Those and…
+00:35:00
+DV: whenever we will generate the bill we will have to enter that specific NPI numbers along with that. And once so you mentioned that there is a process of the state that they get the details from us they review it they take patients interview and after that we get the prior authorization and we can start the process from our end. So do we need to manage all those steps in our system between the interview process or anything like that?
+SS: If we can Yeah,…
+SS: that would be great,
+DV: But we are enrolling …
+DV: if we can enroll the client for let's say assistant living we have sent the prior authorization and…
+DV: it will need two to three weeks. So within this two to three weeks we will be providing the care based on the requirement of the Okay.
+SS: Technically no.
+MP: Okay.
+SS: But probably behind the scene we may bring them in but we cannot bill or anything like that Okay. And then Okay.
+DV: Based on the decisions we will provide them the services we will be having all the details and…
+DV: if there is an rejection or error so we will just fix it manually and we will resubmit the package and wait for the results. And once we receive all the information from the state so we can provide the services whichever listed for the client. Yeah.
+SS: Correct.
+SS: That's good. That's And then once we get it from the state and Canada, this is let me share my screen now. do you see that my screen? Yep. What happened?
+SS: How do I get rid of this multiple screen thing?
+AK: You can select one.
+SS: Okay.
+DV: You can listen.
+SS: Can you see my screen So this is what for the assisted living this is called the admission agreement that once it's decide that we send it to them it captures all the demographics contact information right this is an online Adobe document clinical information right and they just write it all these things physical information pharmacy medications they're taking it right I mean this is a very basic form but I think we can create lot more better
+SS: Admission agreement like a fee schedule right that we have it additional fees refund policy business office credit card debit card services provided right we put it in this right administration of the medication and this is where they acknowledgement starts basically they start doing all the initials out here recapture is Sign off on that. Office manager, resident rights, they put it, policy, procedure, consent or denial, Emergency care and all sorts of things, right? personal caregiver, probationary period.
+SS: So this is a good long document that policy procedures and kind of those things we just put it together the whole thing right and ultimately basically that they sign off any kind of personal inventory they're bringing in they just put it out here. So this is pretty much a document the contract as part of the onboarding they sign and what would be their monthly charges. Okay. Yep. Got it.
+00:40:00
+DV: So the workflow was completed. We understood it. We will refine it a little bit based on discussion and we will share it over the Yes.
+SS: Yeah. Sure.
+SS: And one thing that hold on let me share my screen I also like this that you have it on your website, you know how this patient information is kind of See how this has been done, right?
+SS: the patient this is how you can see it or the lab results you can see it in kind of that charting right this is the main thing and then how I think this is one of your demo that you had right …
+AK: No.
+SS: how this has been, see how the detail information is kind of coming out. That was pretty cool, Yeah. Correct.
+AK: Yes, we can.
+MP: Then the patient profile basically when we go to the chart so all the details of the summary of all the medication or…
+MP: other things is going to show over there only and…
+SS: Yeah. Perfect.
+MP: everything. Yeah, we already planned that only. So, yeah, that will be the kind of patient dashboard where everything will be there. So, if you want to do some of the stuff Yeah,…
+SS: So, I like the way you have captured all the details and kind of that you can see it. Yeah. It's a lot of text, but you can make it a lot better, in the next version. but I think I like that one, Yeah. Good. Mhm.
+MP: So what we can do the information we are going to get it from your portal only but the detailing and all we are going to customize it in a way that we are in our custom yeah yeah we will do so yeah yeah these are the stuff like Sam we know we are going to work on that but can you show us how we are basically onboarding a new claim clinic and…
+MP: because we are having the different type of the clinics specialties as well and based on that the flow will be the
+SS: Yeah.
+SS: So what it is is that right now the way we're doing it is that we have separate instances for a location, And every location is running their own instance.
+MP: Mhm. Okay.
+SS: Okay, they're not running a central database. They have their own database and then on front end back end kind of that right.
+SS: So yeah this is an intake process but intake is only for this particular location. when I go here this intake is only for this location. Okay. So that's how we're kind of doing it, So we're keeping it into the same facility database, but what we're trying to do now is that, we're trying to create a common database, for all the leads. Correct. That is correct.
+MP: Yeah, database will be the common but the schema for each clinic will be different we are not going to basically share the information in between that schemas.
+MP: So that will be unique for each clinics. So let's see if you are onboarding any of the clinics here using the intake form. but I just need to check is there the intake form will be the same when we are onboarding the new clinic or for clean.
+SS: We can try to make it standard.
+SS: Yes, we can try to make it standard. Yes. That is correct.
+00:45:00
+MP: Yeah because just based on the specialties that we are selecting. So maybe we can add the extra feature over there extra information which we need to collect. So we can make it custom dynamic Exactly.
+SS: Yeah, we can make it dynamic over here, it's like while we are doing it referral status and kind of so every tab underneath that it'll be based on the required services, right?
+SS: So let's say over here we can add a field here and say this is for the living then all the assisted living If it's a adh tabs will be pop up kind of that.
+MP: Yeah. …
+SS: Yeah correct yeah no I agree Yeah.
+MP: but is there any intake form and all that will be different based on the specialties that we are having but just one thing that I want to check in your application particularly is there admin portal where you are let's see if new state or new basically clinic has been come new so you are onboarding them and then they're using the application It's great.
+SS: So, I'll show you So, this is a super admin dashboard that we were talking about, these are the different packages that we talked about it, this is a company, right?
+SS: So they can kind of go and then currently if you see that on the namicare.com right it talks about complete EHR CRM HR ecosystem and…
+MP: Mhm. Yeah.
+SS: then because I'm logged in features but okay get started basically since I'm logged in already but me log out. And get started. If I do that, it's going to give me the sign up, And then, it's going to send the email to the super admin and say okay, hey, there is a new company registered and they're looking for this, And then, new company will be registered. And when you go to the companies like this, this is how they have registered. Who is it?
+SS: the Gardinas and blah blah blah, and then, it'll create the instance based on, what they had picked,…
+MP: Mhm. Yeah.
+SS: right? Yeah.
+MP: 
+MP: Okay. Yes.
+SS: You can register.
+MP: So here the packages and all how we come to know let's say if anyone want to register on our website we are having that so they will come to the website and then from the website only they can register themselves and then yeah and…
+SS: That's so yeah.
+MP: admin portal we will receive that company's request and then we'll see the details we will validate them and maybe we can connect with them and then we can access the appro approve them and once we get an approval so at that time we may need to assign them the packages or their specialties and all. Correct.
+SS: So basically that all these companies are approved right if there was any request come in it'll be part of the unapproved you review that is the company you validate the data and…
+MP: Yeah. Yeah. h.
+SS: approved then their instance will be created automatically into the system right and this is what the instance I'm talking about with all this information and then you can kind of update the package as an admin or kind of that and then after that basically that's like if you want to kind of go
+SS: Again you can impersonate as a company and this is how the database will be created based on what they had selected right adh and number of modules and kind of those things okay yep yeah this is like Oops.
+SS: Don't know what happened probably.
+MP: Maybe like you logged in as that company.
+MP: So that's why
+SS: Stop impersonating. Okay, and then I can go to the super admin. Yes. Right.
+SS: So these are the super admins offline requests support tickets the front settings that you can do it for them header footer scripts and kind of those this is the overall settings for the app right profile notification the language because we're going to be doing it some language specific stuff as well currency payment and credentials, right?
+00:50:00
+SS: all those API settings but you will see this stuff basically that I've given you the access right on the finance settings how their invoice is going to look what logo they want to put it in and kind of that right yep the billing tax name yeah mhm so all these settings that we're going to give it to that particular instance so they can manage it and…
+MP: Yeah. Mhm.
+SS: we don't have to worry about managing them. Okay. Yep.
+MP: But the application that we are going to build so are we going to do the same the one instance for one company or we are going to have the different approach because I think we can have the different approach here. whether in the one is Yeah.
+SS: No, I think if we do the multiple instances that when we roll out the new changes, we'll have to roll out multiple times.
+MP: Right. Yeah.
+SS: So we cannot do that right.
+MP: Right. Yeah.
+SS: So we have to create one instance only. Yep. Correct.
+MP: So one instance will be fine because upgrading the new changes. So we need to do man for all the instances at once. Yeah. Yeah.
+SS: Okay, sounds good. so I will look into the Go ahead.
+MP: Rushab you want to ask? Rash we are not able to hear you if you are talking. yeah sorry maybe he is with you now. So yeah we can hear you next
+DV: Can you hear me now?
+DV: My mic was not working. So I want to ask that the ethnicity part that we have three ethnicities the Vietnamese, Korean and Chinese? Yeah.
+SS: Vietnamese, Korean,…
+SS: The default would be English,…
+DV: So do we have to keep any default language in the system for that and any other option for it?
+SS: right? And after that they can change it.
+DV: And one more question regarding the CCSP you said that you have the waivering program for CCSP. So can you provide some information about it?
+SS: No CCSP is a waiver.
+SS: Basically it's called a Medicaid has a waiver program. So there are CCSP is one waiver. source is another waiver and kind of that you Yeah.
+DV: Okay.
+DV: Thank you.
+SS: Okay. Yeah.
+DV: That's all.
+MP: Yeah, Ashish from your side like any questions?
+ASK: No, not from my side.
+SG: No,…
+SG: currently I was having the same question that sort of asked.
+MP: 
+MP: Okay, great. also s I just need to know so for that basically yeah we will check from our end first if we get the access of your application…
+SS: Okay.
+MP: if not then we'll ask you again but Anita let me know if we check it from your end
+AK: Yeah, I check we only get access. Let me share my screen.
+AK: Yeah. Are you able to see my screen? Yeah. we have only got this system access…
+SS: Not yet.
+SS: Yeah, we can see it now.
+AK: where we can see lead resident but we want access that you show last call that is a quick way system. Yeah.
+SS: So now you got the access to the residence as well. Yep.
+00:55:00
+AK: So we didn't get access of that tweak based system. So that's why I was asking for that.
+MP: No.
+MP: what Sam was saying everything is here only if you go to the residence list if you have that. So if you open any one of them you can get all these list and…
+AK: This is really good.
+MP: then you can see the details
+SS: Correct. Yes,…
+AK: And we will create the data as it right.
+MP: So we get these access previously we didn't have the access.
+SS: you do have an access To the resident and There's some their data, but you can try to go to the form and…
+SS: then try to create the fake data or…
+MP: Yep. Yeah,…
+SS: kind of that. Okay. Yep.
+AK: Okay, sure.
+AK: We will use that.
+SS: And you can create as much as sample data that you want to create on the instance that I've given it to you. Okay. Yep.
+AK: Yep, sure.
+SS: It should be fine. Yeah. Okay.
+AK: Okay. Okay.
+MP: for today I believe we are good. so we also wanted to check how we are onboarding our clinic staff and everything. Maybe tomorrow we can cover those stuff but today B join our discussion we'll create a new workflow tomorrow we will present you that and…
+SS: Sure, that's me.
+MP: also like that from design side as well we can start with the design onboarding
+SS: That's a game.
+Meeting ended after 00:56:37 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

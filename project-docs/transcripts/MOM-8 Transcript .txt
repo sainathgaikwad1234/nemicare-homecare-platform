@@ -1,0 +1,336 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/01/29 18:59 GMT+05:30 – Transcript
+Attendees
+DV, MP, NK, RD, SG, SS, SS's Presentation, SO, SD, SP, SRD, TM
+Transcript
+MP: that we come to know about a clock in and…
+SS: Mhm.
+MP: clock out feature how it is going to work and how the dashboard and everything is going to look and we discussed about the assistant living basically but for assistant living the feature that you explained so those were very high level for us. So what I want now so for ADH we are clear everything and for assisted living. So yeah you mentioned lots of things yesterday's call. but what I want today just the breakdown those stuff one by one let's say first thing that we wanted to know the lead generation CRM flow will be the same for the assisted living.
+SS: correct. Yeah.
+MP: Yeah. After that then let's come to the For clinical you also mention some of the differences like the vitals we are collecting on daily basis here and in ADH basically it will be on weekly basis and some of the other things as well like you mentioned right? Yeah. Yeah. And also you also mention that some of the feature regarding the food management, activity management, compliance drills all those stuff that we are going to perform on the assistance living that for them particularly we are going to perform all those things and…
+MP: also some of the other activities as well. So we just need to understand more on it like how we are going to basically is there any UI or something that we are creating some events kind of things as mock drill or anything else.
+SS: on the clinical side.
+SS: You mean to say?
+MP: Yeah, On clinical side.
+SS: Yeah, I think let me share my screen.
+MP: And one more thing like when we are onboarding any of the clinic or the facility for the assisted living so at that time we need to mention the rooms and…
+MP: we need to configure all those stuff. Whether they are Mhm.
+SS: Correct. So,…
+SS: so assisted living I've just opened up one.
+SS: So intake…
+MP: Mhm. Yep.
+SS: which our CRM system is going to be similar correct.
+MP: Yes. Okay,…
+SS: CRM system has no change whatever we're doing it right. I'm just starting from the bottom. Okay.
+SS: And then let's say that from CRM our potential customer is being tig market migrated to a member. So H we're calling the member here we're calling the residents right but end of the day both are patient. Okay. So I think we'll just have to come up with one common name right.
+MP: So, both of Yeah.
+SS: I think the residence sounds more better.
+SS: So they migrated into the resident right.
+MP: Mhm.
+SS: Once they get migrated into the resident then basically that we get all the information out here as far as the Medicaid the private pay right…
+SS: then it's going to rerouted to the Medicaid approval and then private pay same process will be there…
+MP: For Medicare the same process will be there.
+MP: The prior authorization will be the Okay.
+SS: but in
+SS: In the assisted living case what happens that Medicaid approval we get it prior to while they're potential we get the medical Medicaid approval okay so basically it's a seamless process when they come and if they are trying to convert that pretty much instantly we get that but what happens that sometimes people are not doing the transfer from one location to the other location like you Some of them are basically at my competition right now and then they are coming. So that's a transfer versus some of them are brand new people who just turning 65 and they get these benefits.
+SS: So they apply for the benefits in that case the workflow we have designed that we have to wait for the PA to get approved for them to bill to the Medicaid right…
+00:05:00
+MP: All right.
+SS: but if it's a transfer it comes out automatically okay so I think we may have to go back on that our workflow and then we can kind of do that if it's a new workflow right if it's a new patient coming on board then what we have done we're going to follow it. If it's a transfer then we just get the EDWP and we are good to go kind of but it's a similar process but once the current process what you have done it right now that takes about 2 months versus the transfer takes about 2 days. Okay. Yep. Yeah.
+MP: Okay.
+SS: Hey yeah.
+MP: So when we are transferring let's say any of the patient from the one facility to another in our case for ADH particularly. So do we need to update it to the government as well the state government? Okay.
+SS: So basically what's happening is that if they're at my facility and if they change the facility I don't need to change anything right. But if they are coming from my competition right then I do need to change it right that PA needs to be changed to where they are going the new company name right so that's what the transfer process is right PA still needs to get updated
+MP: So let's say there is one patient and he is coming from other facility from our competitor and he already got the prior authorization let's say for 6 months and he was just there for the one months only now he want to basically switch his facility so at that time he is going to come directly to us then he will share all the par authorization documents that they have and…
+MP: then we are going to send those to the state government to just update it we are getting his patient and now we are going to continue basically all other services correct Okay.
+SS: correct that is correct.
+SS: And then I'm trying to show you this is the revaluation, This is the PA renewal when it comes in. transfer happens every now and…
+MP: So how frequently these things will happen transferring?
+SS: then, …
+MP: Yeah. And in other scenarios like…
+SS: but as I said that it's a pretty seamless process. Okay.
+MP: if you are having the multiple facilities and in our facility only if anyone is transferring to one location to another. So at that time we don't need to update it to the state government.
+SS: Correct.
+MP: Internally just we need to update their addresses and facilities and everything. Yes,…
+SS: So I want to show you. So This is an initial one. You can see my screen, So this is an initial one.
+MP: I can see Yeah.
+SS: All And this is the case management agency. All right. And this is the diagnosis ICD10 code. Okay. These are the procedures.
+SS: So as we were talking about the procedures are the personal care services 15 minute one unit that is gone right and the case management per month and T1020 personal care services per DM 365 days 31 units this is…
+MP: Mhm. Yeah.
+SS: what it is right so this is what we get it Right. Yep. let me see.
+SS: Okay, this is the package that we received. This is how we get this service order. Okay, which is a P approval. Okay, this is what we geted. a bunch of these documents that we get. And we just save these documents to basically the patient the members documents tab.
+MP: Okay. Mhm.
+00:10:00
+SS: Yep. So these are their ICD10 codes and kind of those things, right? The package we were talking about, right?
+SS: This is the client detail, Anyways, let's go back to our Okay, so that's fine. mean, that's a seamless process. we can just do that basically we can just click a checkbox when it's a transfer. some of those initial things and…
+SS: kind of that, we can wipe it out. Okay. Yep.
+MP: and intake form will be the different from the one that you shown us for the ADH.
+MP: Correct. Okay.
+SS: No, it won't It'll be the same thing, I mean, we still have to get the PA, we still have to sign the EDWP and kind of that. So, it's a similar one.
+SS: The only thing we're going to check that box because that way we know that end of the day if you want to run the report that how many transfers we receive versus how many new patients right and…
+MP: Yeah. Mhm.
+SS: so the number of admissions that you have at end of the day and then you're doing it let's say quarterly basis and you're trying to figure it out that we got 15 new admissions right now now someone's going to question that out
+SS: 15 how many brand new came in versus how many transfer came in right because based on that we can kind of assess the market that there is more demand in the market or people are coming because we provide the better services or somebody is providing the worse services correct so…
+MP: In a report we are going to provide these kind of reports basically.
+SS: how do we trigger that
+SS: report if you put some sort of a checkbox or a field somewhere that this is a transfer patient versus this is a new patient. Okay. Yep.
+MP: Yeah, we will. Yeah. Yes.
+SS: You're getting my point now, right? Y okay.
+MP: 
+MP: And And yeah.
+SS: So once the potential become the resident, you kind of fill into that you do the room assignment. That's the new for the ALF, right? We talked about that before, right?
+MP: But for these room assignment so just wanted to check how we come to know these rooms are available or these rooms are so yeah okay…
+SS: So I will tell you I will tell you.
+SS: So the floor management does that. We don't have to do that, Floor management do it automatically, right? Sure,…
+MP: but we need to implement that flow in our system now floor management that feature yeah Yeah.
+SS: give me a second. I'm taking you there. I'm taking Okay.
+MP: For dashboard particularly Sam are you comfortable with the listing and…
+MP: you need this kind of graph and all in the dashboard.
+SS: I think I need the graph as well.
+SS: That would make more sense. Okay. Correct.
+MP: 
+MP: Yeah. for the summary level we are going to show it in but in the detail when we go in depth reporting basically so at that time we are going to show it in the list okay room assignment and here we are having the room
+SS: No, this is not the right report that I have it.
+MP: Oops.
+SS: Status is blank.
+SS: And then I'm going to say community is just the AQC. So basically that this is what I have it available here. if I look at it hold on I think this report would make more sense to you Census. Okay.
+00:15:00
+SS: So this is the report that we have it right the suite the private there is no status is basically number of room is one over here and…
+MP: Yeah. Yeah. Okay.
+SS: two over here so total three room basically no status that's kind of in a limbo right maybe the deposit is received occupied there are eight private beds occupied and 12 semi-private so 20 is unoccupied there are three private rooms available and six semi my privates. So if I click on these three, it's going to give me which three rooms are available, right? 1 2 and six, right? So the floor management will come and do that. But what we do is that this is the master we create when a new community kind of come on board. If they give us the layout, right, and the suite number, we are going to basically get the details from them.
+MP: Mhm. Yep.
+SS: Is that suite number the private and if it's a semi-private we are going to ask them the room gender type female because female is going to go into the female room female and male are not going to go together correct right so that is what this three things column one two and three that is the information that any new instance that we are going to create for the assisted living memory care or the independent living we are going to get
+SS: these three details from them, And what we're going to do is that we're going to create these entries, And then we're going to block it.
+SS: So no one can create the new entries, Except the admin because we're not going to increase the number of beds you right end of the day, this 32 beds is going to be 32 beds, right? It's a 32 room assignment as you can see on the right hand side.
+MP: Mhm. Yeah.
+MP: Yeah. Nuri wanted to ask something.
+DV: when we are saying the community what do we mean by that? what we are considering as a community
+SS: I'm sorry.
+SS: The community is basically that let's say this ALF are going to because we're going to become a super admin and…
+SS: then you're going to create the multiple instances of this one right I have 28 locations right so I don't want any one location to mingle with the other location okay are you getting my point right so basically that when you go into the super admin let me take you over here now right this is how We correct.
+MP: So it's like the community center…
+MP: where all these rooms are available. So we are onboarding them, we are creating instance of them and then inside that we are adding all these room details and everything. there
+SS: Right. so basically this is what our super admin dashboard is going to look like. Right.
+SS: And then basically what's going to happen is that we're going to come here and we're going to register a new company right so new company could be an assisted living or kind of that let's say PSS speech reconers right we're looking at that so PSS speech reconers that has been updated right here right and this is the company and this is an adult day health company right so they're going to get all the modules from the adult health, Kind of that. this one is the SWAL, right? this is an assisted living company, So, they're going to get all the things as an assisted living. Basically, all the modules for the assisted living, they're going to get it, So, as we are talking about some of the things we're going to hide, We're not going to change the code for the ADH or the assisted living.
+SS: Majority of the code is going to be a common code right the only few things are going to be hide or seen based on the nature of the business correct so this is an assisted living community right so…
+MP: Got it.
+MP: Yep. Yeah. Heat.
+SS: but that's what you define it you come over here on the dashboard and then as you
+SS: we let them register the new company and based on that the modules are going to open up okay so when you go into let's say the gardinas right here so the gardinas will have basically the room assignment as one of the entity right and that entity we are going to ask them that when you come on board right this is something that we are bringing a new community on And we are going to ask them as a part of the setup we are going to ask them that hey we need basically your layout the number of beds that you have it and…
+00:20:00
+MP: Mhm. Yep. And
+SS: then also we need the sweet number suite and the room type gender okay and that is where we kind of do that to them.
+SS: Because if we do that then only we're going to get the census for us that how many beds they have it available right so here it's a number of bads is available 32 right which is never going to get changed so if I take you to this report okay and if I open up this report not this one. number of beds, right? It's 32. And if I take you to this report, right?
+SS: So basically start at zero goal type and then goal is u must be greater than start. So the maxi max max is 32 but I'm not sure why it's not showing it but that is what it shows the max it can go is 32.
+MP: Yeah. Yeah. Understood. yeah. N wanted to ask something.
+MP: Yeah. Yeah.
+DV: So here the communities are nothing…
+DV: but the services or the locations where the number of beds available and in ADH we are using the location the center do we have to consider a uniform phrases throughout the system or…
+DV: if it's for ADL we will reframe it differently like the community for ADH it will be different because we will keep the same
+MP: Yeah, This will be the default for ADH basically we are having the center particularly where a clinic center where the employ patient is coming to that place and here basically it's kind of the room services which we are providing to them where they are coming here they are living here for days that's based on the prior authorization or the day that they booked and we are providing them the facility. We are having our staff and our staff whatever things that they needed. So they are creating an order. We are providing them those facilities and here these kind of things will be there. We will discuss in detail for that.
+MP: Just one question that I have Sam for you. in one room is it possible multiple bed will be available or how we are managing that the two two so by default the two bed will be available correct okay based on the type whether it's private or…
+SS: max two not by default…
+SS: if it's a semi-private then it's a two beds if it's a private is one bed that's…
+MP: semi Okay.
+SS: what we asked them right in the room assignment that we need your suite number And room type. And then if it's a semi-private and if it's a two beds, we go with 13 A, 13B. We go by the bed number, right?
+MP: So let's say if we are having the 10 room and out of 10 five is the semi-private. So for that we are going to consider a 10 bed for them. So the 10 entry for that semi-private we going to create here and…
+MP: then five entry will be the private one that we have the one bit correct.
+SS: So total 15 beds.
+SS: Correct. Right.
+MP: Yep. Okay.
+SS: Five semi-private which is 10 beds and then So 10 + 5 15 beds Correct. So maximum you can have is 15 people at the facility. Right. And this number has been dictated by the license from the state.
+MP: Yes. So is it correct and…
+MP: one more thing is it possible one instance that we are onboarding so is it possible they have the multiple locations let's say if we are having the one instance it is Mhm.
+SS: That is…
+SS: what I have right that is exactly what we are doing it it's a multiple locations right it's multiple location…
+MP: Okay.
+SS: but what we want to do end of the day that we want to have their separate basically the instance right now
+00:25:00
+SS: I'm running absolutely a separate instance. Okay. …
+SS: but I'm not sure that and that's a good question for how he's going to help us or how we're looking at Who is the architect on the team?
+MP: so yeah Dhanjay is the architect so he is not joined the call…
+MP: but yeah I'll talk with him so I'll take care of that part…
+SS: Okay.
+MP: but for everyone yeah if we can do that the multiple instance instances or what if we are having one instances everything is running in one instances only just by the database level we are going to create a separate schema for them because at the end of the day code will be the same and we are going to manage that and the schema will be different so we are going to make sure one instance data won't get communicate or…
+MP: the basically conflict with the other instance data I'll create an architecture and I'll show you Yep.
+SS: Okay, that's fine.
+SS: Yeah, because right now the way we're running it is that we're running a separate instance for everything.
+MP: Yep. Yes.
+SS: Yeah and…
+MP: The cost of the instance and all and for every Okay,…
+SS: we don't want to create multiple instances because otherwise the code base is going to become an issue.
+MP: I'll create the diagram and…
+SS: Okay.
+MP: 
+MP: maybe on Monday I'll show you that. I know how we are going to do that. So just the front end side for each instance the URL will be unique. So they can have their own URL using that they can log in but in the back end everything will be on the same instance.
+SS: Okay, that's fine. And that's where it is that we have to come up with an architecture because number suite number one if you have all 200 locations will have suite number one but how do we identify that we're talking about which community?
+MP: Mhm. Yes.
+SS: You getting my point? Yeah. Okay,…
+MP: Yes. I'm getting up. So, okay.
+SS: here I have that I have merged these two communities because it's next to each other, So that I have done the location here because these communities are 1 hour apart, And I didn't want to manage the two separate instances. So I just need as one instance, right?
+SS: But every time that I go in any report I go in and if I want to see that hey I just want to see basically by the AQC or VM or some aspen quality care or something like that. So I'm just going to come out here and Here I'm going to say the building is AQC and then I want to see the status is only Then it's going to give me all the active people basically out here. Right?
+SS: That's what it gives me. So, remind me that we also need to talk about cost of the share pay. Okay. let's because from the main workflow the side workflows are going to start coming in sub workflows.
+MP: Yeah, sure.
+SS: In most cases that it won't be…
+MP: So yeah.
+SS: but there will be cases that when there is two sources are paying for their services right then the patient will have to pay their share when they're using a private insurance company or…
+SS: Medicaid or something like that. Okay. Yep.
+MP: And also there will be the third one as well …
+MP: if I don't have any insurance so I can pay it by my pocket as well. Right. Okay.
+SS: That's going to be a private pay.
+SS: Yeah. Patient can pay directly,…
+MP: In the private will be the two possibility either the insurance we going to pay or second the patient can pay directly.
+SS: So here as you can see that the customer type Medicaid or…
+SS: So let's open the Medicaid, And let's go to the invoices. So this person is basically 6375. okay.
+MP: Yeah. Private
+00:30:00
+SS: And then let me go to the Rosemary. see this Medicaid amount 18569 that is per day we're charging it.
+SS: So Medicaid daily rate is 56.26. And total room and board is So first 6,900 they paid after that the Medicaid pay the room and board. some facilities that it's all combined that it's a one-stop shop basically that matter…
+MP: What about the extra services …
+MP: if they want laundry or other things? Okay.
+SS: what it is that if you use this service or not we're just going to charge you a blanket price it could be like a one bundle price for everything right and…
+MP: Okay.
+SS: some facilities we do the alakard you go to buffet all
+SS: you can eat, right? If you go to the menu and…
+MP: Yeah. Yeah.
+SS: say okay, I just want five items and…
+SS: based on that you pay, Similar to that …
+MP: And for …
+MP: if medicate patients we are going to charge separately for them for let's say they are having the individual u if they are basically Medicare is not basically including the facilities those facility that we are going to provide them. Okay. Yeah,…
+SS: sorry, I didn't understand. Can you repeat that? Mhm.
+MP: So, yeah, what I was asking basically so let's say for one of the patient who's having the medicate but our charges will be the different for the laundry and…
+MP: other things that extra we are going to charge them not in the so is it possible?
+SS: No, it won't.
+SS: I mean, it'll be the same charges.
+MP: Okay But we need to basically track all those stuff. or think that they are. Okay.
+SS: If we are, then yes, we have to. Yeah. But if the community has decided that no matter what it is we're just going to go with a blended rate then we don't need to track right if the community says we have alakard a service right then it's going to so here is the thing that from the workflow perspective when you are coming on board or when you are implementing a new client for the assisted living you are going to ask them the question about that where the
+SS: facility is located the state because that we can do the state based documentation right the second thing you are going to ask is okay how many beds okay give me the breakup of the private versus semi-private and the male female room and kind of that right and the suite number the third thing we are going to ask is that okay are you a 100% private pay or are you a mix private play plus insurance or…
+SS: private play plus Medicaid right that is what we're going to ask if it says we are 100% private we don't even have to open anything on the Medicaid. Are you getting my point? Right.
+MP: Okay. Yeah.
+SS: Where I was going to go is okay the fourth thing I was going to ask is that are you providing all the services by alakard or it's a blended rate right if it's a blended rate we don't need to track anything else basically right…
+MP: Okay. Yeah.
+SS: if it's an alakard that the moment you pull the alakarta services into the drop down the rest of the things laundry and other services is going to open up then we need to go into the product type and then you
+SS: we need to add basically a laundry and…
+MP: Yeah. Yeah. Yeah.
+SS: other assistance transportation and kind of those things right so this is how your workflow is going to start coming down right when you are opening up I mean when you're bringing a new client on board right as a facility daneshwari you got it okay good okay
+SS: So after we board the resident basically we do this room assignment and we got sidetracked with that room assignment we do nurse kind of goes and do the assessment right so on this workflow what happens is that on the ADH when we created the workflow they became the patient they basically signed all the documents and kind of that when they come here So before we do the room assignment while they are signing the contract our nurse goes out and do the full assessment of the resident right he or she would go to their respective places where they are and do an assessment.
+00:35:00
+SS: So all these things that we say okay we can accept that but sometimes one in 10 times what happens that when the nurse goes out for an assessment and they see that this person's level of care is something that the facility cannot manage it so we have to deny so…
+MP: Yeah. Yeah.
+SS: if you remember that in the intake right in the CRM we already had that but that is al at a superficial level right at 40
+MP: Correct. Yeah. Yeah.
+SS: Now we're talking on the ground where we are seeing the patient face to face and say this patient is a level of care cannot be managed…
+MP: Yeah. Can I take care of Yeah.
+SS: because she is a bed bound and then we don't have adequate staff to manage this thing right so at the assessment level even after they have given the deposit at assessment level we are going to deny the service and then we come out of it okay so that assessment piece is very important when we onboard somebody into the
+SS: So in between before we bring them to the facility, we go and do the assessment. And the assessment package is similar to what we have it basically for the ADH and I can provide you that assessment template. Okay. Yep.
+MP: Yeah.
+MP: Yeah. Yeah. So for assessment there might be a question and…
+SS: And you can right and…
+MP: 
+MP: all right.
+SS: you can just go ahead and…
+SS: basically this is the assessment template that we have it right.
+MP: Yeah. Yes.
+SS: We do the complete assessment right the screening information the ID we assign it emergency contact medical condition treatments all the medications living details diet routine care plan everything is been assigned right here okay because at that point we already know that are we going to accept the patient or not right if the assessment they go and see that no this is not going to work they just fill out the necessary information and basically deny the admission. Okay?
+MP: Let's Yeah.
+SS: And if they approve the nurse approves the admission that they're going to fill out everything and that particular person is going to become basically the resident. Yep. Exactly.
+MP: And also we are going to allocate the room to Yep.
+SS: And then we're going I mean the room is already been on the hold. So we're just now going to go and say okay from hold to assigned occupied right from and so date up until now it's on a hold right. So what happens that if you go into the no I want you to go to and census you see that number of deposit received right.
+SS: So if you go to the room assignment and I just want to go to this private room. And then where we're doing it I have designed the system but now I forget the things what I have done it again.
+MP: because the system was so you might not know assessment where exactly the location but in the form assessment Just one question Sam this is related to the staff particularly.
+MP: 
+SS: Staff could be at multiple locations.
+MP: So is it possible one staff can be in the multiple instances or multiple location.
+SS: So we may have to give them an access and say okay this group we're going to give an access or…
+SS: this date we're going to give an access. Yes. Exactly.
+MP: Okay. Yeah.
+SS: I don't remember now where I had it because this is coming as occupied directly I think yeah it is coming from deposit received yes I know where exactly Clean. How's it
+00:40:00
+SS: All so deposit received is coming from here basically.
+MP: Okay.
+SS: If I go and add it that if I'm doing a resident and in the status that I'm doing it instead of active I'm going to say deposit received right on the resident page itself.
+MP: Yeah. Thank you.
+SS: And here I can go ahead and basically add the room.
+SS: So basically the room is going to go on a hold. Okay. Yep.
+MP: Yeah, right.
+SS: So that's where this status is coming. Deposit received. And that's how we can track it down where the deposit is, right? So got it.
+MP: Yes ma'am. So yeah we know for the assisted living how we are basically converting the residents and what things that like allocating a room and all. So we are good here.
+SS: You're good here. Okay. That's good.
+SS: And then the assessment is that the second one then basically we do the room assignment and confirm and then with the assessment we fill in the information for the care plans we fill in the information for the alerts and allergies the medication right and the documents all these things are going to be done basically as part of the assessment correct the vitals progress notes and the incidents And the invoices is those are part of the clinical and the operational stuff right because invoices are going to generated on a monthly basis. progress notes are going to be done at a monthly basis.
+MP: Yeah, nice.
+MP: Mhm. Yeah.
+SS: Vitalles are going to be done on a daily basis. U incidents are as needed basically as the incident happens they're going to go ahead and do this incident.
+SS: The current incident form is very len lengthy but we don't need to do this big of a form right basically we need to divide this incident into that if it's a minor incident then we just need to do maybe couple of tabs and…
+SS: then done if it's a major incident that we need to fill out everything. then that's pretty much it. Yes.
+MP: And on daily basis are we going to record their diet like the…
+MP: what they are eating and all this stuff as well?
+SS: So I mean for the community perspective we don't want to record their diet…
+SS: because that'll come into the progress notes. Okay.
+SS: And that's…
+MP: But progress as you said we are going to do it for monthly basis right?
+SS: where we're going to use the scribe AI basically and say what they did not eat and kind of progress notes. Going to be in a monthly basis. Correct. not really.
+MP: But is there anything that on daily basis we are recording their activities?
+SS: Not really, but let me check with the floor management to see what they're doing it and then I can tell the next thing that I wanted to talk about is that some of the menu and…
+MP: Okay. Bye.
+SS: the activities and kind of that on that and…
+SS: or the compliance
+00:45:00
+MP: So yeah,…
+MP: compliance drills.
+MP: That's the fire drill that you mentioned emergency way.
+SS: that we're going to take a separate topic basically for the clinical business compliance I mean the operational compliance we're going to take a separate topic next week okay those are going to be the entities coming in and…
+MP: Yeah, fine. Yeah.
+SS: then we're just going to do that okay I was missing one thing here So here we're going to do the support tickets, right? The maintenance support tickets…
+SS: if they have it or anything like that. yes, I was going to talk about the medication management, Here we do have a list of medication,…
+MP: Yes. Uh-huh.
+MP: Uh-huh. Yeah.
+SS: right? Their medication list.
+SS: that we're going to do that but as I was talking to you about the MAR right so MAR you also need to…
+MP: Yeah. Yeah.
+SS: because before we talk because we're not doing that right now but we have it in the requirements document so let's talk about that last because that's a separate module it does not touch anything on the ADH or…
+MP: Yeah. Yeah.
+SS: the independent living or memory care side right assisted living side it's going to be an add on that, we're going to do that the Mars stuff. Okay. Yep. Correct.
+MP: Because in the user stories we seen the feature that mentioned by our VA based on previous discussion but in our website we check with our team as so we don't have that in our website or So maybe somewhere else Anita shown you that so we were checking that too.
+MP: But yeah, what we can do maybe we can create that design first from Mar and we'll show you that.
+SS: Correct. Yeah.
+SS: And that I had already said that we can do it not the MVP. It'll go into the second phase two.
+MP: Yeah, in the phase two we can do that. Yep. Yeah,…
+SS: It's going to go. Okay. Yep.
+MP: for sure.
+SS: Very good.
+MP: For assisted living these are the things that we get familiar now only thing that has been pending compliance.
+SS: Okay. Yeah,…
+MP: So there are as you said so maybe Yeah.
+SS: we're going to talk about compliance, right? I mean, you already got invoice, payments, and all those things. You already got it, right? Yep. Correct.
+MP: So yesterday only like you mentioned those but we just need to more deep dive into the feature. So we just need to understand all those features. yeah based on discussion…
+MP: then we'll create the workflow and also what we will do from our side we are going to show you not today tomorrow we'll show you the updated design because we need to review the design that the created by our team for the patient charting the patient specific code will be there the thing that you are showing us and…
+SS: Yeah. Yeah.
+SS: I like this. what? You have it here, You can see my screen, right? Yeah. Yeah, correct.
+MP: this is also the lead onboarding and all the flow will be this only and this face sheet and everything we are going to add. Yep. So we'll make sure and…
+SS: Scheduling. Yeah. Yep. So, I mean some of these things are we really don't have to change anything. Okay.
+SS: we may have to just basically that few things here and…
+MP: yes but these are mostly on this onboarding and…
+SS: there but I would say 80% of the things are going to go as is okay yep we just got change.
+MP: all flow but the data we need to change it the UI will be the same but the actual data the lead CRM or the HRMS all those stuff will get changed according to the date of the feature.
+SS: And then I mean basically that's where you got to help me out from the software perspective. I may be telling you probably in my terms right the things but what you have it here it makes more sense right the procedure code the CPT and ICD10 codes and kind of that we may have to stick to those things right so ICD10 codes you see that CPT codes.
+MP: Yeah, those list we have that list.
+SS: Yeah. Yeah.
+MP: We are going to use the same and yeah we are going to use same the CPD code and…
+SS: No, I mean I'm talking about the names, and kind of Yeah.
+MP: name will be the same that have So we have the master database that we are going to use here. but apart from based on the services that we are going to provide.
+00:50:00
+SS: Yeah. this is the complete billing.
+MP: Billing the eras and…
+SS: This is exactly we want right. Electronic claim submission and Canada. Yep.
+MP: then all those stuff we are going to discuss how we are submitting we are going to submit it and…
+SS: Correct.
+MP: claim MD we already integrated with the claim MD so we know how it is going to work. Yeah. Yeah.
+SS: So like automated AIC scribing, AI nurse assist, medical coder, virtual AI, right?
+MP: We just need to firstly find out all the places we are we are going to add the like AI driving. whenever you want it. so we are going to add that over there. just nurse or the staff needs to start that conversation and then whatever things that we are they are going to discuss with the patient it will going to record it and…
+MP: based on the whatever the response that we wanted from the AI we will fetch that from the AI and then we'll show you it in the screen.
+SS: Correct. Okay.
+MP: So I think for today we are good we get enough information for today we'll process all those stuff and then tomorrow we'll present you the work of assisted living and also we will demonstrate you the residence flow for the ADHD particularly.
+SS: Perfect. Sounds good. Yep.
+MP: So yeah I think that's all for today. Thanks Sam. Yeah. Yeah. Thanks.
+Meeting ended after 00:59:37 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

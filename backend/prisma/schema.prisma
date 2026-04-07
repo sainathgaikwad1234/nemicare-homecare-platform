@@ -1,0 +1,916 @@
+// Nemicare HomeCare Platform - Prisma Schema
+// Generated: April 4, 2026
+// Version: 1.0
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// MULTI-TENANCY
+// ============================================
+
+model Company {
+  id                  Int      @id @default(autoincrement())
+  name                String   @unique
+  legalName           String?
+  ein                 String?
+  website             String?
+  phone               String?
+  address             String?
+  city                String?
+  state               String?
+  zip                 String?
+  country             String   @default("USA")
+  timezone            String   @default("America/Chicago")
+  active              Boolean  @default(true)
+  
+  // Relations
+  facilities          Facility[]
+  users               User[]
+  roles               Role[]
+  leads               Lead[]
+  residents           Resident[]
+  visits              Visit[]
+  billings            Billing[]
+  chartings           Charting[]
+  documents           Document[]
+  employees           Employee[]
+  timesheets          Timesheet[]
+  auditLogs           AuditLog[]
+  medicaidConfigs     MedicaidConfig[]
+  integrationLogs     IntegrationLog[]
+  
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  deletedAt           DateTime?
+  
+  @@index([name])
+  @@index([createdAt])
+}
+
+model Facility {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int
+  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  
+  name                String
+  facilityType        FacilityType
+  licenseNumber       String?
+  licenseExpiry       DateTime?
+  address             String
+  city                String
+  state               String
+  zip                 String
+  phone               String?
+  email               String?
+  
+  // Capacity
+  capacityAlf         Int      @default(0)
+  capacityAdh         Int      @default(0)
+  capacityHomeCare    Int      @default(0)
+  
+  // Certification
+  medicaidApproved    Boolean  @default(false)
+  stateLicenseNumber  String?
+  npiNumber           String?
+  
+  active              Boolean  @default(true)
+  brandingLogoUrl     String?
+  
+  // Relations
+  users               User[]
+  rooms               Room[]
+  leads               Lead[]
+  residents           Resident[]
+  visits              Visit[]
+  billings            Billing[]
+  chartings           Charting[]
+  documents           Document[]
+  employees           Employee[]
+  timesheets          Timesheet[]
+  medicaidConfigs     MedicaidConfig[]
+  
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  deletedAt           DateTime?
+  
+  @@unique([companyId, name])
+  @@index([companyId])
+  @@index([state, city])
+}
+
+// ============================================
+// AUTHENTICATION & AUTHORIZATION
+// ============================================
+
+model Role {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int?
+  company             Company? @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  
+  name                String
+  description         String?
+  permissions         Json     // Array of permission keys: ["leads.read", "leads.write", "residents.read", etc.]
+  active              Boolean  @default(true)
+  
+  users               User[]
+  
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  
+  @@unique([companyId, name])
+}
+
+model User {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int
+  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId          Int?
+  facility            Facility? @relation(fields: [facilityId], references: [id], onDelete: SetNull)
+  
+  email               String   @unique
+  firstName           String
+  lastName            String
+  phone               String?
+  
+  // Authentication
+  passwordHash        String
+  passwordResetToken  String?
+  passwordResetExpires DateTime?
+  otpSecure           String?
+  otpEnabled          Boolean  @default(false)
+  
+  // Session
+  lastLogin           DateTime?
+  loginAttempts       Int      @default(0)
+  accountLocked       Boolean  @default(false)
+  accountLockedUntil  DateTime?
+  
+  active              Boolean  @default(true)
+  
+  // Relations
+  roleId              Int
+  role                Role     @relation(fields: [roleId], references: [id])
+  leads               Lead[]   @relation("AssignedLeads")
+  residents           Resident[] @relation("NextOfKin")
+  caseManagerFor      Resident[] @relation("CaseManager")
+  chartingSigned      Charting[] @relation("SignedBy")
+  documentsSigned     Document[] @relation("SignedBy")
+  timesheetsApproved  Timesheet[] @relation("ApprovedBy")
+  auditLogs           AuditLog[]
+  employee            Employee?
+  
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  deletedAt           DateTime?
+  
+  @@index([companyId])
+  @@index([facilityId])
+  @@index([email])
+}
+
+// ============================================
+// LEAD MANAGEMENT (CRM)
+// ============================================
+
+model Lead {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int
+  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId          Int
+  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  
+  firstName           String
+  lastName            String
+  phone               String?
+  email               String?
+  dob                 DateTime?
+  gender              Gender?
+  
+  // Lead source & qualification
+  source              LeadSource
+  referredBy          String?
+  status              LeadStatus
+  qualificationScore  Int      @default(0)
+  qualifiedAt         DateTime?
+  
+  // Assignment
+  assignedToId        Int?
+  assignedTo          User?    @relation("AssignedLeads", fields: [assignedToId], references: [id], onDelete: SetNull)
+  
+  // Service interest
+  interestedIn        ServiceType?
+  requiredServices    Json?    // Array of ServiceType
+  
+  // Activity tracking
+  lastContactDate     DateTime?
+  nextFollowupDate    DateTime?
+  notes               String?
+  
+  // Conversion
+  convertedToResidentId Int? @unique
+  resident            Resident? @relation("ConvertedLead", fields: [convertedToResidentId], references: [id], onDelete: SetNull)
+  convertedAt         DateTime?
+  
+  active              Boolean  @default(true)
+
+  // Relations
+  activities          LeadActivity[]
+  leadNotes           LeadNote[]
+
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  deletedAt           DateTime?
+
+  @@index([companyId])
+  @@index([facilityId])
+  @@index([assignedToId])
+  @@index([status])
+  @@index([qualifiedAt])
+}
+
+// ============================================
+// LEAD ACTIVITY & NOTES
+// ============================================
+
+model LeadActivity {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int
+  leadId              Int
+  lead                Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  activityType        LeadActivityType
+  title               String
+  description         String?
+  metadata            Json?    // Flexible data per activity type (call duration, sms content, etc.)
+
+  createdById         Int
+  createdAt           DateTime @default(now())
+
+  @@index([leadId])
+  @@index([activityType])
+  @@index([createdAt])
+}
+
+model LeadNote {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int
+  leadId              Int
+  lead                Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  content             String
+  isPrivate           Boolean  @default(false)
+
+  createdById         Int
+  editedAt            DateTime?
+
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@index([leadId])
+  @@index([createdById])
+  @@index([isPrivate])
+}
+
+// ============================================
+// RESIDENT MANAGEMENT
+// ============================================
+
+model Resident {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int
+  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId          Int
+  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  
+  // Demographics
+  firstName           String
+  lastName            String
+  middleName          String?
+  dob                 DateTime
+  gender              Gender
+  ssn                 String?  // Would be encrypted in production
+  
+  // Contact
+  phone               String?
+  email               String?
+  address             String?
+  city                String?
+  state               String?
+  zip                 String?
+  
+  // Emergency contact
+  emergencyContactName String?
+  emergencyContactPhone String?
+  emergencyContactRelationship String?
+  
+  // Medical
+  allergies           Json?    // Array
+  medicalConditions   Json?    // Array
+  currentMedications  Json?    // Array
+  primaryPhysicianName String?
+  primaryPhysicianPhone String?
+  
+  // Lifecycle
+  admissionDate       DateTime
+  admissionType       AdmissionType
+  status              ResidentStatus
+  dischargeDate       DateTime?
+  dischargeReason     String?
+  
+  // Billing
+  billingType         BillingType
+  medicaidNumber      String?
+  insuranceCompany    String?
+  insurancePolicyNumber String?
+  
+  // Service
+  primaryService      ServiceType
+  visitFrequency      Int      @default(1)
+  
+  // Relations
+  nextOfKinId         Int?
+  nextOfKin           User?    @relation("NextOfKin", fields: [nextOfKinId], references: [id], onDelete: SetNull)
+  
+  caseManagerId       Int?
+  caseManager         User?    @relation("CaseManager", fields: [caseManagerId], references: [id], onDelete: SetNull)
+  
+  createdById         Int
+  
+  convertedFromLead   Lead?    @relation("ConvertedLead")
+  visits              Visit[]
+  billings            Billing[]
+  chartings           Charting[]
+  documents           Document[]
+  
+  notes               String?
+  
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  deletedAt           DateTime?
+  
+  @@index([companyId])
+  @@index([facilityId])
+  @@index([status])
+  @@index([admissionDate])
+}
+
+// ============================================
+// ROOM/BED MANAGEMENT (ALF)
+// ============================================
+
+model Room {
+  id                  Int      @id @default(autoincrement())
+  facilityId          Int
+  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  
+  roomNumber          String
+  description         String?
+  capacity            Int      @default(1)
+  status              RoomStatus @default(AVAILABLE)
+  
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  
+  @@unique([facilityId, roomNumber])
+}
+
+// ============================================
+// VISIT & SCHEDULING
+// ============================================
+
+model Visit {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int
+  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId          Int
+  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  residentId          Int
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  
+  // Scheduling
+  scheduledDate       DateTime
+  scheduledTimeStart  DateTime?
+  scheduledTimeEnd    DateTime?
+  durationMinutes     Int?
+  
+  // Actual attendance
+  actualCheckinTime   DateTime?
+  actualCheckoutTime  DateTime?
+  attended            Boolean?
+  
+  // Details
+  visitType           VisitType
+  serviceCode         String?  // CPT code
+  
+  // Assignment
+  assignedStaffId     Int?
+  
+  // Status
+  status              VisitStatus
+  cancellationReason  String?
+  notes               String?
+  
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  
+  @@index([residentId])
+  @@index([scheduledDate])
+  @@index([facilityId])
+  @@index([status])
+}
+
+// ============================================
+// BILLING
+// ============================================
+
+model Billing {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int
+  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId          Int
+  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  residentId          Int
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  
+  // Period
+  billingPeriodStart  DateTime
+  billingPeriodEnd    DateTime
+  
+  // Amounts
+  totalVisits         Int      @default(0)
+  totalUnits          Decimal  @default(0) // 15-min units
+  unitRate            Decimal
+  subtotal            Decimal
+  tax                 Decimal  @default(0)
+  adjustments         Decimal  @default(0)
+  totalAmount         Decimal
+  
+  // Type
+  billingType         BillingType
+  splitConfig         Json?    // Multiple payers
+  
+  // Payment
+  status              BillingStatus
+  invoiceNumber       String?  @unique
+  sentDate            DateTime?
+  paidDate            DateTime?
+  amountPaid          Decimal  @default(0)
+  paymentMethod       String?
+  
+  // Medicaid
+  paNumber            String?  // Prior Auth
+  
+  notes               String?
+  createdById         Int
+  
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  
+  @@index([residentId])
+  @@index([billingPeriodStart])
+  @@index([status])
+  @@index([invoiceNumber])
+}
+
+// ============================================
+// CLINICAL CHARTING
+// ============================================
+
+model Charting {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int
+  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId          Int
+  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  residentId          Int
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  
+  chartDate           DateTime
+  chartTime           DateTime
+  
+  chartType           ChartType
+  content             String   // Rich text/HTML
+  vitals              Json?    // { bp, heart_rate, temperature, etc }
+  observations        String?
+  
+  signedById          Int?
+  signedBy            User?    @relation("SignedBy", fields: [signedById], references: [id], onDelete: SetNull)
+  signatureDate       DateTime?
+  
+  status              ChartingStatus
+  
+  createdById         Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  
+  @@index([residentId])
+  @@index([chartDate])
+  @@index([chartType])
+}
+
+// ============================================
+// DOCUMENTS & E-SIGNATURES
+// ============================================
+
+model Document {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int
+  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId          Int
+  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  residentId          Int?
+  resident            Resident? @relation(fields: [residentId], references: [id], onDelete: SetNull)
+  
+  documentType        DocumentType
+  title               String
+  version             Int      @default(1)
+  
+  fileUrl             String   // S3 or local
+  fileSize            Int?
+  mimeType            String?
+  
+  status              DocumentStatus
+  requiresSignature   Boolean  @default(false)
+  
+  signedById          Int?
+  signedBy            User?    @relation("SignedBy", fields: [signedById], references: [id], onDelete: SetNull)
+  signedAt            DateTime?
+  signatureProvider   String?  // DocuSign, Adobe Sign
+  signatureEnvelopeId String?
+  
+  createdById         Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  
+  @@index([residentId])
+  @@index([documentType])
+  @@index([status])
+}
+
+// ============================================
+// EMPLOYEE & PAYROLL
+// ============================================
+
+model Employee {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int
+  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId          Int
+  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  userId              Int      @unique
+  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  employeeIdNumber    String?
+  positionTitle       String?
+  department          String?
+  employmentType      EmploymentType
+  hireDate            DateTime
+  terminationDate     DateTime?
+  
+  // Licensing
+  licenseType         String?
+  licenseNumber       String?
+  licenseExpiry       DateTime?
+  
+  // Compensation
+  baseSalary          Decimal?
+  hourlyRate          Decimal?
+  payFrequency        PayFrequency
+  
+  status              EmploymentStatus
+  
+  timesheets          Timesheet[]
+  
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  
+  @@index([facilityId])
+  @@index([employeeIdNumber])
+  @@index([status])
+}
+
+model Timesheet {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int
+  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId          Int
+  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  employeeId          Int
+  employee            Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  
+  periodStart         DateTime
+  periodEnd           DateTime
+  
+  regularHours        Decimal  @default(0)
+  overtimeHours       Decimal  @default(0)
+  paidLeaveHours      Decimal  @default(0)
+  unpaidLeaveHours    Decimal  @default(0)
+  totalHours          Decimal  @default(0)
+  
+  status              TimesheetStatus
+  submittedById       Int?
+  submittedAt         DateTime?
+  approvedById        Int?
+  approvedBy          User?    @relation("ApprovedBy", fields: [approvedById], references: [id], onDelete: SetNull)
+  approvedAt          DateTime?
+  
+  notes               String?
+  
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  
+  @@index([employeeId])
+  @@index([periodStart, periodEnd])
+}
+
+// ============================================
+// AUDIT & COMPLIANCE
+// ============================================
+
+model AuditLog {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int
+  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  
+  userId              Int?
+  user                User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  
+  actionType          ActionType
+  entityType          String
+  entityId            Int?
+  
+  oldValues           Json?
+  newValues           Json?
+  
+  ipAddress           String?
+  userAgent           String?
+  
+  timestamp           DateTime @default(now())
+  
+  @@index([userId])
+  @@index([entityType, entityId])
+  @@index([timestamp])
+}
+
+// ============================================
+// INTEGRATIONS
+// ============================================
+
+model MedicaidConfig {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int
+  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId          Int
+  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  
+  state               String
+  programName         String?
+  paRequired          Boolean  @default(true)
+  paLeadTimeDays      Int      @default(5)
+  
+  apiUrl              String?
+  apiKey              String?  // Would be encrypted
+  username            String?
+  passwordEncrypted   String?
+  
+  serviceCodes        Json?    // CPT/ICD mapping
+  
+  autoSubmitClaims    Boolean  @default(false)
+  claimSubmissionFrequency String @default("MONTHLY")
+  
+  active              Boolean  @default(true)
+  
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  
+  @@unique([companyId, facilityId])
+}
+
+model IntegrationLog {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int
+  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  
+  integrationType     IntegrationType
+  status              IntegrationStatus
+  
+  requestBody         Json?
+  responseBody        Json?
+  errorMessage        String?
+  
+  retryCount          Int      @default(0)
+  nextRetry           DateTime?
+  
+  timestamp           DateTime @default(now())
+  
+  @@index([integrationType])
+  @@index([status])
+  @@index([timestamp])
+}
+
+// ============================================
+// ENUMS
+// ============================================
+
+enum FacilityType {
+  ALF
+  ADH
+  HOME_CARE
+  MIXED
+}
+
+enum LeadStatus {
+  PROSPECT
+  QUALIFIED
+  DOCUMENTATION
+  VISIT_SCHEDULED
+  CONVERTING
+  CONVERTED
+  NURTURE
+  NOT_QUALIFIED
+  CLOSED
+}
+
+enum LeadActivityType {
+  LEAD_CREATED
+  STATUS_CHANGED
+  NOTE_ADDED
+  CALL_MADE
+  SMS_SENT
+  VISIT_SCHEDULED
+  VISIT_COMPLETED
+  DOCUMENT_SENT
+  RATE_CARD_SENT
+  LEAD_REJECTED
+  LEAD_CONVERTED
+}
+
+enum LeadSource {
+  WEBSITE
+  REFERRAL
+  CALL
+  FAMILY
+  ADVERTISEMENT
+  OTHER
+}
+
+enum ServiceType {
+  ALF
+  ADH
+  HOME_CARE
+  MC
+  IL
+}
+
+enum Gender {
+  M
+  F
+  OTHER
+  PREFER_NOT_SAY
+}
+
+enum ResidentStatus {
+  ACTIVE
+  ON_HOLD
+  DISCHARGED
+  DECEASED
+}
+
+enum AdmissionType {
+  NEW_ARRIVAL
+  READMISSION
+  TRANSFER
+}
+
+enum BillingType {
+  MEDICAID
+  PRIVATE_PAY
+  INSURANCE
+  MIXED
+}
+
+enum BillingStatus {
+  DRAFT
+  SUBMITTED
+  APPROVED
+  SENT
+  PAID
+  OVERDUE
+}
+
+enum VisitType {
+  MEDICAL
+  SOCIAL
+  THERAPY
+  ACTIVITY
+  MEAL
+  OTHER
+}
+
+enum VisitStatus {
+  SCHEDULED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum ChartType {
+  PROGRESS_NOTE
+  DAILY_LOG
+  ASSESSMENT
+  CARE_PLAN
+  INCIDENT_REPORT
+}
+
+enum ChartingStatus {
+  DRAFT
+  COMPLETED
+  SIGNED
+  ARCHIVED
+}
+
+enum DocumentType {
+  ADMISSION_FORM
+  CARE_PLAN
+  CONSENT
+  CONTRACT
+  ASSESSMENT
+  RELEASE
+  OTHER
+}
+
+enum DocumentStatus {
+  DRAFT
+  SENT_FOR_SIGNATURE
+  SIGNED
+  EXECUTED
+  ARCHIVED
+}
+
+enum EmploymentType {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+}
+
+enum EmploymentStatus {
+  ACTIVE
+  ON_LEAVE
+  TERMINATED
+}
+
+enum PayFrequency {
+  WEEKLY
+  BIWEEKLY
+  MONTHLY
+}
+
+enum TimesheetStatus {
+  DRAFT
+  SUBMITTED
+  APPROVED
+  REJECTED
+  PAID
+}
+
+enum RoomStatus {
+  AVAILABLE
+  OCCUPIED
+  RESERVED
+  MAINTENANCE
+}
+
+enum ActionType {
+  CREATE
+  READ
+  UPDATE
+  DELETE
+  LOGIN
+  LOGOUT
+  EXPORT
+}
+
+enum IntegrationType {
+  MEDICAID
+  VERIDA
+  STRIPE
+  SQUARE
+  ESIGN
+  EMAIL
+  SMS
+}
+
+enum IntegrationStatus {
+  SUCCESS
+  FAILURE
+  RETRY
+  PENDING
+}

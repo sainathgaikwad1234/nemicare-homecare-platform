@@ -1,0 +1,122 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/02/09 19:50 GMT+05:30 – Transcript
+Attendees
+AK, ASK, DV, MP, NK, read.ai meeting notes, RD, SG, SS, SP, SRR, TM, VK
+Transcript
+MP: Yes, we can hear you.
+SS: Okay, perfect.
+SS: Let's go.
+MP: Okay, great. yeah, sure, can you please share your screen and just show us the flow that we designed?
+SP: Yes. Is it visible,…
+SS: Just a second. yeah,…
+SP: Cool.
+SS: just trying to make the screen zoom out. Yes, it's visible.
+SP: So yeah so just giving a heads up starting from the lead lead flow we have created these flows basically and once we like done with all the formalities for that particular lead after clicking on move to resident we will be assigning a case manager right away and after clicking on done that will be redirecting us to this page is nothing but a kind of profile page for that particular patient that particular lead which is in progress right now and we are doing the documentation process. So let's consider general documents and whatever the state specific document package has been we like working with.
+SP: So let's consider we need to send it right whatever we have received something we will be able to view this view the document and we'll be able to sign it as well and later on let's consider everything is getting completed we will be able to get the view of it as well and after clicking on next from the step one perspective send documents to patient this step two is nothing but a case manager and valida request Here we will be able to see the packet of documents is getting sent to the case manager. So this is the kind of like view structure we have available. We will be able to verify before sending the case manager as well. And after clicking on send case manager once we'll be having resend upload button and send status as well accordingly.
+SP: And once we will be uploading the received packet of document after getting verified and all we will be able to upload it and we will be able to view and delete it afterwards as well. And by default it will be getting marked as completed. So from that perspective case manager step is done. Then vida state transport is nothing but is also kind of sending the vida request and once we get all the documents from the var we will be able to see the upload button here similarly and…
+SS: Let's see.
+SP: we'll be able to mark it as a So from that perspective complete to status after getting it the next button will be like getting activated and we will be heading for the billing setup and all these forms and frequencies and everything will be marked here and confirm convert to new arrival.
+SP: after getting it convert to new arrival is nothing but a kind of every single process has been done but what we can say the patient has not arrived yet into the facility. So from that perspective new arrival progress we will be able to see it's a three-step process we have marked as marked at right now member checking and verification will be there after clicking on mark as present we will be able to do the facial scan or manual verification let's consider we have taken the screen photo or the facial scan of that particular patient we will be able to add the member ID customizingly as
+SP: After clicking on done, this image will be able to see and the CR operation will be getting done from here itself. Mark as present will be getting disabled. And in case we need to mark this person as mark as absent on this day, we will be able to get this confirmation. After clicking on the EDWP form will be getting opened and user will be able to fill all these information. Whatever the document we have received it has been converted into the clickable UI for now. Then if we want to cancel of course we can go back but send to case manager the status we will be having. Are you sure you want to send this case manager question You will receive the updated form with the confirm.
+SP: Then we will be able to see the table at the bottom that recent absence what was the status and yeah so this is the overall process and let's consider if we have marked marked as present we will be able to get this data until and unless we won't be able to the confirm arrival button after clicking on confirm arrival we have to select the attendance type as well whether it is a full day or partial we will be able to select as well 1 hour 2 hour whatever it is then after clicking on all the selection we will be able to proceed further And service day setup is a kind of step we have added here right now we have added it in terms of four type of things…
+00:05:00
+SS: Oops.
+SP: which is nothing but activities vital progress note and care plan.
+SP: for adding the activity after clicking on add new we will be able to see this model where some kind of template selection also we can do but custom template is nothing but whatever the activities we have marked so far in the template. So according to that we can do the selection process and after clicking on save it will be visible here itself for example whatever the list for the select activities we have we will be able to see all the data and after clicking on proceed with schedule we will be able to set the frequency of it as well all the customizable things basically from due date whatever the daily or weekly
+SP: the weekly selection we have available then whatever the select exact shift time and everything we will be able to do here. So after clicking on save similarly vital schedule we will be able to add. So we have selected daily and all we will be able to set a progress not schedule as well and…
+SP: after clicking on care plan.
+SS: So this is just a schedule that you are adding it.
+SS: But what if you want to actually add the water
+SP: So it's a kind of just a small prior step.
+SP: we can connect it. so for example after every single thing we have set up whatever the things we have set up for on care plan or progress not or vitals and activities after clicking on convert to active this will be leading towards this page itself. just a minute.
+SS: Excellent. Yeah,…
+SP: We had added that page. So we can consider it from the perspective of so setup is clear then there will be a kind of redirection to the actual note takingaking and all.
+SP: So that will be yes.
+SS: I Yeah. So, when I open up that member right after that and I think that's where give me just a second. I'm going to do the screen share and So, you can see my screen, right?
+SP: So for example are you able to see this one?
+SS: Can you guys see my screen?
+DV: No.
+SP: No, no,…
+MP: No.
+SS: Give me a second.
+SP: we can't.
+SS: Let's just share your screen.
+SS: How about No, no,…
+MP: Not.
+DV: No.
+MP: Mhm. No.
+SS: I think I'm on a certain network that I'm not able to share the screen, but that's just go ahead so would you Yeah.
+SP: nothing I'll so just one thing I wanted to share we can consider it from the perspective the setup is clear then it will be redirecting us to the list of residents which we need to take care of afterwards and after opening that active member profile. We will be able to see all the tabs and we can do the rest of the interactions afterwards. Yes.
+00:10:00
+MP: So basically there will be the two let's say for whether whiters progress notes or events log and all. So there will be the two way we can do it. One is directly from the calendar. So we will have the separate calendar for vital progress notes that we are going to show in the dashboard something like that and by clicking on here directly that particular patient vitals will get open and we can update the current date vital and that will reflect if I go to the patient chart. So in the patient chart basically this will be the list of details.
+MP: Just a sec.
+SP: Details of the Yes. Yes.
+MP: Yeah Shan can you please go to the patient chart where we are listing all the details. Yeah in the patient charting. Yeah this one. So here basically whatever the activities that we are performing vitals like all the details. So in charting for this particular patient we are going to show it here and here we are going to provide an option to add new vital as well if I want to if not from the schedule by default basically based on the next week the date that we have based on the previous vital so that we're going to show it here and we just need to fill it that's the one thing and same for the progress notes and other as well.
+MP: So the flow that Shubam was showing you the first time when we are taking a vital and…
+SS: All right.
+MP: all. So at that time what we are going to do
+SP: Yes. …
+SP: it's nothing kind of like creating the first setup…
+SS: Yes. Yeah. Heat.
+SP: then we will be moving forward to all the rows and respons whatever the formalities we need to do afterwards. this screen which is in progress. So later on I'll be creating that flow as well like how on daily basis or monthly basis or weekly basis user is interacting with this kind of stuff. Cool.
+SP: and from the select this is also kind of another type of home screen we are just exploring now but we thought going with the overview new arrivals and the roster information for now is we can select so let's consider if any particular franchise guy or whoever the facility member needs to attend all the new arrivals they can just have a look into And the other roster related things also we can see.
+SS: Mhm.
+SP: And the schedule related part also we have created on fully functional basis as well. under that particular leads schedule part also we have available. So it's working now. Yeah. So yeah.
+SP: So this is kind of dedicated towards the ADH flow the clinical setup overall and the rest of the flows we are working on simultaneously.
+SP: Maybe tomorrow we will be able to give you some other flows and also the way to how we will be able to add vital into the system for that particular or how we will be able to mark the progress notes and…
+SS: Okay.
+SP: all and generating the report accordingly. Those will be taken further on priority.
+MP: Yes Sam.
+MP: So what we'll do basically we'll share this work like the design with proper prototype. So you can just review it. we'll send you the over a mail or on that folder that shared between you. so you can review it and let us know your thought. But before that I'll make sure from our end we are reviewing it internally and we are making sure the workflow that we discussed workflow is aligned with the design that we are creating. Okay.
+SS: Okay.
+MP: And we are the basic idea not basic but yeah we know the workflows and all based on that only we are creating a design. So when we are showing it to you at that time you might think there are some of the things here and there but we are going to align everything Yes. Yeah. let me know if you want to add anything
+00:15:00
+SS: Just a second.
+SS: Yeah no those are the things looking good …
+SS: but what I would like to say is you remember that you and I had talked about it that you're going to give me an access to your current system to see…
+MP: Yes. Yeah.
+SS: if you can grant me the credentials so I can just kind of go through the workflow as well.
+SS: On top of that on Friday we had a pretty good conversation internally about some of the templates in Canada so Shiva we will get back to you today with all the templates in Canada and…
+MP: Mhm. Okay.
+SS: then couple of changes on the workflow that we need to accommodate not changes but addition on the workflow that we need Okay.
+MP: Yeah. Shiva sent one which include the referral form for agencies and he just shared the details needed for that. Yeah, but rest of the thing I believe maybe today we will expecting some males from the Shiva and…
+SS: Okay. Gotcha.
+MP: based on that like we will discuss I believe.
+SS: Correct. okay. That's good.
+SS: And then I am almost done with the roles the module permission the matrix.
+SS: So I should have that probably later today I should be able to send it out to you guys. So you guys can take a look at it.
+MP: Mhm. Okay.
+MP: There. Yes.
+SS: And So template workflow that access…
+SS: then I think that should do it. we can do on the schedule time the call tomorrow at 8:30 it should be but if I have an earlier flight to catch then I will let you know and then we can cancel tomorrow's call and then we'll pick up on Wednesday. But right now let's just keep it on for tomorrow. Okay.
+MP: Yeah, sure.
+MP: Yeah, Sounds good.
+MP: Yeah sure.
+SS: Yeah.
+MP: So for billing I just wanted to check when can we discuss the billing model you want firstly clear all those stuff and…
+SS: I think so.
+MP: then later we are going to move to the billing correct yeah right that's the Yes.
+SS: Yeah, I think so because that is not affecting any of the workflow at this point. Correct. So that's just like an add-on.
+SS: I mean we're collecting all the data and we're just pushing it through the billing and then getting the confirmation back and then doing the handshake right on the 835 and Canada right so I would say that we're good at this point to put a little bit hold on that and…
+MP: Mhm. Yeah. Sure. Yes,…
+SS: then we can kind of go through that. Okay. Yeah.
+MP: sounds good.
+SS: Okay.
+SS: Sounds good then. Okay, that's pretty much it.
+MP: So, yeah. Just let us know in advance …
+SS: Yep. Yeah,…
+MP: if you want to cancel it. So, it's fine. We can connect on Yeah,…
+SS: I'll let you know in So during your daytime, first thing in the morning, you would Okay.
+MP: I already created one group between us.
+MP: So you can Yeah.
+SS: Yes, I saw that on the WhatsApp.
+SS: So, I'll let you know,…
+MP: Yeah. Yeah.
+SS: Okay. Yeah.
+MP: That will. Thanks. Thanks.
+AK: Sam, can you please wait for a minute?
+MP: Thanks. Yeah. Thank you guys. Bye.
+AK: Thank you.
+DV: Thank you.
+Meeting ended after 00:19:27 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

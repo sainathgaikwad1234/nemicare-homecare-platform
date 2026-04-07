@@ -1,0 +1,296 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/02/05 18:58 GMT+05:30 – Transcript
+Attendees
+ASK, DV, MP, NK, RD, SG, SS, SP, TM, VK, WW
+Transcript
+MP: started working on.
+MP: So we wanted to show you the flow to just confirm we are on the right path.
+SS: All right.
+SS: Give me about 5 minutes. I'm going to log into my computer and then would be able to see the screen. I'm just on the phone right now,
+MP: Yeah, sure.
+SS: So, yeah.
+MP: No problem. also so yeah yesterday we had a discussion with Anita internally and she was telling us we are having that existing custom EHR so can we just reuse that so I was checking it our workflows and…
+SS: Okay. What's Mhm.
+MP: then that we have it's a very different so I don't know how we can reuse them so I'll share the details with you
+MP: maybe credential or something. So you can also check it I can share my screen and then show you that flow as well. But we are having the EHR flow where we are onboarding a patient then we are scheduling an appointment for the patient then encounter all those stuff was there. Yeah. So yeah, sure.
+SS: So I think the best thing to do is that probably if you can share me read only credentials or maybe something into the environment Yes sir. And then maybe I can try to create the record and see that what and then as part of the discovery we can consider some of the things like that.
+SS: I mean if you can use it I don't want you guys to redo the thing.
+MP: Yeah, sure.
+MP: Yeah. Yeah.
+SS: You know what I mean to say?
+MP: Yeah. Yeah. I understand that.
+SS: Yeah. Yeah.
+MP: So, we are going to basically reuse those stuff like the existing flow that we have in the If you wanted any one of them, so yeah, we are going to use that. but if not then the workflows that we have it's very much different if you see the CRM or the HRMS or in our case ADH or assisted living so all of them we are having the different things but yeah anyway we'll see yeah right yeah we can reuse it for
+SS: I mean whatever we can use it, I mean, I don't know. maybe 50%, We'll see. exactly. Open up.
+MP: Yeah, let me know once you are basically ready.
+SS: Yeah. Yeah. You mean I'm just logging in right now. Okay.
+MP: Yeah, sure.
+SS: Just running slow this morning. What?
+SS: All right. Can you guys hear me?
+MP: Yes we can hear you.
+SS: Yes. Let's go.
+MP: Yep. yeah. Shoubam can you please share your screen and…
+MP: just show us the work the design we created.
+SP: Yes. Yes.
+SP: Hello Sam.
+SS: Hey, how are you?
+SP: Doing good. So as for the workflows we have decided to go with recently. According to that you have already seen the flows which are related to leads and according to that just so once everything is done and the same rate card and the visit schedules and everything is done after clicking on move to residence we will be getting the confirmation and we will be assigning the case manager accordingly.
+SP: So this flow is dedicatedly we are working with in the POV of medicaid and what we can say is in terms of medicate only basically. Yeah. So according to that we have decided to go with and after clicking on that directly this resident will be moving towards the resident section and as you can see demon lane is in progress status having and here we will be able to see the patient information and the other tabs will be getting converted into the lead history.
+00:05:00
+SP: And whatever like extra editing or crowd related operations are there which can be managed from with this three dot option here in three steps we have divided the workflow. step one is nothing but send documents to patients or the PC's of the respective nt. general document category is nothing but the intake form. we will be able to click on send button. the status badge will be like getting converted into sent.
+SP: Then resend button also once we will be getting received into the platform we will be able to view the document or if any in case we have to view and sign it so that we can consider is getting converted into that respective thing then let's consider send button we have available resend button we have available for the contract of
+SP: contract of patient itself recent select contracts patients we will be able to select it let's consider right now this is a kind of template version let's consider we have some templates available for different type of contracts and after clicking on send it will be like get received by the point of contact or patient then state specific documents some bunch is there and after clicking after receiving
+SP: those filled up documents or signed documents are there. We will be able to see view and sign state specific documents. In this dropdown, we will be able to see this bunch as well. HIPPA authorization and whatever the stuff is there. And after clicking on confirm and sign we will be able to draw the signature or rest of the we can upload it as well. And after clicking on sign and save this will be marked as signed and all everything. And after clicking on everything will be signed. Let's consider this bunch is completed. Then only this next button will be getting enabled at the end and all the statuses will be marked as completed. Then after clicking on next case manager and vera request state comes up as a step two.
+SP: So for the case manager we have this chunk available and after clicking on send case manager we will be able to see that Marvin McKenzie McKini has been selected after clicking on send we will be getting the status accordingly then verid state transport request also there start date and validity period is 90 days then pick up import trip A trip B and we will be able to click on the send valid request as well. Once we will be getting the approval at the end we will be able to move to the next task which is nothing but a kind of billing setup and clearance. This form you can ignore it for now but just from the dummy perspective whatever the references we had we have shortly shortlisted these input fields we are working on it.
+SP: today we have received the documents and according to that itself we will be finalizing the form structure in this flow itself we have written that in this third step the info fill up for PA ADH flow specifically billing setup and frequency of visits NPI details drop downs ICD codes and service details validity period max billable amount and everything will be filled up accordingly frequency and prior authorization details and all ICD board selections will be there and everything is done if everything is verified we will be marking it and final button we'll be having is nothing but convert to active so once that is getting activated as you can see the profile gets the active batch available here
+SP: Then accordingly we will be able to see the division information and…
+SP: the rest of the things we will be adding here in the tab version.
+SS: Okay. …
+SS: one more question that go back to the prior authorization for a second.
+SP: Okay.
+SS: So this is the initial frequency this is let's say 1.0 at all. As soon as they come on board, there might be couple times a year the frequency changes based on their health. they'reed to come 5 days a week,…
+00:10:00
+SP: Yes. Yes. Yes.
+SS: But let's say today is February 1st, March they think after a month and say 5 days is becoming too much. I would like to change my frequency to 3 days In that case we don't want to overwrite our 1.0 frequency.
+SS: You should create a sub bracket and add frequency and then you should timestamp the previous frequency from the start date to end date. Right? So that will be historical data. Okay. Right.
+SP: Yeah, absolutely.
+SP: .
+SS: And same go ahead.
+SP: Please go ahead. Yes.
+SS: Same thing with the prior ization. Because prior authorization what's going to happen is that like okay we are going to get a prior authorization today that is valid for let's say 90 days after 90 days we're going to get another prior authorization which is valid for one year the following year we're going to get another prior authorization what is going to happen is that if I want to go and run a report on a particular PA which was valid for 90 days how many units were available on that PA and how many units we build. So when I do that reconciliation kind of that I still need to have that older PA into the system.
+SS: 
+SP: Understood.
+SS: Okay and…
+SP: So basically just a question is once this setup is done under that active profile we should be able to do these changes right.
+SS: then It should if you can hold on for a second let me share my screen and show you something so you will get an idea that what I'm talking about okay and…
+SP: Yes. Yes.
+SS: Danwari I think it's for you as well to figure it out right so I have billing PA and source information right so I have the frequency and then I have this so let me go to the member that I can make the changes on that. Give me a second. Perfect. Okay. So, here is a classic example that
+SP: Sorry to interrupt u to everyone is your side as well the screen has been stuck because I'm not able to see any changes.
+MP: We can see the screen here.
+SP: Okay. Yeah.
+DV: What is this?
+MP: Yes, Sam is on the member information part.
+MP: So he's showing us this Yeah,…
+SP: Okay, I'll try rejoining just
+DV: Yes. I don't know.
+SS: Okay, just refresh your screen and…
+SS: then I'll start going. Can you see it? You can now.
+MP: we can see the screen.
+SP: I can now.
+SS: Okay.
+SP: Yes. Yeah.
+SS: Do you see this frequency and then I have the active frequency but at the same time I have the expired frequency as well that initially this guy John Smith started out with 4 days…
+DV: Yes, it's
+SS: then he went for 5 days then he went for 3 days and now he went for 2 days.
+SS: see that.
+MP: I think your screen gets stuck…
+MP: because we can see demographics information only.
+SP: Yeah. sharing entire screen basically.
+MP: Maybe Sam from your side you can reshare the screen. Yeah.
+SS: Okay, let me reshare screen.
+SS: Can you guys see it? Okay. Okay.
+SP: I can at least John Smith. Yeah. Absolutely.
+SS: John Smith. do you see that this guy has four frequencies. He started out with four days then he went for five days then he went for three days and now he is active with the two days only. Yeah. So that's how we can keep on creating that sub bracket. So we can go back and see that what is what and if I kind of go click on that I would see the start date and end date on that one. Same thing with the PA details right.
+SS: So the current PA is active the source is pro and…
+SP: Yes.
+SS: and and end date is this right and ICD 10 codes with that along with that but at the same time this guy also has a four PAS in the past…
+00:15:00
+SS: which is three of them are expired okay but I can still kind of go back into the system and see that okay yeah I remember that this person has this PA and then this is what we had built against it okay yep So technically…
+MP: So this Yes.
+SS: technically what happens that we are trying to get away from the complete paper trail right with this application. So we have to have the last seven years of the records right for a business right so…
+MP: It's better.
+SS: what I would like to do that if I have a patient that came on board and let's say the patient has been with us for 10 years right then I should be able to retain all 10 years record for him right if the patient is diseased after joining us in five years…
+SP: Mr.
+SS: then it'll retain the five years data right and that is one of the reason that We are not basically deleting any records, right? Nobody has a delete access except the System admin is the only member that…
+MP: Yes. Mhm.
+SS: who can delete the record. Other than that, as you can see that if the person is deceased, the data is still going to be there no matter what. Right? You can go ahead and say that hey I just want to see the active member that's all I want to see by default. Right? But if you kind of go and…
+MP: Right. Yeah.
+SS: in the status and if you want to see that okay I want to see the patient who were discharged right then I will get that basically everything who has been discharged right
+MP: So yeah basically Sam the flow that we were showing you it's from the fresh lead that is coming to us and from that how we are converting the new lead to the resident how yeah and the frequency as well as the prior authorization detail. So once any of the residents come then we are going to keep basically renewing their details on maybe a yearly basis if they have and kind of thing that we are going to keep updating those records and…
+SP: Yes.
+MP: the previous one will get expired and then new one. Mhm.
+SS: Yeah. But don't Save it as a subrecord.
+MP: We are not going to overriding it because we need that history.
+SS: And then what I'm saying as a user I should be able to see that we can control that okay last records you can see it on that.
+MP: Correct. Okay.
+SS: If you want to see more, you can request the system admin and then they will pull up the record. …
+MP: Yeah. We are not going to delete or override anything. We are going to keep all the record that we have.
+SS: yeah. that's what my point is. that's exactly my point.
+MP: Yep. Yes.
+SS: Okay. Yep.
+MP: Yes. Yes.
+SS: right.
+MP: We are not going to
+SS: Yeah, you can go back and share your screen. Yep. Sure.
+SP: Yes. So yes that has been noted and…
+SP: from the other screen we will be able to do the rest of the changes for And until this point for moving that particular lead or…
+SS: Okay.
+SP: 50% converted lead into the active resident section on interaction perspective we have I hope whatever the steps we shown to you and the interaction those are on the mark right now. so few of the certain content or again we will be analyzing all the shared documents from your side and whatever the references of the data we have the content we'll try to add more detailing into this flow structure but from the interaction perspective and step interaction perspective we have covered it up.
+SP: Adding to that we have introduced a new formation of the screen is nothing but a kind of the schedule structure we have here whatever weekly and daily status we will be having so user will be able to see some schedules here as well for example today if there is any kind of facility tour has been scheduled from the lead side so they will be able to see this dedicated schedule in the screen. this has been developed for the lead screen itself and if the user clicks on the list segmentation button we have available here. So we will be able to see the list of those as well respectively. we will be able to filter it out accordingly upcoming and past everything will be there.
+00:20:00
+SP: schedule new button we have available and this is the kind of the overall schedule screen we have available is nothing but a kind of this schedule will be showing the overall all the leads schedules if user wants to see how many people have booked the visit accordingly so they will be able to manage the data from here itself so we will be having the monthly weekly and…
+SS: Perfect.
+SP: daily So yeah. Yeah.
+MP: So this will be like a two calendar we are going to show.
+MP: One is for the schedule visit for them that will be the common for all the leads. So every leads the schedule details we can see it here. that's the one thing. and then another one will be inside the leads. So for the particular leads if I want to see his directly details if I'm in the lead chart so I can directly see it from here the number of visit that has been performed and notes of the visit as well we are going to show it here as well as in the note section as well that notes will be there.
+SP: Yeah. Yes. Yes.
+MP: So this is the lead scheduleuler that they are going to use.
+MP: Then second one is another one was for the earth staff the one that you shown us number of shift will be there and based on that we are going to show it in the calendar and in the calendar we are going to basically then schedule any of the appointment or schedule and one more thing is the vital for whiters as well as the progress notes those also So we are going to show it to one of the cadar So for the calendar particularly we are going to extensively use that maybe in the dashboard or something there will be the multiple calendar and we are going to show those details. So we are going to work on that it just as we are on the lead at CRM flow only.
+SP: Yeah. Yeah.
+MP: So currently we are covering this Mhm.
+SP: This is also kind of like an initiative from the schedule feature perspective.
+SP: Once we will be clicking on this schedule new we will be able to see a particular detailed model and in that form itself we will be able to see schedule multiple type of basically the calendar stuff and all whether it is related to call like Moj said facility visit or anything. Mhm.
+SS: So one thing that on the previous screen you may want to make sure that…
+SS: what this different color identifies right somewhere somewhere you need to put it out I know it's a design but I'm just
+SP: Yes. no no that is also in the pipeline right now…
+SP: because I'm also trying to categorize respectively how many types of schedules should be there and…
+SP: according to that I'll be creating a particular legend and that will be placed here. So user will be able to understand as well which color demonstrate what yes Yes,…
+SS: Yeah. And…
+SS: then you can do that the calendar categories like clinical calendar versus the lead calendar and overall activities calendar right that you can categorize on the top then that way basically a rolebased access will be easier because if there is a caregiver right CNA right that person does not need an access to the lead calendar that who is coming in which call is going who is coming for the visit and kind of that they really don't need to see it right if you want to control the access right good I'm just throwing my idea on that how
+SP: that is in our mind. So we will be taking care of it.
+SS: you can categorize and then kind of convert that into the rolebased access.
+SP: For eventually so this is just a kind of structure which is a kind of prominent one to nail down first because structure creation is the kind of step we have already achieved so far. But eventually whenever we will be developing more and more different type of flows for the different features we will be adding those kind of detailing into the scan schedule and calendar feature u at the end as well. So by the end of we will be done with all the flows this schedule feature will be on point more basically.
+SS: Right. Right.
+SP: Yeah. Yeah. So that was it from design side. I hope whatever the things we have demonstrated so far today those were fine.
+00:25:00
+SS: Right. Mhm.
+SP: Cool. yes Moj.
+MP: Yeah and yeah Nani maybe you can share the screen and just all the files that has been shared by the Sam and…
+DV: Yes. Is it
+MP: So we can just show and then maybe anyone from his team can explain that she was Sam. Uh-huh.
+SS: Yeah mod. one thing that I think what we need to do is that if you can create a WhatsApp group or something like that right or a team's group what whatsoever you guys are using it right WhatsApp would be the best because what happens that we end the day here and then if there is something rather than sending out an email and all those things like sometimes
+SS: on the smaller things. If you can touch base with you guys because you know what happens that like until our afternoon you guys are still up and doing some work and kind of that. So if there is a smaller thing we can always kind of hash it out rather than waiting 24 hours need everybody just that people on the group that I think probably that would be awesome.
+MP: Yeah, so I'll take your number, Anita. Yeah.
+SS: Okay, Anita has my number correct.
+MP: Yeah, Sure. We'll create a group today only.
+MP: just say so do Anita is having your number right okay…
+SS: And then you can go ahead and…
+MP: then yeah sure yeah yeah we'll do yeah
+SS: Yes, that's right. Yeah.
+DV: So the first thing…
+DV: which we received from your end is this role diagram which has different roles over here the executive management. So this is the hierarchy you shared with us. But we are not getting the clarity of the roles which will come under this the executive management can have different people and how many of them are going to associated with the system some can be associated to the HRMS portal only some can be the part of CRM itself.
+DV: some will be under the clinical flow where the providers the NPPA all those thing. So we want a bigger idea on this the more breakdown what it exactly has and…
+DV: if you can provide it department wise or what we can say module wise system specific. So it will be helpful for us like the sage store management or…
+SS: Okay. Yeah.
+DV: the executive management the facility directors is something which we get an idea LPN we know caregiver we know the administrative manager but you get the idea like what exactly we want. Mhm.
+SS: So this is just to give you an idea, executive management is the top management,…
+DV: Mhm.
+SS: Which is the owner of company, so that's me basically that who has an access to everything or who's got a master access, Then the sage stone management is our middle management group basically. So we don't have to call the sage stone but since that system was designed and I just gave you the snapshot of it that's why it says that LTC and SS and kind of that but you don't have to put it just executive management then the middle management okay then basically a facility level management.
+SS: So when this kind of comes into the picture is basically that why the facility director because as an executive over here I may have a 30 locations right this management company that we have it right they may have probably management if we have Tom Smith as part of the management team right so we're going to give him an
+SS: access but we're going to give him access to only 10 facilities right then the Joe Thomas is going to come and then he's going to have another 10 facility access right then another person is going to come and then that person is going to have another 10 facility access right so that could be separate thing basically and facility director can have an access to either one or more facility right so let's say for Georgia that I have
+00:30:00
+SS: file facilities and if I have a facility director versus a middle management facility director sometimes kind of work hand in hand with the administrative manager and if I have a facility next to each other that's within one mile apart right within 1 kilometer that I have facility in that case I'm going to share a facility director between the two facilities just giving you an example right so in that case what's going to happen is that administrative manager might be by the facility…
+SS: but the facility character will have A access and facility B access as well. Right? But I will put something together in terms of a document that…
+DV: Okay. Yeah,…
+SS: what overall that we needed and you will get a better idea and then we can rehash and I'm open to suggestions on anything how we want to manage it but I'll just put out my use case and then you guys figure it out that this is the best way to manage it. Okay, sounds good.
+DV: Yes.
+DV: After that we received the documents from Shiva yesterday.
+SS: Yeah. Yeah.
+DV: So there are some which we read and we come to know how it can be related but the EDWP we know it will be triggered in case of the client that show up…
+SS: Correct. So,…
+DV: but we have a like
+SS: no. hold on. EDWP could be a multi-purpose. when the clients start the services with us, So, somebody gets approved for the ADHD or the home care, we are going to receive the initial EDWP from the case manager, right? So I need Open I EDWP. Yeah. no this is the emergency disaster plan. no This is not the one. no no no. Go up up.
+SS: Modified reassessment EDWP. Yes, that's the one. Open that. why is coming like that? Go down. They're using a different format. I've never seen this format before, Go ahead and cancel it out and then go to the EDWP. 39. Yeah, that's the one. Prudence Senior Services of Georgia. yeah, this is the EDWP. very first line,…
+DV: Mhm. Please remember Stupid.
+SS: do you see that? This is CC to provider. So that means a case management agency to the provider right so the provider is here who is the provider prudent senior services of Georgia and CC is the case management company okay and then either so EDW can be two ways either you as a provider send it to the case management company or you get it from the case management. So as far as the EDWP route when somebody gets approved you get this EDWP from the case manager to the provider that start the services.
+SS: Okay, this is where you are going to see that in the notes if you go down I think somewhere it's going to say that no no no no no go up okay date R and staff completed number services services were accepted somewhere the note is there
+MP: music. s***.
+SS: Basically, so that's the first EDWB. that member is absent. In that case, we're going to generate a EDWP from provider through the case manager saying that this member was absent, on so and so date for and so reason and we signed off. We send it to them, they sign off, we get the copy of it. That's the number two, traffic in the EDWP. Number three could be when the patient get discharged right in that case also it could go from either from provider to the CC or…
+00:35:00
+SS: CC to provider you are going to get it I think there is a one di that's a discharge plan there is a discharge EDWP somewhere it should be but it's the same thing only the nodes are different okay no when we get the assessment package that is when basically we get
+DV: I didn't get the one…
+DV: where you mentioned the first EDWP because in the process let's say we have the document shared to the case manager they will schedule an interview with the client and they will send us back a response. So the response is the first ETWp which we are going to receive.
+SS: So here is…
+DV: Should I stop sharing?
+SS: what it is. This is the Give me a second. I'm going to go ahead and share my screen. So this is a EDWP notification from the case manager to the provider right and what they're saying it is that basically they put the 30-day letter sent actual discharge date last day of service 125 25 and they
+SS: they sent it to the provider, this case manager, he sent it out and then recipient name is me that I signed off.
+SS: So I accepted that. So that's what this discharge EDP is right. So EWP also has a initial change, complaint, transfer, discharge or other. Good night.
+DV: So it's basically a communication document…
+DV: which we are carrying whenever we are having any specific concerns regarding the initial thing or if there is any change or any complaint we need to transfer or others and accordingly we are forwarding it or getting from the case managers and…
+SS: Correct. That's right.
+DV: accordingly we have to treat the client if there is any change we need to request and if we
+DV: get the approval. So the service which we have might be there is a frequency change or a time service So this things we are managing through the EDWP. So it can for multiple reasons. Okay.
+SS: 
+SS: So here is number 14. Right? please discharge the member the last day of the service was 125025 please sign and return the ZWP within the three business days right so 1210 we sent it back and that's it right let me see if I can get some initial
+SS: Okay. Yeah.
+DV: Do we want this EDWP different forms generation option through the system generate and shared through the system or okay?
+SS: I mean if we are sending from the provider to the case manager, we would like to convert it directly from our system as a PDF. Yeah,…
+DV: And we will also need as we are maintaining the prior authorization history for last seven year.
+SS: we need to generate it as PDF. Yep. live.
+DV: This EDWP will be also something which we need to have in the chart because there might be a frequency change or any clinical update in that which we will need.
+SS: All give me this is the EDWP service order. this is coming from the case manager to the provider right other and…
+00:40:00
+DV: Good. Okay.
+SS: then it is saying that this is what it is and then from fluid it's coming le soon ADH full level one MAO and here they're putting it please continue to provide ADHD service for the CL right so is basically that the client. And then this is the case manager signed and then it received by us, right? So we signed off on that. So yeah, it's a bit complicated to understand…
+SS: but once you get it then I think it's pretty simple workflow Yep. No,…
+DV: So when we are sending it for prior authorization you mention the duration or…
+DV: the prior authorization we get is one year but the EDWP it's mentioning some end dates and the frequency. So even if they approve the prior authorization for an year, within the year you provide the service for next 2 months? Is it something like that? Mhm.
+SS: no, no, no. So what's going to happen is usually that their EDWP is going to be in line with the PA always. Okay. Can you see my screen?
+DV: Yes. Mhm.
+SS: Order date is this and on basically 21323 and the start date is basically 2124 and then we're getting the units
+DV: So this is what we receive in the prior authorization and a prior authorization will also have that EDWP section. is it correct?
+DV: You're on mute, We can't hear you still.
+SS: Okay, can you hear me?
+DV: Yeah. Yes.
+SS: Yeah, I lost it, because the laptop battery is dead now. U but anyways, so that's what it is that EDWP, but I can until you understand fully absolutely bug me and I will walk you through 20 times until you get it fully. Okay. EDWP Yes.
+DV: so what I was saying when we are receiving the prior authorization along with that we will be having the EDWP also which will be having it for an year let's say so when we are getting the another one where we are saying that continue this service for next date or discharge it immediately or something like that. So the one which is for continue service for next time till this date will be an extension to that prior authorization date or how it will work.
+SS: No, I did not understand the question fully.
+SS: Repeat the question.
+DV: So yes sure so we are receiving the prior authorization for one year let's say Jan 2026 to Jan 2027 and…
+SS: Okay.
+DV: when it's Jan 2027 so we have a flow…
+DV: where we are going to raise the authorization prior 2 week let's say so we are raising that prior authorization again for the same client in Jan 2027.
+SS: Okay. Mhm.
+DV: Are we going to receive an EDWP which is saying yes, you can continue the care to the client for 2020.
+SS: 
+SS: Yeah. so here is just for your knowledge what happens in the reassessment, So, when the PA is expiring on January 1st, 2027. Okay.
+DV: Yes. Yes. Mhm.
+SS: So, what we put it 45 days before the PA expires, it is going to notify us that for Tom Smith, the PA is expiring on January 1st, 2027. Right? We want to make sure as a business owner that we don't jeopardize ourselves in a situation come January 1st if we don't receive the PA and if we don't render the service to the patient the patient is going to get mad and say I don't like you because you were not helping me. They're not going to understand all the backend paperwork and kind of that.
+00:45:00
+SS: So they're going to get mad at us as a provider and say I don't want to come to you anymore and then they're going to raise a complaint and then go to some other place right so as a provider right what we do we get notification 45 days in advance we do that we simply draft an email and that is what we will do it from our system we will simply draft an email to the current case manager right…
+DV: Nothing. Mhm.
+SS: 
+SS: because we already know the case manager and their email and everything and we are going to say that this member is approaching the reassessment date in next 45 days. Can you please confirm the interview for the reassessment? what they do in the reassessment interview? They come to our facility or they go to the patient's home and they do a 1 hour or 1 and a half hour full interview for the reassessment that the client is still okay to receive the services for the next 12 months. Okay. Or…
+DV: Okay. Yeah.
+SS: if the client's health is deteriorating that does he need more service? Does he need to cut down on the adult day health now he cannot go 5 days a week sitting in the car and going to the daycare facility versus that he needs more time at home so we need to provide him more help at home that is something case manager is deciding and…
+DV: Mhm.
+SS: the patient is requesting that this is what I want and the case manager approves that right as a provider we don't have any say but we are ahead of the schedule and…
+DV: Mhm. Yes.
+SS: we are putting the case manager and patient together. So things happen and then on 1st or December 15th we already have a new PA which is starting on 1st or January 2nd right so that is the reason in the system that you saw that there was a new entry upcoming PA right so we have active until the January 1st…
+DV: Yes.
+SS: but today is December 15th and then we still go ahead and enter because we received the EDWP and the reassessment package. So that's where we go ahead and put the new PA into the system and then we can say that this patient is through for another 12 months. but let's say this is what it happens on January 2nd we are starting the new PA come March 1st. Now the patient is saying that a patient had a fall and then the patient got hospitalized and then now patient is going into the rehab. So we need to stop the services and…
+DV: Yes.
+SS: patient cannot come to the adult day health anymore. So in that case we have to stop the service right. So what we're going to do either a case manager or the provider it's going to send out an ADWP even though the PA is active right we are going to send out and say okay we need to put the services on hold or we need to cancel the service we need to discharge the patient because now the patient cannot come. So either way that traffic can be generated but end of the day it's still going to be a two-way traffic.
+SS: Either as a provider we notify through case manager notifies to the provider but the form will be EDWP. There won't be any email. There won there won't be any text messages. Yes, it can be but end of the day that EDWP needs to be signed off by both the parties.
+DV: …
+SS: Got it?
+DV: and there are two versions for us.
+DV: The one which you showed on the screen and another one which I showed you said I think the format is changed. So which one we should consider to generate from our system?
+SS: the one I have been showing you on the screen…
+SS: which says EDWP and…
+SS: then the sign off at the bottom by the two people basically case manager and the provider that's the one I mean I have the word document on that one that I can send you and you and convert that into the PDF to fill the PDFs the field on that. Okay. Yep.
+DV: Yes. Okay.
+DV: After that let me share the screen again.
+SS: Today I have another call coming in at 10:00. I need to get prepped on that. so is it something that we can break today here and…
+DV: Mhm. Yeah.
+00:50:00
+SS: 
+SS: then continue tomorrow? Okay. Right.
+MP: So tomorrow basically we'll show you the remaining flow of the design and…
+DV: Yeah. It was Okay.
+MP: also
+SS: And sure and Daneshwari can you go ahead and send the HRMS workflow and when you send these workflows can you convert those into the PDF because images what is happening that we can expand it to a point and then we cannot expand it anymore because based on the resolution. So if you can put all the workflows the PDF into the shared folder.
+DV: Sure.
+SS: That would be amazing. Okay. Yep.
+DV: I did share the HRMS but in the image format itself.
+DV: So what I'll do, I'll convert them into PDF and share with you.
+SS: Sounds good. All right, guys. I will speak to you later.
+MP: Thanks. Yeah.
+SS: Okay. Thanks.
+MP: Nice. You're doing
+DV: Thank you.
+SS: Okay. Bye.
+SG: You have to like
+SP: Thank you. Bye.
+Meeting ended after 00:52:15 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

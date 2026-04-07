@@ -1,0 +1,258 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/02/17 18:57 GMT+05:30 – Transcript
+Attendees
+ASK, DV, MP, RD, SG, SS, SP, SRR, TM, VK
+Transcript
+MP: the clinical form the flow for ADH as well as the assisted living and also we started working on the all of the things that we have in the HR module whether it's the employee on boarding or the availability taping up the availability of the employee and…
+SS: Okay. Okay.
+MP: then background verification and all so yeah so from our side maybe VR can share the screen and just demonstrate feature Yep. yeah, we can
+SP: Yes, sharing my screen. Yes, I'm showing you the changes I have made according to yesterday's call. Yeah. Yeah. So we are into the AI client lead we are moving into resident and…
+SP: after clicking on new resident as we discussed we want to add the case manager agency first and then assigning the case manager.
+SS: Okay. Give me.
+MP: change this.
+MP: So I have to review it. So we'll change this.
+SS: Can you close this out for a second?
+MP: I show you.
+SS: Vicram, yeah,…
+SP: Okay.
+SS: close this screen for a second and then go back to the previous screen. Okay. yeah. …
+MP: Thank you.
+SS: go back to Open it up. where does it say that this is a Medicaid patient or Medicaid plus private pay,
+SP: Yes. I'll have to add it here.
+SS: So, this is a Medicaid patient, right? Okay.
+SP: Yes. Yeah.
+SS: Okay. All right, sounds good. Add payment type. All right. Move to the resident. Yes, that's perfectly fine. Go ahead. New resident. Yes. case management agency. Yes, that's Perfectly fine. Yes. Done. Yep. Okay.
+SP: Then same what I showed you yesterday. Confirming the room, paying the deposit.
+SP: confirmation of the deposit and…
+SP: here in the combination payment as a pending badge here and one more variation is that I'm showing me this in the icon form so I want to give one variation so…
+SS: Mhm.
+SS: Okay. I see.
+SP: what do you think which one do you do you So,…
+SP: should I keep this one?
+SS: Yeah, I think I like it.
+SS: Copay pending. but that message if you push it out on the top in the notes somewhere on the header and say this is medicate pending and copay pending something that we don't have to go all the way to the billing setup to look at it the moment you pull up a resident right…
+SS: then on the top you would see this kind of the pending status in the notes or somewhere right Okay.
+SP: Okay. Yes.
+SS: As part of the header. Yeah. Okay.
+SP: right. Then moving next to the assessment form. here we didn't need any changes.
+SP: And yes for the confirming animation…
+SP: if you click on confirm and after the proceeding we have added here the payment type and the potential moving date and now we are into the patient charting of ALF Medicare and we have also added the deposit paid status here.
+SS: All right. Yep.
+SP: So in these tabs the activities it's been removed and the inventory tab it's been added and for adding inventory you'll have to enter the name of the inventory the category for example it will be whether it will be furniture or electronic or etc.
+00:05:00
+SP: the quantity, the condition of that inventory.
+SS: Perfect. That's perfectly fine.
+SP: You can add a description as well. the location for that inventory and the status and the data and also you can add images for that. Yes. And in the incident after choosing the minor incident. Yes. So this one is for the medical patient. We'll have to notify the case manager and the state. So here do we have any suggestions or changes?
+SS: H. Yeah,…
+SP: So should I proceed with another flow?
+SS: go ahead. Yeah, this is all good.
+SP: The one change I have added here is after choosing the active residence that is a filter. So I have added one column here as a period in facility.
+SP: So this counts the number of days for which the member is in the facility so according to that I guess it will help to renew the PA authorization and…
+SS: Yeah, that's Yeah,…
+SS: that's okay. Yeah. yeah,…
+SP: so that was my idea and I need your feedback on
+SP: Should I add that?
+SS: should be okay.
+SP: Okay. Yes.
+SS: 
+SS: Should be okay. but one thing that you need to show this is…
+SP: Mhm. Okay.
+SS: what we're doing it that every resident what we need is that we are assigning a unique number usually starting from 9,000 right and…
+SS: sometimes when we talk about a resident we don't take the names we just take that number and say 9,0002 is doing this right versus like Tom Smith right so we need to assign and…
+SP: Good. Mhm.
+SS: then pull up the number somewhere so we can sometimes what happens that people don't remember the names when the names are similar right and that we do have Steve that we have three steves at the same facility right how we differentiate kind of Okay.
+SP: So you need a resident ID for Okay.
+MP: So we put the resident ID first that will be the system generated. Okay.
+SS: So yeah, So what is going to happen is that when we migrate the data to the current system,…
+SS: we will have our internal ids that have to do that. So hold on, let me present it now.
+SP: Okay. Yes.
+SS: So the aneswari and vikram both you can kind of get an idea about it. You see this number right?
+SP: Oops. Yes.
+SS: So sometimes what happens that we know that we're searching for 9,0003 right?
+SS: So that's how we can kind of do that right and then we pull up so we don't have to take the members name basically right okay yeah so when we migrate this data right all the active members or…
+SP: Yes. Right.
+SP: Okay. Then we'll add that
+SS: basically non-active members whatever it we are going to migrate it by this number. And if you kind of go in and then ID and U that is how we're connecting everything. let me see.
+00:10:00
+SP: Yes. Yes.
+SS: So this is a unique and I show you that where I trips I just added that this is a unique record the number of records are being created into the system.
+SS: But we cannot associate that with the member ID, So that's why we're kind of doing that and our facial recognition system, for the ADH side,…
+SP: Yes. Yes.
+MP: You can manage your session.
+SS: it recognize this ID basically. So that's why we need that ID. okay. Yep. Sounds good. I'll stop sharing.
+SS: Yeah, go ahead.
+DV: Yes. regarding the record ID and…
+DV: the key difference will be the member ID is going to use for the attendance in ADHD and the record ID is something which we are assigning which is going to be system generated and it mostly start with 9,000 something.
+DV: Is it correct?
+SS: record ID could be anything.
+SS: Record ID is the one that you need it as a unique reference number,…
+SS: Because that record correct that is going to be your unique identifier to connect the one record to the other record.
+DV: Of the resident foreign records.
+SS: Right? Versus the member ID is our internal ID. That's all record ID we don't need to show because today every database entry is a record right in any database every hold on so…
+DV: And…
+DV: when we are saying records, the records are the events, the progress note, all those thing or
+SS: if you open up a database structure And I go to this table, Then I have 132 lines of data. So, right, each line represents one number and that's the record ID. You got my point?
+DV: Mhm.
+SS: When I go to the member attendance and then I've got 38 member attendances over here, right? And then, that's what it represents. when I go to vitals there are 3673 vitals right so 3,673 records in it right but how do I know which record belongs to home right so and then probably mujib can help you out but this is how we're connecting right basically it's a numeric key field basically on the parent table…
+DV: So the member ID will be for system mapping different things of a specific client.
+SS: which is in the member it associated to the related member number onto the child table. That's how these two tables are connected. yeah, I mean that's how you can connect it, if I want to see that if I let's say let me go to some active member here and…
+SS: if I go back to let's say the billing and frequency right I go to this is my frequency right Monday Tuesday Wednesday that's a record by itself but if I want to go back it's associated to leon right but when I click on leon it'll take me back to the leoon complete record here.
+MP: Mhm. Yeah,…
+SS: Did you get my point? That's why we need that for the database connectivity right so whoever is the architect of the system they will understand that why they need that reference number to associate with Yep.
+00:15:00
+MP: I know that I probably will need that. So, we will need the reference.
+SS: You will need that reference number. So it's better to connect that because how would you connect it basically that you could have 100,000 because now we're developing a system basically everything is going to be on one platform so the member or…
+MP: Yep. Yes.
+SS: the resident data is going to be all the resident across the board right and how would you differentiate that this is coming from versus the C location kind of that you No.
+SS: Yep. Got All Go for it. Okay. Yeah.
+SP: Sharing my screen again.
+SP: I want to show you the discharge flow. Sorry, the screen is loading.
+SS: Okay. Go ahead.
+SP: Now we are discharging the member to payment type of medical.
+SS: Okay. Okay.
+SP: The discharge has been divided into four steps. this first one is about discharge details. We taking day, time and the type whether it is planned or other things and description for that discharge reason.
+SP: after filling out proceeding with the notifications. so these are the people who are connected with these member. So this was the case manager, parent, caregivers, the care team members. So you can notify these people as well while disturbing. And after that for the final evaluation
+SP: which is a kind of survey form from the user side.
+SS: I like it. Yep. Okay.
+SP: So you can select the behavior, therapy, compliance, the strengths and the concerns for that member.
+SP: And after filling out you'll get a review of the things you have filled out. And for the return deposit you can enter the amount and if you want to decrease that amount you will have to enter some reason for that.
+SS: Before you say on that one. go back to the return deposit and…
+SS: then I want you to add couple more things to that. …
+SP: Okay.
+SS: if there is any breakage charges any kind of things that they have broken it right the room is messed up and now we have to paint or something like that some of those charges that we'll have to come up and say do they owe us anything or not right I'll come up with the verbage on that one but I think we need to do that so deposit minus any other expenses any outstanding and…
+SP: Yes.
+SS: kind of that we do it and that would generate that final the statement right little math.
+MP: Mhm.
+SS: Yeah. The aneswari said something Yes.
+DV: Yes before having this screen return deposit do we want to have the option to generate the EDWP for the discharge and once that approval is there or we have the response for the EDWP then we will process for the deposit refund or…
+DV: we can have it parallelly.
+SS: Yes, please. So, Vikram, can you go back to the screen…
+SP: Yeah. Yeah.
+SS: where step number two? so what Daneshwari is saying it, Daneshwari, I agree with you that where the care team members or the case manager sees next to the case manager. probably we can put it a button that Sandy DWP.
+SP: So after getting the approval from him we can proceed.
+SS: Okay. Yeah,…
+SP: Is it correct?
+SS: that is correct. That is correct.
+SP: Okay.
+SS: No. I mean, we don't have to get an approval. We are just sending out DDWP that discharge. we do care about receiving the signed copy from them. But we can go ahead and get through the discharge once we send them the EDWP,
+SP: …
+SS: Yeah. That's right. Yeah.
+SP: what I'll do here I'll create a button for sending the mail and you will have to press that button first and only then you will be able to take this checkbox. Okay.
+00:20:00
+SP: And for the deposit you need set breaker changes like you said. And after confirming the resarch successfully.
+SP: Yeah do you have any sgest in any other okay okay…
+SS: No.
+SS: I think I'm good with this.
+SP: then that was it from the left side and now sham will share you the hrns y
+SS: All right.
+SP: So yeah after clicking on the HRMS HRS
+SS: Okay. Right. Mhm.
+SP: This option we have on the top whatever the sub options this we will be able to see in the side navigation pattern here and the categorization in between active and in progress employees will be visible here and after clicking on add employee this is the kind of like form we have created this is nothing…
+MP: What's up?
+SP: but a kind of newspap which you have shared with us And according to that the staff will be filling up the information all the important things will be getting filled here and after adding to save that that process will be moved in progress and after clicking onto the profile we will be able to see the employee information in the informative format. we'll be able to edit it as well afterwards. And here we will be having some kind of element here instead of until the documentation is getting done we will be able to invite email as well because they can give the access until then the process is getting done but still then the employee will be marked as in progress.
+SP: So step one we have here is pre-employment screening is is nothing but a kind of document share and sign and after clicking on select we will be able to get this Not all whatever the documents are kind of listed we have in the system we will be able to select as per our choices and…
+SS: Okay.
+SP: after clicking on select those will be list here and if we want to add more we will be able to do the similar interaction here and let's consider every single document has been moved to sent and the background agency routing routing is also kind of has been selected location, agency name, hir details are ready to be sent and all.
+SP: So we will be able to do that activity and once every single thing has been done every single interaction has been marked as completed we will be able to hit the mark as satisfactory and the user will be able to see the two mandatory document collection it is and this is the kind of like the list of document uploads we have and…
+SS: Correct. Sure.
+SP: we will be able to upload it manually for sure and after clicking on utilate and everything is kind of back and forth interaction is available. Step two is done and after clicking on next step three will be is nothing but a kind of employment activation.
+SP: Here we will be able to see the official start date as well and after clicking mark as complete the employee will be marked as active one. Cool.
+SS: Perfect. Okay.
+SP: So here also we have this interaction that email has been sent and we will be able to resend it as well so this is related to the onboarding process of the employee and shift roster work we have started overall. so from the calendar view perspective we have created this viewpoint where we will be able to so detailed interaction is still in progress but there are some kind of quick filters we have applied is nothing but the type of service then month view and day view then month and…
+00:25:00
+SS: Okay.
+SP: day view so this is a kind of like
+SP: vertically scrollable and horizontally as well accordingly. Yeah. So it's just a kind of whatever the filtration or the employee selection we need to do we will be able to compare it together. Gray is nothing so legends we will be providing accordingly. Gray is nothing but a kind of a day off or holiday. And bulk assign it's also kind of in progress but overall we will be able to see the ship details accordingly in the dropdown and after selecting the just multiple type of employees we will be able to select the days as well accordingly and after clicking on assign that will be assigned to them accordingly.
+SS: Mhm. Okay.
+SP: Few of the detailing the error validation and all those things are yet to be added but this is just a kind of initiation of the process and from the perspective of screen creation for the roster settings we have created a kind of the dummy dashboard where we will be able to see the total stuff on shift today pending
+SP: requests, coverage alert, spending, change request and all. So user will be deal with the thing. This is nothing but a kind of separate staff directory where user will be able to see all the details and respectively related to employee itself. these are related nothing but a kind of change shift request. we will be able to see the approve and reject interactions.
+SP: Yeah. Yeah. This is overall progress we have done so far in what you can say themsel yeah yeah cool and…
+SS: Yeah. Still,…
+SS: still there are quite a few things to be done in HRMS, yeah. Okay. No, I mean good. Yeah. Okay,…
+SP: maybe tomorrow we will be able to show a detailed interaction and let's see how it goes.
+SS: that sounds good.
+SP: Cool. Yep.
+MP: Yes Sam.
+MP: So these are the updates from our side mainly the team was focused on the UI changes only the Figma design and all. So whatever the things that we have completed so far we'll send you the mail so you can check it and…
+MP: also I just wanted to check I shared couple of R credential with you. So did you get chance to look into this?
+SS: Yeah,…
+SS: I did and I do have good feedback. maybe you and I can take a call and…
+MP: Mhm. Yeah. Sure.
+SS: then I can tell you that something that I like it and then we can try to incorporate it right So, while we're talking about that, hold on, let me share my screen.
+MP: Yeah, I can see the screen.
+SS: Let me know when you can see my screen. so what I like is that how the whole thing is at the top then the name and basically that this status is on and off it's kind of coming so I like to use this kind of layout in something that what we're doing it and then the notes are kind of coming out on the top that I was
+SS: was talking about when they're active or pending or something like that the PA is in progress or…
+SS: something that's like those statuses that can come here basically in the header itself right so I pulled up this go ahead so…
+MP: Yeah. No,…
+MP: I was just saying. Yeah, sure. We'll do that.
+SS: what I like is that I pulled up this resident right and then here is the face sheet for the resident right for this one patient and how the nodes and everything is kind of meds coming out but within the home that I have the profile which I can see as a face sheet everything then I have the demographics that I could see it right the questioner so how these tabs are coming and I really like this the notes or…
+00:30:00
+SS: basically the documents at the past medical history and here you can do that and then you can kind of keep on doing all these questioners documents, I like that idea a lot. Okay, because we have all those documents that they're doing it.
+MP: Okay, sure.
+SS: We can just have them, kind of do that right here basically and then everything that we have it they can see it by the documents like this. Okay. it looks like a lot cleaner.
+MP: Mhm. Yeah.
+SS: Same thing with what I liked about is that the call history because we're doing the integration with the ring central on this one. So every that you have it you can kind of see it and…
+MP: Mhm. Yeah.
+SS: you can kind of listen to it all the communication kind of going here right
+MP: Got it.
+SS: Then these are all the documents that we talked about it visit details that they are coming. So this is where all our attendances and kind of come in something like that. the billing I like this outstanding super bill the car details the profile the family.
+SS: So the way I like it is that how you have the header is kind of staying on the top and then you're kind of changing it into this section only right everything you can still see everything on the header that
+MP: Yeah. Yeah.
+SS: what is that whom I'm looking at it and kind of those things right so all medications kind of that so want to add the medication kind of this right all the orders referral I mean We don't need all those things…
+MP: Amen.
+SS: but I think I like the way it's kind of flowing it. So it's a good u input for the design team that while you're doing that and I think probably we can utilize the horizontal menu right with some tabs like this right and…
+MP: Mhm. Yeah.
+SS: still you can kind of keep those two constant right static and then you come here you can keep the other things static like this so that's what I like about it, and then I'm still digging into the few of the stuff to see that what I can do and then provider admin that we're kind of looking at it. so I'll have some more feedback to you.
+SS: you and I can have a call that I'm making the notes and then we can figure it out that what we can have it what I liked about is that this inter internal chat kind of that I know we are going to have that internal chat right yep the communication is kind of going out willing
+MP: Yeah. Mhm. Mhm.
+SS: this is that I have not touched the billing we'll figure it out when we get to the billing what I like is that this referral right so when we are sending it out the referral intake to the case manager in the case of Medicaid right that we're sending it out to multiple agencies and the different case manager and kind of that so I like this one that this is a good stuff like this is the patient
+SS: name David Mark and referral from and…
+SS: referral is going to which agency because there is no case manager assigned to it and then referral date the priority and the diagnosis code that if that's fine the referral reason and for referral services attachment the encounters but we can go but here here we can drop all documents and…
+MP: of the patient…
+MP: if you wanted. Any of the things. Yeah.
+SS: then sign and save and preview. So what happens that we're separately tracking in an entity right that whatever is going out to the case manager either for the ALF or…
+MP: Yeah. You want to say something?
+SS: the ADH and then we can kind of track it and then see what's kind of and going out. Okay. Yep.
+SS: scroll tab a lot. Yeah. Yeah.
+DV: the referral out tab.
+DV: Here it says that if we are referring out the client or the resident to some other facility because Yes.
+00:35:00
+SS: I know this is what it means right now in your current system. That's what it means the referral out right. But I think what we're doing that we're basically going out as an ADH if you have a new lead that hold on I want to go to the lead
+SS: Where are we sending it out to the case manager or the schedule y chat summary notes all activities Vikram can you help me when do you send it out to the case manager this leads Please.
+MP: on top you can see you can Select Any of the leads you can just click on the first. Yep. we have option move to residents.
+SS: Okay.
+MP: Click over to there.
+SS: All and that is where we are sending it out this. And then see how we're sending it out. The patient information is here and now we're sending it out to the case manager since this is the referral going out to get the approval, So yeah, I know we have a similar tab but I like the flow over there that we're filling out the form and then we're picking up this thing and all these documents and then we're kind of basically sending it out to the case management agency right here.
+SP: Click on send first.
+SS: All Yeah, I think this is similar that what I'm talking about. and send it to the case manager or send it to the case management agency because at that point we don't know the case manager. So, we're sending it to the case management agency. and then it picks up. but we wanted to track that when we are sending it out they're sending something back to us. So all that communication see if we can track it here. Somehow. Okay. Okay.
+SS: 
+DV: That will be visible in the timeline or…
+DV: the history where we have sent it when the response was received and…
+SS: Hold on.
+DV: we have kept it here for the particular profile…
+DV: because this is just the initial process. the order let's say for there is an year now and we again have to share the prior authorization at that time also we will have to go for a chart and share the prior authorization request and track that.
+SS: Okay.
+DV: So we can have a module not as in referral or a different module like the document shared out or…
+MP: Oops.
+DV: the external communication where we will be able to see all the resident related informations we have shared…
+SS: Okay, sounds good. Yeah.
+DV: which we need an approval of because foreign resident could share multiple things. So we have added in the CL chart but if we have to see it for all the clients at a consolidated place then we can add a mod for that.
+SS: So, yeah, there are a couple things Mujip that you and I can talk more. and Janeshwari, if you want to join that call, you can join the call and then we can figure that out. Okay. Yep.
+MP: Yeah, sure.
+MP: Let me know maybe to tomorrow or day after tomorrow we can connect like you, me and maybe Nanwari can join us and then we'll discuss the R flows.
+SS: So, tomorrow I think we can keep the call for the same time. Thursday we are going to skip the call and on Friday my hour 8:30 will be my 5:30. So Friday I would say that we're going to push the call out to 9:30 my time which is going to be my 6:30 in the morning because I'm going to West Coast.
+SS: So, Friday's call move it to 9:30 and Thursday cancel the call.
+MP: Okay, fine.
+00:40:00
+SS: Okay. Yeah.
+MP: So, let's connect tomorrow then we'll Yeah, sure.
+SS: Tomorrow we can keep it for the same time. Okay. Yep.
+DV: regarding the HRMS I do have some clarification.
+DV: I do need some clarification from your end. regarding the designation part and can you share the screen for the HRMS the current system which you have. we wanted to know …
+MP: Yeah.
+DV: what we are expecting to be there the functionality in the designation and the appreciation module.
+SS: Yeah, Can we pick it up tomorrow? That one? Yeah. Okay. Yep. Okay.
+MP: Thanks. Thank you.
+SS: All right. Thanks. Yep. Bye. Bye.
+Meeting ended after 00:41:07 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

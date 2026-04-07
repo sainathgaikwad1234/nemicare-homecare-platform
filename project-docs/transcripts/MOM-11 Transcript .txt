@@ -1,0 +1,148 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/02/03 18:52 GMT+05:30 – Transcript
+Attendees
+AK, DV, MP, NK, RD, SG, SS, SO, SP, SRR, TM
+Transcript
+MP: that we developed for specially able kids center where they have all the sessions and all so I do have the credential of one of the server so I'll show you that…
+SS: …
+MP: how the availability and then scheduling works over there and then maybe we can discuss whether we want this or other way so just a sec let me know once you see the screen.
+SS: I did not see. Okay, now it's coming. Yep. Yes.
+MP: You can see the screen great. So, basically this is the admin portal.
+SS: Mhm.
+MP: In the admin portal, what here we are adding basically we are adding a new company where we are adding company. So we are uploading the logo of the company as well as the company name the specialty in the specialy for this particular the client. So they have the EIDBI 20245D PC and adult day services. So these are the services that they wanted for them only they focus. so based on this selection so we associated all the different kind of forms to the specialy and based and service code as well and based on that for this particular company all the service code and then forms we going to assign to the company.
+MP: So likewise, so here basically we can add the details like this and then the practice session and as I told you we are going to white label every practice if you are onboarding any of the company so for this let's say if a company name is ADX service something like that so the URL this is the QA portal that's why the initial is the QA but actually this is ads service.provider.cprofertc.com. So in our case we don't have the portal and all. So it will be directly the domain name plus the subdomain name with the company that we are on Google and here yeah they are adding a logo and they can set their color as well like whatever the primary color that they want to use in the system.
+MP: So based on the color selection so the application once we logged into the application so the logo and…
+SS: Perfect.
+MP: color will going to show over there. So this is the admin portal basically. So I just wanted to show you this first. Yeah. And also in the master if I go to the master so basically we do have this service code all those stuff and then we map this service code to the specialty let's say for 97157. So we map to the EI DPI and all those stuff. So if I want to add a new service code basically so whether we need to mention whether it is billable or non-billable then we need to select the category So based on the category at the time of the appointment basically so that code we were showing supervision administrative group therapy indirect service.
+MP: And then we can add a new service code here and service code is like the CPT code and then in which specialty we want to add. We can select the multiple specialty for the same and then description in route default rate can be used or calculation rate and bill by time by pay time. So by you need us all those configuration we have and visit verification as well if you want to restrict anyone of them we can do this. So this is just adding a service code into the system. This is how we have done for this service. and same for the forms as well when we are creating a forms basically.
+MP: So if you let me open so using the form builder is one of the tool that we created using that form builder we can create number of forms. So if I open any of the let's say this is the transition and discharge summary so there is some issue but yeah you can see it here this is the transition and discharge summary form. This form we created using the form builder and when we are creating any of the company and based on this service type so all this form will get assigned to the company so they can use it.
+MP: is for the super admin table so these are the changes that we made for one of our client just I just wanted to show you that and the same way what we are going to do in our application we are going to onboard a company and when we are onboarding any of the company so it might be by default one location will get created with whatever the company that we added and apart from that if they are having the different location so we can add a different location so that will be our facility basically.
+00:05:00
+MP: So for the facility level we are going to add a feature…
+MP: where we can select the specialty let's say if this company have three specialties and then we can select it at a facility level as Yep. and…
+SS: Okay, sounds good.
+SS: Go up.
+MP: if I Yeah.
+SS: Yeah, go up.
+MP: Mhm.
+SS: How about the client? Who's the client?
+MP: Yeah. here client means basically number of patient available. So as a super admin I just need to know their clients all those detail if we want to show that. So just because of that we have added this listing only here for the client. And this particular company's admin that we have added in the application. and color and branding is as I shown we can change the colors and everything based on that let me show you that provider portal…
+SS: Okay.
+MP: then how it is going to work. So you get the idea this is just the admin portal where for onboarding the facility or company we are going to create the similar kind of application basically. Yeah. So these are the stuff that we can build and let me share my screen another tab. So let me know if you see that. So this will be like let's say the main actually facility portal where the facility owner or admin can loged in once he logged in so basically he can see the details.
+MP: So here as I logged in as a maxi J of this is one of the provider or the staff. So this is the checklist of this provider one. So if I have completed all the human resources scheduling billing part so everything is going to show this in our application as well. We are going to do likewise as you wanted for the client as well when we are onboarding a client. So the number of percentage that we have basically completed the profile completion of the particular client. So we are going to do that and if I go to the profile here so in the profile we are having the different section and particularly if I go to the settings so we are having this availability setting and here basically I can create my availability let's say or if anyone have the access so they can create their own availability.
+MP: So I'll just name it whatever the name that I want to and this availability whether I want them to show everyone can see my availability or only the people in employees network. So I'll show you that employees network means and only the people I have given the permission to view the employee schedule. So based on that only those person can see the availability of mine if I'm selecting as we have added this in one location only. So we are going to show the location like this and the organization's name we are showing and then start date and end date we to mention let's say I'm mentioning from let's say for next month I'm mentioning now from the 1st of March to 31st of March and then what will be the start time of them let's say if I want them to start at 7:00 a.m.
+MP: And I think it is 8:00 p.m. And let's say Wednesday, Thursday and Friday the clinic will be open.
+MP: If I want to add a name, I can add. So here, let me add the basically.
+SS: Okay, now I got that.
+SS: So, I think we're good. Just cancel it out. Yeah, we can keep going a lot quicker on this one.
+MP: Yeah. Yeah.
+SS: Yeah, sure.
+MP: So yeah this is how we are going to add basically the availability and once we add an availability so this is our availability view. So here I can see the availability basically of the patient. as I add my availability so you can see the maxi of so he is available since 12:00 p.m. to 12:00 a.m. I believe all the availability we are showing this and if I'm selecting the different client as well.
+00:10:00
+MP: So based on their availability have. So their availability is also we are going to show in one calendar only So this is our availability calendar to check all our basically providers availability at one place only and by default everything will going to selected and…
+MP: based on that this availability is going to show. Yeah, this is the weekly.
+SS: But how do I schedule …
+SS: how do I schedule employee to the u basically the patient
+MP: Yeah, I'll show you that as So here basically if I am selecting all of them. So based on the selection, let's say if I'm selecting this time. So this is only I am available at that time. So here it can be seen you can schedule with them. Sorry Just a sec. Let me go to the scheduling. So there might be something here. and see this is the keyword portal that I was showing you. But ideally what's happen basically when we are having appointment view as So if I want to schedule an appointment so simply what I'll do I'll click from here as well directly. I'll select it. I think there is some issue now because again the team is working on this portal.
+MP: But yeah let me show you when here we are having another tab So basically on click of this so schedule appointment is going to open. So let's see if I'm selecting for myself only I want to Let's say schedule it and here whatever the client that assigned to this particular provider or the staff then his name is going to show it here. Let's say I'm selecting this name and…
+MP: 
+SS: No, that's fine.
+MP: location.
+SS: Yeah, I'm good with that.
+SS: Yeah, we don't need to go in detail. That's fine.
+MP: Yeah. and…
+MP: yeah apart from this I wanted to show you the leave flow as well.
+SS: Yeah, let's look at the leads quick.
+MP: This is not typical.
+SS: Yeah. That's fine.
+MP: But more like we are just converting directly. we don't have actual CRM but when we are adding a lead so we are collecting the lead information like their guardian information all of them client information because in this case all of them is the ch child only so we need all those and then for address we integrate with the Google so if I'm se yeah so we are getting all those stuff and…
+MP: once we add this so let me add the guardian as well let's add in the …
+SS: this is fine.
+SS: This is fine. Just show me the workflow how it's kind of coming into the system whatever you have created.
+MP: that's fine. Let me select.
+SS: No, we don't need to create the new one. just open the one you have created.
+MP: No. Yeah,…
+SS: Okay. Yeah. Yeah.
+MP: that's yeah, I just wanted to show you how we are converting to the client in this case. So, just a sec. just give me a second. Yeah, it will just take a minute. So basically once we add the lead so basically what's happen
+MP: Is going to show here. So let me test the page again. My But are with the Once we convert that lead so one form will going to open. So let me show you that form. if I go to the client so if I'm selecting any of the client so this is the intake form so this is the intake form for the particular so here we are collecting all these information in this form only so we are like the child information diagnosis information addresses
+MP: And then parents and guardians information, mother, father employee information if they are employed or not, family information we are collecting. So all of them family psychological history we are collecting. Then insurance and medical history we are collect and psychological and development history. So all of these detail we are collecting while converting any of the ear to the client. And once we fill all this information then they are going to convert to the client and once they convert it to the client. So in the contacts basically we have this client section if I open any of them.
+00:15:00
+MP: So this is the checklist again a general office whether all of them has been completed billing part has been completed and this is the kind of the dashboard of the client and here basically we are having one more thing if I go to the clinical we are having this clinical forms created for them so this is the cmd I open any one of them I'm adding a form so again the same thing will be there it's just 20 very lengthy form so all the
+MP: information that we have added at the time of the intake will going to be populated here and remaining information that needs to be filled while adding this information. So yeah these are the clinical forms basically which we created and we are having the module as well here in the so whatever the employees that we have we can directly sync it from the employee that we have added from the other sources. So if I'm syncing it so this employee will get add here and…
+MP: then we can do the background verification and other stuff we can start the initial checkup and everything for the particular employee and…
+SS: Okay.
+MP: for them this share one CSV file that we imported. So using that we come to know whether the employees in that CSV file then we are marking them as this is not the good employer there is some issue in the background verification. So yeah these are the things for particular for this client we are done in the files basically we have the prior authorization let's say…
+SS: What is in the files?
+MP: if we are having okay fine in the clinical basically they have the sessions learning trees this templates and…
+SS: Okay, that's fine. need to see. we already talked about HR clinic.
+SS: Let's look at the clinical
+MP: based on that let's say if I'm going to the learning tree I'm opening any one of them so basically in this case who the provider is going to create this learning tree for the client and then they are just going need to follow this so if I go over there so this is just page viewer that we created then video section we have the file section as well we just added this just for the testing Hope this is I believe then all the questions and…
+MP: answering and then whether they have passed or fail. So I want to start are you happy right now. So these are the questioneries and then based on that the results we are generating
+SS: I like this one.
+SS: I think let's explore this little bit more to see how we can put our clinicals into this. Correct.
+MP: So there are number of things over there. So if I'm submitting yeah so this is the fail because out of whatever the criteria for that that's not the meet. So yeah there are number of things here I think we can explore this stuff and also the percentage data. So based on the daily basis
+SS: Okay, gotcha.
+MP: if you are asking them the questions and also based on that we are generating a graph as well. so to see the progress yeah This is the independent data. So this is all the data and then frequency data collection. So all these data we are collecting based on this question and answer then circulum form as well any difficulty express this is something that we created by ourself. I come here if I say I want to create a new say branch. So I just need to select private learning tree template or learning tree. If I said contact so I need to select for which client I need to select and then I need to select
+MP: And from here we can add a branches. So for whether this is the commumulative data collection resources or library if I set the commulative branch I can add it. So for commulative we need to select the goal description. And if we are having any template we can add it. Then we can the branch whether this is the page five question and answer type. So based on that we can add a questions here the total questions to pass total grades. So all this configuration we can do by ourself number of thing we can add a multiple questions answers and everything and based on that we can create this learning tree. This is just the one branch there are number of things in one branch.
+00:20:00
+MP: for assessment as well. Autism, diagnosis, interpretive also all discipline goal. So all this stuff basically based on this leveling tree going to get created and then based on that all be the graph and everything we are going to show and if we are having the lab so we can add the library as well.
+MP: Currently we don't have anything for this particular learning. these are the learning clinical stuff in the clinical not only this so we do have the settings ABC templates as well.
+SS: All right.
+SS: I think that's good enough. Yeah.
+MP: So let me check you can see that as well. So these things that we are creating. So everything we are using u at the time of the per session as well if they have any session they can create a new session and let's say daily session for which client I want to give and based on that if they have their learning tree we are going to select let's say them so let's say this is learning two and then which branch so today let's say this thing that we want
+MP: going to do. So we can select this and then we can save it and then timer will get started and then we are going to do the activities from here based on the learning to session. this is how we are going to the session then from here they can start the quiz and all that we created. Let's see So, we can also add a comments here. Let's say number of people are basically working at the same time. So, they can create their own comment that won't be visible to the patient or client. But internally, they can manage this.
+MP: So we have created that who added the comments at what time. We can save the session and also we can just pause this particular track time tracking and then we can save it. Then session got saved. So building we will discuss it later.
+MP: So in the building there are number of things that we can discuss when we start and…
+SS: Yeah, I'm good with that.
+SS: Yeah. Yeah.
+MP: based on this is the lendar the scheduling where all the availability and then appointment we are going to show this is more on the daily activities or of the children's with the employees what else here. and yeah, let me show you one of the other things as well. So, particular this form so we can create this kind of form as well. I'm adding this form just a sec.
+MP: So the score and all. so here basically for this client so this form will by default going to assign and based on their progress so learner will consume. So this will be their score they can add a score for the particular 01 till five. So to track the progress and there are here there are number this is just the basic mobility.
+MP: So if I go to the next community knowledge so all those stuff okay Mhm.
+00:25:00
+SS: Okay. …
+SS: this is all good stuff. Yeah. some of the things that like So I just thinking out loud that you can come out of this. It's fine. Yeah, you can come out of this.
+MP: Okay. Yeah.
+SS: Yeah, I got the basic idea about what you have that okay okay so I think the next step is that I think Shiva and…
+MP: Mhm. Yeah.
+SS: Navia will be reviewing the workflow with my team and then hopefully they have feedback today and then we can discuss that tomorrow. and…
+MP: Yeah. Sounds good.
+SS: after that so this week what do we have Anita can you or…
+SS: Moji you might have it what do we have on the schedule after we get the workflow done?
+MP: So after that we are going to move to the billing module we are going to discuss the billing part…
+MP: but before that I believe you were supposed to tell us take one session on the whiteboard where you are supposed to explain something to us by this week if you are planning that so let us know and…
+MP: but yeah apart from this I believe the roles and permission we wanted to ask check with you the different roles or the staff or users in our application that we are going to build and what permission that we need for them yeah…
+SS: Okay, gotcha.
+MP: but yeah apart from these we are good because we covered most of the workflow just by your explaining and all and as you said for ADH and assisted living that's the main workflow and then for the home care and all we are just going to copy ADH only just there will be some of the changes over
+SS: Okay. sounds good.
+SS: And I am adding Ganeshwari please the shared folder with Shiva. I have just sent you Shiva's email address. Okay, it's in the chat. Okay. Yep.
+SS: I think then probably it's a good time to break it. do we have Anita on the call? No. I can speak to her later on. Okay. Okay.
+SS: I think then it's good enough for today. Okay, let's regroup.
+MP: Yeah, it's fine.
+MP: So once you review the workflows then I believe tomorrow we will discuss on the workflows on your And by this week the plan will be from our side.
+SS: We will discuss that. Yeah. Yep. Exactly. Okay.
+MP: We are going to complete the ADH work like the design part. tomorrow I'll present you some of the part and then on Friday then we'll show you the rest of the things.
+SS: Sounds good.
+MP: Yep. Yeah.
+SS: Yep. Next.
+MP: I think for today we are good. And for the appointment or the scheduling are we going to use the old approach only the one that you showed me right?
+SS: Let me think about that too…
+SS: because I got the demo from you on the other one. So, let me think about that as well. Okay. Yep.
+MP: Yeah, sure.
+MP: Yeah, let me know
+SS: Okay. Sure. Thanks.
+MP: then based on that. Yeah, I want to ask something. Yep. Okay.
+00:30:00
+DV: Yes. also Sam as per our discussion we have discussed so many things…
+DV: but the documents and the information which we have emailed you is yet saved.
+SS: Send it to Yeah,…
+SS: send it to Shiva Shiva will get it everything to you today. Okay. Yeah,…
+DV: 
+DV: Okay sure works. vention.
+SS: you have Shiva's email address, Yeah, he will get it from the operations everything for you today. All right then.
+MP: Yeah. Thanks. Yeah. Thanks.
+SS: Thanks. Yep.
+MP: 
+MP: Let's connect tomorrow. Thanks.
+SS: Your back.
+Meeting ended after 00:30:59 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

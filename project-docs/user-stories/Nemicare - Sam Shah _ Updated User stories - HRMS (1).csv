@@ -1,0 +1,243 @@
+#,Category,Capability, User Story,Required?,Priority,Status,Frontend,Backend,Client comments
+,,,,,,,352,361,
+,HRMS,Payroll Setting,"As a Admin, I should be able to have acces to handle payroll settings for 
+- Pay Period
+- Workweek
+- The last Pay period
+- Over time calculation
+- Lable exicutions",Yes,Should Have,Retained,12,12,
+,HRMS,Compliance Monitoring,"As a provider, I should be able to monitor employee compliance requirements.",Yes,Should Have,Retained,12,12,
+,HRMS,PTO Management,"As a provider, I should be able to track vacation and PTO.",Yes,Should Have,Retained,4,4,
+,HRMS,Timesheet Management,"As a provider, I should be able to manage timesheets based on patient service hours.",Yes,Should Have,Retained,12,12,
+,Timesheet Automation,Auto-Generated Timesheets,"As a staff member, my timesheets should be automatically generated from my EVV clock in/out records and scheduled shift data, eliminating manual time entry and ensuring accurate billing and payroll records.",Yes,Should Have,Retained,4,4,
+,Pay Rules Engine,Automated Pay Calculations,"As a payroll administrator, the system should automatically calculate overtime (daily/weekly thresholds), shift differentials (night/weekend/holiday rates), and premium pay based on configurable rules, with clear breakdown showing regular hours, overtime hours, and applicable rates for each timesheet entry.",Yes,Should Have,Retained,4,4,
+,Timesheet Approval Workflow,Multi-Level Review Process,"As a supervisor, I should be able to review submitted timesheets with flagged discrepancies (late clock-ins, missing punches, overtime alerts), approve or reject with comments, and route to payroll once approved, with staff receiving notifications of approval status and required corrections.",Yes,Should Have,Retained,4,4,
+,Payroll Integration,Seamless Payroll Export,"As a payroll administrator, I should be able to export approved timesheets in the required format for my payroll vendor (ADP, Gusto, Paychex, QuickBooks) with employee ID mapping, hours breakdown by pay type, and automated file transmission or download for seamless payroll processing.",Yes,Should Have,Retained,4,4,
+Dashboard,,,,,,,,,
+,Dashboard Metrics,Summary Cards,"As a HR Admin, I should be able to view summary cards on header
+- Total Employees
+- Pending Leave Approvals
+- Documents Expiring
+- Payroll Status",,,New,2,2,
+,Dashboard - Leave Approval Queue,Pending Requests section,"As a HR Admin, I should be able see ""Leave Requests Awaiting Approval"" section with list of pending leave requests with -  
+- Record count(On section header)
+- Employee name,
+- Dates : From - To
+- Leave request type
+- Status",,,New,2,2,
+,,,,,,,,,
+,Dashboard - Compliance Alerts,Compliance Alert section,"As a HR Admin, I should be able to see ""Compliance Alert"" section with list of expiring documents
+- Record count(On section header)
+- Employee name
+- Work Visa/ Certification/  Background Check doc
+- Expiry date",,,Modified,8,8,
+,Dashboard - Workforce Movement,View new joiners,"As a HR Admin, I should be able to view ""Workforce Movement"" section with New Joiners & Exit list",,,New,4,4,
+,Dashboard - Workforce Movement,View All new hire / exits,"As a HR Admin, I should be able to click ""View All"" to see complete new hire or exit lists.",,,New,2,2,
+,Dashboard - Workforce Movement,Click to view profile,"As a HR Admin, I should be able to click on employee to access their profile or onboarding/exit status.",,,New,2,2,
+,,,,,,,,,
+,Dashboard - Staffing Management,View Facilities,"As a HR Admin, I should be able to view facilities with staff shortages showing 
+- Facility name
+- Shift
+- Shortage count.",,,New,2,2,
+,Dashboard - Staffing Management,View Shift Details,"As a HR Admin, I should be able to click alert to view shift details and request additional staff or approve overtime.",,,New,4,4,
+,Dashboard - Activity Log,Recent Activities,"As a HR Admin, I should be able to view recent activities
+- New Hire
+- Shift Update
+- Exit
+- Compliance Review with person and time.",,,New,2,2,
+,Dashboard - Activity Log,View Activity History,"As a HR Admin, I should be able to click ""View All"" to see complete activity history with filters.",,,New,2,2,
+HR Admin Operations,,,,,,,,,
+,HR Admin Operations,Add Employee ,"As an HR Admin, I should be able to Add an employee with its details.",,,New,4,4,
+,HR Admin Operations,View Employee List,"As an HR Admin, I should be able to view Employees list with tabs for All, Active, and terminated employees.",,,New,4,4,
+,,,,,,,,,
+,HR Admin Operations,Manage onboarding forms,"As an HR Admin, I should be able to view, add/select, send and delete onboarding forms for a new employee.
+ex; Background check report, Drug Screen report etc.",,,New,8,8,
+,HR Admin Operations,Manage Mandatory Documents,"As an HR Admin, I should be able to upload, view, edit and delete mandatory employee documents during onboarding.
+ex; Licenses, Visa Details etc.",,,New,8,8,
+,HR Admin Operations,Activate Employee,"As an HR Admin, I should be able to activate employee after verifying employee identity and background.",,,New,2,2,
+,,,,,,,,,
+,HR Admin Operations,Employee Portal Access,"As an HR Admin, I should be able to send a welcome email to new employees.",,,New,1,4,
+,HR Admin Operations,Resend Welcome Email,"As an HR Admin, I should be able to resend welcome email.",,,New,1,4,
+,,,,,,,,,
+,HR Admin Operations,Manage Employee Information,"As a HR Admin, I should be able to view & edit employee information.
+- Personal Details
+- Other Details",,,New,4,4,
+,HR Admin Operations,View Employee Documents,"As an HR Admin, I should be able to view all the employee documents in documents tab.",,,New,4,4,
+,HR Admin Operations,View Employee Shifts,"As an HR Admin, I should be able to view employee shifts list in the employee profile",,,New,4,4,
+,HR Admin Operations,Manage Employee Shifts,"As an HR Admin, I should be able to manage employee shifts.",,,New,4,4,
+,HR Admin Operations,View Leave History,"As an HR Admin, I should be able to view Leave History list of the employee in the employee profile",,,New,2,2,
+,HR Admin Operations,View Timecards,"As an HR Admin, I should be able to view All Timecards of the employee in employee profile.",,,New,4,4,
+,HR Admin Operations,Manage Timecards,"As an HR Admin, I should be able to perform the actions on timecards of the employee.",,,New,2,2,
+,,,,,,,,,
+,HR Admin Operations,Shift Calendar,"As an HR Admin, I should be able to view all shift entries including Day Off & Leave entries in day, week and month view.",,,New,8,8,
+,HR Admin Operations,View Shift Timeline,"As an HR Admin, I should be able to view shift timeline.",,,New,2,2,
+,HR Admin Operations,Filter Calendar,"As an HR Admin, I should be able to filter calendar by date range, employees, shifts, department and facility",,,New,1,4,
+,,,,,,,,,
+,HR Admin Operations,Employees Leaves,"As an HR Admin, I should be able to view all the employees leave requests.
+- All, Approved, Rejected, Pending",,,New,8,8,
+,HR Admin Operations,Approve / Reject Leave,"As an HR Admin, I should be able to approve / reject employee leave request.",,,New,2,2,
+,HR Admin Operations,View Leave Details,"As an HR Admin, I should be able to view leave request details for a specific request",,,New,1,1,
+,,,,,,,,,
+,HR Admin Operations,Performance Reviews,"As an HR Admin, I should be able to view a list of all employee performance reviews.",,,New,2,2,
+,HR Admin Operations,Approve Review,"As an HR Admin, I should be able to approve employee performance request",,,New,2,2,
+,HR Admin Operations,View Performance details,"As an HR Admin, I should be able to view employee performance details",,,New,2,2,
+,,,,,,,,,
+,HR Admin Operations,Training & Orientation,"As an HR Admin, I should be able to schedule orientation for new employee.",,,New,2,2,
+,HR Admin Operations,Assign Training Modules,"As an HR Admin, I should be able to assign training modules to employee.",,,New,2,2,
+,HR Admin Operations,Update Training Status,"As an HR Admin, I should be able to update training completion status for employee.",,,New,2,2,
+,,,,,,,,,
+,HR Admin Operations,Employee Separation,"As an HR Admin, I should be able to create and submit an employee separation request for an employee",,,New,4,4,
+,HR Admin Operations,View Exit Management List,"As an HR Admin, I should be able to view employees exit management list",,,New,2,2,
+,HR Admin Operations,View Exit Details,"As an HR Admin, I should be able to select employee from list to view full exit details.",,,New,2,2,
+,HR Admin Operations,Conduct Exit Interview,"As an HR Admin, I should be able to conduct exit interview",,,New,4,4,
+,HR Admin Operations,Complete Exit Interview and Final Pay,"As an HR Admin, I should be able to view the final pay calculation and mark the employee exit process as complete to finalize the separation.",,,New,2,2,
+,HR Admin Operations,Revoke Portal Access,"As an HR Admin, I should be able to revoke employee portal access on separation.",,,New,2,2,
+,HR Admin Operations,Terminate Employee Benefits,"As an HR Admin, I should be able to terminate employee benefits",,,New,2,2,
+,HRMS,Asset Management,"As a provider, I should be able to manage employee onboarding documentation and background checks.",Yes,Should Have,Modified,4,4,
+,,,,,,,,,
+,HR Admin Operations,Reports,"As an HR Admin, I should be able to generate and download reports.",,,Phase 2,,,
+Supervisor Operations,,,,,,,,,
+,Supervisor Operations,Dashboard,"As a Supervisor, I should be able to view dashboard with - 
+Today's Coverage percentage - Total Active Staff, On Shift, Pending Approvals, Upcoming Leave - Weekly Shift Calendar - Staffing Coverage Graph - Approval Queue",,,New,4,4,
+,Supervisor Operations,Quick Action Buttons,"As a Supervisor, I should be able to access quick action buttons for 
+- New Shift
+- New Employee
+- Label management.",,,New,2,2,
+,Supervisor Operations,View Weekly Shift Calendar,"As a Supervisor, I should be able to view weekly shift calendar with facility filter (ALF), week navigation, employee shifts with shift type and notes, and Day Off indicators.",,,New,2,2,
+,Supervisor Operations,View Staffing Coverage Graph,"As a Supervisor, I should be able to view staffing coverage graph showing 
+- Required Staff
+- Shortage
+- Surplus by day with facility filter and legends.",,,New,2,2,
+,Supervisor Operations,View Approval Queue,"As a Supervisor, I should be able to view approval queue with filter (All) showing pending leave requests with 
+- Employee details
+-Dates,
+- Leave type
+- Status.",,,New,2,2,
+,Supervisor Operations,Navigate Supervisor Sidebar,"As a Supervisor, I should be able to navigate to Shift Calendar, Requests, Timecard, Performance, Tasks, Appreciation, and Profile from sidebar.",,,New,2,2,
+,,,,,,,,,
+,Supervisor Operations,Shift Management,"As a Supervisor, I should be able to view shift calendar in List, Week, and Month views with employee shifts and legends.",,,New,4,4,
+,Supervisor Operations,Navigate Shift Calendar,"As a Supervisor, I should be able to navigate calendar with Today, date range selection, facility filter (ALF), and view toggle.",,,New,2,2,
+,Supervisor Operations,Create Employee Shift,"As a Supervisor, I should be able to create employee shift schedule.",,,New,4,4,
+,Supervisor Operations,Assign Shift,"As a Supervisor, I should be able to assign shift to staff member.",,,Removed,0,0,
+,Supervisor Operations,Bulk Assign Shifts,"As a Supervisor, I should be able to bulk assign shifts to multiple employees.",,,New,2,2,
+,Supervisor Operations,Edit Shift,"As a Supervisor, I should be able to edit existing shift details.",,,New,2,2,
+,Supervisor Operations,Change Shift Type,"As a Supervisor, I should be able to change shift type for an employee.",,,New,2,2,
+,Supervisor Operations,Assign Backup Staff,"As a Supervisor, I should be able to assign backup staff.",,,New,2,2,
+,,,,,,,,,
+,Supervisor Operations,Shift Change Requests,"As a Supervisor, I should be able to view shift requests list with status and request details.",,,New,2,2,
+,Supervisor Operations,Check Shift Availability,"As a Supervisor, I should be able to check availability showing existing swap requests, shift employees (1st/2nd/3rd shift), and availability conflicts.",,,New,4,4,
+,Supervisor Operations,Approve / Reject Shift Change,"As a Supervisor, I should be able to approve / reject a shift change request.",,,New,2,2,
+,Supervisor Operations,Submit Shift Change Request,"As a Supervisor, I should be able to submit shift change request for processing.",,,Removed,,,
+,Supervisor Operations,Update Shift Change Request,"As a Supervisor, I should be able to update shift change update",,,Removed,,,
+,Supervisor Operations,Leave Requests,"As a Supervisor, I should be able to View all the leave requests list",,,New,2,2,
+,Supervisor Operations,Approve / Reject Leave,"As a Supervisor, I should be able to approve / Reject leave requests and assign replacement employees.",,,New,2,2,
+,Supervisor Operations,View Leave request details,"As a Supervisor, I should be able to view particular employee leave request details",,,New,2,2,
+,,,,,,,,,
+,Supervisor Operations,Staff Review & Performance,"As a Supervisor, I should be able to view performance reviews list",,,New,2,2,
+,Supervisor Operations,Edit Performance Records,"As a Supervisor, I should be able to edit employee performance records.",,,Removed,0,0,
+,Supervisor Operations,Add Employee for Review,"As a Supervisor, I should be able to add employee for performance review.",,,New,2,2,
+,Supervisor Operations,Submit Performance Review,"As a Supervisor, I should be able to view and submit performance reviews with ratings and comments to HR Admin.",,,New,4,4,
+,,,,,,,,,
+,Supervisor Operations,Timecard,"As a Supervisor, I should be able to approve timesheet submitted by staff.",,,New,2,2,
+,Supervisor Operations,View Weekly Timecards,"As a Supervisor, I should be able to view weekly timecard list",,,New,2,2,
+,Supervisor Operations,Approve/Reject Timecards,"As a Supervisor, I should be able to approve timecards or reject with reason.",,,New,2,2,
+,Supervisor Operations,Forward Timecards to HR,"As a Supervisor, I should be able to forward request to HR for final approval.",,,Removed,,,
+,,,,,,,,,
+,Supervisor Operations,View Tasks List,"As a Supervisor, I should be able to view tasks list",,,New,2,2,
+,Supervisor Operations,Assign Tasks,"As a Supervisor, I should be able to add and assign tasks to employees",,,New,2,2,
+,Supervisor Operations,Edit Task,"As a Supervisor, I should be able to edit the task assigned to employee.",,,New,2,2,
+,,,,,,,,,
+,Supervisor Operations,Appreciation,"As a Supervisor, I should be able to view appreciation with tabs :
+- Nominees
+- Current Recognition
+- Past Awards.",,,Removed,,,
+,Supervisor Operations,View Nominees List,"As a Supervisor, I should be able to view nominees list",,,Removed,,,
+,Supervisor Operations,View Recognition List,"As a Supervisor, I should be able to view current recognition list.",,,Removed,,,
+,Supervisor Operations,View Past Awards,"As a Supervisor, I should be able to view past awards list",,,Removed,,,
+,Supervisor Operations,Give Appreciation,"As a Supervisor, I should be able to create and assign employee appreciation",,,Removed,,,
+,,,,,,,,,
+,Supervisor Operations,Profile,"As a Supervisor, I should be able to view profile with personal details and other details.",,,New,2,2,
+,Supervisor Operations,Edit Profile,"As a Supervisor, I should be able to edit profile including profile picture upload, personal details, and other details.",,,New,2,2,
+,,,,,,,,,
+,Supervisor Operations,Incident & Disciplinary,"As a Supervisor, I should be able to log an incident report for staff.",,,New,2,2,
+,Supervisor Operations,Request Correction,"As a Supervisor, I should be able to request attendance correction for staff.",,,New,2,2,
+,,,,,,,,,
+Employee Operations,,,,,,,,,
+,Employee Operations,Employee Dashboard,"As an Employee, I should be able to view cards
+- upcoming shift card
+- Leave Balance card
+- Pending Requests card
+- Performance Card",,,New,2,2,
+,Employee Operations,View Weekly Schedule,"As an Employee, I should be able to view weekly schedule with week/month/day navigation and shift details for each day.",,,New,2,2,
+,Employee Operations,Clock In/Out & Breaks,"As an Employee, I should be able to clock in/out with timer display and break marking.",,,New,2,2,
+,Employee Operations,View & Complete Tasks,"As an Employee, I should be able to view today's tasks with priority, status, assigned by details and mark tasks complete.",,,New,2,2,
+,Employee Operations,View Notice Board,"As an Employee, I should be able to view notice board with notices and category tags.",,,New,2,2,
+,,,,,,,,,
+,Employee Operations,View Weekly Timecard Summary,"As an Employee, I should be able to view weekly timecard summary showing 
+- Total Hours
+- Break Time
+- Net Hours
+- Overtime.",,,New,4,4,
+,Employee Operations,View Weekly Tasks,"As an Employee, I should be able to view weekly tasks by day with task details.",,,New,2,2,
+,Employee Operations,View All Timecards,"As an Employee, I should be able to view all timecards history",,,New,2,2,
+,Employee Operations,Send Timecard for Approval,"As an Employee, I should be able to send timecard to supervisor for approval",,,New,2,2,
+,Employee Operations,Submit Overtime Request,"As an Employee, I should be able to submit overtime request.",,,New,2,2,
+,Employee Operations,View All TImesheets,"As an Employee, I should be able to view all, approved, pending and rejected timesheet.",,,New,2,2,
+,,,,,,,,,
+,Employee Operations,Leave Management,"As an Employee, I should be able to submit a leave request.",,,New,2,2,
+,Employee Operations,View Leave Balances,"As an Employee, I should be able to view leave balance cards showing 
+- Annual
+- Sick
+- Personal
+- Unpaid leave counts.",,,New,2,2,
+,Employee Operations,View Past Leave Requests,"As an Employee, I should be able to view past leave requests in different tabs.",,,New,2,2,
+,Employee Operations,Cancel Pending Leave,"As an Employee, I should be able to cancel a pending leave request.",,,New,2,2,
+,,,,,,,,,
+,Employee Operations,Shift & Schedule,"As an Employee, I should be able to view my assigned shift schedule.",,,New,2,2,
+,,View Past Shift Requests,"As an Employee, I should be able to view past shift change requests with status and request details.",,,New,2,2,
+,Employee Operations,Submit Shift Change Request,"As an Employee, I should be able to submit shift change request",,,New,2,2,
+,Employee Operations,View Shift Request Status,"As an Employee, I should be able to view shift change request status in different tabs.",,,New,2,2,
+,Employee Operations,Accept / Decline Shift Swap,"As an Employee, I should be able to accept / decline shift swap request.",,,New,2,2,
+,,,,,,,,,
+,Employee Operations,Documents & Compliance,"As an Employee, I should be able to upload new files",,,New,2,2,
+,Employee Operations,View & Sign Compliance Documents,"As an Employee, I should be able to view and sign compliance documents.",,,New,4,4,
+,Employee Operations,View Documents by Folder,"As an Employee, I should be able to view documents",,,New,2,2,
+,Employee Operations,Download Employment Documents,"As an Employee, I should be able to download my employment documents.",,,New,2,2,
+,,,,,,,,,
+,,Employee Work Tasks,"As an Employee, I should be able to view tasks list in the tabs 
+- All
+- Completed
+- Pending
+- Due tasks count.",,,New,2,2,
+,Employee Operations,Update Task Status,"As an Employee, I should be able to update task status.",,,New,1,1,
+,Employee Operations,Log Task Notes,"As an Employee, I should be able to log notes against a task.",,,New,1,1,
+,Employee Operations,View Pending Tasks Notification,"As an Employee, I should be able to view pending tasks notification banner.",,,New,1,1,
+,,,,,,,,,
+,Employee Operations,Ability to Request time off,"As an Employee, I should be able to request time off.",,,Removed,,,
+,Employee Operations,Submit reimbursement request,"As an Employee, I should be able to submit expense reimbursement request.",,,New,2,2,
+,Employee Operations,Access Leave from Dashboard,"As an Employee, I should be able to access leave request from dashboard.",,,New,2,2,
+,Employee Operations,Fill Leave Request Form,"As an Employee, I should be able to fill leave request form:
+Start/End Data
+Leave Type
+Reason",,,New,2,2,
+,Employee Operations,Check Leave Balance,"As an Employee, I should be able to check leave request quota and should be able to show remaining balance",,,New,1,1,
+,Employee Operations,Track Leave Request Status,"As an Employee, I should be able to see tracking status of the leave request -
+Pending Supervisor
+Pending HR
+Approved/Rejected",,,New,2,2,
+,,,,,,,,,
+,Employee Operations,View Performance,"As an Employee, I should be able to view my latest performance review, including rating, review period, supervisor comments, HR comments, and Growth & Feedback sections.",,,New,2,2,
+,,,,,,,,,
+,Message,View Chat List,"As an Employee, I should be able to view chat list with
+- Contacts
+- Message previews
+- Timestamps
+- Unread counts.",,,New,4,4,
+,Message,Search Contacts,"As an Employee, I should be able to search contacts.",,,New,2,2,
+,Message,Send Message,"As an Employee, I should be able to open chat conversation with message thread and send messages.",,,New,2,2,
+,Employee Operations,Quick Actions,"As an Employee, I should be able to access quick action buttons (call, video, info) in chat.",,,New,8,8,
+,,,,,,,,,
+,Employee Operations,View Profile,"As an Employee, I should be able to view profile with
+-  Personal details
+-  Other details",,,Removed,,,
+,Employee Operations,Edit Profile,"As an Employee, I should be able to edit profile",,,Removed,,,

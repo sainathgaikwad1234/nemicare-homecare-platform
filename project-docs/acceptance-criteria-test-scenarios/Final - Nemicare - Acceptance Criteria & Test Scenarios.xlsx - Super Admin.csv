@@ -1,0 +1,1441 @@
+#,Module,Sub-Module,User Story,Description,Acceptance Criteria,Test Scenarios,Performance Scenarios,Figma Links ,Additional Comments
+Login,,,,,,,,,
+1,Login,Secure Login,"As a Super Admin, I should be able to login using valid credentials.","The Nemicare Super Admin Portal login screen presents a clean, branded interface with the Nemicare logo at the top, an email input field, a password input field, and a prominent 'Login' button. The Super Admin enters their registered email address and password to authenticate into the portal. Upon successful authentication, the system redirects the user to the main Dashboard screen showing the top navigation bar with Home, Company, and Settings options. Invalid credentials trigger an inline error message below the respective field without clearing the password. The login form also includes a 'Forgot Password' link that initiates the password reset workflow, ensuring the Super Admin always has a recovery path.","1. If the Super Admin enters a valid registered email and correct password and clicks Login, Then the system authenticates and redirects them to the Dashboard.
+ 
+ 2. If the Super Admin enters a valid email but an incorrect password and clicks Login, Then an error message 'Incorrect password' is displayed below the password field.
+ 
+ 3. If the Super Admin enters an unregistered email and clicks Login, Then an error message 'Email not found' is displayed below the email field.
+ 
+ 4. If the Super Admin leaves the email or password field empty and clicks Login, Then a validation message 'This field is required' is shown and the form is not submitted.
+ 
+ 5. If the Super Admin clicks the show/hide password toggle, Then the password characters are revealed or masked accordingly.
+ 
+ 6. If the Super Admin clicks the 'Forgot Password' link, Then the system navigates to the password reset screen.
+ 
+ 7. If the Super Admin successfully logs in, Then the top navigation bar with Home, Company, and Settings is displayed on the Header bar of the Dashboard.","Positive Functional
+1.Verify that login with valid credentials redirects to the Dashboard.
+2.Verify that the Login button becomes enabled after entering values in both fields.
+3.Verify that clicking the password toggle displays the password in plain text.
+ 
+ Negative
+4.Verify that login with an unregistered email displays an 'Email not found' error.
+5.Verify that login with a correct email but incorrect password displays an 'Incorrect password' error.
+6.Verify that leaving the email field empty displays a 'This field is required' validation message.
+7.Verify that leaving the password field empty displays a 'This field is required' validation message.
+8.Verify that leaving both fields empty displays validation messages for both fields.
+
+ UI Scenarios
+ 9. Verify Nemicare logo is displayed at top of login form.
+ 10. Verify that Username field should be visible.
+ 11. Verify that Password field should be visible.
+ 12. Verify 'Forgot Password' link is visible beneath the password field.
+ 13. Verify error messages appear inline below respective fields.
+ 
+ Edge Cases
+ 14.Verify that entering an email with trailing spaces trims the spaces and attempts login.
+15. Verify that login with a password containing special characters is successful if credentials are correct.
+16. Verify that rapid repeated clicks on the Login button result in only one login request being submitted.
+
+ Security
+ 17.Verify that the password field value is not visible in the page source.
+18 .Verify that the login endpoint uses HTTPS.
+19.Verify that the account is locked after 5 consecutive failed login attempts.","1. Verify that login response time with valid credentials is under 2 seconds under normal load.
+2. Verify that the login page initial load time is under 3 seconds on a standard broadband connection.",,
+2,Login,OTP Verification,"As a SuperAdmin, after entering credentials I should receive a One-Time Password (OTP) on registered email","After the Super Admin submits valid credentials on the login screen, the system transitions to the OTP Verification screen, which displays a message confirming the OTP has been sent to the registered email address (e.g., ad***@namicare.com). The screen shows a numeric OTP input field or individual digit boxes where the Super Admin types the 6-digit code received by email. A countdown timer is displayed to indicate OTP validity duration, and a 'Resend OTP' option appears once the timer expires. Upon entering the correct OTP and clicking 'Verify', the system completes authentication and redirects to the Dashboard. If an incorrect OTP is entered, an inline error is shown and the input is cleared for re-entry.","1. If the Super Admin submits valid login credentials, Then the system sends an OTP to the registered email and displays the OTP verification screen.
+ 
+ 2. If the Super Admin enters the correct 6-digit OTP and clicks Verify, Then the system completes authentication and redirects to the Dashboard.
+ 
+ 3. If the Super Admin enters an incorrect OTP and clicks Verify, Then an error message 'Invalid OTP' is displayed and the input is cleared.
+ 
+ 4. If the Super Admin enters non-numeric characters in the OTP field, Then the system rejects the input and only allows numeric digits.
+ 
+ 5. If the OTP validity timer expires, Then the Resend OTP option becomes active for the user to request a new code.
+ 
+ 6. If the Super Admin has not entered all 6 digits, Then the Verify button remains disabled.","Positive Functional
+ 1.Verify that entering a correct 6-digit OTP and clicking Verify redirects to the Dashboard.
+2.Verify that the OTP screen displays a masked email .
+3.Verify that the OTP input field accepts only numeric characters.
+ 
+ Negative
+ 4. Verify that entering an incorrect OTP displays an 'Invalid OTP' error and clears the input field.
+5. Verify that entering a 5-digit OTP keeps the Verify button disabled.
+6. Verify that entering an expired OTP after the timer runs out displays an 'OTP has expired' error.
+
+ UI Scenarios
+ 7. Verify that the countdown timer is visible on OTP screen.
+ 8. Verify that the 'Resend OTP' appears only after timer expiry.
+ 9. Verify that the OTP input field accepts exactly 6 digits.
+ 
+ Edge Cases
+ 10. Verify that pasting a 6-digit OTP from the clipboard populates the input field correctly.
+11. Verify that submitting an OTP immediately after requesting a resend invalidates the previously generated OTP.
+ 
+ Security
+ 12. Verify that the OTP is single-use (already-used OTP rejected on re-submission).
+ 13. Verify that the OTP is not exposed in network response payload.","1.Verify that OTP email delivery occurs within 30 seconds of credential submission.
+2. Verify that OTP verification response completes within 2 seconds.",,
+3,Login,Resend OTP,"As a SuperAdmin, I should be able to resend the OTP if I did not receive it or if it has expired.","On the OTP Verification screen, a 'Resend OTP' link or button is provided to allow the Super Admin to request a fresh OTP when the original code was not received or has expired per the countdown timer. The Resend OTP control is inactive (greyed out) while the original OTP is still within its validity period, becoming active only after the timer reaches zero. When the Super Admin clicks 'Resend OTP', the system sends a new 6-digit OTP to the registered email and resets the countdown timer. A success notification (e.g., 'A new OTP has been sent to your email') is shown inline on the verification screen. The previous OTP is immediately invalidated upon resend to prevent replay use.","1. If the OTP countdown timer is still active, Then the 'Resend OTP' control is disabled and clicking it has no effect.
+ 
+ 2. If the OTP countdown timer has expired and the Super Admin clicks 'Resend OTP', Then a new OTP is sent to the registered email and the timer resets.
+ 
+ 3. If a new OTP has been sent, Then a confirmation message 'A new OTP has been sent to your email' is displayed on screen.
+ 
+ 4. If the Super Admin enters the previously issued OTP after a resend, Then the system rejects it with 'OTP has Expired'.
+ 
+ 5. If the Super Admin enters the newly issued OTP, Then the system completes authentication and redirects to the Dashboard.
+ 
+ 6. If the Super Admin clicks 'Resend OTP' multiple times, Then only the most recently issued OTP is valid for verification.","Positive Functional
+ 1. Verify that after the timer expires, clicking 'Resend OTP' sends a new OTP email and resets the timer.
+ 2. Verify that entering the new OTP received via email redirects successfully to the Dashboard.
+ 3. Verify that a confirmation message 'A new OTP has been sent to your email' is displayed after resending OTP.
+ 
+ Negative
+ 4. Verify that clicking 'Resend OTP' while the timer is active is disabled or performs no action.
+ 5. Verify that entering an old OTP after requesting a resend displays an 'Invalid OTP' error.
+ 
+ UI Scenarios
+ 6. Verify that the 'Resend OTP' control is greyed out while timer is active.
+ 7. Verify that the timer resets to full duration after resend.
+ 8. Verify that the confirmation message is displayed inline below OTP input.
+ 
+ Edge Cases
+ 9. Verify that resending OTP three times in succession results in only the last OTP being valid.
+ 10. Verify that entering a resent OTP after a second expiry displays an 'OTP has expired' error.
+ 
+ Security
+ 11. Verify that the rate limiting is applied to 'Resend OTP' to prevent abuse.
+ 12. Verify that the each resend invalidates all previous OTPs.","1.Verify that the resent OTP email is delivered within 30 seconds of clicking 'Resend OTP'.
+2.Verify that the timer reset is reflected on screen within 1 second of clicking 'Resend OTP'.",,
+4,Login,Reset Password,"As a Super Admin, I should be able to reset the password","The password reset flow is initiated from the 'Forgot Password' link on the login screen. The Super Admin enters their registered email address on the Reset Password screen and clicks 'Send Reset Link', after which the system sends a password reset email containing a secure time-limited link. Clicking the link in the email opens the Set New Password screen where the Super Admin enters and confirms a new password meeting the defined complexity requirements. On successful submission, a confirmation message is shown and the Super Admin is redirected to the login screen to sign in with the new password. The reset link becomes invalid after first use or upon expiry, preventing reuse.","1. If the Super Admin clicks 'Forgot Password' on the login page, Then the system navigates to the Reset Password screen.
+ 
+ 2. If the Super Admin enters a registered email and clicks 'Send Reset Link', Then the system sends a password reset email to that address.
+ 
+ 3. If the Super Admin clicks the reset link within its validity period, Then the Set New Password screen is displayed.
+ 
+ 4. If the Super Admin enters a valid new password and matching confirm password and submits, Then the password is updated and they are redirected to the login screen.
+ 
+ 5. If the new password does not meet complexity requirements, Then the system shows the relevant error and does not save the password.
+ 
+ 6. If the new and confirm passwords do not match, Then an error 'Passwords do not match' is displayed.
+ 
+ 7. If the Super Admin uses an expired or already-used reset link, Then the system displays 'This link has expired or already been used'.","Positive Functional
+ 1. Verify that clicking 'Forgot Password', entering a registered email, and clicking 'Send Reset Link' displays a confirmation that the reset email has been sent.
+ 2.Verify that opening the reset link, entering a new password with a matching confirm password, and submitting redirects to the login page.
+ 3.Verify that logging in with the newly set password after reset provides successful access to the Dashboard.
+ 
+ Negative
+ 4. Verify that entering an unregistered email on the Reset Password screen displays an 'Email not found' error.
+ 5. Verify that setting a new password without uppercase characters (admin@newpass1!) displays a password complexity error.
+ 6 .Verify that setting a new password without a special character (AdminNewPass1) displays a password complexity error.
+ 7. Verify that entering a non-matching confirm password displays a 'Passwords do not match' error.
+ 8. Verify that using the reset link a second time displays 'This link has expired or already been used'.
+ 
+ UI Scenarios
+ 9. Verify that the 'Forgot Password' link is visible on the login page.
+ 10. Verify that the password complexity hints are displayed on the Set New Password screen.
+ 
+ Edge Cases
+ 11.Verify that leaving the email field blank on the Reset Password screen displays a 'This field is required' validation message.
+ 12. Verify that opening the reset link after the expiry period displays an expiry error.
+ 
+ Security
+ 13. Verify that the reset link is single-use and time-limited.
+ 14. Verify that the reset link uses HTTPS and contains a secure token.","1. Verify that the password reset email is delivered within 60 seconds of request submission.
+2. Verify that the new password save action completes within 2 seconds.",,
+Dashboard,,,,,,,,,
+5,Dashboard,View total No of Facilities,"As a SuperAdmin, I should be able to view total count of Facilities, providers, patients, appointments & encounters","The Dashboard screen is the first screen presented to the Super Admin after successful login and OTP verification. It displays summary metric cards at the top of the content area, each showing a labelled count for key entities: Facilities, Providers, Patients, Appointments, and Encounters. Each metric card uses a distinct icon and colour accent, and the count reflects the current live total across all registered companies and facilities in the system. The top navigation bar remains visible showing the Nemicare logo, Home, Company, and Settings links along with search, help, notification, and profile icons. The counts update dynamically when the Super Admin refreshes the page or navigates back to the Dashboard after performing actions elsewhere. Clicking on a metric card navigates the Super Admin to the corresponding list view for that entity.","1. If the Super Admin lands on the Dashboard after login, Then metric cards for Facilities, Providers, Patients, Appointments, and Encounters are displayed with live counts.
+ 
+ 2. If a new entity is added to the system, Then the respective metric count on the Dashboard reflects the change upon refresh.
+ 
+ 3. If the Super Admin clicks on the Facilities metric card, Then the system navigates to the Facilities list view.
+ 
+ 4. If the Super Admin views a metric card, Then it displays an icon, a label, and the current total count.
+ 
+ 5. If the Super Admin is on the Dashboard, Then the top navigation bar with Home, Company, and Settings is visible.","Positive Functional
+ 1. Verify that after login and landing on the Dashboard, counts for Facilities, Providers, Patients, Appointments, and Encounters are displayed.
+2. Verify that adding a new Facility and returning to the Dashboard increments the Facilities count by 1.
+ 3. Verify that clicking the Facilities metric card navigates to the Facilities list page.
+
+ Negative
+ 4. Verify that rapid repeated reloads of the Dashboard do not cause duplicate or inconsistent count values.
+5.Verify that stale or cached data is not displayed after logout and login with a different SuperAdmin account.
+6.Verify that negative or invalid values are not displayed in the count fields.
+ 
+ UI Scenarios
+ 7. Verify that each metric card has a distinct icon and label.
+8. Verify that the top navigation bar is visible on the Dashboard.
+
+ Edge Cases
+ 9. Verify that when there are zero entities, the Dashboard displays counts as 0 (not blank).
+10. Verify that when there are very large counts (e.g., 10,000+ facilities), the values are displayed correctly without truncation errors.
+ 
+ Security
+ 11. Verify Dashboard data is only visible to authenticated Super Admin sessions.","1.Verify that Dashboard metrics load within 3 seconds after login redirect.
+2.Verify that count updates after refresh complete within 2 seconds.",,
+6,Dashboard,List Facilities,"As a SuperAdmin, I should be able to view list of Facilities","The Dashboard includes a Facilities list section below the summary metric cards, presenting a tabular view of all registered facilities in the system. Each row in the list displays key facility information such as facility name, associated company, status (Active/Inactive), and the number of departments or users. The list supports pagination, allowing the Super Admin to navigate through multiple pages of facilities when the total count exceeds the page limit. A search bar above the list enables quick filtering by facility name, and column headers support sorting. The Nemicare top navigation bar with Home, Company, and Settings icons remains accessible from this view. Clicking on a facility row navigates the Super Admin to the detailed Facility Profile screen for that facility.","1. If the Super Admin views the Dashboard Facilities list section, Then all registered facilities are displayed with name, company, status, and relevant counts.
+ 
+ 2. If the Facilities list exceeds the page display limit, Then pagination controls are shown and allow navigation between pages.
+ 
+ 3. If the Super Admin types in the search bar, Then the list filters to show only facilities matching the typed name.
+ 
+ 4. If the Super Admin clicks on a column header, Then the list is sorted by that column in ascending or descending order.
+ 
+ 5. If the Super Admin clicks on a facility row, Then the system navigates to the Facility Profile detail screen.","Positive Functional
+ 1. Verify that navigating to the Dashboard displays the Facilities list with all registered facilities.
+ 2. Verify that searching for company name filters the list to show only matching facilities.
+ 3. Verify that clicking on a facility name navigates to that facility's detail screen.
+
+Negative
+4. Verify that searching for a non-existent facility name displays a 'No results found' message.
+5. Verify that the system correctly handles special character search by displaying relevant results when matching records exist, and showing a 'No results found' message when no matches are found. 
+
+ UI Scenarios
+ 6. Verify that pagination controls are rendered correctly.
+ 7. Verify that active facilities display an 'Active' badge and inactive facilities display an 'Inactive' badge.
+ 
+ Edge Cases
+ 10. Verify that when there are exactly 0 registered facilities, an empty state message is displayed.
+ 11. Verify that very long facility names are truncated or wrapped correctly within the list.
+ 
+ Security
+ 12. Verify that the only Super Admin role can view the full Facilities list.
+ 13. Verify that the list data is served over HTTPS.","1.Verify that the Facilities list loads within 3 seconds for up to 500 facilities.
+2.Verify that search filter results update within 1 second of input.",,
+"Company / Organization Onboarding
+",,,,,,,,,
+7,Company / Organization Onboarding,Add Company,"As a SuperAdmin, I should be able to Add a company.","The Super Admin can add a new company via the Company section accessible from the top navigation bar. Clicking 'Add Company' opens a form with fields including company name, email, phone number, website, address, and a description field, along with an option to upload a company logo. A brand colour picker is also available so the Super Admin can assign a custom primary colour to the company. Upon successful submission, the new company appears in the registered companies list with an 'Active' badge and a Facilities count of 0. Required field validation is enforced, and the company name must be unique across the system. The Company Profile card as seen in the Figma design shows the company logo, name (e.g., Binford Ltd.), Active badge, Facilities count, email, phone, website, address, and description fields.","1. If the Super Admin clicks 'Add Company', Then the Add Company form opens with all input fields.
+ 
+ 2. If all required fields are filled with valid data and the company name is unique, Then the company is created and appears in the list with Active status.
+ 
+ 3. If the company name entered already exists in the system, Then an error 'Company name already exists' is displayed.
+ 
+ 4. If the email field contains an invalid format, Then an error 'Please enter a valid email address' is shown.
+ 
+ 5. If required fields are left blank on submission, Then a validation message 'This field is required' is shown for each blank required field.
+ 
+ 6. If the Super Admin uploads a JPG or PNG logo within size limits, Then the logo is uploaded and previewed on the form.
+ 
+ 7. If the uploaded logo file is not a JPG or PNG, Then an error about accepted file types is displayed.
+ 
+ 8. If the Super Admin assigns a brand colour and submits the form, Then the brand colour is saved and associated with the company profile.","Positive Functional
+ 1. Verify that filling all fields and submitting creates the company with an Active badge.
+ 2. Verify that uploading a valid PNG logo and submitting displays the logo on the company profile card.
+ 3. Verify that assigning a brand colour and submitting saves the colour to the company profile.
+ 
+ Negative
+ 4. Verify that submitting the form with the company name field empty displays 'This field is required'.
+ 5. Verify that submitting the form with a duplicate company name displays 'Company name already exists'.
+ 6. Verify that submitting the form with an invalid email 'not-an-email' displays 'Please enter a valid email address'.
+ 7. Verify that uploading a .gif file as a logo displays a file type error.
+ 
+ UI Scenarios
+ 8. Verify that the Add Company form contains logo upload, brand colour picker, and all specified fields.
+ 9. Verify that the newly added company appears at top of companies list.
+ 
+ Edge Cases
+ 10. Verify that a company name with special characters is accepted.
+ 11.Verify that entering data in the description field at maximum character limit is accepted without truncation.
+ 
+ Security
+ 12. Verify that the only Super Admin can access Add Company form.","1.Verify that the Add Company form submission completes within 3 seconds.
+2.Verify that logo upload processing completes within 5 seconds for files up to 5 MB",,
+8,Company / Organization Onboarding,View Company,"As a SuperAdmin, I should be able to view list of registered companies.","The Company section accessible from the top navigation bar displays a list of all registered companies in the Nemicare system. Each entry in the list shows the Company Profile card containing the company logo, company name (e.g., Binford Ltd.), Active/Inactive status badge, Facilities count, email, phone, website, address, and a brief description. The list supports pagination for navigating through large numbers of companies. The Super Admin can see all relevant company metadata at a glance without needing to open individual company profiles. The top navigation bar with Home, Company, Settings, and utility icons (search, help, notification, profile) remains accessible from this view. Clicking on a company card or row navigates the Super Admin to the full Company Profile view with the Edit Info button.","1. If the Super Admin navigates to the Company section, Then a list of all registered companies is displayed with key profile details.
+ 
+ 2. If the number of companies exceeds the page limit, Then pagination controls are displayed.
+ 
+ 3. If the Super Admin clicks on a company card, Then the system navigates to the full Company Profile detail view.
+ 
+ 4. If the Super Admin refreshes the Company list, Then the latest registered companies are shown.
+ 
+ 5. If a company is Active, Then an Active badge is displayed on its card; if Inactive, an Inactive badge is shown.","Positive Functional
+ 1.Verify that navigating to the Company section displays a list of all registered companies with details.
+ 2. Verify that the Active badge is displayed on the company card.
+ 3. Verify that clicking on company navigates to the Company Profile detail view.
+ 
+ Negative
+ 4. Verify that accessing the Company list without authentication redirects to the login screen.
+ 5. Verify that when the Company list fails to load, error message is displayed instead of a blank screen.
+ 
+ UI Scenarios
+ 6. Verify that the company cards show company details 
+ 7. Verify that the pagination controls appears below the list.
+ 8. Verify that the when a company has no logo , a placeholder icon is displayed.
+ 
+ Edge Cases
+ 9.  Verify that when there are zero registered companies, an empty state message is displayed.
+ 10.Verify that very long company descriptions are truncated 
+ 
+ Security
+ 11. Verify Company list is accessible only to authenticated Super Admin.
+ 12. Verify company data is served over HTTPS.","1.Verify that the Company list loads within 3 seconds for up to 200 companies.
+2.Verify that navigation to the Company Profile page on click completes within 2 seconds.",,
+9,Company / Organization Onboarding,Search & Filter Company,"As a SuperAdmin, I should be able to search and apply filter on the registered companies.","The Company section provides a search bar at the top of the companies list that allows the Super Admin to search registered companies by name, email, or other key identifiers. In addition to search, a filter panel or dropdown provides options to filter companies by status (Active, Inactive), by number of facilities, or by date added. The list updates in real time or on applying the filter to show only matching companies. The search and filter can be used independently or in combination to narrow results. A 'Clear' or 'Reset' control allows the Super Admin to remove all active filters and restore the full list. The top navigation bar and all standard page elements remain visible while search and filter are in use.","1. If the Super Admin types in the search bar, Then the companies list filters to show only matching companies.
+ 
+ 2. If the Super Admin selects 'Active' from the status filter, Then the list shows only Active companies.
+ 
+ 3. If both search and filter are applied simultaneously, Then only companies matching both criteria are displayed.
+ 
+ 4. If no companies match the search or filter criteria, Then a 'No results found' message is displayed.
+ 
+5. If the Super Admin clicks on ‘Clear’ or ‘Reset’, then all applied filters should be removed, and the system should display the complete company list.
+ 
+ 6. If the search term is typed in lowercase, Then the search returns case-insensitive matches.","Positive Functional
+ 1. Verify that searching for company name displays company card and any other matching companies.
+ 2. Verify that applying the status filter 'Active' displays only Active companies.
+ 3. Verify that applying search for company name along with filter 'Active' displays only company (Active).
+ 4. Verify that clicking 'Clear' after performing a search restores the full company list.
+ 
+ Negative
+ 5. Verify that when a user searches with a term that does not match any records, the system displays an appropriate “No results found” message.
+ 6. Verify that applying the 'Inactive' filter when no inactive companies exist displays a 'No results found' message.
+ 
+ UI Scenarios
+ 7. Verify that the search bar and Filter icon are visible above the companies list.
+ 8. Verify that the filter dropdown or panel displays status options.
+ 9. Verify that the 'Clear' or 'Reset' control is visible when filters are active.
+
+ Edge Cases
+ 10. Verify that searching with special characters is handled with appropriate message.
+ 11. Verify that typing a search term very quickly updates the list correctly without duplicates or UI glitches.
+ 
+ Security
+ 12. Verify that the search input is handled safely to prevent injection attacks.","1.Verify that search results update within 1 second of typing.
+2.Verify that applying filters reloads the list within 2 seconds.",,
+10,Company / Organization Onboarding,Company Profile Management,"As a SuperAdmin, I should be able to edit a company's profile.","The Company Profile detail view displays all stored information for a company — logo, name (e.g., Binford Ltd.), Active badge, Facilities count, email, phone, website, address, and description — along with an 'Edit Info' button as shown in the Figma Company Profile card. Clicking 'Edit Info' opens the edit form pre-populated with the current company data, allowing the Super Admin to modify any field. The Super Admin can update the company logo by uploading a new image, change the brand colour, or update any text fields. Required field validation is enforced on save, and changes are reflected immediately on the Company Profile card after successful submission. An audit trail entry is created for every profile edit to maintain compliance and traceability.","1. If the Super Admin clicks 'Edit Info' on the Company Profile, Then the edit form opens pre-populated with current data.
+ 
+ 2. If the Super Admin updates valid fields and clicks Save, Then changes are saved and reflected on the Company Profile card.
+ 
+ 3. If the Super Admin clears a required field and clicks Save, Then a validation message 'This field is required' is shown.
+ 
+ 4. If the Super Admin uploads a valid new logo, Then it replaces the existing logo on save.
+ 
+ 5. If the Super Admin updates the brand colour and saves, Then the new brand colour is applied to the company profile.
+ 
+ 6. If the Super Admin saves edits successfully, Then an audit trail entry is created with change details, timestamp, and editor identity.","Positive Functional
+ 1. Verify that clicking 'Edit Info', updating the company phone, and saving reflects the updated phone on the Company Profile card. 
+ 2. Verify that uploading a new PNG logo and saving displays the updated logo on the Company Profile card.
+ 3. Verify that updating the brand colour and saving applies the colour change successfully.
+
+ Negative
+ 4. Verify that clearing the company name field and saving displays 'This field is required'.
+ 5. Verify that entering an invalid email format on the edit form and saving displays 'Please enter a valid email address'.
+ 6. Verify that uploading a non-image file as a logo displays a file type error.
+ 
+ UI Scenarios
+ 7. Verify that the 'Edit Info' button is visible on the Company Profile card.
+ 8. Verify that edit form fields are pre-populated with the current company data.
+ 9. Verify that updated data is reflected on the Company Profile card immediately after saving.
+
+ Edge Cases
+ 10. Verify that updating the company name to one that already exists displays a duplicate name error.
+ 11. Verify that cancelling the edit without saving does not persist any changes.
+ 
+ Security
+ 12. Verify that only Super Admin can edit company profile.
+ 13. Verify tht audit trail entry is created for every successful profile edit.","1.Verify that saving company profile edits completes within 3 seconds.
+2.Verify that updated profile data reflects on the card within 1 second of save confirmation.",,
+11,Company / Organization Onboarding,Set Brand Color,"As a SuperAdmin, I should be able to set a brand color for each company/facility","The Nemicare Super Admin Portal allows the Super Admin to assign a unique brand colour to each company or facility, enabling visual differentiation and white-label customisation for each client. The brand colour picker is accessible from both the Add Company form and the Edit Company profile form, as well as from the Facility Settings configuration screen. The colour picker provides a palette of preset colours and an option to enter a custom hex code for precise brand matching. Once saved, the selected brand colour is applied throughout the company or facility's UI — for example in sidebar accents, button colours, and header backgrounds. The Company Profile card and Facility detail screens reflect the assigned brand colour immediately after save.","1. If the Super Admin opens the brand colour picker, Then preset colours and a hex code input are displayed.
+ 
+ 2. If the Super Admin selects a preset colour and saves, Then that colour is applied to the company or facility UI.
+ 
+ 3. If the Super Admin enters a valid hex code and saves, Then the custom hex colour is applied as the brand colour.
+ 
+ 4. If the Super Admin enters an invalid hex code, Then an error 'Please enter a valid hex colour code' is shown and the form is not saved.
+ 
+ 5. If a brand colour is saved for a company, Then the Company Profile card reflects the colour in relevant UI elements.
+ 
+ 6. If a brand colour is set for a facility via Facility Settings, Then the facility UI reflects the assigned colour after save.","Positive Functional
+ 1. Verify that opening the Add Company form, selecting a preset colour, and saving applies the colour to the company profile card
+ 2. Verify that opening the Edit Company form, entering a hex code, and saving applies the exact colour correctly.
+ 3. Verify that setting different brand colours for two companies results in each company displaying its own colour.
+ 
+ Negative
+ 4.Verify that entering an invalid hex code and saving displays 'Please enter a valid hex colour code'.
+ 5. Verify that clearing the hex code field and saving displays a validation error.
+ 
+ UI Scenarios
+ 6. Verify that the colour picker displays both a preset palette and a hex input field.
+ 7. Verify that the selected colour preview is displayed in the picker before saving.
+ 8. Verify that the Company Profile card reflects the selected brand colour after saving.
+
+ Edge Cases
+ 9. Verify that entering a 3-digit shorthand hex code is either accepted or rejected with a clear validation message.
+ 10. Verify that assigning the same brand colour to two companies saves correctly and independently for both.
+
+ Security
+ 11. Verify that the only Super Admin can set or change brand colours.","1.Verify that brand colour save action completes within 2 seconds.
+2.Verify that the colour picker renders within 1 second of opening.",,
+Facility Management,,,,,,,,,
+12,Facility Management,Add Facilities,"As a SuperAdmin, I should be able to add a facility","The Facility Management section allows the Super Admin to add a new facility to an existing company from the top navigation or Company detail view. Clicking 'Add Facility' opens a form with fields for facility name, facility type, associated company, address, phone number, email, and line of business. The Facility Settings tabs visible in the Figma design — Case Agency, Rooms & Beds, Rate Card, Absence Codes, Activity Categories, Drill Types, Vital Ranges, Roles & Permissions, Weekly Menu, Form Builder — become available for configuration after the facility is created. Required fields are enforced, and facility name must be unique within the associated company. Upon successful creation, the facility appears in the Facilities list and the company's Facilities count increments accordingly. The Admin Settings tab in the portal shows the Facility tab alongside Roles and Permissions and Master tabs for further configuration.","1. If the Super Admin clicks 'Add Facility', Then the Add Facility form opens with all input fields.
+ 
+ 2. If all required fields are filled and the facility name is unique within the company, Then the facility is created and appears in the Facilities list with Active status.
+ 
+ 3. If the facility name already exists for the associated company, Then an error 'Facility name already exists for this company' is displayed.
+ 
+ 4. If required fields are blank on submission, Then 'This field is required' is shown for each empty field.
+ 
+ 5. If a new facility is added, Then the associated Company Profile Facilities count increments by 1.
+ 
+ 6. If a facility is created, Then Facility Settings tabs are available for further configuration.","Positive Functional
+ 1. Verify that filling all fields and submitting adds the facility to the list.
+ 2. Verify that the Facilities count for Company. increments from 4 to 5 after adding a facility.
+ 3. Verify that opening the newly added facility displays the Facility Settings tabs.
+ 
+ Negative
+ 4. Verify that submitting the form with the facility name field blank displays 'This field is required'.
+5 .Verify that submitting the form with a duplicate facility name within the same company displays a duplicate name error.
+ 
+ UI Scenarios
+ 6.Verify that the Add Facility form contains all specified fields.
+ 7. Verify that a newly added facility appears in the list with an Active badge.
+ 8. Verify that Facility Settings tabs are visible after facility creation.
+ 
+ Edge Cases
+ 9. Add facility with maximum character limit in name field — verify accepted.
+ 
+ Security
+ 10. Verify that only Super Admin can add facilities.
+","1.Verify that the Add Facility form submission completes within 3 seconds.
+2.Verify that the Facilities list refreshes within 2 seconds after facility creation.",https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-163259&t=Rfb89JT00KkxQUw7-4,
+13,Facility Management,View Facilities,"As a SuperAdmin, I should be able to view list of Facilities","The Facility Management section presents a list view of all facilities registered in the Nemicare system, accessible from the top navigation bar or from the Dashboard. Each row or card in the list displays key facility information: facility name, associated company, facility type, status (Active/Inactive), number of departments, and number of users. The list is paginated for large datasets and includes column headers that support sorting. The top navigation bar — with the Nemicare logo, Home, Company, and Settings links — remains visible. The Admin Settings area accessible from Settings includes a Facility tab for deeper configuration. Clicking on a facility navigates to the detailed Facility Profile view where the Super Admin can see all facility-specific settings.","1. If the Super Admin navigates to Facility Management, Then all registered facilities are listed with name, company, type, status, department count, and user count.
+ 
+ 2. If a facility is Active, Then it shows an Active badge; if Inactive, it shows an Inactive badge.
+  
+3. If the Super Admin clicks a column header, Then the list is sorted by that column.
+ 
+ 4. If the Super Admin clicks on a facility row, Then the Facility Profile detail view is opened.","Positive Functional
+ 1.Verify that navigating to Facility Management displays all registered facilities.
+2. Verify that active facilities display an 'Active' badge and inactive facilities display an 'Inactive' badge.
+3. Verify that clicking on a facility row navigates to the Facility Profile detail view.
+4. Verify that sorting by facility name reorders the list alphabetically.
+ 
+ Negative
+ 5.Verify that accessing the Facilities list without authentication redirects to the login screen.
+ 6. Verify that when the Facilities list fails to load, a error message is displayed instead of a blank screen.
+ 
+ UI Scenarios
+ 7. Verify that column headers (Name, Company, Type, Status) are labelled correctly.
+ 8. Verify that pagination controls appear when handling large datasets.
+ 
+ Edge Cases
+ 9. Verify that when there are zero registered facilities, an empty state message is displayed.
+10. Verify that facility details at maximum character length are displayed without breaking the layout.
+ 
+ Security
+ 11. Verify that only Super Admin can view full Facilities list.
+ 12. Verify that the data served over HTTPS.","1.Verify that the Facilities list loads within 1 second for up to 1,000 facilities.
+2.Verify that sorting is applied within 1 second of clicking a column header.",https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-163259&t=Rfb89JT00KkxQUw7-4,
+14,Facility Management,Edit Facility,"As a SuperAdmin, I should be able to edit Facilities","The Facility Profile detail view provides an 'Edit' or 'Edit Info' button allowing the Super Admin to modify facility information. Clicking edit opens the facility edit form pre-populated with the current data, including facility name, type, associated company, address, phone, email, line of business, and status. The Super Admin can update any of these fields and save changes. Required field validation is enforced and the facility name must remain unique within the company on update. After a successful save, the Facility Profile detail view reflects the updated information immediately. An audit trail entry is recorded for every successful facility update capturing the changed fields, timestamp, and the Super Admin who made the change.","1. If the Super Admin clicks 'Edit info' on the Facility Profile, Then the edit form opens pre-populated with current data.
+ 
+ 2. If valid fields are updated and saved, Then the Facility Profile reflects the updated data immediately.
+ 
+ 3. If a required field is cleared on save, Then 'This field is required' is shown.
+ 
+ 4. If the facility name is changed to a duplicate within the same company, Then an error 'Facility name already exists for this company' is shown.
+ 
+ 5. If the facility status is changed to Inactive and saved, Then the facility shows Inactive badge on profile and list.
+ 
+ 6. If a facility edit is saved successfully, Then an audit trail entry is created.","Positive Functional
+ 1. Verify that clicking 'Edit Info', updating the facility details, and saving reflects the updated details on the profile.
+ 2. Verify that changing the facility status to Inactive and saving displays the Inactive badge.
+ 3. Verify that updating the facility type and saving reflects the change immediately on the profile.
+ 
+ Negative
+ 4. Verify that clearing the facility name field and saving displays 'This field is required'.
+ 5. Verify that changing the facility name to an existing facility name within the same company displays a duplicate name error.
+
+ UI Scenarios
+ 6. Verify that the edit form is pre-populated with the current facility data.
+ 7. Verify that updated data is reflected on the profile immediately after saving.
+
+ Edge Cases
+ 8. Verify that cancelling the edit without saving does not persist any changes.
+ 9. Verify that updating multiple fields simultaneously and saving reflects all changes correctly.
+ 
+ Security
+ 10. Verify that only the Super Admin can edit facility data.
+ 11. Verify that an audit trail entry is created for every successful edit.","1.Verify that saving facility edits completes within 3 seconds.
+2.Verify that updated facility profile data renders within 1 second of save confirmation.",https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-163259&t=Rfb89JT00KkxQUw7-4,
+15,Facility Management,Location details,"As a SuperAdmin, I should be able to view facility details","The Facility Profile detail view presents comprehensive information about a selected facility. It displays the facility name, type, associated company, line of business, address (including street, city, state, ZIP, and country), phone, email, and status (Active/Inactive). The Admin Settings area for the facility includes a Facility tab with sub-tabs: Case Agency, Rooms & Beds, Rate Card, Absence Codes, Activity Categories, Drill Types, Vital Ranges, Roles & Permissions, Weekly Menu, and Form Builder — all visible per the Figma Facility Settings design. A Contact card section displays the facility's primary contact details: name, email, phone, and address. The Super Admin can also see the list of departments and users associated with the facility from the detail view. All facility details are read-only in this view; editing requires clicking the 'Edit' button.","1. If the Super Admin clicks on a facility name in the list, Then the Facility Profile detail view loads showing name, type, company, line of business, address, phone, email, and status.
+ 
+ 2. If the Super Admin views the Facility Settings area, Then tabs for Case Agency, Rooms & Beds, Rate Card, Absence Codes, Activity Categories, Drill Types, Vital Ranges, Roles & Permissions, Weekly Menu, and Form Builder are visible.
+ 
+ 3. If the Super Admin views the Contact card section, Then primary contact name, email, phone, and address are displayed.
+","Positive Functional
+ 1. Verify that clicking on a facility name displays the Facility Profile
+ 2. Verify that Facility Settings tabs are visible on the detail view.
+ 3. Verify that the Contact card displays primary contact name, email, phone, and address.
+
+ Negative
+ 5. Verify that navigating directly to a facility detail URL without login redirects to the login screen.
+ 6. Verify that navigating to a non-existent facility ID displays a 'Facility not found' message.
+ 
+ UI Scenarios
+ 7.Verify that all fields on the detail view are read-only and not editable inline.
+ 8.Verify that the Active/Inactive badge is displayed correctly.
+ 
+ Edge Cases
+ 9. Verify that a facility with a very long address is displayed properly without layout issues.
+ 
+ Security
+ 10. Verify that only Super Admin can view facility detail.
+ 11. Verify that sensitive contact data is served over HTTPS.","1.Verify that the Facility detail view loads within 3 seconds.
+2.Verify that Facility Settings tabs are ready for interaction within 1 second of detail load.",,
+16,Facility Management,Users,"As a SuperAdmin, I should be able to add, view, edit & archive users.","The Facility Profile detail view includes a Users section where the Super Admin can manage all users associated with a facility. The users list displays each user's name, role, department, email, phone, and status (Active/Archived). An 'Add User' button opens a form with fields for the user's name, email, role, department, and phone number. Existing users can be edited via an edit action that pre-populates the form with current user data. Archiving a user deactivates their account access without permanently deleting the record, maintaining data integrity. The archived user appears in the list with an Archived status badge and can be restored if needed.","1. If the Super Admin clicks 'Add User', Then a form opens with fields
+ 
+ 2. If all required fields are filled with valid data and email is unique, Then the user is created and shown in the list with Active status.
+ 
+ 3. If a duplicate email is entered, Then an error 'A user with this email already exists' is displayed.
+ 
+ 4. If the Super Admin clicks the edit icon on a user, Then the edit form opens pre-populated with existing user data.
+ 
+ 5. If the Super Admin confirms archive on a user, Then the user's status changes to Archived and they lose portal access.
+ 
+ 6. If a user is archived, Then they appear in the list with an Archived badge and a restore option is available.","Positive Functional
+ 1. Verify that adding a user with valid details displays the user in the list with Active status.
+ 2. Verify that editing a user role from Admin to Viewer and saving updates the role in the list.
+3. Verify that archiving a user and confirming displays the Archived badge and revokes access.
+4. Verify that viewing the users list displays name, role, department, email, phone, and status columns.
+5. Verify that a confirmation popup appears before the admin archives a user.
+
+ Negative
+ 5. Verify that adding a user with a duplicate email displays 'A user with this email already exists'.
+ 6. Verify that submitting the Add User form with the name field empty displays 'This field is required'.
+ 
+ UI Scenarios
+ 7. Verify that archive confirmation dialog appears before archiving a user.
+ 8. Verify that Archived users display an Archived badge in list.
+ 9. Verify that restore option is visible for archived users.
+ 
+ Edge Cases
+ 10. Verify that archiving a user who is currently logged in terminates the active session.
+ 11. Verify that restoring an archived user changes the status back to Active.
+ 
+ Security
+ 12. Verify that only Super Admin can add, edit, or archive users.
+ 13. Verify that archived users cannot log in to the portal.","1.Verify that add, edit, and archive user operations complete within 3 seconds.
+2.Verify that the Users list loads within 2 seconds on the facility detail view.",https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-163378&t=Rfb89JT00KkxQUw7-4,
+Master Management,,,,,,,,,
+17,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to view my profile details","This story enables the SuperAdmin to view their own profile details within the Settings section of the Super Admin Portal. The Figma shows the top navigation with Home, Company, and Settings links. The profile view displays the admin's personal information including name, email, phone number, and address. The profile section is accessible from the Settings page which has tabs for Facility, Roles and Permissions, and Master. This self-service view allows the SuperAdmin to verify their account information is accurate and up-to-date, which is important for communication and audit trail purposes.","1. When the SuperAdmin opens Settings and clicks Profile, Then their personal details are displayed.
+ 2. If the profile has a photo, Then the photo is shown.
+  Else if no photo, Then a default avatar is displayed.
+ 3. If all profile fields are populated, Then name, email, phone, and address are all visible.
+ 4. After loading the profile, Then an Edit Info button is available for making changes.
+ 5. If the profile page loads, Then the data shown matches the SuperAdmin's registered account information.","Positive Functional:
+ 1. Verify that navigating to Settings > Profile displays the SuperAdmin's personal details
+ 2. Verify that the profile shows all details 
+ 3. Verify that the profile picture or default avatar is displayed
+ 4. Verify that an 'Edit Info' button is visible on the profile page
+ 
+ Negative:
+ 5. Verify that a profile with missing phone number shows the field as empty (not an error)
+ 6. Verify that accessing another admin's profile via URL manipulation is blocked
+ 
+ UI Scenarios:
+ 7. Verify that the Settings page shows tabs: Facility, Roles and Permissions, Master
+ 8. Verify that the profile layout shows the photo and details 
+ 
+ Edge Cases:
+ 9. Verify that a very long address wraps correctly without overflow
+ 10. Verify that a profile with all optional fields empty still loads without error
+ 
+ Security:
+ 11. Verify that profile details are only accessible to the authenticated SuperAdmin
+ 12. Verify that sensitive data (password) is never displayed on the profile page",1. Verify that the profile page loads within 2 seconds,,
+18,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to update my profile details","This story enables the SuperAdmin to update their own profile information through the Settings section. The Figma Company Profile card shows an 'Edit Info' button at the top-right. When clicked, the profile fields become editable allowing the SuperAdmin to modify their name, email, phone number, address, and profile picture. After making changes, the SuperAdmin saves and the updated information is persisted. This is important for keeping contact information current and ensuring the audit trail reflects the correct admin identity.","1. When the SuperAdmin clicks 'Edit Info', Then profile fields become editable.
+ 2. If the SuperAdmin modifies fields and clicks Save, Then changes are persisted.
+  Else if Cancel is clicked, Then changes are discarded.
+ 3. If a new profile picture is uploaded, Then it replaces the previous photo.
+ 4. After saving, Then the profile page refreshes with the updated information.
+ 5. If the SuperAdmin clears a required field and tries to save, Then a validation prompt appears.","Positive Functional:
+ 1. Verify that clicking 'Edit Info' enables editing mode on profile fields
+ 2. Verify that changing phone and saving updates the profile
+ 3. Verify that updating the address and saving reflects the new address
+ 4. Verify that uploading a new profile picture (JPG, 200KB) replaces the old one
+ 5. Verify that clicking Cancel discards all unsaved changes
+ 
+ Negative:
+ 6. Verify that clearing the name field (required) and saving shows validation error
+ 7. Verify that entering invalid email format shows error
+ 8. Verify that uploading a non-image file as profile picture is rejected
+ 
+ UI Scenarios:
+ 9. Verify that 'Edit Info' button is visible on the profile card
+ 10. Verify that editable fields are visually distinct from read-only state
+ 
+ Edge Cases:
+ 11. Verify that uploading a profile picture larger than 5MB shows a size error
+ 
+ Security:
+ 12. Verify that profile update actions are logged in the audit trail","1. Verify that profile save completes within 2 seconds
+ 2. Verify that profile picture upload completes within 5 seconds",,
+19,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to add other users","This story enables the SuperAdmin to add new users to the Super Admin Portal through the Settings section. The admin enters user details including name, email, role, and assigned facility. The new user receives an invitation to set up their account. This is a core administrative function that controls who has access to the platform and what they can do.","1. When the SuperAdmin clicks 'Add User', Then the user creation form opens.
+ 2. If valid name, email, role, and facility are entered and saved, Then the user is created and invitation sent.
+  Else if required fields are missing, Then the form highlights missing fields.
+ 3. If a role is selected, Then the associated permissions are indicated.
+ 4. After user creation, Then the new user appears in the Users list.
+ 5. If the entered email already exists in the system, Then a duplicate warning is shown.
+ 6. After the invitation is sent, Then the user's status shows as 'Invited' until they activate.","Positive Functional:
+ 1. Verify that clicking 'Add User' opens the user creation form
+ 2. Verify that entering name 'Sarah Johnson', email 'sarah.j@namicare.com', role 'Facility Admin', facility 'PSS Georgia' and saving creates the user
+ 3. Verify that the new user appears in the Users list with 'Invited' status
+ 4. Verify that an invitation email is sent to the entered email address
+ 5. Verify that selecting a role shows the associated permission level
+ 
+ Negative:
+ 6. Verify that submitting without entering name shows required field error
+ 7. Verify that submitting without email shows required field error
+ 8. Verify that entering invalid email 'sarah.j@' shows format error
+ 9. Verify that adding a user with an existing email shows duplicate warning
+ 10. Verify that submitting without selecting a role shows required field error
+ 
+ UI Scenarios:
+ 11. Verify that the role dropdown shows all available roles
+ 12. Verify that the facility dropdown shows all registered facilities
+ 13. Verify that the 'Add User' button is prominently visible
+ 
+ Edge Cases:
+ 14. Verify that adding 100 users in quick succession is handled without errors
+ 15. Verify that a user name with special characters (O'Brien, Garcia-Lopez) is accepted
+ 
+ Security:
+ 16. Verify that only SuperAdmin role can add new users
+ 17. Verify that user creation is logged in the audit trail",1. Verify that user creation and invitation email complete within 5 seconds,,
+20,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to view a list users","This story enables the SuperAdmin to view a list of all users in the system through Settings. The list shows user name, email, role, assigned facility, status (Active/Invited/Archived), and action buttons. The list supports pagination for large user bases and provides a central view for user administration.","1. When the SuperAdmin opens Settings > Users, Then all users are listed with name, email, role, facility, and status.
+ 2. If users have different statuses, Then Active, Invited, and Archived are visually distinct.
+ 3. If the SuperAdmin clicks a user, Then their profile opens.
+ 4. If the list exceeds one page, Then pagination is available.
+ 5. If a search is performed, Then matching users are shown.","Positive Functional:
+ 1. Verify that Users list shows all users with name, email, role, facility, status
+ 2. Verify that Active users show green status badge
+ 3. Verify that Invited users show amber/pending badge
+ 4. Verify that clicking a user opens their profile
+ 5. Verify that pagination works for 50+ users
+ 6. Verify that searching 'Sarah' shows matching users
+ 
+ Negative:
+ 7. Verify that no users shows empty state message
+ 8. Verify that searching non-existent name shows 'No users found'
+ 
+ UI Scenarios:
+ 9. Verify that the Users list has columns: Name, Email, Role, Facility, Status, Actions
+ 10. Verify that action icons (edit, archive) are visible per row
+ 
+ Edge Cases:
+ 11. Verify that 500+ users load with pagination performance
+ 12. Verify that very long email addresses truncate with ellipsis
+ 
+ Security:
+ 13. Verify that non-SuperAdmin cannot access the Users list",1. Verify that the Users list loads within 2 seconds with 500 records,,
+21,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to import & export list of users.",This story enables the SuperAdmin to bulk import users from CSV/Excel files and export the current user list for reporting or migration. Import validates data and reports errors per row. Export generates a downloadable file matching current filters.,"1. When the SuperAdmin clicks Import, Then a file upload dialog opens.
+ 2. If a valid CSV is uploaded, Then users are created and added to the list.
+  Else if the file has errors, Then an error report is generated showing failed rows.
+ 3. When the SuperAdmin clicks Export, Then a downloadable file is generated.
+ 4. If filters are active, Then only filtered users are exported.
+  Else if no filters, Then all users are exported.
+ 5. After import, Then the Users list refreshes to include newly imported users.","Positive Functional:
+ 1. Verify that clicking Import opens file upload accepting CSV and Excel
+ 2. Verify that importing 10 valid users from CSV creates all 10 in the system
+ 3. Verify that the import error report shows row numbers and error descriptions
+ 4. Verify that clicking Export downloads a file with all user data
+ 5. Verify that exporting with active filters only includes filtered users
+ 
+ Negative:
+ 6. Verify that importing a CSV with missing required columns shows column mapping error
+ 7. Verify that importing empty file shows 'No data found' message
+ 8. Verify that importing with invalid email in row 5 shows error for row 5 specifically
+ 
+ UI Scenarios:
+ 9. Verify that Import and Export options are accessible from the Users page 
+ Edge Cases:
+ 11. Verify that importing 1000 users completes without timeout
+ 12. Verify that importing duplicate emails shows per-row duplicate warnings
+ 
+ Security:
+ 13. Verify that imported file is scanned before processing","1. Verify that import of 100 users completes within 30 seconds
+ 2. Verify that export generates within 10 seconds",,
+22,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to archive/inactive other users",This story enables the SuperAdmin to archive or deactivate users who should no longer have access to the platform. Archiving preserves the user's data for audit purposes but removes their login access. The archive action is available from the Users list and requires confirmation before execution.,"1. When the SuperAdmin clicks Archive on a user, Then a confirmation dialog appears.
+ 2. If confirmed, Then the user is archived and login access revoked.
+  Else if cancelled, Then no changes are made.
+ 3. If an archived user tries to log in, Then access is denied.
+ 4. If the SuperAdmin filters by 'Archived', Then only archived users show.
+ 5. If Reactivate is clicked on an archived user, Then their status returns to Active.","Positive Functional:
+ 1. Verify that clicking Archive on user shows confirmation dialog
+ 2. Verify that confirming archival changes status to 'Archived'
+ 3. Verify that the archived user can no longer log in
+ 4. Verify that filtering by 'Archived' shows only archived users
+ 5. Verify that reactivating an archived user restores Active status
+ 
+ Negative:
+ 6. Verify that archiving yourself (the logged-in SuperAdmin) is blocked
+ 7. Verify that archiving the last SuperAdmin shows a warning
+ 8. Verify that clicking Cancel on confirmation keeps the user active
+ 
+ UI Scenarios:
+ 9. Verify that Archive action icon is visible per user row
+ 10. Verify that archived users show a gray/strikethrough visual treatment
+ 
+ Edge Cases:
+ 11. Verify that archiving a user who is currently logged in terminates their session
+ 12. Verify that reactivated user's permissions are restored exactly as before archival
+ 
+ Security:
+ 13. Verify that archive actions are logged in audit trail with admin name and timestamp",1. Verify that archival completes within 2 seconds,,
+23,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to manage roles and permission for all users","This story enables the SuperAdmin to define and manage roles and their associated permissions through the Settings > Roles and Permissions tab. The Figma shows an Admin Settings area with tabs for Facility, Roles and Permissions, and Master. The SuperAdmin can create custom roles, assign module-level permissions (read, write, edit, delete, approve), and assign roles to users. This is the foundation of the access control system that determines what each user can see and do across the entire platform.","1. When the SuperAdmin opens Roles and Permissions tab, Then all roles are listed.
+ 2. If Add Role is clicked, Then the role creation form opens with permission toggles per module.
+ 3. If permissions are configured and saved, Then the role is created with those permissions.
+ 4. If an existing role is edited, Then all users with that role get updated access immediately.
+ 5. If a role is deleted, Then affected users are prompted for role reassignment.
+ 6. After a role is assigned to a user, Then the user's portal reflects the role permissions.(On Refresh)
+ 7. If pre-defined roles are modified, Then a warning about system-wide impact is shown.","Positive Functional:
+ 1. Verify that Roles and Permissions tab shows all existing roles
+ 2. Verify that clicking Add Role opens the role creation form
+ 4. Verify that creating role 'Floor Nurse' with specific permissions saves correctly
+ 5. Verify that assigning 'Floor Nurse' role to a user gives them the configured permissions
+ 6. Verify that editing 'Floor Nurse' permissions updates all users with that role
+ 7. Verify that pre-defined roles (Admin, Provider, Staff) are listed with default permissions
+ 
+ Negative:
+ 8. Verify that creating a role without a name shows validation error
+ 9. Verify that creating a role with a duplicate name shows 'Role already exists'
+ 10. Verify that deleting a role assigned to active users shows reassignment prompt
+ 11. Verify that removing all permissions from a role shows a warning
+ 
+ UI Scenarios:
+ 12. Verify that the permission matrix shows modules as rows and permission types as columns
+ 13. Verify that toggles/checkboxes for each permission are clearly visible
+ 14. Verify that the Roles and Permissions tab is highlighted when active
+ 
+ Edge Cases:
+ 15. Verify that a role with 50+ module permissions saves correctly
+ 16. Verify that changing a role's permissions while users are logged in takes effect on their next action
+ 
+ Security:
+ 17. Verify that only SuperAdmin can manage roles and permissions
+ 18. Verify that role changes are logged in audit trail","1. Verify that the Roles and Permissions page loads within 3 seconds
+ 2. Verify that saving role permissions completes within 2 seconds",,
+24,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to add CPT code","This story enables the SuperAdmin to add new CPT (Current Procedural Terminology) codes to the system's master data. CPT codes are used for medical billing and service documentation. The SuperAdmin enters the code number, description, category, and any associated fee schedule. The Master tab in Admin Settings provides access to CPT code management. These codes are referenced throughout the facility portal for patient charting, billing, and claims.","1. When the SuperAdmin clicks 'Add CPT Code', Then the creation form opens.
+ 2. If valid code, description, and category are entered and saved, Then the CPT code is created.
+ 3. If the code already exists, Then a duplicate warning is shown.
+ 4. After creation, Then the code appears in the CPT codes list.
+ 5. After creation, Then the code becomes available to all facilities for charting and billing.","Positive Functional:
+ 1. Verify that clicking 'Add CPT Code' opens the creation form
+ 2. Verify that entering code '99213', description 'Office visit, established patient, moderate', category 'E&M' and saving creates the code
+ 3. Verify that the new CPT code appears in the list after creation
+ 4. Verify that the code is available for selection in facility billing
+ 
+ Negative:
+ 5. Verify that entering a duplicate code '99213' shows 'Code already exists'
+ 6. Verify that submitting without entering a code number shows required field error
+ 7. Verify that entering non-numeric characters in the code field is handled (CPT codes can be alphanumeric)
+ 
+ UI Scenarios:
+ 8. Verify that the Add CPT Code form shows fields for code, description, category, fee
+ 9. Verify that the Master tab is highlighted when active
+ 
+ Edge Cases:
+ 10. Verify that adding 500+ CPT codes performs without issues
+ 11. Verify that a CPT code with a very long description (500+ chars) is accepted
+ 
+ Security:
+ 12. Verify that only SuperAdmin can add CPT codes",1. Verify that CPT code creation saves within 2 seconds,https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-161809&t=Rfb89JT00KkxQUw7-4,
+25,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to edit the CPT code","This story enables the SuperAdmin to edit an existing CPT code's details including its description, category, and associated fee. The code number itself may be read-only to prevent reference integrity issues. Editing updates the code across all facilities that reference it.","1. When Edit is clicked on a CPT code, Then the form opens pre-populated.
+ 2. If description or category is modified and saved, Then changes are persisted.
+ 3. If Cancel is clicked, Then no changes are made.
+ 4. After saving, Then all facilities referencing this code see updated values.
+ 5. If the code number field is modified, Then it remains read-only (or warns about reference impact).","Positive Functional:
+ 1. Verify that clicking Edit on CPT code '99213' opens the form with current values
+ 2. Verify that changing description to 'Office visit, moderate complexity' and saving updates the record
+ 3. Verify that the CPT code list reflects the updated description
+ 
+ Negative:
+ 4. Verify that the code number field is read-only during edit
+ 5. Verify that clearing the description and saving shows required field error
+ 
+ UI Scenarios:
+ 6. Verify that the edit form is pre-populated with current values
+ 
+ Edge Cases:
+ 7. Verify that editing a code used in active billing records shows an impact warning
+ 
+ Security:
+ 8. Verify that edit actions are logged in audit trail",1. Verify that CPT code edit saves within 2 seconds,https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-161809&t=Rfb89JT00KkxQUw7-4,
+26,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to inactive the CPT code",This story enables the SuperAdmin to archive/inactivate a CPT code that is no longer in use. Archiving prevents the code from appearing in new selections while preserving historical records that reference it.,"1.When Archive is clicked on a CPT code, then a confirmation dialog should appear.
+2.If the user confirms the action, then the CPT code should be marked as Inactive.
+3.If the user cancels the action, then no changes should be made and the CPT code should remain Active.
+4.When a CPT code is marked as Inactive, then it should not appear in new record dropdowns.
+5.When Reactivate is clicked on an Inactive CPT code, then the code should be marked as Active.
+6.When a CPT code is reactivated, then it should appear again in new record dropdowns.","Positive Functional:
+ 1. Verify that clicking Archive on a CPT code shows confirmation
+ 2. Verify that confirming sets the code to Inactive status
+ 3. Verify that inactive codes don't appear in facility billing dropdowns
+ 4. Verify that historical records with the code still display correctly
+ 5. Verify that reactivating restores the code to Active
+ 
+ Negative:
+ 6. Verify that archiving a code actively used in current billing shows impact warning
+ 
+ UI Scenarios:
+ 7. Verify that inactive codes are visually distinguished (gray/strikethrough)
+ 
+ Edge Cases:
+ 8. Verify that archiving all codes of a category doesn't break facility operations
+ 
+ Security:
+ 9. Verify that archive actions are logged",1. Verify that archive action completes within 2 seconds,https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-161809&t=Rfb89JT00KkxQUw7-4,
+27,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to view the CPT codes list","This story enables the SuperAdmin to view the complete list of CPT codes in the system. The list shows code number, description, category, status (Active/Inactive), and action buttons. This is the master reference for all CPT codes used across facilities.","1.When the CPT Codes page loads, then all CPT codes should be displayed with code, Speciality,, category, and status.
+2.If both Active and Inactive CPT codes exist, then they should be visually distinguished.
+3.If the number of CPT codes exceeds the page limit, then pagination should be available.
+4.When a CPT code is clicked, then its details should be displayed.
+5.When the user clicks on Add, then the CPT code creation form should open.
+6.If no CPT codes are available, then an empty state message should be displayed.","Positive Functional:
+ 1. Verify that CPT Codes page shows all codes with code, description, category, status
+ 2. Verify that Active codes show green status, Inactive show gray
+ 3. Verify that pagination works for 500+ codes
+ 4. Verify that clicking a code shows its details
+ 
+ Negative:
+ 5. Verify that no codes shows 'No CPT codes configured' message
+ 
+ UI Scenarios:
+ 6. Verify that the list has columns: Code, Description, Category, Status, Actions
+ 7. Verify that action icons (edit, archive) are visible per row
+ 
+ Edge Cases:
+ 8. Verify that 1000+ CPT codes load with acceptable performance
+ 
+ Security:
+ 9. Verify that only SuperAdmin can access the CPT codes list",1. Verify that the CPT codes list loads within 2 seconds,https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-161809&t=Rfb89JT00KkxQUw7-4,
+28,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to Import & Export CPT Codes",This story enables bulk import of CPT codes from CSV/Excel and export of the current code list. This is essential for initial system setup (importing standard CPT code sets) and for backup/reporting purposes.,"1.When the user clicks on Import, then a file upload dialog should open.
+2.If a valid CSV file is uploaded, then CPT codes should be created successfully.
+3.If the uploaded file contains errors, then an error report should be generated.
+4.When the user clicks on Export, then a downloadable file of CPT codes should be generated.
+5.If filters are applied, then only the filtered CPT codes should be exported.
+6.After a successful import, then the CPT codes list should refresh and display the new entries.","Positive Functional:
+ 1. Verify that importing a CSV with 100 CPT codes creates all of them
+ 2. Verify that the error report shows row-specific failures
+ 3. Verify that export generates a file with all CPT codes
+ 4. Verify that filtered export only includes matching codes
+ 
+ Negative:
+ 5. Verify that importing empty file shows 'No data' message
+ 6. Verify that importing with wrong column headers shows mapping error
+ 
+ UI Scenarios:
+ 7. Verify that Import/Export options are accessible from the CPT Codes page
+ 
+ Edge Cases:
+ 8. Verify that importing 5000 CPT codes completes without timeout
+ 9. Verify that importing duplicate codes shows per-row duplicate warnings
+ 
+ Security:
+ 10. Verify that imported files are validated before processing","1. Verify that import of 500 CPT codes completes within 30 seconds
+ 2. Verify that export generates within 10 seconds",https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-161809&t=Rfb89JT00KkxQUw7-4,
+29,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to search and filter the CPT Codes.","This story enables the SuperAdmin to search and filter the CPT codes list by code number, description, category, or status. This helps find specific codes quickly in a large master list.","1.When the SuperAdmin types in the search field, then matching CPT codes should be displayed in real-time.
+2.If the search is performed using a code number (e.g., '992'), then codes starting with '992' should be displayed.
+3.If the search is performed using a description keyword (e.g., 'office'), then CPT codes with matching descriptions should be displayed.
+4.When the status filter 'Active' is applied, then only Active CPT codes should be displayed.
+5.When all filters are cleared, then the full CPT codes list should be restored.
+6.If no matching results are found, then a 'No results found' message should be displayed.","Positive Functional:
+ 1. Verify that typing '992' in search shows CPT codes 99211, 99212, 99213, etc.
+ 2. Verify that searching 'office visit' shows codes with that description
+ 3. Verify that filtering by Active shows only active codes
+ 4. Verify that clearing filters restores the full list
+ 
+ Negative:
+ 5. Verify that searching a non-existent code shows 'No results'
+ 
+ UI Scenarios:
+ 6. Verify that the search field has placeholder text and search icon
+ 7. Verify that filter controls are clearly visible
+ 
+ Edge Cases:
+ 8. Verify that search results update in real-time as the user types
+ 9. Verify that searching with special characters doesn't cause errors",1. Verify that search results appear within 500ms of typing,https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-161809&t=Rfb89JT00KkxQUw7-4,
+30,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to add ICD-10 codes","This story enables the SuperAdmin to add ICD-10 (International Classification of Diseases) codes to the master data. ICD-10 codes are used for diagnosis documentation and are required for Medicaid/Medicare billing. The SuperAdmin enters the code (e.g., 'G30.9'), description, and category. These codes appear in patient charting for diagnosis selection.","1.When the SuperAdmi clicks on 'Add ICD-10 Code', then the creation form should open.
+2.If valid code, description, and category are entered and saved, then the ICD-10 code should be created successfully.
+3.If the entered ICD-10 code already exists, then a duplicate warning should be displayed.
+4.After successful creation, then the ICD-10 code should appear in the ICD-10 list and be available for use in the system.
+5.If the entered ICD-10 code format is invalid, then an appropriate validation error should be displayed.
+6.If mandatory fields are left empty, then validation errors should be shown and the code should not be created.","Positive Functional:
+ 1. Verify that clicking 'Add ICD-10 Code' opens the form
+ 2. Verify that entering 'G30.9', 'Alzheimer disease, unspecified', category 'Nervous System' creates the code
+ 3. Verify that the code appears in the ICD-10 list
+ 4. Verify that the code is available in facility patient charting
+ 
+ Negative:
+ 5. Verify that duplicate code 'G30.9' shows warning
+ 6. Verify that empty code field shows required error
+ 
+ UI Scenarios:
+ 7. Verify that the form shows fields for code, description, category
+ 
+ Edge Cases:
+ 8. Verify that ICD-10 codes with special format (letters, numbers, dots) are accepted
+ 
+ Security:
+ 9. Verify that only SuperAdmin can add ICD-10 codes",1. Verify that ICD-10 code creation saves within 2 seconds,https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-161589&t=Rfb89JT00KkxQUw7-4,
+31,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to edit ICD-10 codes","This story enables editing existing ICD-10 code details. Similar to CPT code editing, the code number may be read-only while description and category are editable.","1.When the SuperAdmin clicks on Edit, then the ICD-10 edit form should open with pre-populated data.
+2.If the user modifies the details and saves, then the changes should be saved successfully.
+3.If the user clicks on Cancel, then no changes should be saved.
+4.After successful save, then the updated ICD-10 code details should be reflected wherever the code is used.
+5.When editing an ICD-10 code, then the code number field should remain read-only.","Positive Functional:
+ 1. Verify that editing ICD-10 'G30.9' description and saving updates correctly
+ 2. Verify that the list reflects the updated description
+ 
+ Negative:
+ 3. Verify that code number is read-only during edit
+ 4. Verify that clearing description shows required error
+ 
+ UI Scenarios:
+ 5. Verify that edit form is pre-populated correctly
+ 
+ Edge Cases:
+ 6. Verify that editing a code used in active records shows impact warning
+ 
+ Security:
+ 7. Verify that edits are logged in audit trail",1. Verify that edit saves within 2 seconds,https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-161589&t=Rfb89JT00KkxQUw7-4,
+32,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to archive ICD-10 codes","This story enables archiving ICD-10 codes that are outdated or no longer needed, while preserving historical records.","1.When the SuperAdmin clicks on Archive, then a confirmation dialog should appear.
+2.If the user confirms the action, then the ICD-10 code should be marked as Inactive.
+3.If the user cancels the action, then no changes should be made and the code should remain Active.
+4.When an ICD-10 code is marked as Inactive, then it should not appear in new record dropdowns.
+5.If historical records reference the ICD-10 code, then those records should continue to display the code correctly.
+6.When the SuperAdmin clicks on Reactivate, then the ICD-10 code should be marked as Active again.
+7.When the ICD-10 code is reactivated, then it should appear again in new record dropdowns.","Positive Functional:
+ 1. Verify that archiving ICD-10 code changes status to Inactive
+ 2. Verify that inactive code doesn't appear in facility dropdowns
+ 3. Verify that historical records still show the code
+ 4. Verify that reactivation restores the code
+ 
+ Negative:
+ 5. Verify that archiving a code used in active diagnoses shows warning
+ 
+ UI Scenarios:
+ 6. Verify that inactive codes are visually distinguished
+ 
+ Security:
+ 7. Verify that archive actions are logged",1. Verify that archive completes within 2 seconds,https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-161589&t=Rfb89JT00KkxQUw7-4,
+33,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to View the list of ICD-10 codes","This story enables viewing the complete ICD-10 codes master list with code, description, category, and status.","1.When the ICD-10 Codes page loads, then all ICD-10 codes should be displayed.
+2.If both Active and Inactive ICD-10 codes exist, then they should be visually distinguished.
+3.If the number of ICD-10 codes exceeds the page limit, then pagination should be available.
+4.When a code is clicked, then its details should be displayed.
+5.When the SuperAdmin clicks on Add, then the ICD-10 code creation form should open.
+6.If no ICD-10 codes are available, then an empty state message should be displayed.","Positive Functional:
+ 1. Verify that ICD-10 list shows code, description, category, status
+ 2. Verify that pagination works correctly
+ 3. Verify that clicking a code shows details
+ 
+ Negative:
+ 4. Verify that no codes shows empty state
+ 
+ UI Scenarios:
+ 5. Verify that columns and action icons are visible
+ 
+ Edge Cases:
+ 6. Verify that 5000+ ICD-10 codes load with pagination
+ 
+ Security:
+ 7. Verify that only SuperAdmin can access ICD-10 codes list",1. Verify that ICD-10 list loads within 3 seconds,https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-161589&t=Rfb89JT00KkxQUw7-4,
+34,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to Import & Export ICD-10 Codes","This story enables bulk import/export of ICD-10 codes. Essential for loading the standard ICD-10 code set (70,000+ codes) during initial setup.","1.When the SuperAdmin clicks on Import, then a file upload dialog should open.
+2.If a valid CSV file is uploaded, then ICD-10 codes should be created successfully.
+3.If the uploaded file contains errors, then an error report should be generated.
+4.When the SuperAdmin clicks on Export, then a downloadable file of ICD-10 codes should be generated.
+5.If filters are applied, then only the filtered ICD-10 codes should be exported.
+6.After a successful import, then the ICD-10 codes list should refresh and display the new entries.","Positive Functional:
+ 1. Verify that importing ICD-10 CSV creates all codes
+ 2. Verify that error report shows row failures
+ 3. Verify that export downloads correctly
+ 
+ Negative:
+ 4. Verify that empty file shows error
+ 5. Verify that wrong headers show mapping error
+ 
+ Edge Cases:
+ 6. Verify that importing 10,000+ ICD-10 codes completes (may need batching)
+ 
+ Security:
+ 7. Verify that imports are validated before processing",1. Verify that import of 1000 ICD-10 codes completes within 60 seconds,https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-161589&t=Rfb89JT00KkxQUw7-4,
+35,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to Search and filter the ICD-10 codes.","This story enables searching and filtering ICD-10 codes by code, description, category, or status.","1.When the SuperAdmin types in the search field, then matching ICD-10 codes should be displayed.
+2.If the search is performed using a code (e.g., 'G30'), then matching ICD-10 codes should be displayed.
+3.If the search is performed using a description keyword (e.g., 'Alzheimer'), then ICD-10 codes with matching descriptions should be displayed.
+4.When a status filter is applied, then only ICD-10 codes with the selected status should be displayed.
+5.When filters are cleared, then the full ICD-10 codes list should be restored.
+6.If no matching results are found, then a 'No results found' message should be displayed.","Positive Functional:
+ 1. Verify that searching 'G30' shows Alzheimer-related codes
+ 2. Verify that searching 'diabetes' shows diabetes codes
+ 3. Verify that status filter works
+ 4. Verify that clearing restores full list
+ 
+ Negative:
+ 5. Verify that non-existent search shows 'No results'
+ 
+ UI Scenarios:
+ 6. Verify that search field has placeholder and icon
+ 
+ Edge Cases:
+ 7. Verify that real-time search works with 10,000+ codes",1. Verify that search results appear within 1 second,https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-161589&t=Rfb89JT00KkxQUw7-4,
+36,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to manage service codes and map them to specific service types and specialties.","This story enables the SuperAdmin to manage service codes that define billable services offered by facilities. Service codes can be mapped to specific service types (ADH, ALF) and medical specialties. This mapping ensures correct billing and service documentation across facilities.","1.When the Service Codes page loads, then all existing service codes along with their mappings should be displayed.
+2.When the SuperAdmin adds a new service code with service type mapping, then the code should be created successfully with the selected mappings.
+3.If a service code is mapped to a specific specialty, then it should be available under that specialty in facilities.
+4.If a service code is mapped only to ADH, then it should not be visible in ALF facilities.
+5.When the SuperAdmin edits the mapping of a service code, then the changes should be applied across all relevant facilities.
+6.If a service code is not mapped to a facility type or specialty, then it should not be visible in those contexts.","Positive Functional:
+ 1. Verify that Service Codes page shows existing codes with mappings
+ 2. Verify that creating code mapped to speciality and any therapy or service saves correctly
+ 3. Verify that the code appears in that facilities under therapy or service
+ 4. Verify that ALF facilities don't see ADH-only codes
+ 5. Verify that editing mapping from ADH to ALF updates facility access
+ 
+ Negative:
+ 6. Verify that creating a code without mapping shows validation error
+ 7. Verify that duplicate service codes show warning
+ 
+ UI Scenarios:
+ 8. Verify that service type selection shows ADH, ALF, MC, IL options
+ 9. Verify that specialty dropdown shows available specialties
+ 
+ Edge Cases:
+ 10. Verify that a code mapped to 'All' service types appears everywhere
+ 
+ Security:
+ 11. Verify that only SuperAdmin can manage service codes",1. Verify that service code management page loads within 2 seconds,,
+37,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to view all support tickets submitted by facilities","This story enables the SuperAdmin to view support tickets submitted by facility users. The ticket list shows facility name, ticket subject, priority, status, submitter, and creation date. This provides centralized support management for the SaaS platform.","1.When the Support Tickets page loads, then all tickets from all facilities should be displayed.
+2.If tickets exist, then each ticket should display facility name, subject, priority, status, submitter, and date.
+3.When a ticket is clicked, then full ticket details along with the communication thread should be displayed.
+4.When the SuperAdmin replies to a ticket, then the response should be sent to the respective facility user.
+5.When the ticket status is updated, then the updated status should be reflected in the ticket list and detail view.
+6.If no support tickets are available, then an empty state message should be displayed.","Positive Functional:
+ 1. Verify that Support Tickets shows all tickets across facilities
+ 2. Verify that each ticket shows facility name, subject, priority, status, submitter, date
+ 3. Verify that clicking a ticket shows full details and thread
+ 4. Verify that replying sends response to the facility user
+ 5. Verify that updating status changes the ticket state
+ 
+ Negative:
+ 6. Verify that no tickets shows 'No support tickets' message
+ 
+ UI Scenarios:
+ 7. Verify that priority levels are color-coded (High=red, Medium=amber, Low=green)
+ 8. Verify that status badges distinguish Open, In Progress, Resolved
+ 
+ Edge Cases:
+ 9. Verify that 500+ tickets load with pagination
+ 10. Verify that a ticket with 50+ replies loads all in the thread
+ 
+ Security:
+ 11. Verify that facility users can only see their own tickets, not other facilities'",1. Verify that Support Tickets page loads within 3 seconds,,
+38,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to add Speciality",This story enables adding medical specialties to the master data. Specialties are used for provider categorization and service mapping.,"1.When the SuperAdmin clicks on Add, then the specialty creation form should open.
+2.If a valid specialty name is entered and saved, then the specialty should be created successfully.
+3.If a duplicate specialty name is entered, then a warning message should be displayed.
+4.After successful creation, then the specialty should appear in the specialties list.
+5.After creation, then the specialty should be available for selection in provider assignment within facilities.
+6.If the specialty name field is left empty, then a validation error should be displayed.","Positive Functional:
+ 1. Verify that adding 'Geriatric Care' creates the specialty
+ 2. Verify that it appears in the specialties list
+ 3. Verify that facilities can select it for providers
+ 
+ Negative:
+ 4. Verify that duplicate name shows warning
+ 5. Verify that empty name shows required error
+ 
+ UI Scenarios:
+ 6. Verify that the form shows name and description fields
+ 
+ Security:
+ 7. Verify that only SuperAdmin can add specialities",1. Verify that specialty creation saves within 2 seconds,https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-162268&t=Rfb89JT00KkxQUw7-4,
+39,Super Admin Portal,Settings,"As a SuperAdmin, I should be able to edit Speciality",This story enables editing existing specialty details.,"1.When the SuperAdmin clicks on Edit, then the specialty edit form should open with pre-populated data.
+2.If the SuperAdmin modifies the specialty name and saves, then the changes should be saved successfully.
+3.If the SuperAdmin clicks on Cancel, then no changes should be saved.
+4.After a successful save, then the updated specialty name should be reflected wherever it is used 
+5.When the specialty name is updated, then all references to that specialty should reflect the updated name.","Positive Functional:
+ 1. Verify that editing 'Geriatric Care' to 'Geriatric Medicine' saves correctly
+ 2. Verify that list reflects updated name
+ 
+ Negative:
+ 3. Verify that clearing name shows required error
+ 
+ UI Scenarios:
+ 4. Verify that form pre-populates correctly
+ 
+ Security:
+ 5. Verify that edits are logged",1. Verify that edit saves within 2 seconds,https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-162268&t=Rfb89JT00KkxQUw7-4,
+40,Super Admin Portal,Settings,"As a Superadmin, I should be able to view list of Specialities","This story enables viewing the complete list of specialties with name, description, status, and action buttons.","1.When the Specialties page loads, then all specialties should be displayed.
+2.If both Active and Inactive specialties exist, then they should be visually distinguished.
+3.When a specialty is clicked, then its details should be displayed.
+4.When the SuperAdmin clicks on Add, then the specialty creation form should open.
+5.If no specialties are available, then an empty state message should be displayed.
+6.If the number of specialties exceeds the page limit, then pagination should be available.","Positive Functional:
+ 1. Verify that specialties list shows all entries with name, description, status
+ 2. Verify that Active and Archived are visually distinct
+ 3. Verify that clicking shows details
+ 
+ Negative:
+ 4. Verify that no specialties shows empty state
+ 
+ UI Scenarios:
+ 5. Verify that action icons are visible per row
+ 
+ Edge Cases:
+ 6. Verify that 100+ specialties load properly",1. Verify that specialties list loads within 2 seconds,https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-162268&t=Rfb89JT00KkxQUw7-4,
+41,Super Admin Portal,Settings,"As a Superadmin, I should be able to archive specialities",This story enables archiving specialties that are no longer needed while preserving historical references.,"1.When the SuperAdmin clicks on Archive, then a confirmation dialog should appear.
+2.If the SuperAdmin confirms the action, then the specialty should be marked as Inactive.
+3.If the SuperAdmin cancels the action, then no changes should be made and the specialty should remain Active.
+4.When a specialty is marked as Inactive, then it should not appear in facility or provider assignment dropdowns.
+5.If historical records reference the specialty, then those records should continue to display the specialty correctly.
+6.When the SuperAdmin clicks on Reactivate, then the specialty should be marked as Active again.
+7.When the specialty is reactivated, then it should appear again in facility and provider assignment dropdowns.","Positive Functional:
+ 1. Verify that archiving sets specialty to Inactive
+ 2. Verify that inactive specialty doesn't appear in facility dropdowns
+ 3. Verify that historical records still show it
+ 4. Verify that reactivation restores it
+ 
+ Negative:
+ 5. Verify that archiving a specialty with active providers shows warning
+
+UI Scenarios:
+ 6. Verify that archive option is present 
+ 
+ Security:
+ 6. Verify that archive actions are logged",1. Verify that archive completes within 2 seconds,https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-162268&t=Rfb89JT00KkxQUw7-4,
+42,Super Admin Portal,Form Builder,"As an SuperAdmin, I should be able to create forms using form builder","This story enables the SuperAdmin to create custom forms using a drag-and-drop form builder. The Figma Facility Settings tabs show 'Form Builder' as the last tab. The builder allows adding fields (text, dropdown, checkbox, date, file upload), configuring validations, and arranging the form layout. Created forms can be assigned to specific facilities for use in patient onboarding, assessments, and documentation.","1. When 'Create Form' is clicked, Then the form builder opens with blank canvas.
+ 2. If fields are dragged onto the canvas, Then they are placed and configurable.
+ 3. If field properties are set (required, label, placeholder), Then the configuration is saved.
+ 4. If the form is named and saved, Then it is created and available.
+ 5. If assigned to a facility, Then facility users can fill the form.
+ 6. After creation, Then the form appears in the forms list.","Positive Functional:
+ 1. Verify that clicking 'Create Form' opens the builder with blank canvas
+ 2. Verify that dragging a text field onto the canvas places it
+ 3. Verify that adding dropdown, checkbox, date, and file upload fields works
+ 4. Verify that setting a field as required adds the required indicator
+ 5. Verify that naming the form 'Patient Intake v2' and saving creates it
+ 6. Verify that assigning the form to 'PSS Georgia' facility makes it available there
+ 
+ Negative:
+ 7. Verify that saving without a form name shows required error
+ 8. Verify that saving a form with no fields shows 'Add at least one field' warning
+ 
+ UI Scenarios:
+ 9. Verify that the builder shows a field palette on the left and canvas on the right
+ 10. Verify that Form Builder tab is visible in Facility Settings
+ 
+ Edge Cases:
+ 11. Verify that a form with 50+ fields saves and renders correctly
+ 12. Verify that reordering fields by drag-and-drop works
+ 
+ Security:
+ 13. Verify that only SuperAdmin can create forms","1. Verify that the form builder loads within 3 seconds
+ 2. Verify that saving a form with 20 fields completes within 5 seconds",,
+43,Super Admin Portal,Form Builder,"As an SuperAdmin, I should be able to archive forms",This story enables archiving forms that are no longer needed. Archived forms cannot be assigned to new facilities but remain visible in completed submissions.,"1.When the SuperAdmin clicks on Archive for a form, then a confirmation dialog should appear.
+2.If the SuperAdmin confirms the action, then the form should be marked as Archived.
+3.If the SuperAdmin cancels the action, then no changes should be made and the form should remain Active.
+4.When a form is marked as Archived, then it should not be available for new assignments.
+5.If historical submissions exist for the form, then the submitted data should remain accessible.
+6.When the SuperAdmin clicks on Reactivate, then the form should be marked as Active again.
+7.When the form is reactivated, then it should be available again for new assignments","Positive Functional:
+ 1. Verify that archiving a form changes its status
+ 2. Verify that archived forms don't appear in facility form lists
+ 3. Verify that existing submissions are preserved
+ 4. Verify that reactivation restores the form
+ 
+ Negative:
+ 5. Verify that archiving a form with active assignments shows warning
+ 
+ UI Scenarios:
+ 6. Verify that archived forms are visually distinguished
+ 
+ Security:
+ 7. Verify that archive actions are logged",1. Verify that form archive completes within 2 seconds,,
+44,Super Admin Portal,Form Builder,"As an SuperAdmin, I should be able to duplicate form",This story enables the SuperAdmin to duplicate an existing form to create a new version. This saves time when creating similar forms for different facilities or updating an existing form without losing the original.,"1.When the SuperAdmin clicks on Duplicate, then a copy of the form should be created with a ‘Copy’ suffix in the name.
+2.When the duplicated form is opened, then all fields and configurations from the original form should be present.
+3.If the duplicated form is edited, then the original form should remain unchanged.
+4.After renaming and saving the duplicated form, then both the original and duplicated forms should appear in the forms list.
+5.If the duplicated form is assigned to a facility, then the facility should be able to access and use the new form.","Positive Functional:
+ 1. Verify that duplicating 'Patient Intake v2' creates 'Patient Intake v2 - Copy'
+ 2. Verify that the duplicate has all fields from the original
+ 3. Verify that editing the duplicate doesn't change the original
+ 4. Verify that renaming and saving works
+ 5. Verify that assigning duplicate to a different facility works
+ 
+ Negative:
+ 6. Verify that duplicating a form with no fields still creates the copy
+ 
+ UI Scenarios:
+ 7. Verify that Duplicate action is accessible from the forms list
+ 
+ Edge Cases:
+ 8. Verify that duplicating a form with 50+ fields copies all correctly
+ 
+ Security:
+ 9. Verify that duplication is logged in audit trail",1. Verify that form duplication completes within 3 seconds,,
+45,Super Admin Portal,Form Builder,"As an SuperAdmin, I should be able to save a form as a template, view the template library, edit, delete and assign templates to specific facilities","This story enables comprehensive template management for forms. The SuperAdmin can save any form as a reusable template, view the template library, edit templates, delete unused templates, and assign templates to specific facilities. This enables standardization across facilities while allowing customization.","1.When the SuperAdmin clicks on 'Save as Template', then the form should be added to the template library.
+2.When the template library is opened, then all available templates should be displayed.
+3.If a template is edited and saved, then the changes should be updated in the template, but existing forms created from it should remain unchanged.
+4.If the SuperAdmin deletes a template and confirms the action, then the template should be removed from the library.
+5.When a template is assigned to specific facilities, then those facilities should be able to create forms using the template.
+6.After assignment, then facility users should see the assigned template in their form builder.","Positive Functional:
+ 1. Verify that saving a form as template adds it to the library
+ 2. Verify that the template library shows all templates with name, date, assigned facilities
+ 3. Verify that editing a template updates it without affecting existing forms
+ 4. Verify that deleting a template removes it from the library
+ 5. Verify that assigning to 'PSS Georgia' makes it available there
+ 6. Verify that facility users see assigned templates
+ 
+ Negative:
+ 7. Verify that deleting a template assigned to active facilities shows warning
+ 8. Verify that saving a template without a name shows error
+ 
+ UI Scenarios:
+ 9. Verify that template library has search and filter capabilities
+ 10. Verify that assignment shows facility selection with checkboxes
+ 
+ Edge Cases:
+ 11. Verify that assigning a template to 50+ facilities works
+ 
+ Security:
+ 12. Verify that only SuperAdmin can manage templates","1. Verify that template library loads within 2 seconds
+ 2. Verify that template assignment saves within 3 seconds",,
+46,Super Admin Portal,Form Builder,"As a SuperAdmin, I should be able to save and submit a form","This story enables the SuperAdmin to save a form as draft and submit it when ready. Saving preserves work-in-progress, while submitting finalizes the form and makes it available for use.","1.When the SuperAdmin clicks on Save, then the form should be saved as a draft.
+2.When a saved draft is reopened, then editing should continue from where it was left.
+3.When the SuperAdmin clicks on Submit, then the form should be finalized and marked as Active.
+4.After submission, then the form should be available for access by facility users.","Positive Functional:
+ 1. Verify that saving creates a draft that can be reopened
+ 2. Verify that the draft preserves all fields and configurations
+ 3. Verify that submitting finalizes the form
+ 4. Verify that submitted forms are available to assigned facilities
+ 5. Verify that editing a submitted form creates a new version
+ 
+ Negative:
+ 6. Verify that submitting an empty form (no fields) shows warning
+ 7. Verify that submitting without a form name shows error
+ 
+ UI Scenarios:
+ 8. Verify that Save and Submit are separate buttons
+ 9. Verify that draft status is shown on saved forms
+ 
+ Edge Cases:
+ 10. Verify that saving a draft mid-edit preserves unsaved changes
+ 
+ Security:
+ 11. Verify that form submissions are logged","1. Verify that form save completes within 2 seconds
+ 2. Verify that form submission completes within 3 seconds",,
+Audit Log,,,,,,,,,
+47,Super Admin Portal,Audit Log,"As an SuperAdmin, I should be able to view all the audit logs","This story enables the SuperAdmin to view a comprehensive audit log of all system activities. The log shows who did what, when, and where across all modules. Each entry includes timestamp, user name, action type (Create, Update, Delete, Login, Archive), affected module, and details. This is critical for compliance, security monitoring, and troubleshooting.","1.When the Audit Log page loads, then all audit log entries should be displayed in chronological order (newest first).
+2.If audit log entries exist, then each entry should display timestamp, user, action, module, and details.
+3.When an audit log entry is expanded, then before and after values of the change should be displayed.
+4.If the number of audit log entries exceeds the page limit, then pagination should be available.
+5.If no audit log entries are available, then a 'No audit logs' message should be displayed.","Positive Functional:
+ 1. Verify that Audit Log shows all entries with timestamp, user, action, module
+ 2. Verify that entries are sorted newest first
+ 3. Verify that clicking an entry shows before/after change details
+ 4. Verify that pagination works for 1000+ entries
+ 5. Verify that all action types (Create, Update, Delete, Login, Archive) are logged
+ 
+ Negative:
+ 6. Verify that no entries shows 'No audit logs' message
+ 
+ UI Scenarios:
+ 7. Verify that action types are color-coded or use distinct icons
+ 8. Verify that timestamps are in readable format
+ 
+ Edge Cases:
+ 9. Verify that 100,000+ audit entries load with acceptable pagination performance
+ 10. Verify that entries from all modules (Users, Facilities, Settings, etc.) are captured
+ 
+ Security:
+ 11. Verify that audit logs are read-only (cannot be modified or deleted)
+ 12. Verify that only SuperAdmin can access audit logs","1. Verify that Audit Log page loads within 3 seconds
+ 2. Verify that expanding an entry loads details within 1 second",https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-162507&t=Rfb89JT00KkxQUw7-4,
+48,Super Admin Portal,Audit Log,"As a SuperAdmin, I should be able to download audit logs file in CSV & PDF file","This story enables the SuperAdmin to download audit logs in CSV and PDF formats for compliance reporting, external auditing, and record-keeping purposes.","1.When the SuperAdmin clicks on Download, then format options such as CSV and PDF should be displayed.
+2.If the SuperAdmin selects CSV, then a CSV file containing audit log data should be downloaded.
+3.If the SuperAdmin selects PDF, then a formatted PDF report of audit logs should be downloaded.
+4.If filters are applied, then only the filtered audit log data should be included in the downloaded file.
+5.After download, then the file should contain all relevant columns such as timestamp, user, action, module, and details.","Positive Functional:
+ 1. Verify that clicking Download shows CSV and PDF options
+ 2. Verify that CSV download produces a valid CSV with all audit columns
+ 3. Verify that PDF download produces a formatted, readable report
+ 4. Verify that filtered download only includes filtered entries
+ 5. Verify that the downloaded file opens correctly in Excel/PDF viewer
+ 
+ Negative:
+ 6. Verify that downloading with no entries produces an empty file or message
+ 
+ UI Scenarios:
+ 7. Verify that download progress is shown during file generation
+ 
+ Edge Cases:
+ 8. Verify that downloading 50,000+ entries completes without timeout
+ 9. Verify that PDF with 1000+ pages generates correctly
+ 
+ Security:
+ 10. Verify that downloaded files don't contain sensitive data beyond what's in the logs","1. Verify that CSV download generates within 10 seconds
+ 2. Verify that PDF download generates within 30 seconds",https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-162507&t=Rfb89JT00KkxQUw7-4,
+49,Super Admin Portal,Audit Log,"As an SuperAdmin, I should be able to Search & filter logs","This story enables searching and filtering audit logs by date range, user, action type, and module. This helps quickly find specific activities for investigation or compliance purposes.","1.When the SuperAdmin applies a date range filter, then only audit log entries within the selected range should be displayed.
+2.When a user filter is applied, then only activities performed by that user should be displayed.
+3.When an action type filter is applied, then only entries matching that action type should be displayed.
+4.When a module filter is applied, then only entries related to that module should be displayed.
+5.If multiple filters are applied together, then only entries matching all selected criteria should be displayed.
+6.When all filters are cleared, then the full audit log list should be restored.
+7.If no matching results are found, then a 'No results found' message should be displayed.","Positive Functional:
+ 1. Verify that date range filter 'Last 7 Days' shows only recent entries
+ 2. Verify that user filter 'Sarah Johnson' shows only her activities
+ 3. Verify that action filter 'Delete' shows only delete actions
+ 4. Verify that module filter 'Facilities' shows only facility entries
+ 5. Verify that combining date + user filter narrows results correctly
+ 6. Verify that clearing all filters restores the full list
+ 
+ Negative:
+ 7. Verify that filters with no matching results show 'No entries found'
+ 8. Verify that invalid date range (end before start) shows error
+ 
+ UI Scenarios:
+ 9. Verify that filter controls are clearly visible (date picker, dropdowns)
+ 10. Verify that active filter count is shown
+ 
+ Edge Cases:
+ 11. Verify that filtering 100,000+ entries performs within acceptable time
+ 
+ Security:
+ 12. Verify that filter parameters cannot be manipulated to access unauthorized data",1. Verify that applying filters refreshes results within 2 seconds,https://www.figma.com/design/hkuz22VQvJUViMalUWubAz/Nemicare?node-id=4136-162507&t=Rfb89JT00KkxQUw7-4,
+Document & Invoice Branding,,,,,,,,,
+50,Super Admin Portal,Document & Invoice Branding,"As a SuperAdmin, I should be able to configure each facility's logo to automatically appear on all system-generated documents","This story enables the SuperAdmin to upload and configure a facility-specific logo that automatically appears on all system-generated documents (care plans, assessments, discharge summaries, letters). This white-label branding ensures each facility's documents carry their own identity.","1.When the SuperAdmin opens Document Branding for a facility, then the current logo should be displayed with an option to change it.
+2.If the SuperAdmin uploads a new logo, then the preview should update accordingly.
+3.After saving the configuration, then all system-generated documents for that facility should display the configured logo.
+4.If different facilities have different logos configured, then each facility’s documents should display their respective logos.
+5.If the logo is removed, then system-generated documents should display a default logo or no logo.
+6.If no logo is configured for a facility, then system-generated documents should use the default behavior.","Positive Functional:
+ 1. Verify that uploading a facility logo (PNG, 500KB) shows the preview
+ 2. Verify that generated documents display the uploaded logo in the header
+ 3. Verify that Facility A's documents show Facility A's logo (not Facility B's)
+ 4. Verify that removing the logo removes it from future documents
+ 5. Verify that updating the logo reflects on newly generated documents
+ 
+ Negative:
+ 6. Verify that uploading a non-image file is rejected
+ 7. Verify that uploading a file >5MB shows size error
+ 
+ UI Scenarios:
+ 8. Verify that logo preview shows the uploaded image at appropriate size
+ 9. Verify that upload area shows accepted formats (PNG, JPG, SVG)
+ 
+ Edge Cases:
+ 10. Verify that a very small logo (16x16px) is upscaled or rejected with minimum size warning
+ 11. Verify that changing the logo doesn't affect already-generated documents
+ 
+ Security:
+ 12. Verify that only SuperAdmin can configure document branding","1. Verify that logo upload completes within 5 seconds
+ 2. Verify that document generation with logo completes within normal time",,
+51,Super Admin Portal,Document & Invoice Branding,"As a SuperAdmin, I should be able to configure the legal facility name that appears on all document headers",This story enables the SuperAdmin to configure the legal facility name that appears on all official document headers. The legal name may differ from the display name and is used for compliance and regulatory purposes.,"1.When the SuperAdmin opens Document Branding, then the current legal facility name should be displayed.
+2.If the SuperAdmin modifies the legal name and saves, then the updated name should be stored successfully.
+3.After saving the configuration, then all system-generated documents should display the legal facility name in the header.
+4.If the legal name is different from the display name, then documents should use the legal facility name.
+5.If the legal facility name is cleared, then the system should use the display name as a fallback.
+6.If no legal name is configured, then the default display name should be used in document headers.","Positive Functional:
+ 1. Verify that the legal name field shows the current value
+ 2. Verify that changing to 'Nemicare Assisted Living LLC' and saving stores the name
+ 3. Verify that generated documents display 'Nemicare Assisted Living LLC' in the header
+ 4. Verify that the legal name (not display name) appears on documents
+ 5. Verify that clearing the legal name falls back to display name on documents
+ 
+ Negative:
+ 6. Verify that a legal name with 500+ characters is handled
+ 
+ UI Scenarios:
+ 7. Verify that the legal name field has appropriate label and placeholder
+ 
+ Edge Cases:
+ 8. Verify that special characters in legal name (&, LLC, Inc.) display correctly on documents
+ 
+ Security:
+ 9. Verify that legal name changes are logged in audit trail",1. Verify that saving the legal name completes within 2 seconds,,
+52,Super Admin Portal,Document & Invoice Branding,"As a SuperAdmin, I should be able to configure each facility's logo to appear on all generated invoices","This story enables configuring a facility logo specifically for invoices. The invoice logo may be the same or different from the document logo. It appears on all generated invoices (monthly, prorated, late fee) sent to patients/families.","1.When the SuperAdmin opens Invoice Branding, then the current invoice logo should be displayed.
+2.If the SuperAdmin uploads a new invoice logo, then it should be saved successfully for invoice use.
+3.After saving the configuration, then all generated invoices should display the configured invoice logo.
+4.If the invoice logo is different from the document logo, then invoices should use the invoice-specific logo.
+5.If the invoice logo is removed, then the system should use the document logo as a fallback.
+6.If no invoice logo is configured, then the system should use the default or document logo.","Positive Functional:
+ 1. Verify that uploading an invoice logo shows the preview
+ 2. Verify that generated invoices display the configured logo
+ 3. Verify that the invoice logo can differ from the document logo
+ 4. Verify that removing the invoice logo falls back to document logo
+ 
+ Negative:
+ 5. Verify that invalid file types are rejected
+ 
+ UI Scenarios:
+ 6. Verify that the invoice branding section is separate from document branding
+ 
+ Edge Cases:
+ 7. Verify that both document and invoice logos can be configured independently
+ 
+ Security:
+ 8. Verify that only SuperAdmin can configure invoice branding",1. Verify that invoice logo upload completes within 5 seconds,,
+Notifications,,,,,,,,,
+53,Super Admin Portal,Notifications,"As an SuperAdmin, I should be able to view notification settings for different events (User Add, Facility Add, Task)","This story enables the SuperAdmin to view the notification configuration for different system events. The settings page shows which notification channels (SMS, Email, Push, Family Portal) are enabled for each event type (User Add, Facility Add, Task assignment, etc.).","1.When the Notification Settings page opens, a table showing events and notification channels should be visible.
+2.Each channel should show whether it is turned ON or OFF for every event.
+3.If there are multiple channels (SMS, Email, Push, Family Portal), each event should have a toggle for each channel.
+4.Different events can have different settings, and these differences should be easy to see.
+5.The page should show the current notification settings for all events when it loads.
+6.If no settings are saved, default settings should be shown.","Positive Functional:
+ 2. Verify that events include User Add, Facility Add, Task 
+ 3. Verify that channels include SMS, Email, Push Notifications, Family Portal
+ 4. Verify that each cell shows enabled/disabled toggle
+ 5. Verify that current configurations are loaded correctly
+ 
+ Negative:
+ 6. Verify that no events configured shows 'No notification events' message
+ 
+ UI Scenarios:
+ 8. Verify that enabled channels show a checkmark or filled toggle
+ 
+ Edge Cases:
+ 9. Verify that 50+ event types display with scrolling
+ 
+ Security:
+ 10. Verify that only SuperAdmin can view notification settings",1. Verify that Notification Settings page loads within 2 seconds,,
+54,Super Admin Portal,Notifications,"As an SupeAdmin, I should be able to enable or disable notification channels (SMS, Email, Push Notifications, Family Portal) for each event","This story enables the SuperAdmin to toggle notification channels on/off for specific events. For example, enabling Email and Push but disabling SMS for 'User Add' event.","1.When the Super Admin clicks a channel toggle, it should switch between ON and OFF.
+2.If Email or SMS is ON for an event, a notification should be sent for that event.
+3.If Email or SMS is OFF for an event, no notification should be sent.
+4.If Push notifications are ON, a push notification should be sent.
+5.When the Super Admin changes multiple settings and saves, all changes should be saved.
+6.When the page is refreshed, the saved settings should appear correctly.","Positive Functional:
+ 1. Verify that toggling Email ON for 'User Add' enables it
+ 2. Verify that toggling SMS OFF for 'Task' disables it
+ 3. Verify that after enabling Push for 'Facility Add', adding a facility sends a push notification
+ 4. Verify that disabling all channels for an event stops all notifications for that event
+ 5. Verify that enabling Family Portal for an event sends notifications through the family portal
+ 
+ Negative:
+ 6. Verify that toggling without saving and navigating away shows unsaved changes warning
+ 
+ UI Scenarios:
+ 7. Verify that toggles are clear and responsive
+ 8. Verify that the Save button is enabled after any toggle change
+ 
+ Edge Cases:
+ 9. Verify that disabling all channels for all events is allowed (but may show a warning)
+ 
+ Security:
+ 10. Verify that notification setting changes are logged in audit trail","1. Verify that toggle state changes are instant (no lag)
+ 2. Verify that save completes within 2 seconds",,
+55,Super Admin Portal,Notifications,"As an SuperAdmin, I should be able to save updated notification preferences",This story enables the SuperAdmin to save all notification preference changes at once after making modifications. The save action persists all toggle states and takes effect immediately.,"1.When the Super Admin clicks Save, all updated settings should be saved.
+2.After saving, a success message should be shown.
+3.After saving, notifications should follow the updated settings.
+4.When the page is opened again, the saved settings should be shown correctly.
+5.If Save is clicked without any changes, nothing should break and settings should remain the same.","Positive Functional:
+ 1. Verify that clicking Save persists all modified preferences
+ 2. Verify that a success message is shown after save
+ 3. Verify that new preferences take effect immediately
+ 4. Verify that revisiting the page shows saved preferences
+ 
+ Negative:
+ 5. Verify that saving during network failure shows error with retry option
+ 
+ UI Scenarios:
+ 6. Verify that Save button is prominently visible
+ 7. Verify that success message auto-dismisses after a few seconds
+ 
+ Edge Cases:
+ 8. Verify that rapid Save clicks don't cause duplicate saves
+ 
+ Security:
+ 9. Verify that preference saves are logged in audit trail",1. Verify that save completes within 2 seconds,,

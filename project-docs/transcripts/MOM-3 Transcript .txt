@@ -1,0 +1,398 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/01/21 18:58 GMT+05:30 – Transcript
+Attendees
+AK, ASK, DV, DV's Presentation, MP, RD, SG, SS, SS, SP, TM
+Transcript
+MP: we will get the different lead and how we are going to basically a marketing team or sales team is going to basically take a call or dis basically we'll initiate the discussion with the lead and then schedule a visit with them and we are going to convert them we are going to send them the welcome mail and then rates and everything and based on our discussion only like Nanushi and we created
+MP: one workflow basically we have updated the existing workflow only so Nanuri will present you that workflow we'll explain you all those things that we discussed yesterday and then rest of the things that we are going to discuss maybe one service we can pick and then based on that service only we can see how end to end flow is going to work after prior authorization so yeah maybe Nanari over to you you can share Interesting.
+DV: Yes, my screen is Yes.
+SS: Yeah, I can see it.
+MP: It's loading. Not yet. yeah. I can see your screen. Sam, please confirm you can if you can see the screen. great. can you please zoom in…
+DV: So today we will be okay so we will go with the lead flow.
+MP: because it's screen is bit like yeah it is better.
+DV: We do have some questions which I have marked in bold. So we will cover that and as discussed we will go with one service type today.
+DV: So the lead sources we have confirmed these are the different sources from where the lead will come and once it's there we will assign it to the marketing team they will reach them via call or SMS and we need the call or SMS transcription and data extraction from which we will be having a notes which will help us to get the decision to either select the lead or…
+DV: not. So we will be considering both the call and SMS for gathering the information or connecting to the lead from the system. Mhm.
+SS: Okay. …
+SS: can I interrupt you for a second? let me see if I can Okay.
+DV: Yes. Okay. Mhm.
+SS: So once you are assigned to a marketing team right on the walk-in this is all good when you get it online or from that but when you have a walk-in assigned to the marketing team I would say that gather patient information in person instead of that just merge it into the initiate marketing call ring central integration or maybe a call SMS transcription do that because once the integration because after that they're still going to be on the phone call email and kind of that so I would say that merge that step right here basically from assigned marketing team to the AI call SMS transcription data extraction
+SS: Okay.
+DV: for walking patient we will have a call. I'm not getting this part. Okay.
+MP: No because …
+MP: what will happen like Nanuri so basically it won't be only the walk-in patient has been come and then we are going to collect everything. So it might be the possibility we will just get the basic information of the lead and…
+MP: then a marketing team is going to call them and then we will gather the information. correct me if I'm wrong sir.
+SS: Correct.
+SS: You got it.
+MP: And just one thing like here basically call and…
+SS: That is correct. Yep.
+MP: SMS that will be the multiple call or SMS that we are going to do with the lead until either we can reject them or we can convert them. Correct. Yeah. And for each conversation that we are going to initiate via call or SMS. So if we are having the call so we are going to also basically track the status as well for the particular call.
+MP: If the client not received the call then that will be maybe a no call received something the status that we come to know the last call and also the conversation as well based on the previous call that summary will help to in the next call as whatever the previous conversation was and then what will be the next action items based on …
+00:05:00
+MP: like a AI integration that we are going to do. So we are going to get the summary.
+SS: That is correct.
+SS: You got mean it will create as an event which will be a subrecord right
+MP: Okay. Fine.
+SG: Yeah, I'm having some u doubt So for working patient, so we are taking patient demographic details in the manual entry we are doing. So how will be adding that data in the system?
+MP: So in the system only we will take separately we have the different form. So in the system only like the particular whoever logged in and…
+SS: Thank
+MP: taking the information of the lead. So he will take all these information and then we will save this information in the system only. no everything will be electronic like we are not going to do the manual just form and…
+SG: So for adding the lead into the system we are having the basic details like mobile number email only that details but we are adding that details into that manually only or we are doing scanning that image we are adding that form we are giving the form to that person like patient.
+MP: then ask them to fill this. So instead of that maybe we can send the one link with them and then that link we will ask them to just fill this form maybe iPad or…
+MP: something that we can give them as they are in our office only or they are in our area only.
+SS: You are absolutely Correct.
+MP: So based on that only we will get it. So we are not going to do any manual work here.
+SG: Okay.
+MP: Sam please correct me if I'm wrong here. yes. So any other thing that you want to ask?
+SG: Yeah. yesterday's call Sam said they are taking manual by filling the form.
+MP: But that's why we need a system. Correct. Because automate all the process and…
+SG: Yeah. Yeah.
+MP: just because of that we are developing that. yeah I think we are good here.
+MP: So yeah basically we got this point how we are going to generate a lead and how we are going to add and then these calls and everything what is going to happen here. yeah maybe Nan you can move to the next section.
+DV: Yes.
+DV: So once we are done with the follow-ups and we have the decision to make either to accept or to reject. So if we consider it to be rejected, we can document the reason for the rejection and we can also send the email to the lead with the reason why we rejected it and if we accept the lead's information. So we will generate a rate card which will be there based on the multiple factors like the state location and the office which they are trying to reach to.
+DV: So we will send an welcome email to the lead with the rate cards and accordingly we can schedule a facility visit for them and one of our staff they will also assign it to some staff and the client to have the facility tour taken and once the facility tour is been conducted so we will be having the post visit follow-ups with them. So do they want to proceed with us or do they don't? So if the answer comes as no, we will also document that in this particular step where we have scheduled the facility visit and also if their responses as yes, so we will select the specific service documents.
+DV: We will also generate the intake and contact form as per the rates which we have shared and as we have taken very basic information to get the more detailed information the intake form can be shared and we can also send the forms either to lead or to the family members. So we have an question over here when we are considering a lead is coming to us.
+DV: So the lead can be the patient itself or any point of contact of the patient either of the family members. Right?
+SS: Correct.
+SS: Correct. All right.
+MP: So for us Nanuri so for us lead will be either the point of contact …
+DV: So when we are adding lead into the system and if someone's family member is reaching to us so the lead profile will be generated on the name of that family member or we will generate the lead profile for that particular patient or client. Next
+00:10:00
+MP: who we are contacting and once they agree to the rate and everything then we are going to collect the information of actual patient or that will be the actual detail that we are going to collect using the intake form that we are going to send contract and…
+MP: everything and where yeah so this is something Okay.
+SS: Let me show you that…
+SS: how the lead comes in generally right let me share my screen for a second so she can get a better idea. You see this one? Do you see my screen? Yeah.
+MP: No, no Maybe you need to Yeah,…
+DV: No, not yet. No.
+SS: You don't see my screen? something went wrong. Okay. Do you see my screen now?
+RD: Come here.
+SS: What went wrong when screen sharing? Try restarting your browser if the problem.
+MP: you need to restart your browser. You will get out from the call and then you can rejoin it.
+SS: Okay, give me a second.
+MP: Yeah, sure.
+SS: All right. Good. No.
+MP: Mhm. No,…
+MP: I'm not.
+SS: No. It's not letting me share the screen for some reason. no worries. Just continue. I'll send you the screenshot. yeah. So,
+MP: Yeah, sure.
+MP: So somehow we get the idea how we are going to get a lead and how we are going to add that and the CRM flow as well like taking a followup and then converting a lead. So just one question that I'm having here. So is it possibility they are agreeing everything and we are rejecting them somehow some reason.
+MP: I don't think there will be the possibility but I just need to check with you.
+SS: Hold on.
+SS: Can you repeat that question? I just sent that email to Anita.
+MP: Yeah. The question.
+SS: Yeah. …
+MP: Yeah. Yeah.
+MP: here basically as if any lead come and they are agree to rate and everything so is there any possibility we are rejecting them just because of some reason maybe we are full we don't have the staff that can be help them something Okay,…
+SS: Yes, It can be because sometimes you might get a patient that the level of care is not that we can manage it in that case we may have to deny that lead. Yes. Yeah.
+MP: and also most of the case will be the lead they are maybe unresponsive or they are not basically responding properly or they are not interested. So at that time we are going to date So that lead will get okay. Yeah.
+SS: I mean, we're just going to put it on hold or something like that or something. That's right. Yeah.
+MP: We can close that or inactive that lead and later if they get active again so we can make them active and then we can process again so these are the flow if you see here that we created based on our discussion only. so as call has been once we are done with the call and they agree to the facility visit. So at that time we are going to send the welcome mail and red card with them and…
+00:15:00
+SS: Excuse me.
+MP: their credit card and all and then they will come to the visit and then at that time we are going to assign that lead maybe like the event or appointment we can schedule an appointment with some of our staff only. So our staff will also get notified and lead will also get notified your visit has been scheduled at that particular time.
+MP: Once and before basically that particular visit.
+DV: Got it.
+MP: So maybe 30 minutes or one hours before staff also get notified and also from our side maybe we will send the SMS and email to the lead again your schedule has been there and maybe we can call them manually the marketing team can call them again. this kind of stuff and then once they come to the clinic or facilities. So at that time the person that we assigned them so he will basically give the two to facility to the lead and then he will explain everything and based on that visit so he will create his own notes like things that he noticed or whatever the discussion that he is having with that lead and correct.
+MP: These are and everything we going to show on the patient lead chart only we are going to create one chart for whatever the discussion that we are having so whole flow will be there and then if he for enroll in any of our services. So once he get agree then we can start our prior authorization process. so far let me know if I'm missing something here or anything you feel like this is not the correct way. So, just because of our understanding so we created this flow.
+SS: No, I think this is all good. do me a favor.
+MP: Okay. Yeah.
+SS: Can you share this workflow with me?
+MP: After this call only we'll share with you just like we created.
+SS: Perfect. Because what I'm going to do, I'm going to run it to my marketing team, And have them take a look at it just to make sure that this is exactly…
+MP: Okay. Uh-huh.
+SS: 
+SS: what they're doing it, right? And…
+MP: Yeah, sure.
+SS: then basically add to the future campaign on the left hand side the left box. Add to the future campaign. Right. That was the Yeah.
+MP: Yeah, So basically this for future we are going to campaign for them. we will basically send the SMS, email or any other platform that we can target them.
+SS: Correct.
+MP: Correct. Okay.
+SS: Yep. Target. Right.
+MP: And for rate as well we discussed that internally as you wanted flexibility in the rate card.
+MP: so what we discuss we will share the list of postal code or zip code with you. So what we can do on the zip code particularly wise we can verify the rate card let's say for the state there will be one standard rate card but zip code level if you want to update any one of the rate let's say if you are living in the New York city and the rate for the New York city is very higher so we will have all the zip code for
+MP: the New York City engine we can update the rate of the zip code that we are having and…
+MP: based on that uh-huh uh uh yeah Yeah.
+SS: No, let's think through that wisely that…
+SS: if we try to do the dynamic rate card okay it'll be very difficult to manage it okay because how would you do it even sometime in one zip code you might have a facility in the good area versus the average area the rate card would be different and that would be too much of a coding too much logic that we have to put it in so I think probably…
+MP: Yeah. I do activity too.
+SS: if we can…
+MP: I think. Yeah.
+SS: if we can just let it put the facility manually right I mean we can give them the suggested at the baseline that this is what it is but After that they can do it and see each rate card is going to be individualistic by patient right let's say today a patient is walking in and then considering their situation what they're facing in the life that we might give them $500 discount let's say okay and then tomorrow we have a wealthy patient…
+00:20:00
+SS: who is walking in and then let's say we were charging $32 200 with a 500 discount to A patient. Now we're charging 3,400 with no discount to the patient B,…
+MP: Yeah. Yeah.
+SS: So it's not a set price basically when we have to build on the Medicaid side it's a set price because based on the CPT and…
+MP: Yeah. Understood.
+SS: the ICD10 code but it could be So I would say that don't keep it dynamic let the facility manage it at their level.
+MP: Yeah, sounds good.
+MP: Just one thing is when we are applying discount and all are we going to show them our original price is this and we are giving you the discount of this correct.
+SS: Yes. Yes.
+SS: Yes. That is correct.
+MP: Okay fine.
+MP: So maybe we can have the separate feature where when we are apply sending the rate card so we can have the percentage or anything that we can do.
+SS: Once the verify payment received,…
+MP: Okay fine. Yeah.
+SS: Just fy payment private pay. Go up. Medicaid. what's after that? that is fine. is That is fine. That is fine. So this is good for the ADH. But for the assisted living and memory care, once we receive the payment, we're going to reconfirm the room assignment. So, go ahead and add that one step.
+SS: Yeah, search available rooms. But, yes, that's right. I mean, we had already put in basically a flag on that room that this room might be taken, right, when we started talking to the potential.
+MP: Okay. yeah,…
+SS: So instead of P after verify you have it go confirm the whole rooms or…
+MP: we can reserve something that Okay.
+SS: something like that. Okay. Yeah.
+MP: Yep. Okay.
+SS: Instead of search available rooms just reconfirm it and then assign it.
+MP: Understood.
+SS: Okay. Yep. Pet Correct.
+MP: So here basically if you go so this flow like we will share with you, you can just validate with the marketing team.
+MP: for every facility or service type that we are having the lead generation and the followup and everything the process will be the same after basically we converted them to the member so the process will be the defer based on the service type that we are having correct yeah so Yeah.
+SS: Correct. Yep.
+MP: And we discussed lots of things I know but particularly we can start with any one of them. so yeah I think we can start with the adult yeah so we can start with the ads. ADH so whatever we like our understanding so we created this workflow.
+MP: So I just need to know what will happen after that. Let's say we configure weekly schedule per prior authorization…
+MP: because the prior authorization and all has been already done. and…
+SS: So when we have to configure the transportation that's going to be a sub workflow for a different line of business right so we have our own transportation company as well right and…
+MP: we just need to know about this because you were talking about the transportation as configure transport. So is there anything are we going to provide the transportation and are we going to charge for them as well like any third party that we are going to use for the transport transportation. So how it is going to be there? Yeah. Uh-huh.
+SS: that's a separate from IDH okay so what we do is that when we have to configure the transportation into the patient or the member and…
+MP: Mhm. Okay.
+SS: okay they're doing their own transportation or they're using wida right or basically the state transport So what happens the VIA is a broker for the state transport. Right. And we're a subbroker to So WIDA don't do any transport. They're just a brokerage system like ament ncy. They're like a case management agency. and we're approved vendor for WIDA we told them that since we're running the ADH so any patient who is coming to our ADH we are going to manage the transportation. But we still have to go through the process of that brokering like a case management agency.
+SS: So when you come to the configured transportation and if let's say varida the state transport right in that case we have to send them basically a standing order okay and then they approve the standing order and that is good for 90 days and they give us basically within that what is the point from the respective home address to the adult day health location and…
+00:25:00
+MP: So are we going to do all those stuff in the system only this will be the opt Uh- Okay.
+SS: from adult day health location to the respective home, how many miles based on that they're going to give us the pricing and that's what it's going to come down to, with that purchase order it's called the standing order. It's similar to we can generate it because that standing order that we are already generating it right now okay into our system because 99% of the data it comes out except the signature from our system.
+SS: So basically that we just do the template assignment and say transportation is var and it's going to kick in the process and it's going to create that PDF document for us. And then we email it to the var system that is true.
+MP: We are going to generate a PDF in a system based because we will have all the data and then that details we are going to send to the war system and then they will take care of. So based on the address and all so we can say this will be the pickup location and then also this order and all we can generate it and for that we can have our own data we can create that. yeah maybe we do have the access of that and…
+MP: maybe not today but tomorrow something you can share the screen and then show off that flow as well.
+SS: That is right.
+SS: And I would say this workflow I think this is good and this is all from lead to the confirmation of the member and then put them on board. I think we should just cut off this workflow right here. Now we should talk about getting into the clinical operation and…
+MP: Okay.
+SS: that's where the activities attendance everything is going to come in.
+SS: Okay. Yep.
+MP: And for every service type so there will be the different kind of operation.
+SS: That is More or less similar. but first we're going to talk about the baseline where all the u number of businesses are doing the similar activities and then we're going to get into the ADH that the couple things is extra homeare couple things are extra assisted living is couple things extra…
+MP: Yeah, Yeah, understood.
+SS: but first we're going to go with the baseline okay yep Correct.
+MP: And this is a standard flow everything and other thing whatever thing that we are going to basically create or use that will be just support for this flow only this workflow will be the standard and for supporting we need a staff we need other things everything like we are going to do that correct?
+SS: Correct.
+MP: Okay. Yep. yeah.
+MP: So yeah, I think we are good like this flow. We'll share this flow with you. But yeah,…
+SS: Yes. Okay. Okay.
+MP: I think we can start with then a common flow workflow that we can have for all the services. So you can just explain that to us. yeah, I know if you want maybe anal share my screen so I do have the access of the application name here. So the quick base.
+MP: So if you want I can share my screen and then you can show me. just a sec. Yeah, I'm just sharing my screen. Yeah. yeah, sorry.
+DV: So talking about the service types and we have two modes of payment private pay and the Medicaid. So is there any of the service which is only available for private pay or there are services which we will go only for Medicaid or we need both option available for all of the services.
+MP: Yeah Sam so yeah…
+SS: All right.
+SS: What was that? Yeah.
+MP: what Naneshwari was asking so as we are having the different service type and we are having the payment whether it's med pay or the private so is there any of the service that we are going to use for the prior authorization only not for other and vice versa. and actually correct me if I'm wrong or…
+MP: you can explain
+DV: Do we need both the options available for all the services payment options private pay and…
+DV: medicate or do we want to restrict some services with some payment options?
+SS: No, I think some facilities we have Medicaid and…
+SS: the private pay both. So I would say just keep it open, If they don't need to use it, they don't need to use it. once someone selects private pay or prior authorization, everything is going to be hidden, it's not going to pop up. But if somebody says that Medicaid, then prior authorization is going to come into the play. Correct.
+00:30:00
+DV: So it's not related to the service type but it is related to the facilities fees which option they want to play with for specific services.
+SS: Mhm. Yeah.
+DV: So there can be different scenarios.
+DV: Someone could accept ADH as a private pay but someone may need the priorization pro for ADH.
+SS: Correct. Mhm.
+DV: Okay. Yes.
+MP: Great.
+MP: Yes ma'am let me like if you want to explain.
+SS: What do you want to see exactly? I can take you into that.
+MP: So what we want to see let's say for once we get P authorization and all so how we are going to start the clinical stuff.
+SS: So, go to the members on the left side.
+MP: Yeah, Just a sec.
+SS: Go ahead and open up a member 6 6300. Yep. So this is the member we got all the details kind of filled in as part of the onboarding intake everything like that.
+MP: This one
+SS: So you see all that information their frequency and…
+MP: Mhm. Yep.
+SS: all those things that you see out here right now the next thing you go on a daily basis right keep this screen and…
+MP: Mhm. Yep.
+SS: then I want you to go to the attendance on the left hand side member attendance Okay.
+MP: Member attendance, right? Just a sec.
+MP: No,…
+SS: And we don't have any new record here. Go to reports. I would say list all. I want to see that if you have any. no you do have an access to it…
+MP: I think we don't have the access. but not Okay.
+SS: but basically it does not have any record. click on the three dots on the upper right hand side to see if you can create a new record. no it does not allow to create new record. so let me tell you one this is going to be a new workflow.
+SS: So now the transportation is picking up the patient or…
+MP: Mhm. Okay.
+SS: a member and they're bringing them to the facility. When they arrive at the facility what happens that as soon as they walk in they get greeted and then there is a facial recognition terminal out there. and they put their face in and what it does that it marks attendance is equal for that particular day as soon as they walk in.
+MP: Okay.
+SS: So what happens here is that let me give you one more thing. I'm going to give you an access to one more app so you can see that what I'm talking about. give me a second. G give me just a second.
+MP: So for trans the driver and all.
+MP: So for them as well we have something.
+SS: Let me you Okay,…
+MP: Yeah sure.
+SS: what is your email address? So hold on.
+MP: I'm just sending it in chat.
+SS: Okay.
+MP: I chat Google chat.
+SS: What I want you to do is that go back to the application home and…
+SS: click on the navig click on the namare yep yeah there click on apps you see yeah yeah go ahead and…
+00:35:00
+MP: Yeah, sure.
+MP: Okay, I do. I got this.
+SS: 
+SS: click on and go to the member attendance.
+MP: It's loading. So yeah,…
+SS: Yeah. go ahead and…
+MP: we have the Yeah.
+SS: open one attendance the first one. yeah, the present is equal to go ahead. Okay, perfect. So as soon as they enter they enter and…
+SS: they do the face in okay and if they're present on that day and if the facial recognition system is on end of the day the batch will create this record for that particular event. which is going to say that this is the date,…
+MP: Mhm.
+SS: this is the event this is the employee ID, which is This is the wrong attendance type. We don't have to do that. Present is equal to yes. Right? And all the member full name, Medicaid ID, all this information is coming from our Patient database. We're not putting it.
+MP: Mhm. Yep.
+SS: The only thing we're taking it is present is equal to then it's going to repopulate all these other fields from the member database. Got it? Yep. This particular record gets created on every single attendance.
+SS: And if the present was no,…
+MP: Okay, there.
+SS: then basically it's still going to create the attendance report but then it's going to pop up this MI generation details. And then we have to do this. This is only for the ADHD. This is not for assisted living. We're talking about only for the ADHD Yeah.
+MP: Okay. Yeah.
+SS: So, this particular tab is going to open up.
+MP: Okay. Sure.
+SS: So I want you to click on edit and…
+MP: Mhm.
+SS: then consider that present was present equal to no. So now you have to put in the absent code. So if you put the go ahead and do the Click on that and…
+MP: Yeah. Sure.
+SS: it'll give you a code 1 to 10.
+MP: Correct. Yeah,…
+MP: it is showing one.
+SS: Okay. Right.
+MP: Yeah. …
+SS: And go ahead and…
+MP: what is this code means? Two means what?
+SS: it comes into the notes but why it's not coming I don't know because it's an older version. click one, two, three.
+MP: Yeah, I'm just clicking the different. So We need to configure it in the settings somewhere. So we can have this absent code. We can create a new absent code and then add a nodes. So if I'm selecting any of the code, the nodes will get pre Okay.
+SS: 
+SS: That is correct. And so what it does that when you click on generate MIF it'll generate a PDF document with all these information right into a particular format and then with absent code and notes is going to come automatically into that. So you don't have to type it anything. Once you generate that, it's going to create a time stamp.
+MP: Yep.
+SS: This was generated. And then you click on that MIF send to the case manager, And then when you click on that, it'll pull up the email address of that particular case manager, right? And then send it and then it'll do the timestamp into the MIF date. And then it'll create a PDF document basically right here. So basically that case manager is receiving that the PDF document he or she is going to open it and after opening it they're going to say okay approve and they're going to do the signature when they do the signature and when we receive the attachment back basically this particular checkbox the signed MIF received is going to get checked we're going to get the time stamp and…
+SS: then we're going to get the attachment with their signature as well here not for absent is equal to I mean when the present is yes we don't send it so…
+MP: So for every patient and…
+MP: every day are we going to send this? So only if yes is equal to yes then okay understood.
+SS: what happens that when the present is yes this data gets converted into the billing data…
+MP: Mhm. Correct. Yep.
+SS: 
+SS: but if the present was No. Then we're generating this document and we're documenting it why the patient was not there and we notify the case manager which is the state and they acknowledge and then we are keeping it that this particular day this patient did not come in for absent court and…
+00:40:00
+SS: and so right we notified the case manager they acknowledged that and they signed off and here's a document.
+MP: Okay, understood.
+SS: So, every day you'll have about three to four people like that…
+MP: Yeah, this is okay.
+SS: which is not going to show up. Yeah. So, out of 100 people you might have a three four people won't show up.
+MP: And Okay. Yeah.
+SS: Okay. Connect.
+MP: And for let's say we are having the hundred of people's the member and we are having the transportation facility. So for everyone the transportation is going to pick if they have the transportation facility and…
+MP: then once they come then we are having the attendance for them. And all those will get autopop populated.
+MP: We don't need to do this and this is just for the attendance purposes that we are tracking.
+SS: So once they scan their face,…
+SS: their attendance record is going to get popped automatically.
+MP: So means how that scan phase is going to work are we going to firstly when we are adding that patient so we are collecting all the information or biometrics of them and…
+MP: then based on that we are validating that or do we have the mobile app or something using that like Uh-huh.
+SS: No. …
+SS: so right now we're using a third party scanner. And…
+MP: Uh-huh. Okay.
+SS: then we exchange the data between the third party scanner and the current Namiare version. But eventually if we have an ability we can just put our application for the scanning and it scan the data in Yeah.
+MP: We'll see that because we never work on the scanner and all but we'll check if we can do that.
+SS: something. Yeah.
+MP: Yeah. Yeah. You want to ask something?
+DV: the MF generation DDay flow will be available only in case of Medicaid and not in case of private pay right so even…
+MP: Yeah. yes Sam can repeat your question.
+DV: if it's a private pay and they don't attend are we going to trigger the particular patient and the concerned family member or…
+DV: there is no trigger for the private payments in case of upset Yes.
+SS: Sorry,…
+SS: I've had a little bad connection here, but go ahead. can you No,…
+DV: So if it's a medicate, we are notifying the case manager about the missed session of the EDH.
+DV: But in case of private pay do we want to notify any of the client or the respective?
+SS: no private pay.
+DV: Okay.
+SS: We don't have to. We just generate the record present is equal to no and…
+SS: that's pretty much it. Okay. Yep.
+MP: Yeah.
+MP: So yeah this attendance flow we know and as of now as the biometrics so we are using the face recognization and…
+MP: we are using the third party for that and that will get automated attendance will be the automated these things we understand so let's say everyone joined or…
+SS: Yeah. Yeah.
+MP: everyone is coming to the clinic then what will happen after that let's say this is for the attendance correct now after that
+MP: the clinical stuff like the care plan maybe we can assign them and how we are assigning them the …
+SS: Let's discuss that tomorrow. what I want you to do that go back to the member tab.
+MP: just a sec. One second.
+SS: Pull up any member So,…
+MP: Uh-huh. Yep. I'm just selecting the second one. Mhm.
+MP: So in the activity like all those things that we are attendance is going to show it here or not I think okay
+SS: 
+SS: so here's the thing So workflow the reason we will discuss this in detail tomorrow but first event happens when the patient comes to the facility they do the facing attendance record was created right. So now the activity record is going to get created…
+SS: if the attendance was equal to yes then a activity record will be created for that particular member for that particular day.
+00:45:00
+MP: Okay. Mhm.
+SS: Okay. So, you can click on add activity right now.
+MP: Mhm. Yeah. Sure. Yeah.
+SS: So, you're doing it manually, but this all happens in the back end.
+MP: Got it. Okay.
+SS: An activity date is going to come automatically. Let's say Today's date. Just go ahead and put it today's Record owner created by, this is the member basically. So, don't worry about it. And attendance is going to come out full day automatically. if it was absent then all these therapy, personal care, meals, other services is not going to pop up. Okay. So undo the full day.
+SS: Undo the full day and then click on the absent code. Do you just pick any right in that case.
+MP: Yeah, I think yeah,…
+MP: I clicked I can see 1 10 3 5 6 7 9 personal matter vacation this option. Okay. Yeah, I just clicked on the 10.
+SS: Do you see that nothing popped up underneath?
+MP: Yeah. Right.
+SS: But if you go ahead and…
+SS: undo that and…
+MP: Mhm. Yep.
+SS: then click on the full day, check the full day and then this thing is going to get popped up, right? And…
+MP: Got it.
+SS: Then you go to Click on personal care. Then you're going to have this meals. You're going to have other services. And daily. So this is how that they participate into different activities. So what happens that on a daily basis they fill in that okay
+MP: Uh.
+SS: what they have done it in that daily participation meals and…
+MP: Okay.
+SS: personal care and other services and kind of that. So the staff does that on a daily basis. Connect.
+MP: So these are their daily activities What are things that they are performing? So we are tracking them by full day, part day and then we are whether this is therapy, personal care, meals, other services and then daily participants. So all those stuff they can save for the particular patient on the particular day. So all those things has been we will record all of this
+SS: Is That is correct. Yep. And…
+SS: then we're going to talk about the attendance the vitals and kind of that but we can talk that in detail tomorrow how the clinical operation happens on a daily basis. Okay. Yep.
+DV: And so the activities…
+DV: which are visible over here the therapy, personal care, meals, these are the services which comes under the ADH.
+SS: That is correct. This is only for the ADH we were talking about. Correct. Yeah,…
+DV: Is there any more or can we add any services if needed for ADH and…
+SS: we can. Yeah, but this is pretty much, we have captured everything what we do, But if you need to add that, yeah, we can add that in the future.
+DV: when the member is enrolled and…
+DV: we are providing them the ADH so we will provide
+DV: All of these there is not a particular selection.
+SS: But not every day everything right like a field trips on the third column second from the bottom do you see that field trips okay that doesn't happen on a daily basis that might be once a month right That is correct.
+DV: Yes. the daily participation can vary but the therapy, personal care, meals and other services are constant or…
+MP: the same. Yeah.
+DV: we can say common for all the members who are there for ADH service.
+SS: And this is where we're going to utilize the system. So let's say that right now we already have it that once you have this activity created for a master member let's say for that particular day and if we had 100 people showed up on that day and all 100 people did the same activity we can copy this thing with those condition that…
+MP: Yeah. Yeah,…
+SS: if the member was present is equal to yes and today's date go ahead and copy the whole thing basically you for every member.
+MP: that sounds good. So, this is like Yep.
+DV: Okay. Yes,…
+SS: Okay. Yep. Yeah. Exactly.
+DV: it will reduce the note creation and the status updation process.
+SS: Correct. Yep.
+MP: Yes ma'am anything else you want to show us today?
+SS: No, I think this is good. we can stop the call at this point, today.
+00:50:00
+MP: Okay sure.
+SS: Yeah. Right.
+MP: So yeah tomorrow basically know we are also working on the design part as well. So tomorrow we will show you that the lead generation and all that flow that basically today we started working on that and…
+SS: Sounds good.
+MP: later we will start working on the clinical things like we will discuss that in detail.
+SS: Yeah. And…
+MP: Yeah. Yes.
+SS: then send me this workflow so I can run through the sales team today.
+MP: Yes. Yeah.
+SS: Perfect.
+MP: Today after this call only we'll share that with you.
+SS: right.
+MP: Thanks. Yeah. Thanks.
+DV: Also with the workflow we will share you another email…
+DV: where we want some deliverables from your end. the intake format, the contract format, any reference referral format and…
+DV: the detail. you mentioned to share it previously also but I have checked the drive it's not there. So maybe we can share a list which we want and…
+SS: Yeah, that'll be great.
+DV: accordingly in the
+SS: If you can share,…
+MP: Yeah, sure.
+SS: I will go ahead and send out the templates.
+MP: Yeah. Because whether it's in for form or for the transportation as well like the…
+MP: what things that we want to send. everything I'll send you you in the mail so you can just respond to that. Yep. yeah, I think we are good for today. Thanks Sam for your time. Bye. Have a nice day.
+SS: Perfect. Yep.
+SS: Thank you. All right.
+MP: Have a good day.
+SS: Y Thank you. Bye.
+Meeting ended after 00:51:42 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

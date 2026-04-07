@@ -1,0 +1,342 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/01/27 18:57 GMT+05:30 – Transcript
+Attendees
+AK, DV, MP, RD, SG, SS, SO, SD, TM
+Transcript
+SS: Give me All right. Sounds good. yeah,…
+DV: Good luck.
+DV: Can we start?
+SS: we can start.
+DV: So today the agenda will be like we will go through the updated workflow which we have to present for the transportation and clinical.
+DV: after that the remaining workflow specifically for ADH if there are any clinical or operations part is remaining specifically for ADH we can cover that part and…
+DV: if not then we can cover the onboarding of staff employees. So yes, I will just share my screen and we will go through the transportation and clinical workflow we discussed on Friday. So yes, can you see the screen?
+SS: Okay. Mhm.
+SS: Not yet. Give me just a second. yeah, I don't see. Okay, I see your screen now. Yes. yeah.
+DV: Is it visible? So member order on board and state approval. there here we will cover the transportation and the authentication process specifically which is going to be out of the system. But how it is going to affect the attendance mapping. So the lead flow is been discussed. Now the payment based on the payment type we will send an request for the transportation to Verida and we will receive an order from them the template format which you have shown and it will last for 90 days and it will be having the drop off the pickup all those information.
+DV: in our system we will import an CSV file from which everything will be recorded for the attendance or…
+DV: the trip and the drivers and the vehicle details will be also available in the varas order. So yes, sorry.
+SS: Can I stop you right there?
+SS: So where you go to the box CSV import via Dropbox. So that is what currently we're doing it right. we may have an ability to do an API integration with them okay directly then we don't have to get into this CSV stuff okay so just go ahead and put it a possibility of the API integration okay yeah there is a possibility I'm in a conversation with them so…
+MP: Yeah, we can automate everything automatically we will all the data.
+SS: if that comes in…
+SS: then we don't have to get into the CSV and Dropbox import export that is correct. All right, thank you. Go ahead.
+DV: So considering that after that…
+DV: if the members arrives at facility so we have to mark the attendance. if it's the first visit then we will create the member ID we will provide it to the client and if it's not the first visit so the day attendance tracking process or the interval at which the client needs to come at the facility so the attendance tracking process will be the third party face recognization system will be there who will identify the client and they will have the data stored at their
+DV: Then we will get an CSV file from them or any other file format which they support for our system and from that data we will upload it into our current system which we are going to build and that will map the time stamp and the phase ID. So the client's information which is visible in that CSV will be marked as yes attendant and…
+00:05:00
+DV: the one which are not there they will be marked as absent for upsent
+MP: This process that we show you that right now it will not in the system it will be in the application that we are using for face recognization.
+MP: So all those stuff just we generated the member ID that we are going to use to map it to the attendance. Yes. yeah n sorry correct.
+SS: I mean basically the member ID into our system equals to the ID within the facial recognition system particular person,…
+MP: Yes. Yep.
+SS: Yeah, you got it. Yeah, that's how we have it right now. So you're good. All right, go ahead. Keep moving.
+DV: So for the attendance marks up absent we discussed an workflow…
+DV: where the EDWP notification should trigger to the case manager and the format should have the date from the attendance record and the code which we are going to have in our system. So the code will autoop populate the reason and there is a code which will say others where we need to specify the particular reason why the client was not there.
+DV: So this flow also we have considered Mhm.
+SS: Yeah. …
+SS: just stop there. So, we email to the case manager, right? So, now the case manager receives that email,…
+MP: That's Okay,…
+SS: they review it, they electronically sign that and they reward it back. And then we get that the PDF they signed it'll be uploaded into our system with their signature and the time stamp when it was signed when it was viewed and signed and kind of that. Okay. Yeah.
+MP: understood. So basically once the care manager reviewed and sign it then we are going to upload that PDF in our application.
+DV: Thank you.
+MP: Right. Okay.
+SS: Right there with that particular event. because this is a particular event that we're talking about EDWP when the patient was absent on and…
+SS: so date EDWP was created by the floor manager or the nurse sent to the case manager they received it reviewed it signed off and then we get the signed copy right there basically so in the future we do that Right.
+MP: We are going to share that form that will be the sign option.
+MP: So once KS sign it. Yeah. So that Uh-huh.
+SS: That's what currently we're doing it.
+DV: Where is he?
+SS: We're using a form stack for that. And what the form stack does that it create that basically it fetches that PDF from our system and then sends a email out to the case manager. They Open that document. They reviewed that sign off and then when they sign off we get that response back into our system and say they signed off and so date and we also get an ment. The attachment gets automatically uploaded into our system. If you go to any attendance which is marked absent in the last 1 month or so you will see that entire workflow kind of doing that. Okay. Yep.
+MP: Yeah, we'll check it. But yeah, now we understood the way the system is in implemented for the absent time sheet.
+SS: Sounds good.
+MP: So we are going to implement accordingly. Good. Okay.
+DV: And…
+DV: we will mark it for present day record the daily activity. and question over here when the client is coming to the service we are scanning their face ID and then marking the attendance. do we need to have the same flow when they are leaving so we can count the total time they were present at the service location. Okay.
+SS: Not for the ADH. You're good.
+DV: So they will record the daily activities or the services. if there is a single type of services provided for multiple clients, we will provide the feature to copy the templates and they can also provide the individual template for them. Also we will be monitoring the different rules over here we should record the vitals every week and the next vital state should trigger over there. the clinical documentation as per the need the progress note should be generated or updated every month by CNA, LPN or RN if it is done by any CNA or LPN it should need an authorization or approval from the RN and after that it will get signed and completed and even if any nurse interacts with the client there is something which needs to be caught so we can generate
+00:10:00
+DV: an event which will be also stored in the member timeline frame where we can see the event when it was generated and at every month the care plan should be reviewed by any of them for specific client this is good Mhm.
+SS: Yeah, that's good. Just go to One thing that we're not doing it into the care plan that we need to do that when they review the care plan every month, make sure that we capture their signature reviewed by and so nurse time stamp. if you can capture that signature and…
+DV: on.
+SS: then probably at any given time we want to run a report on a care plan for a patient then it will pull up the entire care plan but at the bottom it'll show that it was reviewed every month
+SS: since it was created and then we have just basically the time stamp of the ner okay Yeah.
+MP: Just question here Sam for you.
+DV: Yes.
+DV: Let's go.
+MP: So when we are adding a member or converting them to the patient or member so at the time are we assigning any of the care caretaker or the staff to them. So they are the primary person who will take care of them.
+SS: No, no, no. So, this is what we're going to do. good question. So, I think we're going to create probably, let's say, about 30, 40, 50 care plans template into our system. And then if the patient and that is where the AI is going to come into the play for us. the scribe AI and let's say the patient is coming with the high blood pressure medication right something like that that it will detect it and based on that it will tell us that these are the care plans that you need as a template and we just have to so if I'm creating a new patient and then when I go to the care plan it'll suggest me three four care plans which I'll match it up with their state documentation and say yes I need
+SS: And then I don't have to type it. It'll just pick up from the template. Okay. Yep. Yeah.
+MP: Okay, understood.
+MP: Yeah, initially
+DV: So the review it can update anything like the the updated target date the three to four components of the care plan which we have currently and we will track as you mentioned here also I have mentioned it in a different way who did it, what was the update and when it was done. So this format we will consider and that will be the end for that daily cycle and when the 90 days will be completed for transportation we will be having an renew renewal trigger for that standing order.
+MP: Not 90 but yeah 90 days cycle but yeah before 30 days as well like 60.
+SS: 60 days elapsed. Yep. Yeah.
+MP: So before only we can apply for the labs.
+DV: Mhm.
+SS: So before 90 days,…
+MP: Yeah. Correct.
+SS: we already have a new standing order in the play. so while you're here, this is exactly what I want. Daneshwari I want you to copy the exact same thing for the prior authorization which is valid for one year. So when we do that renew so we need to do the same thing renew the PA with the state approved case manager. So what happens that every 12 months it expires and then we tell them 90 days in advance to the case manager that you need to come and visit this patient because the PA is getting expired. Okay. And why the PA is so important is and…
+SS: why this standing order with VIA is important. It's like a purchase order if that So if you don't have a prior authorization we can keep on rendering the service but we can't get paid. So similar to the standing order too, right?
+MP: Yep. Okay.
+MP: Yeah. Yeah.
+SS: So that's why we want the PA to be done third 90 days in advance so we can start getting on the case manager's calendar and say hey when are you coming and…
+00:15:00
+SS: kind of that and if there is any issue we don't have to wait until the last minute and then we don't have to hold off on the billing or we might lose some dollars or anything like that if it Perfect.
+MP: Yeah, that makes sense.
+MP: Just like we will create a separate workflow for prior authorization where we will update that. So in the separate tab we can do this. Uh-huh.
+DV: Also one more question I have here.
+DV: So all these things like the 7day schedule, the 30 days care plan or the So the event creation will not have any notification but if we are not assigning any provider or any staff member to a particular clinician. So how the seven days are completed will be visible on the client's chart but how the particular staff or the clinician will get to know that these are the members who are due and these are the task we have to consider.
+SS: Yeah. Yeah.
+DV: So do we have in case scenario or work?
+MP: Hope so this time no okay again I think I need to share Let me know once you see the screen.
+SS: Yeah, let me try to scare my screen today. We'll try one more time. Yeah. Hopefully. I doubt it. just go ahead and share your screen. Yes, I do.
+MP: So particularly for H we will discuss these things and now how the staff is going to manage all those stuff but for particularly are apart from any other features or anything that we are missing or we need to discuss.
+SS: I think that's pretty much covers it,…
+SS: but I will review that, you offline today.
+MP: Yeah. Yeah. What we will do that after a call we'll send you the workflow document that created and…
+SS: Yeah. …
+MP: then you can review it and maybe we can talk about that. So yeah let me know where I should go.
+SS: which one we were talking about it?
+SS: Okay.
+MP: Yeah,…
+MP: we were talking about area where I can see to the number of the vitals that we need to okay so is it something the task or…
+SS: Good, good, good.
+SS: I want you to go to the dashboard which is app home. Yep. No.
+MP: Okay.
+SS: So I'll tell you. So go up.
+MP: Okay. Uh-huh.
+SS: I mean sorry Go down still. Okay. do you see that? on this one the PA expiration report. So what we do is that we put a calendar view whoever is SCNA or…
+MP: Okay. Mhm.
+SS: LPN right this report is going to be shared based on the group they are in this is a calendar report right so let's say today is working tomorrow nurse B is working so when tomorrow nurse B is working right we're not sharing it…
+MP: Okay. Mhm. Uh-huh. Got it.
+SS: because we don't know when the A is going to work or when B is going to work correct so…
+MP: Yeah. Mhm.
+SS: what they're going to
+SS: here similar to that the vitals so similar to that today I have 20 vitals due right or today and then if you want to see that go to vitals on the left hand side can you go to vitals no you don't see the vitals I would say go to members pull up any active members 9,0001 is 9,0001.
+MP: Yeah, here is
+SS: At the bottom, go to vitals and click on the Full report. Yep. It'll open up a new tab.
+SS: H. Okay.
+SS: Click on vitals on the top. Yep. Yep.
+MP: here. Yeah,…
+00:20:00
+MP: I think I'm here.
+SS: No, no, no, not on the home. How about that arrow next to that right arrow?
+MP: Yeah, this one.
+SS: Yeah. …
+MP: Okay. Let's show just a sec.
+SS: if you can get to the report listing. No, no, no. Not this one.
+MP: Let me go to the members again.
+MP: I'm just Yeah,…
+SS: Go to full report.
+MP: here is a full report. Just click Here is me.
+SS: And no. just before the click on the arrow just before the embedded members all the way on the top. Yeah. Do you see the report list?
+MP: I'm not able to. Okay. This one.
+SS: You're not that one. Hold on. I will send you something.
+MP: Okay. Fine.
+SS: Give me a second.
+MP: So just one question the forms and all that we are having so all are in the u English only right so not in based on the ethnicity that the patient is having so based on that you convert them.
+SS: No.
+SS: Where do I go for the chat? I want to here's the In call messages. click on this link, the one I sent you in the chat box.
+MP: Okay, sure.
+MP: Just look.
+MP: Yeah, I'm just opening that. Yeah. Yep.
+SS: Monday I have this,…
+MP: …
+SS: Tuesday I have this, Wednesday I have this.
+MP: Understood.
+SS: Do you see the schedule on the dashboard?
+MP: So, the calendar view, we are going to show this to the person who currently Yep.
+SS: Your vital is due right.
+MP: on the dashboard. Yep. Yep.
+SS: It is showing that this week. So every week that you basically puts it on the calendar. If you want to see it by the day, if you want to see it by the week or month, whatever it is, right? You can do that.
+MP: Mhm. Yep. Understood.
+SS: Got it.
+MP: So same we can implement with right.
+SS: Same we can implement it. So if you go back to the app home on the left hand side,…
+MP: So in the here only we are going to show I think here. Yeah. This is the calendar.
+SS: Yeah. But this should not come on a management dashboard.
+SS: This should go in the nurses dashboard right by the ROS and view. So P expiration,…
+MP: Yeah. Mhm.
+SS: standing order, physical report, TB test, birthday reminders, similar to that these are all the calendars, it's going to pop up like that. Okay. Connect.
+MP: So we will need The P expiration report we will need standing order as well like we will need then the vital as well. and progress notes as well. Do we need the progress notes?
+SS: Yeah. progressives as well.
+MP: Yeah,…
+SS: Yeah. Everything because that's the compliance stuff, right?
+SS: Of course that you have a system to take care of it but system also needs to remind you that this is due today correct Yeah,…
+MP: So yeah, I think we are clear here. So for any specific feature that you want to discuss or then we can move to the next part and then later billing part we will discuss later after completing all staff on boarding.
+SS: bill we can discuss later.
+SS: So I think what we can do is that yeah so we need to I would say that today…
+MP: I need to check how we are onboarding the employee or staff. Yeah,…
+SS: why don't you go back to employee t tab on the left hand side you should be able Go to any active employee.
+MP: Yeah, I tried but I think I didn't have access from them. No. Yeah, I do. Yeah. So, from Okay, sure. So in one cic or one facility generally how many employees will be there?
+00:25:00
+SS: Probably about 30 to 40 employees.
+MP: And are we doing any background verification of them or we are directly putting it in let's say Yeah.
+SS: No, no,…
+SS: no, no. We are, we are. So, everything is going to come here basically, And then some of the things that we're missing that it's going to come here. So, this is kind of an HRMS portal. so their position, contact details, right? …
+MP: Mhm.
+SS: then emergency contact info, their anniversary dates, right?
+SS: this is when we onboard them we're going to put all these things demographics we're going to put it employee test so these are all the test basically that when is their driver's license expiring when is their physical due when is their TV test when is their training due all those things that it's going to come out here the I9 documents so when you get hired you fill in the form W4 federal state all those
+SS: things that you fill it in any visa details it's going to kind of come here basically this is a full-blown like a leave request so when somebody wants to go on a vacation and kind of that we put it out here and then there is a workflow involved goes to the payroll to make sure that what all annual performance reviews the exit interviews And the time card attendance is right.
+MP: their attendance basically on daily basis.
+SS: Correct.
+MP: So I believe this is the admin portal where I am having all the access. but for the employee particularly so once he logged in so he will have the separate feature…
+MP: where like he Yeah,…
+SS: No, they'll be able to see their own data able to see all this data for that correct yeah they can update as needed right no that is only one time employee test they're not going to have an access Okay.
+MP: Here in the employee And can they update their data only? And for employee test and these I9 documents and all this. So is there any Mhm.
+SS: Documents they're going to have read only access after once it is done.
+SS: Visa details also they're not going to have an Leave request they will have an Performance reviews they have an Exit interview they are not going to have an go to they will have an access. Go to the next one. assigned work. Don't worry about that. Okay.
+SS: Correct. H
+MP: They just if I go to the let's say employee test. So as of now let's go one by one. Okay, just because we need to understand this feature because we need to develop current position at the time of adding a employee we are going to add it and then based on that it is going to show here. contact detail we are clear using the Google map based on the address that we put we are showing exact location here and also if I want to edit it I can edit the address details and also home address as well they can share it from here email address and all the contact detail we are filling it here only their email id phone number home phone everything and emergency contact correct y so emergency contact info when we are developing our system.
+MP: So is it fine…
+MP: if we are having all this in one tab only not all but at least detail emergency contact all those…
+SS: Yeah. Yeah.
+SS: Yeah. You can. Yeah. It doesn't have Yeah.
+MP: because this is for very small detail I need to click on the tap instead of that at one place only will be there for anniversary dates as well date of birth anniversary are they there anniversary dates we can fill it here demographics as we are clear the ethnicities social security number We will need it right.
+SS: It doesn't have to be Yeah. Yeah. Yeah. Yep.
+MP: Gender, military status, marital status, LOA status. What is this? La status.
+SS: I will give you the detail on that. Okay. Yep.
+MP: For employee test. Can I click on add employee test or no? Okay.
+SS: Go ahead. Go ahead.
+MP: Let me click. Do I just need to check?
+SS: Just don't save the record. Okay.
+MP: So here category is there.
+SS: So category…
+00:30:00
+SS: if you click on it.
+MP: Okay, let's say background check if I'm doing it. So, year due date received, file, I'll need to put file link employee full name. So, here the name is like a employer ID that we are showing and then status. So, if I'm doing this so number of test that we can perform drug screen as well if I'm clicking on.
+MP: So, the option will be the same the file and all. So basically we are just uploading the category wise the test that they perform which will have either the PDF or something and the due date will be there the expiry date of how okay understood and…
+SS: Correct.
+SS: I mean I'll give you an access to the different ones so you will understand a lot better that…
+MP: file if there is any link or anything we can put it here or if they have the directly PDF or something they can directly upload it here and receive date we can mention it here and for which year understood clear. So let me cancel this and let me go back to the same tab again. and now I documents for this so this one as well like we okay and…
+SS: what documents that we need to collect because this is going to be a state specific. Okay. Yeah.
+MP: just one thing that I wanted to ask maybe I asked you previous call but I just forgot that. So intake form that we are having. So is it for different state we are having the different intake or…
+MP: let's say for the ads so we are having the one intake only for all the state.
+SS: Intake is going to be common.
+SS: But when we submit the intake to the case manager that is going to go with a different header,…
+MP: Mhm.
+SS: right? So…
+MP: Yes. Yep.
+SS: why we are going with the super admin is basically that our master thing but when you create the instance to location B if I'm sending out a request to the case manager for a potential approval then it'll pull up the header if I'm sending it from location B it's going to pull up from the location is in state of Washington location B is in a
+SS: of So they'll have a different case management agencies and But the end of the day format is still the same.
+MP: Understood.
+SS: Okay. Yeah.
+MP: Yeah. visa details clear if they are having any visa so they can just put it here and from their portal where they have the access just leave request is it a same is there we are having the holidays that we already registered somewhere so this okay for…
+SS: Vacation request. No, no, this is outside of the holiday.
+MP: but for holiday particularly are we having some of the calendar…
+SS: Okay. …
+MP: where we know when we are going to off as a clinic so we can manage it better or you don't have a holiday because okay okay so are we going to ma manage the invoices and…
+SS: this is a 247 operation. Yeah.
+SS: Assisted living is 247 and the ADHD is six days. Home care is 247 operations. So there is no kind of the thing they already know payroll from the time card.
+MP: all of the employees invoices or their payroll as well.
+SS: We're going to do that. Then what we're going to do is that we're going to do an integration with our payroll system. So we're going to send the data into the payroll systems. Let's say for ADP.
+MP: What system are we using? ADP. Okay.
+SS: Yep. …
+MP: 
+MP: Okay. Fine.
+SS: what we're going to do is that for location A 20 employees and…
+SS: then we're going to go ahead and push out the work hours basically right and ADP will calculate their billing rate or whatever it is pay rate taxes and all those stuff.
+SS: We don't have to do that in our system.
+MP: Okay fine.
+MP: So we are just going to send the monthly card to them and the rest of the thing they will take care of.
+SS: Yeah, it's a weekly every other Friday.
+MP: By week.
+SS: Yeah, weekly.
+MP: And if you see here, so basically as a staff, let's say I logged in as a staff and then I can just apply for leave. If I want to cancel it, I can cancel it and higher authority will get the basically request for the approval whether they can approve it or reject it. If they want to approve it, they can approve the request.
+00:35:00
+MP: If they want to reject it, they will mention the reason they will reject it. So how many approval that we are having the one only or we are having the multiple approval.
+SS: we're having approval two approvals and…
+MP: Two approval we will have.
+SS: the advice to the payroll manager but there is no approval it's just basically the advice we are doing it right and if it was disapproved then we reason for the disapp Sub and…
+MP: Reason for Or was it Approved on number. And leave it last.
+SS: this approval buttons will be shown by the roles they're in or…
+MP: Mhm. is there anything like let's say we are man like having this employee management system.
+SS: designation, right? Yeah. By the roles basically. Not everybody is going to see that. Okay. Yep.
+MP: So let's say if I am a supervisor so in my supervision there might be 20 30 employee under me or…
+MP: in all the employees be under that one supervisor only. So how is the case here?
+SS: Can you repeat the question?
+MP: Yeah So what I was asking let's say in one facility is it like only one HR or…
+SS: Mhm. So supervisor local HR will be central.
+MP: one supervisor or there will be the multiple supervisor and but one…
+SS: So end of the day it's going to be a supervisor by the facility that supervisor so in the supervisor approval for location you might see only one or two name and you might see one or two name but names would be common nationwide right you're not going to select it's automatically a workflow is built didn't do that.
+MP: but when I am applying for a leave so I'm not going to select who's going to supervise. Yeah. Y okay understood.
+SS: Okay, that is correct.
+MP: So based on for the particular clinic the supervisor that we assign so he will get the notification and either he can approve or reject it and same for the So HR will get the notification after supervisor approve it. Leave and is there any u thing like one employee can take one leave in a month something like that.
+MP: That will be the paid something that we are managing or we are not managing it here in the payroll everything will take care.
+SS: But we are going to add a few more things here that…
+SS: how many leaves they have it and we need to calculate that if they have a maximum 10 days they can take it and if they have already taken the 10 days it's
+SS: not going to let them move forward, or at some point it'll show basically that this is what you have it. Okay. But on the HRMS,…
+MP: Okay, understood.
+MP: So we will have certain limit for taking a leave. If they're taking more than that then maybe we can show the warning some of the okay okay we will see that…
+SS: I would go to the other portal that we have created on the namingare.com. that's a much better version. same anything no annual and…
+MP: but yeah for this we are good like lean how we are going to do this all those stuff we need to manage that and performance review as well then who's going to review it for the employee Or is it monthly basis or quarterly or how? Okay. Annual.
+SS: the supervisor is going to review then after the supervisor the HRMS is going to review okay yep
+MP: Yeah. if you are having any question then you can ask. Okay,…
+DV: Not related to the onboarding flow as of now.
+MP: And exit interview when he's leaving the organization. So at that time we are adding his exit interview,…
+SS: Correct.
+MP: And then we are going to terminate his contract or we can close this. Time card on daily basis. So whenever they are coming they need to fill something like they are coming and…
+SS: Yeah. Yep.
+MP: then supervisor might be signed that and…
+SS: Right. Right.
+MP: then this will add here all the entries of the time card and then this time code we are going to send it for the payroll which will be weekly okay…
+SS: Don't worry about the assigned work. Don't
+MP: then I think for employee onboarding and all we are good just one question when we are adding an employee let's say so Are we sending them a mail with the username password the way you added me?
+00:40:00
+MP: I believe the same thing that will happen today.
+SS: Yes. Yes,…
+SS: that is correct. That is correct.
+MP: So they will get a link with your username and then they can use the email id as username and for password they can create their own password and…
+SS: Yeah. Yeah.
+MP: then they can use it for Understood. And for particularly the roles and permission flow we will check it later firstly we will come all Yeah.
+SS: I'll be right there. Right.
+MP: But now we are good all those flow that we know the employee management as well like employee onboarding and…
+DV: So when we are adding any employee into the system are we assigning the roles to them
+MP: how we are putting all these information. So we are good here. so yeah anything else like you want us to show you? Yep. Yes. Yeah.
+SS: Yes, we are. and then that's why I want you to go to the new portal that I have created and that's where you're going to see all those details because this was kind of work in progress when we did that and the newer version which we built on the neckare.com. If you go, you will see that not the other one.
+MP: Okay, just a sec.
+DV: And how many roles do we have for system and overview the number of rules?
+SS: It's already in the app. So I will share the details. I'll show you where it is.
+MP: So This one right?
+SS: I don't think so you have an access to that right now, but I will share that when we get to that. So what do you remember that go to namicare.com no no no no this is namicare.com any you do have an access right yes that's the one that's…
+MP: Okay. Sorry. Yep. Yeah.
+DV: I think I have the access.
+SS: if you go to HR are employees.
+MP: 
+MP: Just give me a second. Yep. Yeah, I'm just logged in here. Let me enter my email and password. Okay,…
+DV: Can you see my screen? Okay.
+SS: Yeah, I can see your screen. Go ahead. Click on it.
+MP: let me stop my screen sharing then.
+SS: I can see this screen, so it's perfect.
+MP: Okay, fine. Yeah, here is the HR.
+SS: Go ahead. Yeah. …
+MP: Yep. Yeah,…
+SS: go ahead. Click on your name.
+MP: here I just Yeah.
+SS: Yep. You see that this has a lot more information.
+SS: The leaves Kota. That's where we're going to do it. Yeah. And…
+DV: ticket management system.
+MP: Okay. Yes. Yep.
+DV: Regarding And the tickets will be assigned to it will be also the speciality.
+SS: then what I'll do I'll make you the admin Mujib you and Anita both. So you will see the whole lot within the Tickets assigned to the employees. Tickets will be assigned to the employees. or maybe as an employee let's say you are a manager and you are creating a ticket and you are assigning it to someone's go ahead and click on create ticket right that you can assign it to the group you can assign it to the agent any particular project or…
+MP: Thank you.
+SS: location that you're doing it ticket subject kind of that other it's going to come and you can save it Right? But when you do that, it can be assigned to the group of people out there. Right? Same thing.
+DV: So just to get an overview …
+DV: how many departments are we considering? at center level there is admin or there can be operations, there is clinical department, there is finance, accounting. So just to get an overview can
+SS: Once I give you the admin access, you're going to see that. Okay. Yep.
+SS: Yeah, it's part of the workflow. So you will see that I will give you the admin access to both of you today. Okay.
+00:45:00
+MP: Yeah sure.
+MP: So I think that Sam that's all for today. so if you want to show because once we get an access then what we can do meantime we will play around all the admin features that we are having and based on that what we can do we will create the workflow for the staff on boarding as well how we are going to do all those things and as of now what we will do will share the login detail sorry the workflow details with you so you can just review it and just give us the confirmation for the design perspective so we reviewed it today but there were some of the changes for the CRM particularly lead generation workflow that we created
+MP: So I asked team to just work on that and tomorrow we will present you the end to end flow of the design.
+SS: Okay, sounds good.
+MP: So I think that's all for today. so let's connect tomorrow and we'll discuss more on this.
+SS: Okay, thank you.
+MP: Thanks. Yeah. Thanks.
+SG: Yeah. …
+AK: Assam, can you please wait for a minute?
+SG: thank you, sir.
+SS: Thank you.
+SS: Yeah.
+Meeting ended after 00:46:16 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

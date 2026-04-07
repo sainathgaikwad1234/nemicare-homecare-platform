@@ -1,0 +1,223 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/01/30 18:56 GMT+05:30 – Transcript
+Attendees
+AK, AK, DV, MP, NK, RD, SG, SS, SO, SD, SP, SRR, TM
+Transcript
+MP: once you are ready so I think we can start.
+SS: Ready? Mhm.
+MP: Okay yeah so yeah as yesterday we discussed about the assisted living workflow and in that there are number of things that we discussed one of them is the lead generation which is similar to the ADH only then transfer rule you explain us the transfer rule the internal and external and also the intake form also you explain most of the things has been the same as the ADH But just we just need to add the resident type whether it's new or transfer for this particular and also the community concept as well the facility level as that you explained and…
+SS: Mhm. Right.
+MP: number of location and based on basically how we are going to manage everything room management particularly you explained them.
+MP: And also some of the other things as well like that we discussed yesterday and based on that Naneshwari created the workflow of the resident for the basically assisted living maybe she can present that flow today and then we will discuss more on the assisted living…
+SS: Mh All right.
+MP: if anything has been missing and then we can wrap that up and then we will show the UI design as well that we created. And we have some question but later we can cover it in between. Yep. Yeah. N let me know once you are ready.
+DV: Yes, sharing your screen. so this is the flow we have created specifically for assistant living and the lead intake and CRM process is going to be same as if the lead qualifies. So the process before the qualification will be the same and once it's getting qualified we will check the bed availability and if the beds are not available for the resident we will add the resistant to the weight list and whenever the bed becomes available they will be notified like yes the beds are available and based on that we will choose the type of patient it
+DV: is it a transferred patient or is it a new patient for us. So going back to the bed availability scenario you mentioned yesterday that the state license provide us the number of beds a service can have.
+DV: Is it correct?
+SS: But that we already know for a facility right when the first day of the facility opens up the state approves the license that this is a 50 bed facility or…
+SS: 
+SS: 100 bed or 32 beds or 16 beds whatever it is that doesn't change Yeah, that's right. Yeah.
+SS: basically. 100 bed or 32 beds or 16 beds whatever it is that doesn't change basically.
+DV: So it's configured for specific Yeah.
+DV: So based on the patient type if it is a transferred process it will be handled diffic differently and for the new patient the process will be different.
+DV: for new patient we will start the prior authorization process whose average time is about 2 months or something and if it's a transfer process we will collect the prior authorization document from the previous facility and we will update the prior authorization with the new facility name …
+DV: which is going to be our facility and the timeline can vary 2 days or something like that. So Mhm.
+SS: No. …
+SS: I'll have to stop you there. go up. patient type here is going to be the same thing, either it's going to be a private pay, it's going to be a private pay plus insurance or it's going to be insurance only or it's going to be insurance plus just Medicaid. Okay, so this is the assisted living could have number of payers. Okay, and even in private pay sometimes what happens that you can have multiple private pays, right?
+SS: So let's say four kids they have put their father at the assisted living now father does not have the asset the money liquidity that he can pay for himself right so his invoices is being divided between four where all kids are coming like okay we'll pay you equally 25%. Sometimes what happens that some kid is doing really good, some kid is not doing good. So there okay what I'll just pay $200 towards the bill and…
+00:05:00
+SS: the other kid might say that I'll pay thousand towards the bill. So basically whenever we kind of put them into it it'll create those number of invoices and it'll go to the different sources for the payment to collect the payment. Okay.
+DV: the billing part.
+DV: there were c certain points which were not clear so I have not included it in the general process of the assistant living but the three things which you mentioned the Medicare private pay and the insurance plus the cost share I have kept separately.
+SS: Okay.
+DV: Yes,…
+DV: but the information is helpful that we can generate multiple invoices against different payers for a private bas.
+SS: That is Okay. Let's go back to the previous screen. but again this PA documents from the previous facility in Canada it only comes…
+DV: And the patient type I have considered over here is just to have an idea is it a transferred patient or a new patient. And in transfer patient also there's going to be Yes.
+SS: if the patient is Medicaid pa If the patient is private pay then we don't have to get the PA documents right so what I would do is that leave as is this one and when you have the patient type in the lead qualification or maybe go down where you have the patient type here we decide the category Right. And based on that we do the workflow or
+DV: So if you like just to give an overview
+DV: the lead qualification have it when we are in the ADHD flow when there is just a minute in ADHD overview when we are getting the lead into the system so at the time of the conversion we are asking them that are you a private pay or…
+DV: a medicate so it is getting covered over there in the book.
+SS: Correct. Yeah,…
+SS: we can just ask them over there and based on that we just do that. So assist living we also follow the same thing. When we qualify the lead, we ask them.
+DV: So that's why I have not explicitly mention it over here.
+SS: Yeah. Yeah.
+DV: But that check we will be also already having the information and accordingly the things
+SS: So I would say that probably this transfer process new patient just put a category into the qualification of the lead that if this is going to be a transfer or new that's what I would do and remove this whole thing basically from here. Okay. Yeah,…
+DV: Yes. Yeah.
+MP: Yeah, we will update it anyway.
+SS: because it makes sense, I mean, it's a duplicate workflow then Yeah.
+MP: So Sam just one very basic question that I just have.
+DV: So for medicate Yeah. Go ahead, sir.
+MP: So is there is a company and in the one company when we are onboarding a company so we can have the multiple facilities in one company and so is this correct?
+SS: And it could be multiple companies too.
+MP: Multiple companies means Yeah.
+SS: It could be multiple tax IDs, Multiple companies means multiple tax ids,…
+MP: Yeah. Yeah.
+SS: And in multiple tax ID, it could be a multiple facility.
+MP: And let's say for lead generation flow that we have basically CRM.
+MP: So will it be on the facility level or…
+SS: at the facility level. Yeah.
+MP: it will be on the company level? Let's say in the company we get the lead and then we are assing At the facility level we have the lead generation flow. Understood. Yep. yeah that's what I wanted to ask. yeah you can continue.
+00:10:00
+DV: So this is going to get changed the patient type will be first private pay or insurance and accordingly if they are medicate so we will be having the prior authorization pro process. If they are private pay we will get the information…
+SS: Mhm. Correct.
+DV: who is going to pay for them. If there are multiple persons who can be responsible and if they have any division that flow we will consider and for private the insurance part in that stage also we will need the prior authorization but it will just not be a medicaid right.
+DV: And accordingly after
+MP: insurance …
+MP: how we are going to do the same thing that we are going to do for case manager we are going to send the details and he's going to send to the payer all the details to get prior authorization for insurance level. So how we are going to perform it? The same way that we were doing for the Medicaid just in this case we are going to send the details to the case manager and…
+MP: case manager is going to send it to the payer instead of state government. Correct? No,…
+SS: for the Medicaid one,…
+SS: right? yeah.
+MP: you said for insurance one as well we need a prior authorization.
+MP: Let's say I don't think insurance level like we are doing it now.
+SS: No, I think let's just put it as part of the billing so we can remove it from there.
+MP: Yeah. Sorry. you can continue so we will discuss about the insurance things like for the private pay in the billing section.
+SS: Yeah, I would say that here just make two workflows because all facilities are not medicate facility to show that the moment you say medicate then this workflow is going to be in play. and once you say the private play then all these EWP and kind of that it'll be hard to understand for the business person as well that…
+MP: Mhm. Okay.
+SS: if they're looking at just one workflow for the Medicaid.
+DV: Yes, we will keep the two different floors for that…
+DV: but the priorization process is going to be the same collecting we will get the EDW and…
+SS: Yes, for the Medicaid it will be the same.
+DV: the case manager will be involved here also right a assistant living facility
+DV: Should I continue?
+SS: Yeah. Wait, yep.
+MP: Yeah. Yeah. Sorry, I was on mute. Yeah, we can continue. Case manage The flow will be the same. So, just like the ADH
+DV: So this select payment path will come up the Medicaid the private insurance and the 100% private pay this will go up and it will be having all the details and splits accordingly. after the contract is being signed by the patient and we are good with it.
+DV: So we will receive the deposit from the patient and when we will be receiving the deposit for the patient at that time we will also check the room availability at our end and…
+SS: Right.
+DV: we will also check the assessments like the RN is going to get the assessment and they are going to get the care level for that patient or resident.
+DV: and based on the assessment care level and the available rooms we will take a decision do we need to continue with this client for the resident or if it is too complex to continue then we can return the deposit notify the specific family or the respective person and the admission process will be closed over there and if we approve the admission then we will complete the full assessment.
+00:15:00
+DV: The full assessment will include the the specific room number assignment, the status of the resident will be active and for that resident we will be having the initial clinical assessment setup where we will generate the care plan, the documentation and allergies. enter the full medication list. We will file all the intake and assessment document into the system and after that they will be having the ongoing operations which we discussed the daily operation will include the vital or the daily activities record. The monthly operations will include the progress note.
+DV: the face-to-face notes with the CNA and RNA approval and the monthly compliance document and if needed we will be having the support maintenance tickets available for that resident we can update the medication track the dates when they need to be stopped and all those things and if any incident occur for that specific resident we can take a action based on the intensity of the incident and along with this we can perform the billing processes as per the chosen method by the client or the type of the resident we will be having in our facility. So this will be the generic everyday operations.
+DV: once the status of the resident is going to get discharged the final billing process will be getting closed and the clinical records if the resident leaves from the facility the status will be available for that room and the patient's record will be archived.
+DV: So this is what we have understood and considered for assistant living. There are certain changes but clinically is this the correct
+SS: Yes, it is. And then a couple things that we need to add that sometimes the resident does not there could be multiple scenarios right resident moving out right number one when they move out and…
+MP: Mhm. Yep.
+SS: this is what it should pop up right for us to discharge process when there is a discharge why they're getting discharge right either basically that number one they didn't like the facility they didn't like the staff they thought the care is not being provided number two their level of care has increased so that's why we're discharging it level of care changes then number three is basically that they're getting hospitalized for whatever the reason, They're getting sick and then, we're transmitting them to the hospital.
+DV: What's it?
+SS: And number four if they're diseased right they do die at the facility some people they do right and…
+MP: We can Yeah,…
+MP: we can
+SS: then why getting discharged right when there is an kind of unknown reason we want to collect the story from the ground staff. And that is a mandatory that they need to put it in that comments basically that why this resident is getting discharge. Because sometimes what happens when the resident is in trouble to some other residents,…
+SS: we force them with the police that we need to move them out. So sometimes that happens as well and…
+MP: We can create one survey forms for the survey we are going to send this to the patient as well who's going to discharge.
+SS: sometimes there is a carry issue at some facility and then they decide to move out. So that's why getting discharge it's very important for us to capture that comments for the future.
+00:20:00
+MP: So he is going to feel that and…
+SS: So correct that's fine.
+MP: also the same yeah right.
+SS: I mean that's a mandatory form so that is something that we want to put it as part of this rather than getting on a separate form or something like that right so people feel that if they're doing a discharge process they cannot bypass that if you do a separate form they just might bypass it okay this one they cannot complete right and…
+MP: So in that only we are going to add
+SS: so while they do that so basically that what happens that the next thing is that I want you to create another Danwari from here. what? Can you go down on the other side? Release room available. Yes. Just stay there. Close clinical records. Where do you have the closed clinical records? generate final billing invoice. Yes. that's where I want you to go ahead and do that.
+SS: refund any security deposit or kind of that if they had paid any security deposit for a facility make sure that we generate that refund and then we prepare the check and then we send them out the refund any security deposit as per the contract or as per refund policy I would say as per refund policy yeah That's very different policy. Perfect.
+SS: All right,…
+MP: Yep. Yeah,…
+SS: sounds good. Yep. Let's go.
+MP: for that survey form so we can create two one for the patient and another for our staff. So whoever was in charge so he can also feel it like he can give the ratings or anything for the patient. so we also come to know how was his behavior and all something like that.
+MP: Do you want to discuss the compliance today only? okay.
+SS: No compliance I think let's just keep a separate session next week. Because compliance is a lot more reporting.
+MP: Yeah. what
+SS: So I think we're capturing a lot of data out here. So then we can generate those reports out of the compliance. So I think compliance we can take it last but I think we're capturing all the fields. So we should be okay.
+MP: So yeah for the assisted Yeah we wanted to discuss that.
+SS: And then we have to generate some output using the PDF. So I mean that's doable, Yeah. So I think compliance we can take it next week. what else do we need to discuss anything on the UI today?
+MP: So for particularly…
+MP: what for the assisted living so anything else we are missing any feature that you are thinking we might need to add that. No we are good right? Yeah.
+SS: no,…
+SS: I think we're good, but I'll check it out over the weekend just to make sure that, we're capturing everything and then we'll go from there. Okay. Okay.
+MP: So yeah, we wanted to show you the design. So we just updated some of the UI and workflow. So Shubam or Sham, let me know if you are ready.
+SP: Am I audible?
+MP: Yeah. Let's
+SP: Not sharing my screen. So yeah so we have updated this form as per the inputs we had received.
+00:25:00
+SP: In the document format and while adding the new lead this is the kind of sections we will be filling up and as you had mentioned Sam that whatever the information we are collecting from the resident side lead side and whatever the preferences related to the primary contact then current living situation medical information insurance screening and all everything has been moved inside this form and we will be sharing this form with you eventually and after this call as well.
+SP: So you'll be able to get through each and every input field what kind of but from high level I would like to explain is lead detail status we have refer source details we have lead information we have then resident information we have primary contact/f family summary we have then u current living situation then medical and clinical information insurance and it ends up on the frequency and attendance overall and some extra notes.
+SP: So after filling up all these input fields also lead source also we have available and after clicking save that lead will be like getting into the system and after clicking on this lead we will be able to see this format which you have already seen and…
+SS: Okay.
+SP: as you had requested this data will be available in the pre-populated version but still we will be having the option available here anytime. Yeah. And eventually whatever the status or whatever the situation the lead manager or the lead person is taking call or the marketing team person is taking calls with the lead. they will be able to do any action from any point whether they need to send the red card whether they need to schedule the visit SMS call and reject the lead or…
+SS: Okay.
+SP: move to resident we will be having a confirmation popup as well. after clicking on widget lead we will be having the confirmation popup as well and send red card will be looking like this. after clicking on continue we will be able to see this the final model what thing we have selected and if any person needs to add any particular discount or let's consider the discount type value and duration and that will be getting calculated at the end and after clicking on send as we can see red card and welcome email has been sent successfully and so we can take decision afterwards.
+SP: So overall this is the update we have.
+SS: So, this is good for the assisted living like sending out the rate card. but for the ADHD, we don't send out the rate card.
+SP: I see. yeah obviously as per the flow perspective or the requirement perspective.
+MP: for adh…
+SS: So for the ADH…
+MP: what we do then the directly Yep.
+SS: if it's a private pay we tell them that this is what the cost per day your would be. So in that case it'll be a red card right if it's a Medicaid then what we do is that we need to follow that PA process right so we gather all their medical reports their ID everything excuse me and after that from the lead we send it to the case management company so they'll do an assessment I mean initial screening after that the physical interview and after that they submit it to the state they get the approval
+SS: and we get the PA that's when we migrate them to the member for the ADH and the home care both right so basically that I think when you come here we may have to design a flow in such a way that…
+SS: if it's a ALF memory care or independent living then what you are showing it right now that is perfectly fine okay but if it's ADH or the home care then probably we'll have a separate workflow on that one. Right.
+SP: So from that perspective let's consider we are filling up this form right and…
+00:30:00
+SP: in this variation just a minute yeah as you can see customer or lead type is a private p right and user will be selecting the other option like medicaid or adh as you have mentioned from that perspective that flow will be getting changed in the front section does that work for you or
+SS: Yeah. Or maybe where you have Just go back to the previous screen. Where you have the new lead, that is something that we can put it on that this lead is for ALF or ADHD or the home care, there's going to be three categories. We're going to have three three and…
+SS: 
+MP: Yeah, thanks.
+SS: in fact actually now we're adding another line of business as well right so I think and then we want to keep the central database for everything right so when the lead comes in it'll be the different line of businesses right it'll be ADH or the home care we can keep it under the same roof okay because that's similar kind of pattern the workflow so we don't need to duplicate that a second thing is assisted living memory care.
+SP: H.B.
+SS: That's one but after that is going to be independent And after that is going to be Hospice is a similar workflow.
+MP: What's this?
+SS: We don't need to change anything in the back end.
+MP: Mhm.
+SS: Basically it's a good combination of the ADH and the assisted living. So we're good on that one. And the fifth thing is that now we're adding basically the chronic care management CCM practice as So that's where we need to basically that when the lead comes in we should already know that this lead is for which line of business is right and also it should stay for which location the lead is coming in right or…
+SS: for which facility the lead is coming
+SS: Okay. Mhm.
+SP: Okay, understood.
+SP: I guess from that category perspective we'll have to segregate the UI flow and yeah so let's
+MP: But yeah,…
+MP: previously we mentioned the lead generation flow will be the same for all whether it's ADH or
+SS: It'll be the same.
+SS: It'll be the I think more or less we're collecting the same information, But what happens in the ADHD and the home care and into the chronic care management when we have the Medicaid patient we collect all the medical reports their ids and kind of that and then we fill out the intake form and then we send it to the case management agency which is the state for them to approve it right and they have the process on their side and they keep on telling us that initial screening is done the physical interview is done now we submit it to the state
+SS: there is a query came in we need some documentation and then we submitted the documentation or they just straight away get the approval and then when they get the approval we get the PA and that's where we migrate them to the U resident side right and same thing on the assisted living side that is we talked about it in the flow basically that we do that lead comes in we qualify it we do the initial screening and say yeah okay we have the room available this is the level of care. You put the deposit, we go for an assessment and assessment. We decide that level of care is okay, everything is good, then we're going to go ahead and assign the room and then basically send them the contract to sign off and then they move in. If they don't qualify, for the level of care or for any other reason, we decline that and then we refund their security deposit and kind of move on. Right?
+SS: So that's similar for the ALF memory care and independent living. ADH home care and…
+MP: Yes. And Yes. Yes.
+SS: hospice chronic care management is the similar one what we had talked about it right for the ADH model. Yeah but I think what I'm getting concerned about it and that's where I mean I'm not sure I mean I'm still far out to come to Pune office. I mean still about a month before I get there and it'll be too late. So maybe I need to do a whiteboard session with you guys to make you understand and probably I think we need your architect to be on the team how this unique record number by the patient by the location by the business it's going to get generated right and the data is not going to mingle okay and
+00:35:00
+MP: So what I'll do on Monday only I'll create the architecture diagram. I'll show you that diagram. So yeah I'll present you that and when you are having the whiteboard session.
+MP: So at that time I'll include architecture as well in the meeting. So he will be there and we can discuss more on the architecture level.
+SS: Yeah, because I think workflow and…
+SS: kind of that I'm not much concerned about it. I think you guys have gotten it pretty well. a few things here and there I mean it's not a major thing that I'm concerned about it just the minor stuff that we need to do that and then when it comes on the actual flow then we'll figure it out in the testing that this is working or this is not working but I'm not so much concerned about that now I'm concerned about that how those unique record numbers are going to get assigned and from the record number how we can figure it out like this is an ADH record but just looking at the
+SS: record that this is coming from state of Georgia this is the business and this is the facility okay and when that facility manager is looking at the record into their database they can see only those records so how we control that access on the role based and…
+SS: the facility based location based kind of okay Okay.
+MP: Yeah, I'll create one diagram I'll show you that.
+MP: So yeah, so basically all those stuff we are going to manage on the in the database so the end code base will be with the same instances…
+SS: Mhm. Okay.
+MP: but the database will be for each facility we will have the separate when we say schema that means they have their own all.
+MP: So maybe I can share my screen and then show you that for some of the client we have that and it's on the production.
+SS: Okay.
+MP: Yeah, just a sec. Let me share my screen. So I'll show you that. Yeah, I'm just sharing my screen.
+SS: Give me a second.
+SS: I don't see Okay. Yeah, it's coming.
+MP: registering I'm just opening the database tool basically just check all the data so I just wanted to show you one of the database architecture that we built
+MP: Can you see my screen? Okay, fine. So here you can see these are basically the schemas in one database. this is our optim database name and we are having these all are the facility. It's a better fil C C CVS facility, health care pro facility and for every facility if I'm going over there. So if I'm going to the table,…
+SS: Yeah. Yeah.
+SS: Okay.
+MP: so we have all the table and if you see this table and the data let's say if I'm going to the patient here. So here basically now for this facility we don't have any patient.
+MP: but let me create show but yeah basically this facilities patient and all the details will be here and if I go to the different facility to check it let's say if I want to go here to check the optim mosquito health in here so here as well the same database structure will be there because this is the same structure but the schema will be different if I go to the patient here so I can see the patient record all the patient that we have added And the one schema is not going to communicate with other.
+MP: So that's the difference. Here you can see the details the ID everything we are generating and all those details are here Yeah. So yeah…
+SS: Okay,…
+SS: That makes sense. Yeah. Okay,…
+MP: if you're managing in the schema level which is the multi-tenant architecture that we are going to use.
+MP: So our database will be segregated that won't basically mix up. So if we have one facility all the licenses or the room details that we are having so we can have that unique name let's say the same name we can use in the different facility as well as we have the separate table in the separate schema.
+00:40:00
+SS: that's perfectly fine.
+MP: So what I'll do so I'll create one architecture diagram and…
+MP: then I'll show you how we are going to do that all the microservices architecture with the different schemas. yeah let me know today we want to discuss anything.
+SS: I see.
+SS: I think then, we're good for today.
+MP: Okay fine then on Monday then what we can do like we can discuss on the compliance things and…
+MP: next week only we can plan the whiteboard session with you.
+SS: Yeah,…
+SS: that's perfectly fine. Yep. Mhm.
+MP: Yeah and from our side we are going to speed up the UI part. we are going to go to the next the designs and all and also the workflow we are going to send you all these workflow that we discussed with the changes that you suggested. So you can just review them and if any changes needed then let us know on Monday we can work on those.
+SS: Perfect. Okay.
+MP: Yep. Thanks. yeah Sam I think that's all for today.
+SS: All right.
+MP: Thank you.
+SS: Then we'll talk to you on Monday. Yeah.
+MP: Yep. Thank you.
+SP: Thank you.
+00:45:00
+AK: Hello.
+Meeting ended after 00:45:18 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

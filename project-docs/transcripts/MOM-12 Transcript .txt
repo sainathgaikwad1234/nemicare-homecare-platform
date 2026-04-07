@@ -1,0 +1,141 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/02/04 18:58 GMT+05:30 – Transcript
+Attendees
+AK, AK, DV, MP, NK, RD, SG, SS, SP, SRR, TM
+Transcript
+MP: What did you say?
+SRR: Yeah, Sam will discuss the good backed up.
+MP: Fine. Let's wait for him then we'll discuss with him.
+SS: Hello. Good.
+MP: Hi,…
+MP: Good morning.
+SS: Good evening everyone.
+MP: Yeah. How are you?
+SS: I'm Good. Sorry I'm late today.
+MP: No, it's fine. So yeah, we were just checking if you get a chance to look into the workflows that we created, we shared that with the ship and the team as well. Yes.
+SS: Yeah. Do we have Shiva on the line? Shiva.
+SRR: Yeah you and…
+SS: Yeah, go ahead. the changes that you had discussed with we yesterday
+SRR: me are discussed about the end of each day we need to run the report to check the attendance and make sure the required rules being followed and the report should be tracked these timelines like 30 days 60 90 days a one year like that.
+MP: Yes we are not able to hear you properly.
+SS: I think I got that. Danwari, if you can open up the ADH workflow.
+DV: Yes. Just Yeah.
+SS: Yeah, go ahead and open up the ADH workflow.
+DV: Just give me a minute.
+MP: Hello.
+SS: Go down where the cycle is ending 30 60 90 days. No. where do we have that PA approval? One year var standing order 60 days. Where is that? I think it's in the prior authorization.
+DV: Thanks.
+SS: So end of daily cycle. Go ahead and add one more thing. every 30 days and that would be in line with the one year and…
+SS: 60 days Every 30 days we need to send an attendance report VIA for the previous month.
+MP: Okay. Sure.
+SS: And we'll provide you the format. Okay. Yep.
+MP: And for a prior authorization as well once we are getting the approval and also for the war side as well once we get the approval.
+MP: Can you show us basically how that the data look like because we wanted that to complete our workflow or…
+00:05:00
+SS: Yeah,…
+MP: the design because at the end of the day we are going to get the details and then based on that details we are going to fill it in our form either or we can upload it into the PDF. apart from this so the lead generation flow is good right and also the ADH as well. Okay.
+SS: that is all good.
+SS: I'm trying to show give me a Okay.
+MP: Yeah, sure.
+MP: And I think we can good to start the billing part from next week. Yep.
+SS: Give me a second. Okay, let me go ahead and share my screen.
+SS: So this is the package that we received.
+MP: Okay.
+SS: Basically what happens that it comes as so this is how we get the email right. good morning please find the attached reassessment ADH packet for the client and return the sign DDWP within the three business days. So this is the important stuff basically that it comes out out of that package right and you say evaluation package please continue the service for the member as following frequency please sign and…
+MP: I think you
+SS: return it within the three business days. Thank you. But if you go back here that it will have all the PA information on one page. so this is what we receive, but we subtract the information off of this and we update the PA. give me a second.
+MP: All right.
+MP: And also did we get the unit and…
+SS: There will be some PA notes here that starting date and ending date, Right. And that is what we do that yeah everything is going to come here.
+SS: 
+MP: everything along? Uh-huh.
+SS: I mean the PA details if I run the full report here right for this member.
+SS: So as you can see that there is an expired one and there is a new one right.
+MP: Thank you.
+00:10:00
+SS: So the new one if we do that this is the source the number status is active PA start date is this PA expiration date is this and this is what it comes up automatically 8292 because what we do is that 45 days prior to the expiration date right it creates automatically that
+MP: three months prior to the
+SS: And that is what it kind of goes on the so that way we know that P renewal calendar when it pops up and these are the ICD10 codes and the member Medicaid ID and…
+SS: kind of that. But this is how it kind of goes into the billing. So the billing and…
+MP: Mhm.
+SS: PA information, right? Yep. And the frequency also kind of comes with that. Yeah, got it. Okay.
+MP: And for the private insurance or the private pay so are we going to create the monthly basis invoices or how the flow will be? Okay.
+SS: Yeah. Monthly invoices.
+MP: So at what basis just like the card that we send to them. So based on that are we going to create the rate and everything. So how we are going to charge them.
+SS: For the ADHD it will be a fixed price the number of dollars per day that they come in.
+MP: Mhm.
+SS: Okay. Right.
+MP: Okay. Yep.
+SS: And assisted living, it'll be a fixed price for a month if it's a shared bed or a private bed, Got it.
+MP: Okay. Yeah.
+SS: What else are we reviewing today?
+MP: From our side so we are working on the design part only and in the design when we were reviewing it so there were some of the differences with actual the flow and the design. So we are working on updating that flow. So we are not showing it. we were supposed to show you the design part today but it is not ready. So we are not showing it to you. and apart from that we were supposed to discuss about your feedback only for all the other flows workflows that we created. So yeah, I just need to check with you as well any apart from billing.
+MP: Any other features that are pending to discuss here? Sorry. Can I say something?
+DV: Yes we have shared the emails for the files. So the intake is something Sam which is having a major concern perspective because we are not getting what exact details we are collecting from the patient when we are the resident when we have shared them the card. So the intake is something if it is possible can you share it in real time in the drive.
+DV: So the reason we are delaying the process of UI is not having the proper details to show up. So yeah those are the things…
+SS: Okay.
+DV: which if you put on priority and forward it to us so we can fasten the process of UI. Yes.
+DV: Or if you can show it now on the screen the intake there are one or two versions we just need to know the information we are collecting that will also
+SS: Shiva Shiva.
+SRR: Okay, two. Thank
+SS: All right. make sure you get with Cecilia today and you have been copy on this email as well. make sure that you respond to Daneshwar's email and upload all the templates into the shared folders what she's looking Okay. Yeah. Okay.
+00:15:00
+DV: Thank you.
+SS: Would you Yeah.
+MP: Yeah, I think so yeah so for a appointment a scheduling and…
+MP: availability so what your thought on how we are going to proceed the one that we had or the one that you shown Yeah.
+SS: I haven't had a chance to go through that yesterday.
+SS: But I will go through that and let I mean that's totally a separate monkey. So I'm not much concerned about it because that workflow the scheduling doesn't bother us much on the other side especially the matching matching is only the home care assisting memory care it's not going to hurt us okay yep…
+MP: Okay.
+SS: but as far as the ship scheduling that I think what you had it and what I have it on the other portal. So between two of them I think I'm good whatever makes the best out of it for the scheduling perspective right…
+MP: Yeah. Fine.
+SS: but we have to schedule the multiple shift and…
+MP: Yeah. Yeah.
+SS: that is something that you need to take it at the facility level right if somebody is doing a facility for the ADH then one shift is okay then by default it's only going to show one shift shift. But if it's a assisted living, memory care or independent living, then by default it should pop up at least three shifts, two shifts, kind of those things, we'll have to come up with a combination. And then there will be a custom shift, Where somebody is working from 11 to 8, right?
+SS: morning at 11:00 they're going to start the shift…
+SS: until the 700 p.m. or 7:30 p.m. in the evening. Yeah. So for that, we'll have the custom one, but I think for the ADH and then other we should be okay with that. but the matching I'll get back to you that …
+MP: Okay. Yeah.
+SS: for the home care, how do we match and then patient to the employee? Okay. Yeah.
+MP: Sounds good.
+MP: Yeah, I think then from our side we are working on the first one is the user stories. we are updating our user stories based on our discussion initial user stories that we shared with you with the costing.
+MP: So some of the stuff that we may not require and then we need to update the one that we now discussed all those stuff.
+SS: Okay.
+MP: So what we'll do in a week or something we'll update everything. We'll share the updated user stories with you. You can also review it. Another part is the design one. So for design particularly so we are working on the ADH part only. So today when we had a meeting so there were some of the changes that still need to be done from our side. So that's why we just not showing
+MP: you right now but once we are done with all flow then we'll show you that end to end flow basically the demo to you and these are the two things currently and also we are working on the SRS as well like Danish and team so that will help us for the development and from the development side as well we are working on the RDF rapid development framework where all ti all the rel relationships and all the needed so we are just creating a document for that as So these are the things that we are working from our side. but yeah for you we'll show you the demo the of design that we are going to create and…
+MP: also once we are done with user stories then we'll share with you.
+SS: Yeah. Yeah.
+MP: So if you think any of the flow or any of the model that we are missing let us know.
+MP: we can discuss that because I was checking the user stories as well. So the one that we discuss it's something really different. so only the billing part now we'll see how the building is going to work but apart from this other things I think we are clear.
+SS: Other things are clear.
+MP: Yeah. Right. yeah I think…
+SS: Give me a second.
+MP: for today so if you have anything we can discuss we are open as we are having enough time.
+00:20:00
+SS: I wanted to show you something. give me just a second.
+MP: Come on. What is that? report after billing or…
+SS: So when are we going to talk about the reports and kind of that okay …
+MP: as well I'm okay. if you want to talk
+SS: okay.
+MP: Or maybe let's see …
+MP: if you want the reporting phase one then we will plan that if not then later basically once we are done with the phase one in the phase two we can add the reporting tools or reporting feature. the task,…
+SS: Okay. Then we can Yeah.
+MP: tickets and all.
+MP: we discussed then room management as well how we are going to do that for assisted living that things also we discussed and some of the differences that we will have for the assisted living and home care as well ADH or basically so all those stuff we already discussed yeah and the clinical part of everything assisted living and particularly ADHD we discussed in detail
+SS: Okay, because of the RPM CCM practice the one more thing is going to come up but let me discuss internally first and then we can talk about it. Okay.
+SS: Yeah. Then I think we're good. but I would like to discuss the overall plan from this point onwards the overall that
+MP: Yeah, sure.
+SS: what we're looking at it. So maybe I'll have to get with Anita to look at that. So let me get with Anita today Yeah we'll discuss and then let you know. Okay. Yep.
+MP: Yeah, fine.
+MP: Yeah. Anyone? Yeah.
+DV: Yes. Yes.
+DV: Anita mom is in Paul. So you can ask
+SS: All right.
+AK: Yeah. Hi.
+MP: Do you want to stay in the call or…
+SS: Okay. No,…
+MP: like you want?
+SS: you guys can drop off. Anita and I can take it from here.
+MP: Okay, Yeah, thanks. Thanks. And bye.
+SS: Yep. Thank you. Bye.
+Meeting ended after 00:24:13 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

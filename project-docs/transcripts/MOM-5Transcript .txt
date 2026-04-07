@@ -1,0 +1,105 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/01/23 18:57 GMT+05:30 – Transcript 2
+Attendees
+AK, ASK, DV, MP, RD, SG, SS, SO, SP, TM
+Transcript
+MP: try share your screen again.
+MP: Let's see if it is possible because we need to check those forms only. so there are maybe let me share my screen. I just wanted to check what we want from you. So we can just go let me know if you see my screen.
+SS: Okay. Yeah,…
+SS: I do. Mhm.
+MP: Okay, So these logo files we already basically created the SVG from the logo that we had. So we don't need that level of care assessment form.
+MP: This is something that we need to discuss how we are creating firstly this form then the service contacts as well for as we are more on the ADH only so we will talk about the ADH as of now but other contacts as well we need to check how we are creating a contracts and state specific context variations as well as we are having the multiple states. So is there any changes in the templates when we are sending a contracts or for all of them it will be the same and also the welcome email templates with red cards. So this is also you can share that details and sample Intake form I think in the application only we do have that I saw some intake notes.
+SS: Yeah. No,…
+MP: So in the templates only it might be there but yeah okay so here for new lead or…
+SS: this just the notes. Just go to the intake on the top. The very first. Go ahead and create the new. So this is the intake.
+MP: patient is it whether we are going to send this template to intake form to them over a mail or they can fill it by themsel or our staff is going to feel this whether we are on the call or…
+SS: So that's based on that workflow we can send them this form right and…
+MP: Uh-huh. Uh-huh.
+SS: they can fill in the information that they need to fill in and if they're walking we can give them the application and…
+MP: Uh-huh. Okay.
+SS: they can fill it in as part of the walking. Okay. Yeah.
+MP: And for this particularly walk-in, are we going to are we basically giving them our iPad or something? using that iPad.
+SS: 
+SS: Something like that. Yeah. We're going to give our tablet and then they can fill it in. Right. Correct.
+MP: So we need to make sure the intake form that we are creating that should be the iPad responsive. So yeah these are the referral details the demography screening details primary care given notes updates and documents. So everything needed so everything will be there. So they need to either fill it or team is going to fill behalf of them.
+MP: Okay fine and this is the standard template or are we going to create a new template as well?
+SS: we're going to create one more template.
+SS: Do you remember that I think before yesterday I sent one email to Anita about that lead. Do you have the copy of that email?
+MP: Yes. Yes.
+SS: Can you open that?
+MP: I Yeah. Just a sec.
+SS: Yeah. Yep,…
+MP: I need to forward just let me know…
+SS: So, you see that one? That's like how this is coming. yeah,…
+MP: if you can see my screen.
+SS: I can see your screen.
+SS: So, it's a new tour scheduled in person,…
+MP: Hello guys,…
+SS: here the referring person is Oops.
+MP: can you hear me?
+MP: Sam, can you hear me?
+SS: I can hear you…
+SS: but I lost your screen.
+MP: Okay. Okay. Sorry, my bad. so, yeah, this is the screen that we were talking
+SS: Okay, So, it's a new referral,…
+MP: That's it.
+SS: Who is the referral? Natalie, senior living advisor. That's her phone number. That's email. what is it that we're doing it? Is the tour schedule for Gardinia's one and so in person kind of that the family member is Michael Perkins and that's the cell phone number and the email and some notes, right? kind of came out. But then I also hold on let and here is okay here is what we're going to pick up on this one right these are the fields we're going to pick up like a family summary who is the point of contact relationship to resident potential resident who is that what is the age where do they leave what is their monthly budget on that and the resident summary current living situation mobility bathing assistance needed
+00:05:00
+SS: toileting assistance, taking medications, memory issues, all these details, we're going to pick up that off of this referral.
+SS: And this is…
+MP: Okay. Yeah.
+SS: what when we do an open integration basically API integration with them all this summary and the fields we're going to get it. So we need to populate that into our database. All assisted living is the same one.
+MP: Understood. And one more question that I am having. this intake is a same for all are assisted living ad and home care correct okay so…
+SS: ADHD it'll be little bit different that we need to create the template.
+MP: what will be the difference between assisted living and ADHD then okay so in the document templates we might have that correct
+SS: We have one ADHD template right now but ADH and homeare will be the exact same. no.
+SS: You would not have that. Yeah. That is correct.
+MP: But yeah,…
+MP: we can create basically intake form and then what are the things that we needed using that intake form, we can customize it and we can assign that to our specialties whether it is ADH or assistant living or home So what we can do basically we can have one generic form in form that we can use gen generally for everything and we can create new form using form builder and that form can be basically specialized to the assisted living and then if you want we can use it when we are onboarding any of the patient or…
+MP: lead so at that time we can assign that form to them and then that template will get assigned to them and then they can fill it. Yep.
+SS: Mhm. Correct.
+MP: So this flow we can complete it then once they fill this form then we are going to save that in our database.
+SS: Mhm. okay.
+MP: So yeah I think we are good for the intake forms. let me see for other facility header templates. So I think nation can please tell us more about what does it means?
+DV: So as we have different facilities which we are going to consider. So you mentioned that the templates should go by their name and everything. So the current facilities list we wanted and also the distribution like which services are there for which facilities to understand a pattern …
+DV: how the contract package and the facilities works together.
+SS: So, let's pull up this Muji the last one,…
+SS: client sign forms. open up that document.
+MP: Uh-huh. Yep.
+MP: Mhm. Uh-huh.
+SS: …
+SS: do you see that on the top there's a logo coming out? Loving hands senior center and the loving hand senior center like this on the so adult day center services agreement and consent for services that's common but then loving hand senior center is basically the location name so that is…
+MP: Okay.
+SS: what get changed and the logo is going to be coming out separately by the facility what Daneshwar is talking about. Okay. Yep.
+MP: Yeah, it's like yeah and…
+MP: when we are logged into let's say our application. So for this clinics basically or specialty so the same logo is going to show loving heads and…
+SS: That is correct.
+SS: That is correct. That's the same logo that you're going to be doing it. That is correct.
+MP: we can have the multiple specialties like multiple clinics.
+MP: So for every clinic their logo will be shown once they loged in and…
+SS: That is correct. That is correct.
+MP: do we need the subdomain as well let's say for them they can create their own subdomain like loving and…
+SS: Yes. Yes. we need that subdomain.
+MP: here you can see the nameare request instead of nameare so there will be their subdomain and…
+SS: Yes, you're right.
+MP: then this will be a domain basically okay yeah understood we can do this and…
+SS: That is correct.
+MP: also these templates
+MP: as well header and footer we can configure it by default we are going to show our logo and for print as well all of our logo we're going to show whenever needed yeah we can definitely do this yeah it's okay maybe …
+00:10:00
+SS: Yeah, I can't share my screen. I will fix it. But I need to show you few things on that one.
+MP: what we can do on Tuesday we can show you
+SS: Tuesday. Yeah.
+MP: you can show us those things and now yesterday's discussion as well you shared us our clinical work has been basically how clinical works done and also as well initially our understanding was it was transportation service that we are going to tie up but we come to know this is the same as a case manager the middleware between the state and us where we
+MP: sending them transportation details for the approval and…
+SS: Thanks.
+MP: we understood that and based on that what we are doing we are updating our workflow which we completed that but yet to review it once we review it we will present you that workflow again and based on our today's discussion as well like the intake forms and all other form that we discussed and that override the forms as well so I come to know yeah how Yeah, sure.
+SS: Hey Moj, I think can we stop the call here?
+SS: I got to take this call.
+MP: Yeah. No,…
+MP: no, On Tuesday we are going to connect on the same time.
+MP: Thanks. Bye.
+SS: Traffic M.
+SG: I'm dead.
+Meeting ended after 00:12:59 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

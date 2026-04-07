@@ -1,0 +1,184 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/02/06 18:56 GMT+05:30 – Transcript
+Attendees
+AK, ASK, DV, MP, NK, RD, SG, SS, SP, SRR, TM, VK
+Transcript
+DV: The hierarchy diagram is something we need to discuss.
+DV: Have you created something for the rows basic specifically?
+SS: Yeah,…
+SS: we can do that.
+DV: Do you want me to go through the documents first or we can go over the rules and permissions which you have prepared? you can show us the rules and…
+SS: Where do you want to start?
+DV: permissions document first then we can go over the shared folder documents.
+SS: Which document you are talking about to share? I thought that we have shared all the documents.
+DV: Yes…
+DV: but yesterday I show you the hierarchy diagram and you mentioned you will come up with the rules more okay so…
+SS: Yeah,…
+SS: yeah, yeah. That's not going to happen overnight, We'll need couple of days to come up. Yeah, yeah, yeah. Yep.
+DV: then I'll share the screen and…
+SS: Yeah. Yeah.
+DV: So, we had a discussion about the EKWP.
+DV: The next you have shared is the appeal notification document.
+SS: Where did you get this EDWP document?
+DV: So where is it like which stage the document is going to be used and is it a speciality specific or the general document? no, this is not the ETWP. It has been appeal notification cost shared notification as a…
+SS: No, no, no. That's part of the package.
+SS: No.
+DV: which have created for Maybe if Shiva is there he can also share the screen and tell us why he has added this document and where it will be also
+SS: No, this is part of the package that we receive it right. but I've shared the EDWP document with you guys, right?
+SS: So yesterday when I showed you initial hold on…
+DV: had that over here. Yes. this was the one right shared to Anita.
+SS: which one?
+DV: Maybe I have to check with her.
+SS: Yeah. Hold on.
+DV: She has received anything. I'm providing you the link.
+SS: I'm going to send you Wait.
+DV: You can drop it off here in the drive section.
+00:05:00
+SS: I'm trying to upload that into the drive. Okay, give me a second.
+DV: Yes.
+SS: Okay, I just added EDWP If you want to go to the shared folder,…
+DV: Which one? I think I need to This one doesn't
+SS: there is a PDF document.
+SS: Just now I added it's a EDWP revaluation ADH.
+SS: It might be outside.
+SS: Nope. This is the form. Okay. Yeah.
+DV: Yes. Yes.
+DV: And the others which are added over here.
+DV: these ones. Do we need to Okay.
+SS: Yeah. I think we need to clean up this thing. these are not the right one. So I'll have the team clean up this one. Okay. Yeah. Yeah. Okay.
+DV: Other than ETWP we do have other forms like this is the referral form.
+SS: Referral form. Yeah.
+DV: Mhm.
+SS: on the referral form on the top the faith and…
+SS: the source referral form right those are the header so the header would be dynamic right based on the agency we select okay right and…
+DV: So this is the referral we are receiving right? Yes.
+SS: if you go at the bottom hold on yeah this is good this is go up yeah these are all good stuff This is all good stuff. only the header would be dynamic based on the agency we select. Okay, you have it right. this is Open up the ADH workflow from the intake.
+00:10:00
+DV: from the intake.
+DV: From the intake as
+SS: Yeah. from the lead lead when you go to the ADH lead and…
+SS: go sounds but this is select state services specific documents. I think
+DV: Hey, Let's see.
+SS: No, no, no. You were at the right place. Go back. I think we may have to modified some of the verbages out here, Let me hold on captions. Go up all the
+DV: Yes.
+SS: all the way up.
+SS: H I think so before I think here we need to do one thing right between the lead inquiry received and the lead source there should be a step that this lead is for which line of
+SS: business. Okay.
+DV: But when we discussed about the marketing team who is going to capture the lead information into the system we had a discussion that the specific service location will be having specific marketing team who is capturing lead for that services only. So
+SS: Right. Which is fine. But I think what's going to happen is that assisted living leads are not going out versus the ADH leads and the homeare leads are going out for the state val. So when we have the the homeare leads I think we can cut down a lot of these things out there.
+SS: based on that dynamically chosen the type of lead right for the type of service it'll hide so many things basically out of there okay so if you want to just park this idea right now and discuss with Mojib and the other team members let me know okay because what's going to happen is that when you have the ADH lead kind of comes in we do a initial assessment and we send that referral form out just the one you were looking at it in the other screen. Okay, that we sent it out and…
+SS: we have captured that if you go down.
+DV: Just okay.
+SS: So we don't need to do anything. no just Don't get confused. Just park this thing on the side right now. Send for the state approval.
+SS: Yeah, just keep it out right now because the one you have done it is perfect but we just need to tweak it little bit for the H part. Okay. Yeah.
+DV: So as of the year will remain the same and we were here the states.
+00:15:00
+SS: Yeah. Yeah. Just keep that one assigned. So resident and this is good for the assisted living kind of that but keep going down complete close clinical signature process verify payment received process payment okay go up medicaid the start the approval process so what you have it is that private pay or Medicaid the approval process
+SS: here right? So this is good this is just keep it but this whole payment type right all the other things basically for the ADH and the home care we can skip those steps and…
+SS: directly jump onto the payment type when the homeare lead comes in. Or we can skip all this stuff.
+DV: The one like generating the forms have been signed by the clinician and…
+DV: nurse and the purple steps Okay.
+SS: Yeah. Yeah. Yeah. we can skip all these for the ADHD and the home care. Assisted living, micare. This is all good stuff.
+SS: But let's get Muji back and then we'll talk about it and to do that how we can manage it from the design perspective and the workflow perspective. Yeah. Okay. So it's called side medical. Yeah.
+DV: And we will just check once again with him if he is there. so this form we can discuss when we will be having a mojip here and…
+DV: we can discuss other forms or those are also dependent on that discussion basically. there was the rate card also in here this ADH rate card. So is it the generic rate card we share to
+SS: Yeah. Yeah.
+SS: So, this is a generic rate card. So for when somebody gets enrolled into the ADH right and if it's a level one or level two services or CCSP or source this is the rate we get it right regardless of CCSP and source this is a Medicaid rate actually not a private pay this is a Medicaid rate okay and then the PSS which is the home care okay and that is basically $550
+SS: 50 cents per unit for 15 minutes one level two CCPN source but this is all medicate rate when somebody chooses that Medicaid patient right and when we bill this is what we are going to bill by the unit sounds yeah, so this is the but ADH Medicaid rate card.
+DV: Okay. Yes.
+SS: So if you want to go ahead and change the title of the, document, please do that because that way nobody gets confused.
+DV: And do we have different one for the private page?
+SS: Private pay basically it's going to be up to the floor manager discretion.
+SS: Okay, that what we are charging it.
+DV: Okay. …
+SS: So that way we know.
+DV: then you clicked So is it the contract part…
+SS: Yeah. This is good stuff.
+SS: This is a PDF output that we want fill in and we do the signature between the nurse and the patient. And do you see that all these fields that we're talking about with the numbers right? Those fields will be filled from the system. Correct.
+00:20:00
+DV: which we were talking It's okay.
+SS: This is a contract consent for services. If you start going down, this is like what a 18 19 page document. Just start going down and All right.
+DV: This here is the shared agreement.
+SS: share agreement also.
+SS: So all the fields we're filling in basically from the system itself. So header the prudent senior services would be a dynamic. Because name of the facility is going to go there.
+DV: Most of all data will be prefilled. I think only we will need.
+SS: All the data will come in That is correct. But this is the document we need to do it 3 days of onboarding a member in the 88 service and the home care service. Okay.
+DV: Maybe we can create a folder…
+SS: So this should be the priority. Yes.
+DV: where we will be having facility specific data only like ADH in bank or maybe residential and non-residential but as of now I will be just renaming them and it has a compliance it should be shared within post.
+DV: After that, this is the same agreement. No, it is something different agreement.
+SS: Which one?
+DV: This one which is there.
+SS: Yeah. Yeah, that's part of it. Just Keep going. Yeah, this is the same agreement.
+DV: 
+DV: Is this the same agreement? This release of inflammation.
+SS: It has been pulled in with some of the member data. That's what it is. The first one was the template. This is pulled in with the member on that. So you can see all the fields kind of filled in. Okay. Yeah. Why all this thing?
+SS: Yeah, this is okay. We don't need this.
+SS: We don't need this.
+DV: Not in the system,…
+DV: we will not be reading it.
+SS: Hold on just a second. Let me see who has signed this thing. Okay. Yeah, we don't need this.
+SS: Hold just hang on to it. Let me confirm with the operation. just hang on to this.
+DV: I think this is the release of information when we are sending referral out or Yes.
+SS: Yeah, I mean that's fine. Just I will check with the operations. You can move on. So don't delete this form.
+DV: Yes. Okay.
+DV: This is also something I think we will need to remove from here because you Yes.
+SS: Yeah. Yeah.
+SS: Yeah. I'm going to do the meeting with them today and then I'm going to help them upload the right files in the right folders. Okay. Shiva.
+SRR: Yeah. Yes, ma'am. Okay.
+SS: Go ahead and schedule a meeting for 11:30 with Sicilia and For 1 hour.
+SRR: Okay. For sure.
+SS: No, no, no. We don't need anything. Yeah. Don't worry about it. I'm going to do a meeting because they messed up the whole thing. They just dumped the whole thing and without, looking into it. No, this is bad stuff that,…
+00:25:00
+DV: The modified assessment note.
+MP: Okay.
+SS: it's been coming out. Don't worry about this.
+DV: Because we were going to it. This is getting
+SS: Yeah. Yeah. about that. Just don't work on any of these documents until I get back to you, on Monday. Okay.
+SS: We'll have a meeting today and then I'll have them send everything in the right correct folders over the weekend. the stuff we receive from the state we really don't need to do anything we just need to store those PDFs basically and then the stuff we're generating it that is what we are most concerned with it and that's what we need to make sure that we generate those templates.
+DV: So as we have Muji here in the call so you were needing to discuss something with him.
+SS: The other one is we are just at the receiving end. But yeah, we may be reading the data off of Some documents that we will read the data and then basically that as part of the training we are going to have them upload those documents separately so we can read them. Okay. Yeah. Yeah. Okay.
+DV: So we can go over that point then. Yes.
+SS: Yeah mujib I think probably we need to go back on the workflow as well.
+SS: So Ganeshwari you were going to send me the PDF documents of this workflow. please do send me those PDF. And I will do that because what it is that when the lead comes in…
+MP: Edit. Mhm.
+SS: if it's the ADH or the homeare lead we can skip directly to the Medicaid or the private pay right we really don't need to do any assessment or kind of that in between. So maybe we can figure it out dynamically that when we select the type of the lead we can skip it directly to the step number 10 rather than 1 to 9.
+SS: And then we can still keep it Basically, if this is assisted living memory care, we do this part. But if it's ADHD home care, we skip it to step number 10 directly. so assisted living we are going to call so if you guys want to Daneshwari for the documentation perspective assisted living is going to call the ALF it's called the assisted living facility.
+SS: Okay, ALF and C stands for the memory care. So anybody that if they see ALF MC in this world basically in the senior care they will understand assisted living facility and…
+DV: Yes.
+SS: the memory care and the IL independent living. ALF, MC and IL. But the IL is the lightest version of it because we don't care about their medication. We don't care about some of the onboarding documents and consent and kind of that because it's an independent living right.
+MP: Thanks.
+SS: So basically they're coming and renting the room or the suite from us.
+SS: and they take care of themselves basically. So the only thing that how do I say it so you can kind of figure it out because when you go to hostel right when you're studying and you're living in a hostel so what happens that they assign a room and the bed to you if it's a two bed or one bed basically in one room but then Right.
+MP: Okay. Perfect.
+SS: So that's what it is. So independent living is similar to that you still have a small oven and fridge and kind of that in the room but you don't cook you just go to the dining hall so similar to that independent living but we don't take care of their medication or kind of that but we keep all the information that in case of emergency happen that we have to call 911 and kind of that but it's on a very light note. Okay. Yeah.
+SS: All right. service not facility by the service type
+00:30:00
+DV: So can we see that the lead flow which we have is correct but there are certain changes which will be updating based on the facility or the service only.
+MP: Yeah.
+SS: Okay.
+DV: And the one part…
+DV: which you were saying that we will be the referral form basically which I showed from the drive it will be shared to the state. So that also we will discuss once you get the PDFs and after that right or you want to talk about it the referral documentation I can share it.
+SS: No, that let me get back to you on that. Okay. Yep. Yeah.
+DV: Okay. Yes.
+SS: So all the documents stuff I'm going to have a meeting today and…
+MP: We can connect early as well…
+SS: then we'll go over that and then get back to So Mujip some housekeeping stuff. Monday I cannot have the meeting because I'm traveling on Monday. So either we do 8:30 and I think I have a …
+MP: if you want one or two hours but I think that will be too early for you.
+SS: yeah, that's what I'm looking I'm trying to look what time is my flight and then what time I'll be at the airport.
+SS: I have a 7:25 flight. So, instead of that, I think, the best thing to do it is that instead of 8:30 to 9:30, why don't we keep it to 1 hour late.
+MP: for Monday, right? Yeah.
+SS: Yeah, 1 hour late. So, right now, you're doing it at 7:00 p.m. your time, correct? Instead of that, do 8:00 p.m. 8:00 p.m. 8 to 9.
+MP: Yeah. Fine.
+SS: Okay, sounds good.
+MP: Work. Yes.
+SS: Tuesday, we can keep it the same.
+MP: 8:30. Yeah.
+SS: Wednesday, yeah, 8:30 and Wednesday, I will let you know on Tuesday that if you need to push it bit out or not. Okay.
+MP: Yeah.
+AK: Sam, can you please wait a few minute? Thank
+SS: Yeah, I believe I Yeah.
+SG: Thank you.
+MP: Yeah. Thanks. Thanks. See you.
+Meeting ended after 00:32:55 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

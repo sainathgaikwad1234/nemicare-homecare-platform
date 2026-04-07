@@ -1,0 +1,271 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/02/02 18:57 GMT+05:30 – Transcript
+Attendees
+AK, ASK, DV, MP, NK, RD, SG, SS, SO, SP, SRR, TM
+Transcript
+MP: flow with you as well and also we discussed about all the things that we are going to do in the ADH. which will include basically the transportation as well as the other thing as well clinical stuff basically how we are going to do the ADH also we discussed about the HRMS as well all the features that we are going to put in the HRMS and how we are going to use them and assisted living as we were discussing and I believe we are almost done with the things that we need in the assisted living as well. the pending item will be the memory care that we need to discuss and home care.
+MP: So I believe this will be the more similar to the assisted living or the ADH only assisted living I believe and later as initially when we had a discussion so you mentioned some of the other services as well which include independent living and…
+MP: CCM as well but I believe we can go one by one the phase one maybe we can just having the ADH assisted living and memory care and home care And for other we can deal with this later, right? Okay.
+SS: Yeah. …
+SS: here is what it is. independent assisted living and memory care all three on the same line. and usually the assisted living and memory care they share the facility, So, if you have a facility 50 beds, we might have a 20 beds on the memory care and 30 beds on the assisted living. So, we're okay, basically that we can just go ahead and put a check marks what services they're taking it and based on that we can differentiate that this is a memory care patient or…
+MP: And you also mentioned about the hotspice are we going to do that?
+SS: the assisted living patient.
+SS: But all the workflow and everything is saying no issues. Okay. Yep. Yeah. Hospice is very similar to ADHD. So once we get into the home care side that there are couple of changes that we have to do it but pretty much what the workflow we have done it for the ADH. So the home care and the hospice what it's going to be removed is that home care there won't be any transportation okay hospice there won't be any transportation…
+MP: Thank you.
+SS: but what we're going to do is that similar to the transportation where we capture the mileage and kind of that we are going to capture that for the reimbursement to the employee because when they go there in such cases we do give them the reimbursement which is not a
+SS: must to do at this point but probably nice to have it. So we will visit that capturing the mileage and then with the time sheet to see if we can capture basically that mileages and then we can put an line item for the expense reimbursement on that one with the time sheet but that's a phase two it's a nice to have it must to have it so I would not be concerned about that.
+SS: So that I think it concludes our workflow pretty much just fine. Okay. Yep.
+MP: And also like you mentioned the CCM as well IP chronic care management.
+MP: Do we need that flow as well or…
+SS: So chronic care management it's basically that chronic care management and…
+MP: service? Yeah.
+SS: remote patient monitoring is absolutely new business to us. Right.
+SS: So we're also learning but I was able to see that on the think website correct we're just going to copy the exact same thing on that one.
+MP: Yeah. We do have expertise in that we worked on couple of the project where we implemented the CCM and RPM and PCM like all these services we Okay.
+SS: So we should do. Yeah.
+MP: Okay So yeah then for particularly assisted living like anything so what we will do Naneshwari will present you the workflow that we created for assisted living. If any change required then you can just tell us now and then we will share the same workflow with you and believe the home care then we will move to the home care or then later we will discuss about the billing part. Yeah, sure.
+SS: I mean I would say billing I would take it last. Let's just first get all the clinical side of the house. Okay. Yeah.
+MP: Let's finish all the services that we are going to okay…
+SS: But this one I think probably we have done a good job in doing that. I don't think so we should waste everybody's time on this call to go through that workflow. I will have this workflow going through with my team offline and if there are any changes I will let you know to you and Daneshwari so we can make the changes accordingly but I think more or less we're about 95% there but let me just review it with my team to make sure that we're good with that we don't need to waste everybody's time on this about that right I think we're 95% there okay yep
+00:05:00
+MP: then fine what we will do then this update ated workflow. We will share this with you and I believe you can start discussing these things with your team because if you get early feedback that will be help us to eventually the plan everything
+SS: Shiva Navia are you guys on the call? yeah and both are on the call.
+SRR: He has seven
+SS: Yeah. Yeah. Okay. Perfect. Shiva what we should do is that all these workflows Mujib can you make sure that I'll send it to Shiva.
+SS: No, don't worry about it because it's in the shared folder.
+MP: or you can send their email ids with us.
+MP: So we will share with
+SS: I will Yeah, so Shiva sit down with Siccilia and we you know about this and then make sure that we review all the businesses workflow on the 88 side especially the transportation and kind of that with Sicilian and then you and I can sit down and review the assisted living workflow. Okay. Yep. Yeah. All right Mujib.
+SS: So we're good that internally we can manage that and then we can touch base that if there are any changes kind of that but I think more or less we're there. Okay. Yeah.
+MP: Yeah. Great.
+MP: And also from design side we are working. So yeah there is little bit delay but yeah this week the plan will be like we are going to complete at least the ADH workflow all the clinical part we are going to cover and all other things as well in the design and we'll present you one by one. So today we don't much…
+SS: Mhm. …
+MP: but yeah so tomorrow onward we'll show you the clinical workflow for the ADH.
+SS: okay. Yes.
+MP: And from then I just need to check one thing with you. As you mentioned the assisted living and memory care is more or less same. So is there any difference that basically we need to discuss and…
+MP: also that thing that we can keep in mind while implementing the flow in the development.
+SS: not really.
+SS: I think what we can do is that when we admit the patient or when we take the lead or whatever it is basically at that point we should specify that the facility type okay they're coming in or maybe the service type they're coming in that's where I think probably let me come up with that buzz word but I think it'll be a drop down or a checkbox and then we can kind of do
+SS: But I think we're going to come up with a checkbox …
+SS: because you might be getting the micare service and the hospice service at the same time or assisted living in hospice at the same time. So let me come up with that and then we'll figure it out. Okay. Yep.
+MP: Okay. Fine.
+MP: And also just the basic question again so when we are onboarding any facility so they can provide the multiple services right.
+SS: So yeah it'll be let me make you understand on that right so will provide the transportation can be provided by ADH…
+MP: Mhm. Yeah.
+SS: but in
+SS: 99% of the cases it will be a separate company okay we'll be doing it okay…
+SS: but I think from the module perspective we can still keep same so basically if somebody is providing the ADH services yes they will provide the transportation along with that okay that's…
+MP: Yeah. But…
+MP: what about let's say if anyone is providing the ATF so can they provide the assisted living fac. Mhm.
+SS: that's where I'm going. So just listen to me. home care will be a separate company too because the company who provides the home care in most cases 99% of the cases they will not provide the ADH or transportation. Okay.
+00:10:00
+SS: Same thing with it. The company who provides the assisted living and memory care they will provide only assisted living and memory care. Only some cases they will provide the independent living. If the facility is been done for all three services okay…
+MP: Mhm. Okay.
+SS: but about 80% of the cases it'll be only assisted living and memory care. Same thing independent living will be only independent living 80% of the time but there might be that okay we want to open up the assisted living on that one too right but we can do that later on kind of in a phase two we can try to figure it out that how if we open up an independent living facility and then if you want to add the assisted living what we do because the modules don't make any difference it's just basically they're on the top that
+SS: we're going to see so that's what it is, and hospice will also be a own hospice service. But what we should do is that we should have an ability from our patient database that if we can copy the patient biographic information and kind of all the medication the alerts allergies all sorts of care plans and kind of that from one site to the other side. Okay.
+SS: So maybe we can create something that like okay I want to copy this patient data for a record over to company B patient database right probably it might be a good so…
+MP: So admin level we need to provide that access then just
+SS: what I'm thinking about it is that okay so let's say that right now I have several locations right and I have several businesses. I have ADHD, assisted living, memory care, everything. So, today I admit a person in ADHD. 3 months down the road, I basically get to provide the service to them for the home care as well. Right now, there is a new service on the home care side. I'm creating that assessment, sending it to the state for the approval.
+SS: I don't want to retype all the patient database and everything again. So maybe I need to go into the ADHD patient database and say I want to have this patient go from copy from ADH lead to the homeare lead as well. So end of the day I'm rendering the two different services right and…
+MP: Okay.
+SS: I don't need to type it.
+MP: So correct me if I'm wrong. So let's say you are having company and you are having the different facilities. So one of them is the assisted living and memory care. Let's say three services you are having and…
+MP: 
+SS: Correct.
+MP: out of three so one of the patient are present in the ADH and now this patient is also want the service for the assisted living as well and so for that basically you need a fac option where we can copy the details from one facility to another facility.
+SS: That is correct because the backend structure is similar.
+MP: Yeah, that will be flexible enough like we can basically company level only.
+SS: Right. Right.
+MP: Let's say you are having the company and…
+SS: We cannot Correct.
+MP: let's say other person can have the different companies. So we cannot share that data. So we are having the multi-tenency application for that only you can have your own all the clinics or all the facilities data by yourself not for other. Yep. Yep. we will provide that I'll plan that as well …
+SS: Okay.
+MP: how we can do this and for particularly assisted living any thing else that has been need to discuss because the clinical stuff for the assisted living leaving living we are clear then the rooms management as well like how we are going to manage also the insurance part as well like the payment and all that we discussed in previous call and in the billing we will discuss in detail but the basic flow we know what will be and transferring the patient as well from the other facility to this facility.
+MP: So at that time how we are going to do these things. So for that we created the workflow. We'll share that with you. You can internally discuss this with your team and then if anything will be there then maybe tomorrow's call we will discuss more on this.
+SS: Right. Mhm.
+SS: right. Mhm.
+MP: And then for memory care we are clear. So it will be the same as the assisted living as you said.
+SS: All right.
+MP: Yeah. We are not going to do that. just the service will be there, the memory care, but the other things will be the same feature that we are going to have in the assisted living. So everything will be there the room services and everything will be there.
+00:15:00
+SS: correct. Mhm.
+MP: 
+MP: And for them as well the clinical part will be the same on daily basis we are going to collect the vital or…
+MP: the weekly all those stuff we will do the same.
+SS: That's true.
+SS: Yep. we can cover through the billing or…
+MP: And the service the CPT code or ICD10 code that we are going to use. So in the billing we are going to cover it or now we are going to discuss that.
+SS: we can cover through when we receive the package because that's the time that we are putting the ICD10 codes in the prior authorization. So we can do that.
+MP: Got it.
+SS: I mean we're just taking over those ICD10 CPD codes from this entity over to the billing basically. Yeah.
+SS: But we will capture that first during the assessment.
+MP: Yeah.
+SS: When we receive the package from the state we will have all the details Primary Mhm. Yep.
+MP: Then we are going to all those detail in application. So we then come to know the units, everything will be there and based on the services that we are going to provide. So that unit will going to get deduct right. let's say if we have the 100 units and that means 100 day service if we are providing s automatically we need to create our application in a way where automatically based on the services that we are providing on daily basis weekly basis we are updating it and based on that service code or the CPT code we are going to use and then that the quantity or the unit will get reduced for again the same thing the billing part we
+SS: Mhm.
+MP: we'll discuss later. So again I'm coming over there only how we are generating the monthly basis or daily basis for the insurance the payer how we are going to generate a bill but yeah we will discuss it later it's fine. yeah n from your side do you have any questions anything that we want to discuss today?
+DV: with assistant living flow we do have created some relational flow for HRMS portal because we have covered it thoroughly but the connections we just wanted to have a confirmation from Samson so…
+DV: if it's a good time we can discuss the HRMS flow connections basically the permissions and all those things we have a Yeah,…
+MP: Yeah.
+SS: Okay.
+SS: All Yeah, that's fine. if you want to share the screen, we can quickly revisit that. Yeah. Mhm.
+DV: Sharing your screen.
+DV: Yes. is it visible?
+SS: Yes, it is.
+MP: Yeah.
+DV: So for HRMS portal we have divided it in a different sections and these all are interconnected. So it is based on the department permission centric you can say rather than a single user. So covering the admin operations what will be the options available for an admin throughout the HRMS portal. So he can hire or add new employees by creating their profile having the onboarding forms, the position the department assigned, the contact details, demographics and as I mentioned there are going to be certain test with their expiration date or license documents.
+DV: All those things can be collected and the documents which you explicitly mention are drug screen form, visa and all those things. the background check will be done by the HR but in the system we will just provide an option that the background check is done right.
+DV: We are noting any particular document for that.
+SS: No. …
+SS: so here is what we want to do it when they fill out all the basically necessary forms for the employment at that time. we will also upload the consent forms for them to sign it electronically, And they're giving the concern that they don't mind going through the background check. So they provide the information the drug test
+SS: then the background check drug test and the fingerprinting and the report DMV
+00:20:00
+DV: Which report?
+DV: The alignment I will check it.
+SS: Okay, these are going to be all the consent forms that they need to sign, And then what happens that create one more workflow out here. create one more workflow off of this that when this thing is been submitted, we can go ahead and send it out to the background check agency with all the consent forms signed electronically as well as through the background check agency so they can do their work.
+DV: The email for the background check agency should go from the system itself or…
+DV: it is a manual work…
+SS: Basically that is so in between I would say just create one more box between report and…
+DV: which we are It's just okay. Mhm.
+SS: then the one you are typing it correct and between that one more box that created no in between that in between
+SS: Yes, Yes, in between what you do is that when we are doing the background check agency on our HRMS create an entity that background check agency their phone number, their email and the contact details. So whosoever the agency that we pick it'll go to them directly. So we keep feeding that information because this is not a standard or a constant information that it's a dynamic information.
+SS: this next couple years we're using a agency after that we're using B agency at the same time this is going to be by the instance so let's say the Washington is using A agency versus Georgia using B agency at the same time right so it'll be directory of the user profile or…
+DV: So maintaining the directory of different agencies.
+SS: something like that or maybe the location perspective
+SS: manage it or something like that. But that is something that we need to do that then only you'll be able to send it out to the background check agency everything right electronically. So these are all the handshakes that we're talking about sending out the information and then what you do is that once the background check and everything all the report kind of comes back it comes into the PDF format from the last
+SS: And then what we should do is that we should capture that with a checkbox that signed consent form sent to the background check agency and when we receive the actual results we will upload that into our system that actual results received on and…
+SS: date and then it will always stay into the HRMS for that particular employee. Correct.
+DV: And it will be also a decision point …
+DV: if the background verification fails or…
+SS: It's a decision point too. That is true.
+DV: 
+DV: so if we don't have the report of the background check, are we providing them any access to have on the system?
+SS: No, we're not. We're not.
+DV: Mhm. Okay.
+MP: we are going to just directly upload the verification report in our system. So we are not going to integrate with any one of them to check the background right.
+SS: I mean we just need to grab the PDF and…
+MP: And here I just
+SS: and then the HRS admin should be able to sign off that results were satisfactory. So grant the access correct? Yeah. So what Janeshwari is writing it right now that access permission for the profile activation.
+DV: Yes. Yes.
+SS: But this prof the profile is already active for the employee up until now the potential employee already has an access to the portal. They're going into the portal filling in all the information filling all the forms signing the consent and kind of that. So this is not a profile activation but this is their employment start date right.
+MP: Yep.
+SS: HRF admin will confirm the employment start date.
+SS: Employment activation. There you go. Yep. Correct.
+00:25:00
+DV: and then they will provide them the username and password.
+DV: Mhm. So this process can have parallelly and once it's done we get this checkbox then only we will send the portal access to the particular user and
+SS: That is correct.
+SS: I mean they already have a portal access. Now we're going to grant basically any of our clinical data information. Up until now they have a basic HRMS access only for their So basically the conf portal access is already been configured. So here we're putting them into the right roles and responsibilities. So based on that the role based access they will get it right. So let's say this person is coming as a CNA for the facility they are going to get that rolebased access whatever the CNA has an access to.
+SS: If let's say this person was coming as an RN,…
+SS: then they'll have the registered nurse access, If this person was coming as an administrative person in the office, would be just the administrative billing is going to be the only billing access, So that's what we're going to talk about the rolebased access and that is the role that we're going to provide them for a facility. Yep. Yeah.
+DV: Yes. Yes.
+DV: This is particularly for the background check. and after that we can assign them the department if needed the supervisor and…
+SS: I mean that's a seamless process with that once to the system right. Exactly.
+DV: we can assign them the default shift roster which is available and can edit our Yes.
+MP: yeah I believe he left by mistakenly just wait u Yeah.
+MP: Hi Sam, you are on mute. it's okay.
+SS: Yeah, what happened that my laptop battery is dead now. So, I didn't realize that it is visible to me.
+MP: So yeah, we were just discussing this HRM is slowly. So yeah, initially
+DV: Is it visible to you like the screen size?
+DV: Is it okay? Yes.
+SS: Yeah, it is visible to me.
+DV: Once the roster process is done and we have the link in here what we will monitor for this profile basically or any user profile all the documents either the licenses or test we will be having the expiration date or finishing dates or renewal dates and those dates we will be tracking and we will be having a notification system where those particularly triggers will
+SS: Correct. And then here is…
+SS: what we're going to do is that I'm going to provide you an employee onboarding checklist.
+MP: Mhm. Okay.
+SS: And the checklist is going to be dynamically based on this steps and kind of that we will have those dynamically checked. So every time that if I go to a new hire which is in the pipeline and if I pull up that checklist then I would see the progress that out of 10 tasks seven are done so over 70% and…
+MP: Yeah, So your percentage as we will show 70% has been completed profile completion.
+SS: correct yeah and…
+MP: Yeah. Yeah.
+SS: then if I click on it then it'll take me to the checklist and then from the checklist it'll take me to basically the whole access…
+SS: a drill down axis, Yeah.
+DV: And also on the admin HR level basically …
+DV: if there are any approval which are needed for any specific user let's say there is a leave applied or some scenarios where the supervision approval will be needed. So in that flow also it will trigger to that particular admin or supervisor where they can review the things which they have to. Here we have considered the performance review workflow where the HR completes it and it comes to the supervisor for the annual performance review report and they can finalize log the document and after that the particular employee can get notified or the HR get notified.
+00:30:00
+DV: So when we are creating the …
+DV: what we can say the review performance report do we need the access provided for that particular staff so they can see their performance report or is it just okay so it will be available at their end in read only format.
+SS: Yes, I think so.
+SS: I think so. Yeah, they can see that whatever they had put in but they can't see the supervisor comment until it's all signed off then they can see it, Connect.
+DV: But after everything is done the supervisor finalize it then only it will be visible in their particular profile. along with this this is the review for what we can say performance report.
+DV: Same flow we will be having for the leave request option…
+DV: where there can be two options either to approve the leave or they can reject it. And accordingly the roster will get updated …
+SS: That's right.
+SS: Y Good night.
+DV: if they approve it on that day the roster will show a block time for that and if it's rejected so that rejected region will also get added for that particular user and will also reflect to what was the reason it got rejected and if there is any employee separate
+DV: ation process needs to be happen. Then in that case also the super admin will be having the option to generate the exit or they can schedule the interview, conduct it final pay and all those things the roster updation and the status termination. This will be also the power or…
+SS: Right.
+DV: the permissions of the super admin along with this they can generate different reports like the headc count, the turnover, attendance the reports we can discuss in the compliance and report part mostly. So this will be certain permissions and modules which is going to be accessible to the super admin for the HRMS portal. after that we have the supervisor.
+DV: as a supervisor I'm opening the HRMS portal the options which I'm going to have I will be having different due notification from the HR department to mark the review form updated add ratings and then submit back to the HR I will be having the leave request notification at my end which I need to check update I can approve it I can reject it or…
+SS: Yes. Yep.
+DV: if needed I can ask for more information in case this will redirect to the employee. Is it correct? Mhm.
+DV: And in the approve process we have added the check and as you say we need to check the kota process over here if there is the available leaves then only it will be redirected for the approval and if the kota is already fulfilled it will not trigger to the supervisor. but …
+SS: for the supervisor, right?
+DV: if at the user level I want to exceed my kota for some emergencies or there is a situation we will provide the option to override it right okay yes and after that we will be having the other operations like the time card if they found any issue in the particular time department's time card or particular
+DV: ular employees they need to talk to they will be having the option to reject the issues or if they have an overtime allocation for an employee.
+SS: Yes, it is.
+DV: So we have kept this permission at the supervisor level where they can allocate the overtime or they can add it or remove it and also the other things like the 5 minutes early or 10 minutes late all those things we have managed at the supervisor level in the HRMS is it correct? Mhm.
+DV: And change request is also going to be a part where the user can generate this request for the supervisor.
+00:35:00
+SS: Very fake.
+DV: If they approves it the shift can be geted updated and accordingly the roster vis will be visible and at the employee or the user level we have the options where they will be receiving the welcome email. they will be having the password set up. once they have it, they will be able to see the dashboard where they can see the shift calendars, the notice boards, the messages, the task. The dashboard is going to vary as per the rules and permission for the nurses, the vital collection, all those roers will be visible for the clinician, NPA, the monthly reports or the supervision reports will be visible.
+DV: So accordingly the dashboard is going to change and after that they will be having their profile editable where they can update the contact and emergency information. they can raise multiple requests. They can request the shift change which will be redirected to the supervisor. after that they can see if they want to have a week off or time off they can request a leave and…
+SS: Mhm.
+DV: also they can see the clock in clockout time when they will according to their roster they have to be there at 9:00 a.m. and how much break they have taken or things like that.
+DV: So all those things they will be able to have and they can see the break time time stamp the total working hours the net time all those things can be calculated and visible in their profile or dashboard. another thing which they will be having access to is the notification panel. They will also have the notification panel where they can see the internal messages and…
+DV: other notifications. If they have assigned any task or any particular what we can say action item which should be done during the day but they have not done The due notifications basically all those will be visible.
+SS: Okay. Mhm.
+SS: I think we're complete.
+DV: This is the user level access and other things which we have covered the automated operations the triggers for document expiry then monitoring the cycles from higher anniversary the review all those thing then notice board updates as we have discussed it that at the very service level we can produce a notification which should be visible to each and everyone. So that notification we are triggering from the HRMS portal.
+SS: Thanks. She
+DV: And that notification will be visible to all the users at the dashboard or facility level.
+DV: And then the alert standing the track shift aherance if there is any issue or concerns in the shift if some employees regularly or repeatedly having not following the compliance then that part we can show from the notifications and the update shift calendar when the leave is approved the block day roster the shift calendar update
+DV: is this notification also we will trigger from the system HRMS portal and the one thing which we have discussed very lightly the payroll process we will be having the approved time cards from our system the user centric for all the departments…
+SS: We have to take this group.
+DV: then we will be having different categories these were the regular one these were the overtime by the department we can validate this will be the manual process.
+SS: This will process there is an API integration so that's fine.
+DV: Then we will need to generate a ADP export file which will be having all the document and then we can send it to ADP.
+DV: They will process and…
+SS: We will just do an API integration with them. Okay. Yep.
+DV: accordingly we can have different insights from our system for which we can run reports like the attendance summary, the leave utilization or…
+DV: other things and all those reports generated in the HRMS form will be accessible at the admin level as a HR and will also be accessible to the departments and department heads based on the rules and…
+SS: Connect. Sure.
+DV: permission. So this is the overall understanding of the HRMS portal we have currently.
+00:40:00
+DV: Yes are there any changes…
+DV: which needs to be updated or is there any pointer which we have left up or need to cover in the HRMS particularly
+SS: No. …
+SS: one thing Moj that you guys have created a home care solution in the past right for some client.
+MP: Yeah. Yeah, we do.
+SS: So just go back to the team and…
+SS: figure out that how the scheduling was configured because in the home care side we will need that the same scheduling right the shift roster and kind of that. So I would also review that before we finalize this workflow on the shift roster especially on the shift roster HRMS overall I think over there right…
+MP: Mhm. Yeah.
+SS: but just look at the safe roster and whatever you have done it and if it's working in the industry …
+SS: then it'll be as per the industry standard we don't need to make any changes or reinvent the wheel on that Okay,…
+MP: So yeah.
+MP: So maybe what we can do or tomorrow I'll show you that demo. If you like it…
+SS: perfect. That is correct.
+MP: then we can keep that. If not then we can use our own.
+SS: That is correct. Yeah, Anita is online.
+MP: Yep. yeah.
+SS: You want to say something?
+AK: Yeah. Yeah. You can continue talk again.
+SS: Okay, good.
+MP: So for HRMS particularly Samo the flow is the clear.
+MP: Thanks
+SS: I think yeah HRMS we're there only that I just don't want to mess up that …
+SS: which is the industry standard on the homeare side right and then we're just going to use the similar one for the all line of businesses that way we don't have to do multiple things okay yep perfect Okay.
+MP: Yeah, sounds good. Yeah, we'll show you that tomorrow I'll present you that from our side like that's all the things that we wanted to discuss and also we wanted to present you the assisted living flow as well but as we are clear with that as well so we'll share you the mail so you can discuss the HRMS as well as assisted living flow with your team along with ADH and CRM yeah so yeah I think that's the
+SS: Okay.
+MP: clear thing the memory care as well we are clear it's similar to the assisted living for home care as well …
+SS: Okay.
+MP: then maybe tomorrow's call so we'll show you that scheduling thing how we are going to use it and later then we will discuss the clinical part of home care or independent living if you wanted yep yeah nanuri team like anything else you want to cover today or we are good for today.
+DV: We are good.
+MP: Okay, great. yeah Sam,…
+MP: I think for today we are good. so based on today's discussion we will update some of the workflow of the HRMS but all other things will be good I believe and tomorrow I'll show you the appointment flow.
+SS: Perfect. Thank you.
+MP: Yep. Yeah.
+SS: 
+SS: Yep. Bite.
+MP: Thanks. Okay.
+Meeting ended after 00:43:26 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

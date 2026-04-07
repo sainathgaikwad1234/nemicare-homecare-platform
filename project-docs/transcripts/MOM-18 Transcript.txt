@@ -1,0 +1,333 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/02/16 18:55 GMT+05:30 – Transcript
+Attendees
+AK, ASK, DV, Mojib Patel, read.ai meeting notes, RD, SG, SS, SP, SRR, TM, VK
+Transcript
+VK: Just a minute. The screen is loading. So yeah, I'll just do a fast go through about what we discussed in the last call. So as you can see the second client is of ALF service type. So after entering that client we are moving that client into resident as a new resident. We are assigning the case manager and clicking on done. After that we are sending the documents to that case manager uploading and proceeding with the next step. Then we are assigning the room for that client.
+SS: So, just go back to these all the way back where you started. I'll just give you my input. yes, go ahead and then start…
+Mojib Patel: I'm sorry.
+SS: Where you assigned the case manager? That's the screen I'm talking about. Yeah. So,…
+VK: Okay. Yes.
+VK: Software. Yeah. Yes. Right.
+SS: So, this assigned a case manager, That should only pop up if the resident has the paid,…
+Mojib Patel: Medicaid assisted.
+SS: so this workflow is for ADHD or assisted living plus Medic.
+VK: Assistant living and medical with medical
+Mojib Patel: Yeah, both this workflow is for both as well as the assisted living and I got your point. So what you wanted basically firstly we will select the insurance type if you are payment type or if you are selecting the medicate or if you are adding the medicate plus any other…
+Mojib Patel: then only this assigned case manager will be populated and then rest of the things will be Correct. Okay.
+SS: And the case manager is not just going to get assigned directly.
+SS: The first step should be like case management agency then case manager.
+Mojib Patel: So we need to select the case management agency first and…
+SS: Right. You got that is correct.
+Mojib Patel: then inside that agency the number of case manager that we have we are going to show that and…
+Mojib Patel: this will be the same flow for ADH as well right okay we'll update
+SS: Yeah,…
+SS: it will be Yep.
+VK: So after proceeding we will have to do the documentation for that member and…
+SS: Okay, perfect. Okay. Mhm.
+VK: we have to upload the documents here and you can view it as well and…
+VK: and with the next step we'll have to check the bed availability.
+VK: I've shown you this already. You can also view this. Yes. Yes.
+SS: Let me ask you something on this one.
+SS: Right now we're in a process of converting our lead to the resident correct on the assisted living side. So this is assisted living only. Check the bad availability because does not have the step number three directly correct.
+VK: Yes. Okay.
+SS: So when you come to the check bed availability on that one so what we do is that right as part of the process when we had received the deposit. So I want you to hold on this one and show me where you are receiving the deposit of a potential candidate.
+VK: So, we'll have to select the room first. Okay.
+SS: You are doing a deposit here only. Okay.
+VK: Yes. Okay. Okay.
+SS: Sounds good. in reality, what happens is that, while we're talking, right, this is what it happens in reality, So basically I'm buying your flat and then we haven't gone through the actual paperwork but I'm going to say that okay what I like it we're good it'll take couple of days to do all the paperwork and kind of that thing but Vikram I want you to do something where you are not going to sell this thing to anyone so can you just put a hold on it right so what happens is that like you
+Mojib Patel: Mhm.
+00:05:00
+SS: I have given my word to Vikram and say in 99% of the cases Vikram I'm going to come and then basically acquire your flat.
+VK: Heat.
+SS: So you're going to say that okay hey my sale is on hold right now. this flat is not available anymore because I've gotten a word from someone right. So what happens that you have that kind of hold thing. So that is what it happens in the reality and then that hold you take it off and then you change the status to deposit received right when I come to you after 2 days and say okay everything is good we come thank you for holding it here is my deposit and this is the day I'm going to give you the full payment right in the case of the apartment but here is my deposit and in one week we're going to move in the resident something like that so that's something that like how we
+SS: and capture Mujip that I'll leave it up to you to see that …
+VK: Okay.
+SS: if you can kind of go into the database while somebody's working on the lead and…
+SS: then they can just put a hold on that room and then out Vikram cancel this screen yeah and then go back to and here you're going to see one of the room as kind of holes okay and…
+Mojib Patel: Yeah, old.
+Mojib Patel: Yeah, it's old.
+SS: 
+SS: that is the We are going to release and confirm it.
+Mojib Patel: So, what we can do before converting the lead to resident. So in the lead manager or the person who's managing all them. So he can basically hold any of the rooms if wanted and then we are going to show it here.
+Mojib Patel: I'll create that workflow. tomorrow maybe I'll show you that.
+SS: Or else you can just,…
+SS: I'm thinking that we don't want to make it too cumbersome the workflow. I would just basically when you receive the deposit here,…
+VK: I don't believe Yes. Yes.
+SS: you're putting the status on that particular bad is going to be deposit received. not still confirmed yet. Correct. Okay.
+Mojib Patel: Correct. Yeah,…
+SS: Then just leave it as is. I think that otherwise it'll become too much cumbersome that it'll add a brand new step into the workflow to go and hold the room and kind of come back and then you never know that the lady is qualified 30% kind of that right. So just leave it. I think this is Vikram. Go ahead keep going.
+Mojib Patel: you want to say something?
+DV: Yes regarding the hold I had a suggestion let's see if it suits you or we can move forward. what we can do when we have selected the room and the button which is getting highlighted is confirm and collect deposit. So we can frame it as After that we will be having two options to choose from either to hold it for now or to collect deposit. If we click on hold it for now. So the billing setup and the assessment will be visible once the deposit is So it will be on hold but the client will be a resident on hold and not a client a lead.
+DV: So the step one will be completed, step two will be there as an hold and once we receive the deposit after let's say 2 days or a week later then that we can manage that we will receive the deposit and then we will do the billing setup because if the client or the resident comes in and they say we want a hold we are not going to have them assessed also. we will not provide the assessment also to them. Right? So that thing we can do…
+SS: Okay.
+DV: but this will just impact in case if someone else comes and they are willing to pay right now for the same room. So in caseh we have to manage those thing. So it will increase the workflow anyways.
+SS: Okay. That's right.
+DV: So do we need to include that approach to have a capability to put on board? So this step
+Mojib Patel: Yeah, as of now what we can do, we can keep it as it is and we'll see where we can put it.
+Mojib Patel: So maybe internally.
+SS: Yeah. Mhm.
+Mojib Patel: Yeah, we'll discuss it and…
+SS: Yeah, that is correct.
+Mojib Patel: then if we find any easiest way then we'll update it. and then Yeah. So let's Yep.
+VK: So after confirming the room your deposit payment is done and…
+VK: you are proceeding with the next step which is billing setup and the clearance. So you will have to select the payment type first. right now the
+00:10:00
+Mojib Patel: So this option now selecting the payment type.
+Mojib Patel: So as you wanted before we are selecting the case manager right. So we …
+SS: That's right.
+Mojib Patel: what we can do firstly we will select all of this stuff and…
+Mojib Patel: later we are going to select the case manager if needed.
+SS: That is correct.
+SS: Yeah. If it's the Medicaid then only we do that.
+Mojib Patel: Yeah case manager will be there correct.
+SS: Correct. Yeah.
+Mojib Patel: Yeah. we can continue.
+VK: So for the Medicaid payment the details will be this.
+SS: And then on this screen.
+VK: Yes. Right.
+SS: So now you have already saved the record with the deposit received So on the top in the header where you see that…
+Mojib Patel: Yeah, we should Yeah.
+SS: where you see the resident name Devon land right it should come deposit received right that is the status of the resident we have it right this is already been converted into the resident now so deposit received Right.
+VK: Right. Okay.
+VK: Okay.
+VK: We are approving as a resident after the step four…
+Mojib Patel: Yeah. Right.
+VK: which is assessment.
+Mojib Patel: No. Yeah. So Vikram we can discuss this internally. So basically as soon as we are converting any of to the residents at that time that will become a resident doesn't matter if you are putting just one tab only still it is going to show in the resident and rest of the things we are going to do later because ideally this all step won't happen at once.
+SS: Okay, sounds good.
+Mojib Patel: This might take some times to happen all those steps but this particular patient will be the resident. So I'll explain you Vikram. So what we need to do here
+VK: Okay.
+VK: So suppose if you want to change the payment type to private pay you will get as a first payer and the details of that payer as well and the payment details how you going to receive the payment and you can add a more pair as well. After adding a more pair you will see the payment is u divided into an equal percentage.
+VK: You can edit it as well 60 40 70 as you want.
+SS: Thank you.
+VK: You can also see those percentage in the summary as well. you can remove it as well. Now proceeding with the insurance. these details are the generic right now.
+VK: But do we have any separate form for the insurance Sam?
+SS: No we don't…
+SS: because this is something that we will be starting after we deploy this.
+SS: We're not doing this currently. So I think leave the generic details as much as we can. Okay. Yep.
+VK: Now moving on to the combination payment.
+VK: We have selected the Medicaid plus copay.
+VK: As you can see we have selected medicate here in the tabs and the details will be of the Medicaid and in the copay you can switch it like this.
+SS: Okay, sounds good.
+VK: Same goes with the Medicaid and insurance as well. Same goes with the last which is insurance and copay. Now moving.
+SS: Mhm. so one thing that go to the previous screen as a user that will become a training thing that when you hover over insurance over copay that's…
+VK: Yes. Okay.
+SS: where you're going to get the other details. so if you can do something better design to distinguish that you have to have both the tabs to be filled in right something like that. Okay. yeah you think from a design perspective workflow is great. Okay. Yeah. Yeah.
+VK: Okay. Sure.
+VK: Now moving to the next step which is about assessment. the form is that we have divided into four sections.
+VK: The first is about activities. You will have to answer all these eight questions. the next section is about behaviors communications. You'll have to fill this as well. And in the next section the pain assessment and the skin integrity. Now you will have to click anywhere on the body or…
+SS: Okay. Mhm.
+00:15:00
+VK: the body parts so that you can create a mark.
+SS: Uh-huh. That's good.
+VK: Suppose I am clicking on the hand on this side.
+VK: So the pop-up will appear and the spot where I have clicked is going to highlight now. Yes. So you will have to select the mark types which you have selected on the scheme.
+SS: Perfect.
+VK: So after selecting that you can also add a description as well for that mark and after saving mark you you can see it as like this.
+SS: Good. Like it.
+VK: Yes.
+VK: So consider as we have completed all these steps and we are now moving to the confirm admission whether you want to confirm about this member or…
+SS: Okay. Okay. Mhm.
+VK: So suppose you're not confirming with this member. So after proceeding you will get an overview of that member and you will have to select the declined reason and…
+VK: as you can see you can also see the note about the declining admission as well.
+VK: Yes.
+Mojib Patel: And also the refund we need to basically give the deposit to them back to them.
+Mojib Patel: So the refund flow here.
+SS: I think we should I mean technically that …
+VK: So after declining the client I've added a note saying that the deposit refund will be processed to the original payment source.
+VK: So is it correct?
+Mojib Patel: Yeah, we need one button whether we want refund or to proceed with refund or not. Okay.
+VK: So this is okay.
+SS: if they give the deposit and if we are not accepting them as a resident then we are bound to give them the deposit back.
+Mojib Patel: Then by default the flow that we have then we will keep it as it is.
+SS: Yeah, just keep it is because as per the current flow what is happening is that you took a deposit check right and then you're going for an assessment as number four but either you have cash the check or you have not cashed the check right because there is no guarantee that both will happen at the same time. Step number two and step number four. Correct. Yeah.
+VK: Correct. Yes.
+Mojib Patel: Got it. Yep.
+SS: So I think Mojib you're right that we'll have to refund the deposit kind of workflow. Okay. Yeah. Yeah. I mean it's a workflow basically. It's a notification, to the resident then to the team as well as the accounting team to go ahead and push out the payment back to them. Yep. Mhm. Okay. Perfect.
+VK: Coming back to the confirming admission. Now we are clicking saying as a yes confirm we want that client in the facility.
+VK: proceeding with that you'll get an overview of that client and…
+SS: Okay. Mhm.
+VK: the room which he has booked. We are confirming the member into our facility.
+SS: So one thing that on a go to previous screen. proceed. And here I would like to get some more detail that the potential moving date so that way we can prepare the room before they come in.
+Mojib Patel: Yes.
+VK: Right. Yes.
+SS: Got it.
+VK: Yes.
+SS: Yeah, that's good. Okay. Yep.
+VK: Now the member has been registered into our system.
+VK: This is about ALF client face sheet.
+VK: So only difference is about the tickets and the incidents cards we have added. Look.
+SS: Correct. And…
+SS: then here just hang in there. stay with your flow. But this is something that so now we have the nt confirmed resident paid deposit in Canada. Now resident is going to be moving in a lot of cases what happens is that when the resident is coming in we let them bring their own belongings like their furniture, their couch, their TV and some other belongings, right? And we ask them to create the inventory, What they're bringing in because that is something it belongs to them, right? So when they move out, pass away or when whatever happens that they're not at our facility no longer.
+SS: So in that case that we need to pull out that inventory list and…
+00:20:00
+SS: say you need to pick up this thing or they cannot come and claim that this was our stuff and say no let's just go through the inventory okay so somewhere somewhere in our record that we need to create have them create the residents need to create as part of the intake or…
+Mojib Patel: Mhm. Yep.
+SS: somewhere over here basically that the resident invent inventory, And then we can simply create a record where they're bringing in we can kind of, have the AI help us out that if they're bringing the furniture, what furniture kind of that and then, kind of go through the prompts if they're bringing in, the other things like a TV or cable or something like that. So, we can do something like that Mujib. U prompting and…
+Mojib Patel: Yes. Yeah.
+SS: then it'll create the inventory list. Yep. And I will…
+Mojib Patel: Yeah, sure.
+VK: Thank you. Yes.
+Mojib Patel: For sure.
+SS: what I will do is that I will send you couple of inventory list that what people have people bring in. from one of the facility.
+Mojib Patel: Yeah. Yeah.
+SS: So that way you will get and…
+Mojib Patel: Yeah.
+SS: you can ask AI that what usually people bring it in right that is something you ask the AI as well and you can create the list but just on a safer side I'll send you a couple of inventory list you A lot of that is correct.
+Mojib Patel: So I believe in the intake only we can add the inventory list and then we are going to show it here and if you want to add or update it or remove it so we can do it. Let's say if any of the inventory they bought and they are just giving it again to their family or…
+Mojib Patel: something. So we need to update that inventory list. Here only we will add the option residence inventory and they can manage it by se So this is in our application it was the product that you shown us.
+SS: Okay, Perfect. Sorry,…
+VK: Yes. Yeah.
+SS: V. Go ahead.
+VK: No, that's okay. moving on to for adding services,…
+SS: Yeah, that is correct.
+VK: yeah, right now we have added only
+Mojib Patel: So now we give the name the services…
+SS: Yep. Mhm.
+Mojib Patel: because ideally it will be the services that we are going to provide to them. So that will be extra services and…
+Mojib Patel: for all of these we will have the separate product management or service management feature and where we will add all the service list and…
+Mojib Patel: then we can add the amount and all the quantity and everything we are going to configure along with this. Yeah. Yeah,…
+SS: Mhm. Sure.
+VK: So Sam,…
+VK: I have one question here. do we have any specific service list?
+SS: Yeah, we do.
+VK: Have you shared that with Okay,…
+Mojib Patel: he will share with us just like yeah that is that we will add those here. Mhm.
+VK: fine. Yes.
+VK: Now moving on to the tickets. for adding ticket we will have to assign a department assign a priority the subject and the description of that ticket. Now the activities we have updated the UI for the activities as you can.
+SS: Okay.
+SS: So, this activity is only going to matter for the ADH. Right. So let's cancel this screen and…
+VK: Okay. Okay.
+SS: go back to the previous screen. So here the fish sheet is common for the ADH ALF services and tickets for the ALF activities is only going for the ADH clinical data is common events is common progress notes is common medication is common documents is common incidents and…
+VK: Okay.
+SS: 
+SS: other is all common. So, just make sure. Yeah. Dan gave me the thumbs up, so we're good. Okay. Keep going. Yep. Mhm.
+VK: So, moving on to the incidents now. Suppose we'll have to report an incident. So, we have done the segregation between minor and the major incident. so after click selecting the minor incident you'll have to enter the incident date,…
+VK: these are the domain names for now. You'll have to select the incident type as well.
+SS: Okay. Yep.
+SS: Mhm. Correct.
+VK: The description, the staff involved in that incident and the family notification or the physician notification if you want.
+SS: So one more thing that I would add here …
+VK: Yes. All right.
+SS: if it's a Medicaid patient, no matter what then it'll add two more notification case manager as well as the state.
+00:25:00
+Mojib Patel: Yeah. You want to say something?
+SS: Okay, go ahead and add that. Perfect. Same thing only.
+VK: Stop. Nothing.
+DV: Regarding the types of the incident do we have a specific list or it should be an free text because can be anything as you mentioned. So we are not so clear on what it could contain or what it could not. Can you show the incident screen? Yes, this type will it be like a free text and…
+SS: M. It could be anything.
+DV: it can be anything or we do have
+SS: It could be anything. But I like this list. I mean, this is good. wondering resident, family, complaint, equipment, other other could be like, a lot of residents, they fight with each other. so that is also very common. Okay. Yeah. But I like the list. This is good. And then if you want to type it in more you can add right.
+Mojib Patel: We can add this incident type we can have this master database…
+Mojib Patel: where we can add more and more here they Okay,…
+SS: And then we should not let them touch the master database when they put the other. If they don't see it then in the free text they can type it if you want to.
+Mojib Patel: thank you.
+SS: 
+SS: Okay. Yeah. All right.
+VK: Yes. Now moving with the major incident…
+SS: Mhm.
+VK: which is serious injury. Now the form is pretty lengy. So we have designed in the full screen. Now the step one is about Same details the date time incident location type and the description.
+VK: The extra thing is that the injury type you'll have to enter and the injury description. does the EMS called or the police involved on the witness info you'll have to select the witness as well and…
+SS: Mhm. Okay.
+VK: the statement by Okay.
+SS: So here is something that like Moji what we want that whenever we're typing or kind of that we should have the couple of ability voice over text. So that is something that we're saving the recording as well as that we're going to extract the text from that recording some both.
+Mojib Patel: Yeah. Yeah. Sure. Yeah,…
+SS: Okay. Yeah.
+VK: So the interventions now you'll have to enter the description about the intervention taken the physician name,…
+SS: Wherever we're typing the stuff like this as note Mhm. Correct.
+Mojib Patel: we'll provide the option like audio to text version.
+VK: the physician notified time as well, the family member name and the date and time. And the next is about the outcome, the risk level, the root cause category and the corrective action plan.
+SS: And here is where that's something that we really want to use the scribe AI right after the witness incident once the incident is done and you come to the step number three inter interventions that's where AI can help us if it was a fall what are the symptoms do have you done this or call the hospital and kind of those things like
+SS: That's where I think Scribe AI is going to help us with the prompting right so if the caregiver is not very well educated right or experience education is not a problem but experience is not there right but it'll give them those prompts and it'll make them go for the right decision okay and…
+Mojib Patel: So we will add the as
+SS: this is what I want to do before the caregiver calls the RN the supervisor and let's say if it happens at 2:00 in the morning right then those prompting is going to help us I mean caregiver okay yep yeah correct Okay.
+00:30:00
+VK: So after submitting the incident report this is…
+VK: how the incident list is going to look.
+VK: We have added a filters such as active draft and…
+Mojib Patel: Yeah. You want to say something?
+VK: the result one the date time and the location and the type
+DV: So when we are seeing adding here AI scribe at incident level so are we considering it in the current base phase or we can add it later on once we have the system function. Okay.
+SS: I think probably we should do it along the line so that way training becomes a lot easier right?
+VK: Okay. Yes.
+Mojib Patel: …
+SS: Yeah. Mhm. Connect.
+Mojib Patel: what we can do Sam once we are done with this design and everything. So we will share just list down basically the module or the pages where we want ascribing option because we need to create a prompt for that and we need to make sure we're getting the proper data and we need to train that as well. and also for audio to text conversion all over the application where we are having the larger text area so we'll provide an option. instead of typing it so we are going to provide that option audio to text.
+SS: Correct. Okay.
+Mojib Patel: Yep. Yes. Yeah.
+SS: Sounds Perfect. And then we can discuss more when we are face to face because we'll be spending almost two and a half three days together. So we can knock it out a lot of these things basically at that point.
+SS: Okay. Yep. discharge is …
+VK: So yeah that was it for the airlift flow.
+VK: I have question regarding the discharge flow. do you have any specific form to fill out for the discharge? there is actually one discharge plan named form that you have shared.
+SS: if it's okay give me a second let me See, so
+VK: There we go.
+SS: So, what we do is that let me see if I can share my screen one more time. I'm going to try it. hopefully it works. I don't think so. Something is wrong with this
+SS: All right, I'm back, guys. All right,…
+Mojib Patel: Okay. Yeah.
+Mojib Patel: So maybe you can try. Yeah. Now we can Mhm.
+SS: perfect. So, this was basically the notice that we sent it, as part of the discharge, we have to give the 30-day notice for the ALF. And this is how we prepare the letter and we send out an email to the resident or their family members and say why we're doing it.
+00:35:00
+SS: And then while we're doing that, the good thing is that this is the nurse who sent it out from the facility and you can see that as per the admission agreement, this was the admission agreement. They also put a copy of it, somewhere
+SS: Somewhere somewhere it says that 30 days we have to give the notice right here somewhere. resident acknowledges that this agreement may be terminated by either party only with a 30-day return notice except in the event of the resident develops a communicable disease or a discharge in the condition of the resident requiring continuous medical or nursing care. in that event 30 days does not apply but otherwise the 30 days notice apply. Right.
+Mojib Patel: Yep. Yes. Mhm.
+SS: So what nurse administrator did, she sent out an email to the resident family member and said here is your notice and here is the agreement that you had signed it with us when you moved in. Okay, got it.
+VK: Okay.
+SS: This is something like we should be able to do the same thing from the system itself. So we should be able to create a letter from the system and say this is the reason that we're doing a 30-day notice to you right and that is on the ALF and when it's a private pay. But I would go back to your screen.
+Mojib Patel: Hey, Yes.
+VK: Just a second.
+SS: So Daneshwari this is for you. So when it's a private pay plus in the Medicaid patient we also need to notify the case manager and say we're giving the 30-day notice or something like that so we need to keep that option open right and…
+SS: then probably the similar letter or something like that we need to create it for the case manager and well wherever it's a medicate we need to notify the case manager.
+DV: that is for the assistant living only or…
+DV: to discontinue services for the ADH we'll need that and the same 30 This
+VK: Okay. Yes.
+SS: All Sounds good. notify right and…
+VK: So, discharging is about only to notify the people who are. Yes. Okay.
+SS: the discharge will also on the ALF side…
+SS: what it'll do that it'll also invoke a process to refund the security deposit if there was any Okay.
+VK: Okay. Okay.
+SS: Okay.
+Mojib Patel: Yes.
+VK: Then what I'll do I'll come up tomorrow with the discharge flow and then we'll discuss it.
+SS: It's good.
+VK: Yes. Yes. So that was it.
+SS: Sounds good.
+VK: Yeah. Thank you.
+SS: Yep. Thanks.
+Mojib Patel: So Sam so if you have time so I wanted to discuss about the caregiver app as well I believe we discussed this with Anita you discussed this so we need the caregiver mobile app so they can do their activities using the mobile app only Yeah,…
+SS: H can we take that later on because that's altogether a different line of business and right now I want to focus on the ALFDH. Is that okay? Okay. Yeah.
+Mojib Patel: it's And family as well we are going to discuss later, So along with this, billing as well we are going to discuss these three things we are going to discuss later.
+00:40:00
+Mojib Patel: Now we are just focusing on the clinical part like and assisted living.
+SS: That is correct.
+Mojib Patel: Okay yeah do you have anything for us?
+SS: No, I think we're good for today. Let's so tomorrow Mojip I do have a flight to catch so depends on that what is my flight time I'll figure it out today and based on that I will let you know if we're keeping the call there won't be any message from me if we're changing the call time either early or later I will send you the text ahead of the time yeah thanks
+Mojib Patel: Yeah. Yeah.
+Mojib Patel: You want to add anything?
+DV: Yes.
+DV: Can you as we have mostly discussed the assistant living flow as of now.
+DV: So what will be the difference between the assistant living and independent living? Mhm. And the events and…
+SS: Same the only independent living that we're not in the clinical data only thing we're going to have it is the vitals most likely.
+SS: But we're not going to have any progress notes or anything like that. Okay, that's going to be the same.
+DV: ticket management for them also.
+SS: Yeah, more or less same, Yep. Similar to ALF.
+DV: And what will be the flow for memory care? it is similar to the EDH right? Okay.
+SS: Yeah, it is exactly similar to ALF. Okay. Yep.
+DV: So the differentiator …
+SS: Yeah. No,…
+DV: how we can differentiate a client which is by looking at their chart that this is the memory care and this is the assistant only the medical data or is there some additional things
+SS: we need to put some sort of if you show the resident where you're showing the AL for the memory care or independent living something like that that is where we need to show that this patient is coming from that and see what's going to happen that indep there might be combination at some location of the IL, ALF and but ALF and MC combination is very common because one facility would have let's say 40 beds will be ALF and 10 beds would be the memory care, right?
+SS: So when you see by the bad and then the patient who is getting admitted to ALF or to a facility we're going to put it is it ALF or memory care that's how we're going to differentiate okay y will be the same memory carry is Exact same.
+DV: The differentiator of batch is what we are considering but the differentiator of the modules what the client charge should have and the payments method will be same for all of them.
+SS: Changes on that. Okay, perfect.
+DV: Yes. yes, that is
+SS: Okay, perfect.
+Mojib Patel: Okay. Yes.
+Mojib Patel: I think that's all for today. so yeah Sam let me know if you like your availability for tomorrow. based on that whether we can keep the call or…
+Mojib Patel: we can then connect on Wednesday. Yeah. Thanks.
+SS: Sounds good.
+SS: right. Thanks, guys. Yep.
+Mojib Patel: Thank you so much.
+ASK: Thanks.
+Meeting ended after 00:44:36 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

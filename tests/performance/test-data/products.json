@@ -1,0 +1,8 @@
+[
+  { "slug": "fahrenheit-451-by-ray-bradbury", "id": 36, "name": "Fahrenheit 451", "price": 27.00 },
+  { "slug": "first-prize-pies", "id": 37, "name": "First Prize Pies", "price": 51.00 },
+  { "slug": "pride-and-prejudice", "id": 38, "name": "Pride and Prejudice", "price": 24.00 },
+  { "slug": "htc-smartphone", "id": 18, "name": "HTC Smartphone", "price": 245.00 },
+  { "slug": "build-your-own-computer", "id": 1, "name": "Build Your Own Computer", "price": 1200.00 },
+  { "slug": "apple-macbook-pro", "id": 4, "name": "Apple MacBook Pro", "price": 1800.00 }
+]

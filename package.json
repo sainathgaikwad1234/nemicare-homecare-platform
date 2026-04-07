@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "docx": "^9.6.1",
+    "gif-encoder-2": "^1.0.5",
+    "jimp": "^1.6.0",
+    "omggif": "^1.0.10",
+    "xlsx": "^0.18.5"
+  }
+}

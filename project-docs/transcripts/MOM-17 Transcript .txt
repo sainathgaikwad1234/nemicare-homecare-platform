@@ -1,0 +1,154 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/02/12 18:56 GMT+05:30 – Transcript
+Attendees
+ASK, DV, MP, read.ai meeting notes, RD, SG, SS, SP, SRR, TM, VK
+Transcript
+SS: Okay.
+SP: So I would like to show you the changes we made regarding to yesterday call.
+SP: So you mentioned that the leng such like this we are showing in a model. So we have done some changes. So we are now showing this. So it is divided into two parts and you can go back to Google
+MP: So basically if you see the lead onboarding when we are adding a lead so as there are different way where we are going to get the lead. So one of them is So previously what happened adding a lead form that we have so we have that u u so basically all the details that we have in the lead. So it was not showing properly in the form that we have. So instead of that we change it completely. So you can see we are using whole page and in the page basically we divided it into the two basically pages and…
+SS: Mhm.
+MP: everything that we are adding it is going to show like this.
+MP: When we are adding a new lead. Yep. So yeah, this is one of the changes that we made and another one maybe you can show us the rest of the changes.
+SP: In the patient charting there is a press shift change that we have add a button in each detail for each detail.
+SP: And then we want to get plans. we have mentioned the numbers. just decide the title for each section.
+SS: Okay. …
+SP: Yes. And sorry.
+SS: go ahead. Keep going.
+SP: So activities form is also been updated with the same pattern.
+SS: Yeah, I don't like the scroll too much. on that one. that's too much,…
+MP: Yeah, for daily participation maybe we'll do some changes over there.
+MP: So yeah.
+SS: that's too many scrolls.
+MP: Yeah, I have some idea.
+SS: Okay. Yeah.
+MP: I'll share that with designer. We'll update this.
+SS: I mean, we don't have to do this passive refused 20 times on the screen. Maybe let's think about something else.
+MP: Got it.
+SS: Okay. Yep.
+MP: Mhm. And we also added can go to the alerts as well.
+SP: And then in clinical data we are showing the units as well and…
+SP: the severity indications. Yes.
+SS: Okay. Yep.
+MP: The basically manually if you want to trigger the alert.
+MP: So using that in the action you can see the bell icon basically that we can generate an alert because there will be the two scenarios here.
+SS: Right. Mhm.
+MP: One of them is when we are adding an alert and whatever the range that we set for the pulse rate or the blood pressure or temperature and if we think no for this patient so maybe this blood pressure that has been normal but for this patient it will be high or low. So based on that manually we can trigger that Second thing is one once like that alerts get automatically triggered based on the range that we set.
+MP: And if someone not responded on time so again multiple time we can generate an alert.
+SS: Okay.
+MP: So in that way someone can basically check this patient. Yes. Okay.
+SP: And the last change is that in the profile we are showing the edge in this way. So now moving on to the flow. let us consider the field is born and…
+SP: we have added slang So we need to first move that lead to the residents.
+MP: So yeah,…
+MP: it was like these changes based on yesterday's discussion we made and now we are showing you the lead generation for the assisted living and there are just slight change but other thing as well rooms and all will get involved for assisted living. So that flow we are showing you
+00:05:00
+SP: We are showing the two options that first if the resident is the new one and if we want to c the details of that resident from another facility. So for the new resident we need to assign a case manager and after proceeding we need to send the same to send the documents to the case manager and upload and you can view it and after that u we can check the bed availability but before that to show you another way which is the transfer one.
+SP: So in the transfer there will be a blank form so that the user will have to fill up the details of that facility and the case manager and u then we are showing the u giving the overview of that facility and case manager. Then again it will be the same flow that we have to send the documents to the case manager and after viewing it you can proceed with the bed availability. So in the bed availability there are two categories one is private and the second one is semi-private. We are showing the available numbers along with it and…
+SS: Okay
+SP: in the private we are only having one filter which is about the floor.
+SP: And in the semi-private we have two filters and another one is room gender. Yes. So in the private room you can check out the layout as and you can also select the bed of the room for that particular plan. In the same way we are also showing the layout length in this way. And if the one bed is occupied by another client, we are showing in this way. And let us suppose we want to proceed with the room 201 private. So we need to collect the deposit first. So you have to enter the deposit amount first. We are showing the summary of the rooms and the deposit as well.
+MP: Okay.
+SP: And we are having the two methods of payment right now…
+SP: which is credit card and card or the cash. And after Okay.
+SS: Yeah so it's credit card cash check money order kind of those that we need to give options like four payment options.
+SS: Okay. Yep. Yeah.
+SP: So we'll update that and after payment is done. this is still in progress but in the billing setup we are showing these payment types which is Medicare private pay insurance and the combination of Medicare insurance. Yeah.
+SP: So I have one question is that all the parent type we want Okay.
+SS: So let's do Medicaid plus private pay or you can say Medicaid plus instead of private pay that's the right terminology Medicaid plus private pay I mean ay copay correct so click on that Medicaid plus private Okay.
+MP: Instead of private pay in Medicaid, so it will be cop So this plane is under basically develop design.
+SP: We are not work on the screen.
+MP: So basically what will happen if we say medicate plus private pay. So there will be two scenarios will get started. One is whatever thing that we are doing for Medicaid we are going to do it.
+MP: Plus for private pay we are going to say who's responsible for this private pay responsible person whether it will be self or…
+MP: we can then say other person. So we can add a basically the contact details over there.
+SS: Fair details, right? Okay.
+MP: Yeah correct pair details over there. So based on that and then also we can add the amounts as well how much amount that we need to collect for the multiple people and based on that the invoice and everything will get generated. Yeah, we'll show you tomorrow. we will show you that flow. It's just like we discussed this couple of hour back…
+00:10:00
+SS: Okay. yeah, that's okay.
+MP: then it's under development
+SS: So remove the birth date, from the top everywhere.
+SP: Okay.
+SS: Just show the age, that's all. Okay. Yeah. we should not be showing the birth date out there.
+SP: And I have also one question. Is it okay to show that the client has chosen which payment maker whether it is medic or…
+SS: You're not audible. Victor.
+SP: hello? Yeah.
+SS: Yeah. Yeah.
+SP: Is it okay to show the payment method as well in the pro profile content?
+SS: It is good to show the payment method on the doc. Yes, it is.
+SP: Okay, then we'll update it.
+SP: Yeah, that was it from the design.
+MP: Yeah.
+MP: So basically this is our workflow where for assisted living lead when we are converting them into the resident. So at that time all these things that we are going to collect so'll complete some of the scenario still needs to be completed we are working on that in tomorrow's call…
+SS: Mhm. Okay.
+MP: then we'll show you that flow.
+SS: Okay. It sounds good.
+MP: Yeah and also just need to check u did you get chance to again the review the workflows that we were discussing. Okay.
+SS: Yeah, Shiva should be coming back to you. I think we have reviewed and he has the notes. So should be coming back to you today.
+MP: So Shiva can we discuss this as we have time now so maybe we can discuss this now only or…
+MP: he's going to share the details over a mail or some in the folder.
+SRR: I will share the details in the folder maybe today by …
+SRR: what 11:00 or 12:00 between tomorrow morning we will the all tickets.
+MP: So yeah basically tomorrow morning we will get all the details right okay fine then what we will do based on that in tomorrow's call we will discuss those thing okay fine and…
+SRR: Okay. s***. Okay.
+MP: yes I'm just need to check for billing workflow so are we going to discuss that maybe we can start discussing that going forward let's say
+MP: We can divide our 1 hour into two 30 minutes we are going to discuss about the design and rest of the 30 minutes then we will start discussing about the billing workflow.
+SS: My recommendation is basically that let's finish that…
+SS: what we have it before we open up the new workflow. Okay, because we don't want to forget anything that like you…
+MP: Okay. Yeah,…
+SS: what let's just tighten up all the loose ends on the current workflows. Okay, and then we move on to the next one.
+MP: So, what I'll do now, I was supposed to send you the couple of EHRs credentials. So, I just collected it from the team. We'll send it right away.
+SS: Okay.
+MP: Another thing is the designs part.
+MP: So Naneshwari will share the design link with you. So you can just play around it. For ADH flow we are going to share and for assisted living we are still working on that then once we are completed that we will show you the demo and then we'll show that flow as well with you and meantime simultaneously we are working on the HRMS workflow as well the design as well.
+MP: So we are going to complete that maybe plan was by Friday only but somehow we'll need couple of more days. So by Tuesday we'll complete that workflow. Yeah.
+SS: Okay.
+SS: Sounds good. Okay.
+MP: And there are some of the workflows that has been the design that has been pending the facility onboarding and some of the settings the configuration part how we are going to do that. So then we will focus on that after that maybe in a day or two we'll complete that as well. Yep. yeah. So do you Yeah.
+DV: So the payment methods I want to have more clarification on that part. as we have confirmed that these are the six drop-downs which we will be considering when we are saying the private pay or So what we are considering it is there some part because for Medicaid we are sending it for employ authorization to the case manager.
+00:15:00
+DV: So we will be having that information coming up from the case manager which services which we are providing. So how we will consider what part will be the copay not getting clarity on that part.
+SS: Yeah,…
+SS: give me a second. I'll show you something. I'll try to pull up that document that
+SS: what we have it and I'll share it tomorrow on the call that what we need to sometimes the copay is per day or flat monthly or something like that but let me share that tomorrow I'm going to get the details and then I'll share no just Medicaid and…
+DV: Also for the insurance when we are considering private insurance …
+DV: how will it work like the medical and are we considering the Medicare also or Medicaid only.
+SS: that no Medicare private insurance also we just do the invoice on basically that whatever the daily rate or…
+DV: And the private insurance how we are going to manage that
+SS: the monthly rate that we put it in depends and…
+SS: then we just create the invoice and we send that invoice either to the patient and then they get reimbured or we build the insurance company directly through our billing portal.
+MP: Yeah, I believe we are going to integrate the clearing house.
+SS: We are going to integrate that,…
+MP: Yeah. Using that we are going to submit the private insuranceances.
+SS: right? Yep. That is correct.
+MP: And the copay is similar to the private pay,…
+SS: That is correct. Yep. Mhm.
+MP: right? Cay is equal to correct.
+SS: Kind of. Yes, it is.
+MP: Okay. Fine.
+MP: Yeah n anything else you want to ask any question?
+DV: No. Yes.
+MP: We are good. Sam from your team side like any question or any workflow where you want clarification so please we can discuss it now.
+SS: No, I think we're good right now.
+MP: Okay So only major workflow the billing workflow has been pending and from our side basically the design part currently we are working on it.
+SS: Same. Yeah, I just joined from the other line. Yep.
+MP: So yeah I think you left from one okay fine it's fine.
+MP: So yeah so from our side basically the design part has been in progress and the workflows that we send it to you. So today we'll get the feedback from the Shiva and based on that it need any updation or any clarification we'll do that and based on that design also if needed we will update it and then I believe we can wrap this for ADH assisted living and…
+SS: Yes.
+MP: home care and the basically services as well more or less they will be the same.
+MP: So we don't need to worry about much for that. correct. And then we just need to focus on the billing part. Once we are done with the billing then we will discuss on the dashboard whatever things like different kind of dashboard that we are going to build. Second one is the admin portal as well like we will discuss. So these are basically only the pending item that we have yet to discuss but apart from that we are good for other things.
+MP: And I'm just sending you the mail with the credential of the existing R. It's just the test portal.
+SS: Yes, we are.
+SS: Okay. Okay, sure.
+MP: So if you find any of the issue just ignore that but just you will get basically the basic idea like whatever the feature that we have in that particular Yeah, I think then that's all for today.
+MP: I don't think we have much to show you but yeah from our side we are working on the design part and then well SRS as well we'll be ready by tomorrow I'll review it and maybe based on that we can at least start the basic development and architecture diagram before that I'll create it and maybe on Monday I will share that with Yeah.
+SS: Yeah, that'll be great. And then also if you can grant me an access on the portal that you have created. Okay. Yment.
+00:20:00
+MP: So, yeah.
+SS: Yeah. Yes.
+MP: So, basically I'm just sharing the credential as well. login case, so you can use it.
+SS: Yeah, that'll be great. Yep. Mhm. Okay, sounds good then.
+MP: Yeah. I think that's all for today.
+SS: All right.
+MP: Thank you.
+MP: What?
+Meeting ended after 00:21:29 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

@@ -1,0 +1,466 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/01/28 18:57 GMT+05:30 – Transcript
+Attendees
+AK, ASK, DV, MP, NK, RD, SG, SS, SO, SD, SP, SRR, TM
+Transcript
+SS: Okay.
+MP: Yeah. Yeah. Based on yesterday's discussion, so we created the workflow of the HRMS basically the client the staff on boarding how we are going to do and other things as well and some of the clarity we get. so from our side Nanuri can share the screen and just show you that and later then we will start discussing on the different service types. So I think for the ADHD we are So whatever thing that we wanted to discuss so everything clear the workflow and everything we already shared the workflow with you and for different workflow as well then we will continue our discussion.
+SS: Sharing the screen. Can you give me five, seven minutes today? I'm still like,…
+MP: Yes. Yes.
+SS: wrapping up some other things. So, we can keep talking on the phone, but I'll be on my computer in about less than 5 minutes. Okay. Yep. And then, …
+MP: Yeah. Yeah.
+SS: Daneshwari can share the screen and then, we can review that. different kind of rules.
+MP: Not an issue. So, just a sec. So, yeah, we received the roles from your side the different kind of roles that you shared.
+SS: Right. Right.
+MP: So yeah based on that we can have the permissions the particular features.
+SS: Exactly. Yeah.
+MP: So just one thing particularly for the CRM feature that we have the lead generation then the calling a lead and creating an event for them. So we will have them basically marketing role for that right. So marketing person can have access that so he can take
+SS: I mean there are a few other things because this was just the clinical operations and I added and the floor management but we still need to add the sales and marketing team to it. we need to add the transport part of it.
+SS: And we are going to add the compliance side of it. So a couple more roles that will refine it. Yep. That is correct.
+MP: Okay. Fine.
+MP: And also in the role whenever we are contacting to the lead so via call or SMS. So we are all the AI generated summary and everything and we are also going to send the report the rate card to them based on the discussion that we are having and…
+SS: That is correct.
+SS: That is correct.
+MP: also the welcome and maybe after a couple of visits or…
+MP: something after we are converting them to the member or the residents.
+MP: So at that time we are going to send them a intake form correct or before only we can send it to them when they agree to the basically enroll in our service.
+SS: Before only I mean as soon as that we confirm them we can go ahead and…
+SS: send them that it's called the onboarding documents patient onboarding documents. Okay. Yeah.
+MP: So at that time we are going to send them a intake form. Correct.
+SS: So as soon as they confirm that we're coming on board right and as soon as they put the deposit down right for the assisted living deposit and for what do you call the adult day health if it's a Medicaid then once we get that Medicaid approval the P approval or…
+SS: if it's a private pay on the ADH side and then they're going to say okay we're on board and then that's where we send them the onboarding package right that is the one that I showed you with 18 to 22 pages like contract.
+MP: Yeah. Yep.
+SS: Okay. Yep.
+MP: And payment how for particularly the private insurance if they are having so payment…
+SS: Not so it's a private pay not the private insurance.
+MP: how we are. Mhm. Yeah,…
+SS: 
+SS: Okay. Yeah.
+MP: sorry. Private pay.
+SS: So private pay is a self-pay and the insurance pay right on the ADH side you're not taking the insurance pay…
+MP: Okay, correct.
+SS: because no insurance is paying for the adult day health. the only thing that what self-pay is doing it is that they just basically issue the check or bring the cash or something like that or give the credit card and then we process it.
+SS: Okay. Yep.
+MP: …
+SS: So it's pretty straightforward.
+MP: are we going to add integration over there the payment processor…
+MP: where using the payment gateway we are going to collect the amount from the lead or patient based on rate that we are having and…
+SS: That is correct.
+MP: then we are going to add it in our system. Fine.
+SS: Yep. Medicaid.
+MP: So basically for Medicaid we are not going to collect the insurance detail but for the private so there will be the two option either they can be the cash or insurance.
+MP: For insurance again we will have the payer details and everything and based on that after completing the monthly basis maybe we are going to generate a bill for them and then we are going to submit a claim right yeah we are clear medicate we are doing that…
+00:05:00
+SS: Yes, Medicaid, it's not going to be.
+MP: but for the private insurance …
+SS: Okay. …
+MP: how we are going to do the billing or insurance clearing housing to Yep.
+SS: Where can you do Monthly. Okay.
+MP: And for that we are going to do the clearing house integration,…
+MP: right? Okay.
+SS: That is correct.
+SS: That is correct. Yep. Okay.
+MP: So currently we don't have that in our system, right? Yeah.
+SS: No but we are using the claim MD for that. And I think you guys do have the claim D integration, I mean we don't have to check so to speak…
+MP: Yeah, we do have Yeah.
+MP: So for are we going to check the eligibility as well of the private insurance are we going to do that Yeah.
+SS: because we are a care provider but I think they do still get into some sort of a contract where they have to pay us so usually we're not worried about that if you run a procedure and we're not going to get paid I mean we put it in the contract itself if they don't pay mean the insurance company they'll have to pay out of pocket okay so I think in our case we don't check the eligibility yeah
+MP: And also yesterday you shown us that calendar view for the different event that we are going to have the vital or the monthly progress notes and all others things that you shown.
+MP: So we are going to do that with our calendarly that will be same Google calendar or something like that but instead of the time there will be only the date and that particular date we are having all the things basically the task that needs to be done from the staff side and…
+MP: whoever is logged in so if they have the access of the calendar so they can see that today's appointment like a event that needs to be completed.
+SS: Yeah. I mean and…
+SS: that it would be a shared calendar end of the day,…
+MP: Yeah. Yeah.
+SS: right? Yeah.
+MP: Correct. Yes.
+SS: It would be a shared calendar. So everybody has an access to that calendar, It's just a matter of sharing it on the dashboards, right? Okay. Heat.
+MP: So just let me check my notes again. These are the things that I just wanted to clarify.
+MP: and red card and all we are going to do the configuration basically there will be the three or four red card let's say we created and…
+MP: when we are sending the red card so at that time we can override that if you want to give the discount or if you want to change anything so when we are sending the red card to the patient or the link so at that time we are going to send them and we might send them a multiple red card let's say Today I send them and if they want to negotiate something happen then if they want the updated rate card so we can maybe give some discount and then resend the red card to them right
+SS: And one more thing that I was going to tell you that discount it's not going to be a permanent discount right so we can negotiate something on that discount we're giving it to you for next 3 months or 6 months right or… 12 months something like that That is Correct.
+SS: 
+MP: Okay.
+MP: And also for these as well if we are giving them a discount and that discount will get expired. So we might have some event over there as well to just notify to them your updated rate will be something like that. Correct. And also for the staff yesterday as we were talking about the employee HRM. So there as well if any license get expired or their contract get expired. So at that time as well we are going to send the notification correct internally.
+SS: Yeah. And hopefully my screen share works today. Then I'll be able to show you some of those things. Okay. Yep.
+MP: Yes. Yeah.
+SS: Okay. Yeah.
+MP: Let once you are ready.
+MP: Yes. Yes.
+SS: Yeah. I'm just getting on my computer right now. okay, I'm going to drop the call here and sweet
+00:10:00
+SS: All right. Can you guys hear me?
+MP: Yeah, we can hear you.
+SS: All right, let's go.
+MP: Yeah, let me know once you share your screen…
+SS: Yeah. Yeah,…
+MP: because Okay,…
+SS: I'm good. Danish can start.
+MP: yeah, maybe you can start. yeah.
+SS: U Moji. we do have another person joined from my office her name is Navia. Okay.
+MP: Hi Morning. And I believe some other Yes.
+NK: Yeah. Hi.
+SS: Yep. Hi Navia. Yeah. Yeah.
+NK: Yeah. Hi.
+MP: Shiva is also in the calls.
+SS: Yeah. a Nava and Shiva. Yep.
+MP: So I think we can start then.
+SS: Yes, we can start. Okay.
+MP: So we just created the onboarding process of this staff. so yeah, Nanuri will just demon just show you the workflow and all these workflow that we were discussing and updating. So we already shared whatever the workflow has been completed to just review them and whenever you get time just revert back to us if any change needs to be done over there.
+MP: So based on that we are just creating a design. So we are also going to show you the design as yeah sorry over to you.
+DV: So the onboarding process specifically whenever there is a new staff…
+DV: who we need to hire is going to create the profile for the employee in the system.
+SS: Okay. …
+SS: so, what they're going to do that they're going to enter. Yeah, go ahead. Keep going. I see that I'm just jumping. Go ahead.
+DV: So when they will create the profile they will have the basic information.
+DV: These fields can be changed based on the current information you have in the system and some of them can be kept as mandatory. some can be kept as capable or can be completed later. after that the onboarding we have divided into some sections as we saw yesterday but some of them who have the similar fields to capture.
+DV: So we have combined them together the first section we could consider of providing the job title or the role title the department which they are going to belong to and if they have any supervisor which needs to be assigned that part we can manage over here. after that we can get the contact information the staff or the member who is any emergency contact information their address which will be also available in the Google map view and their anniversary date which will getting auto calculated from the date the user is active.
+DV: After that as you mentioned there is going to be some screening for the user who is going to get onboarded. So we can have different drug screens the physicals or any other test and related documents and also their expiry dates. So this section will give us the overview idea of the documents which we need and if there are any expiry date or renewal date where we need to track and reupdate those data that can be managed in this section. After that there is an I9 document from W4 you mentioned employee eligibility the background verification.
+DV: So we can provide a section in the profile where all these checks will be marked if the background is checked or the employees eligible to be added into the specific department and if we have the I9 form from W4.
+DV: So regarding the I9 document from W4, we are just collecting this document and checking the dates it is eligible for. is there anything else we need to check for this document?
+SS: Yeah. …
+00:15:00
+SS: yeah. Give me a second.
+MP: So these are Sam just based on yesterday's discussion in the employee basically details. So we had these tabs. So based on that we just created this flow. But when we are going to create a design. So at that time we will make sure we are properly utilizing what mean not we will need all these nine 10 basically section instead of that we can just group them in three or four tab only and we will show all those details and also when we are onboarding any of the employee so at that time only we are going to show that in the onboarding flow as well.
+MP: Firstly we will collect the basic information that will be required and enough for us to onboard the employee but apart from this if they want to add the other extra information like visa details or documents or anything so we can provide them an option while onboarding a employee only they can upload those details and then based on that they can add the details and all those things they can do at one time only and later as I told you the expiration date and everything that will be So based on that for the particular employee if anything is getting expired so we can notify them your visa is going to expire the particular date. these are the workflow for the HRM.
+MP: Apart from the le management as you told us for every patient so we are having the certain leaves and limit basically if they exceed that limits then they cannot apply more leave if this basically leave is going to exceed. Yeah I think we already covered all those things here in the leave management section. Yep.
+SS: Mhm. …
+SS: okay. Good.
+MP: So this is all just the onboarding flow of the not only onboarding…
+MP: but just HRMS flow all those things that can be done either there will be one will be like a HR view that he's going to onboard and then do all those stuff other one will be the staff view where they can loged in by themsel and then they can apply for a leave or they can upload their documents and they can do their own activities. and also as you told us how they are basically the report card and attendance card as well for them so we are going to generate and weekly we are going to send it to them basically u for u billing or
+MP: Yeah. Yeah.
+SS: correct. Yeah.
+SS: Yeah, I mean that is good. Yeah, that's a third party. which we're good. Paycheck issue. That's third party ADP is doing it everything. Okay. …
+DV: Just a question like when we are saying we will be having the time card so…
+SS: all Okay. …
+DV: how the time card is going to get is there Any integration for that device integration…
+DV: which we need to consider to get the time stamps.
+MP: No, not give particular thing.
+MP: Time card is when employees coming. So at the time we are going to mark them at a present or something and they are just in our HRMS the activities that we are doing and just check in. They can do the check in and then they can do the check out. Yeah. Yeah.
+SS: I want to show you something as well. Let me see if I can share my screen today. Hopefully it should work. I rebooted and updated. You can see my screen,…
+MP: I think yeah here we can see your screen.
+SS: So there are couple ways we can do it,…
+MP: Yeah we can see it like you are in the name here and…
+SS: let me know if it's glowing Okay. Okay.
+MP: then just you are in the dashboard and you are doing the check in and check. Yeah.
+SS: So, we can do the clock in clock out here,…
+MP: Yep. Yeah.
+SS: we force every employee to go to what do you call the log to the portal first as soon as they walk in, And that is what their clocking time would be. Okay. Right.
+00:20:00
+MP: First time. Mhm. Yeah.
+SS: And then here what we can do is that because you guys do have something covered from a particular IP address only and from the browser itself they can log in and then clock in right so they can't clock in from outside and…
+MP: Yes. Yeah. Understood.
+SS: say I'm clock in unless it's a remote employee and…
+SS: then who is doing the clocking but we can do some sort of a geo fencing on this one okay for the clocking clock out and based on that what it's going to happen is that their time card is going to get generated. okay.
+MP: And let's say…
+MP: if I'm taking a break for lunch or something. as a staff do I need to clock out or take a break?
+SS: Yeah, You can clock out like that.
+SS: Yes, that's Yeah. And then, basically this is how it's going to Start time, the task what they have doing it, end time and kind of that, so I mean we can create the standard task that based on that
+MP: So tas they are creating their own task or…
+MP: some other person is assigning the task to them.
+SS: what they're doing it right like this person is doing they have their own head Okay.
+MP: Yeah. Understood.
+MP: So they have their own time sheet where on daily basis whatever thing that they are doing they are going to create a task and the task will also we are going to add in the staff their details like monthly basis whatever thing that they are providing and…
+SS: Correct.
+MP: maybe for payroll we might need to send these details to
+SS: I mean yes payroll what we're going to do is that we're going to collect through basically that we can just kind of export it and…
+SS: then how many hours this person has it right and that's all we need to do basically in that particular pay period right yeah 8 hours,…
+MP: Is there any hours limit or…
+MP: let's say if we are having the 8 hours or 9 hours the timing and if they are giving more than 8 n hours so are we going to pay the extra to them or…
+SS: eight hours. Yeah. No,…
+MP: they have the Okay.
+SS: I mean, yeah, usually we can do that some sort of a thing basically where they're kind of getting paid overtime, But not for everyone. there will be a certain class like a caregiver, They're the only one who is allowed the overtime. But we can manage that before they kind of go into the overtime. Yep.
+SS: So I think there is somewhere we're saying that are they allowed overtime or not or something like that somewhere I have it on this one. Okay. Correct.
+MP: So when we are onboarding a patient or…
+MP: in the patient profile staff profile only we have that option if you are allow Uh-huh.
+SS: That is correct. and then this is an important one like a staff ro shift roster this is an important one and say I have this James Gulmore and…
+MP: So this is his calendar like he's the
+SS: I want to assign the bulk shift to him And I can go to him. that is his calendar. Correct. so I want to assign the box shift here on the top. Right. So that I'm saying it department is basically the development employees are this.
+SS: But let me go to the nursing and then I'm going to say Robin Smith right it's not coming okay good Robin Smith employee shift we can have multiple shift out here assigned by the multiple or the month right so I want to go ahead and…
+SS: assign it for the month of February right now. or I can do multiple I'm sorry correct and…
+MP: month this ship will get assigned to him.
+MP: Yeah. When we are saying the month shift so for all the month of February this ship will get
+SS: this is general shift 9 to8 will be assigned if we had a let's say day off right and then we doing a multiple day off and say this person is going on leave from bruary 1st to February 14th right that is what we're doing it if you want to send them an email, that's fine. but if you go ahead and do that, and if I go to the week of February, and if I pull up Robin Smith,…
+00:25:00
+SS: do you see it came in off, day off?
+MP: So this is his availability.
+MP: Basically we are configuring the availability of the employee.
+SS: No, we are configuring the availability and their roster basically who is going to work during that week.
+MP: Yep. Mhm.
+SS: 
+SS: Yeah. Yep. because what happens that assisted living facility and adult health facility assisted living is a 24/7 operation right so we need to make sure that 24/7 we have the etiquette swap staff okay so yes there are five or…
+MP: Got it. Nice.
+SS: seven people working in the morning in the first shift about three people working in the second shift and about three other people are working in the night shift third shift so that's…
+MP: Yep. Mhm.
+SS: how the whole 24/7 cycle gets complete period right…
+MP: Mhm. Mhm.
+SS: but what happens that at the last minute somebody else is going to say that hey I cannot come I have an emergency right so what's going to happen that you're going to look into the roster and say whosoever is available and then you are going to basically kind of reach out to them and all those things right and then some of the office people that they have it right so department is nursing and then if I don't pull up the department and I'm going to get everyone right So let's say that Anita okay and Mujib right and they are going to doing the general shift for the multiple right which is going to be starting from February 1st to all the way April 30th right I know that they're not taking any vacation right and…
+SS: I would just go ahead and assign it to them right and here. …
+MP: If you scroll down,…
+MP: you can see our names down there.
+SS: Yeah, I should be. But I was just trying to Here it is. If I want to be the monthly view,…
+SS: So, I'm just here in the monthly view. And if I go to the February right I'm going to see that Robin was basically day off…
+MP: Uh-huh. Okay. Yep.
+SS: but then you guys are general shift is coming already right so just like that right so that also helps me to balance it that I have the etiquette swap staff as well right to see it right and then for some reason that I just need to make an adjustment like somebody's not coming on this day and…
+MP: Yeah, last few.
+SS: then just that particular day I'm going to say general shift I'm going to assign it to James when I do that it forcefully sends the email but right now I think the email is down so that's why it's not doing it from here the mail server we have not turned it on okay but that's what it does for the shift roster so shift roster is also important You do have an admin access on the app now.
+SS: Okay, I made you guys the app administrator. Okay, so you should be able to go through pretty much everything. Okay, you can create multiple shift.
+MP: Yeah. Yeah.
+MP: So here basically so this a shift roster we know how it work but let's say for shift as of now we just have one general shift and day off but I can create a multiple shift let's say afternoon shift and…
+SS: Yeah, if you go Correct.
+MP: and same for the department as well I can create a department and I can add a people the employee to the department correct
+SS: Correct.
+SS: I think I have it here. this is the attendance setting that I was talking about. to request the shift change. Save clock in location Allowed employee self-clocking Auto clock in for the employee by first sign in right clocking check. We can do all these things right?
+MP: Mhm.
+SS: Attendance reminder status on Monday. this is the employee shift right? So these are the employee shift. And here we can go ahead and add new shift here. And then we are going to call it as a second shift and…
+MP: Second shift. Okay.
+SS: this is going to be second okay code I've already generated and this is going to work from basically 300 p.m. And shift end time will be basically 12 a.m. and…
+00:30:00
+SS: half time is marked at oops whites did 03. So, it's going to be 7:00 p.m.
+MP: 700. Mhm.
+SS: Oops. early clock in I can say that early they can clock late mark after I can say 5 minutes. And maximum check-in allowed in a day. basically two with a break right and…
+MP: Thank you.
+SS: office opens on Thursday Friday that's it right and I just went ahead and created this second shift right so now when I go into the HR and then let's just go to the shift roster and James I want to assign the bulk shift right to him and…
+SS: then we're going to say James Commore and then we're going to assign him the second shift multiple.
+MP: That's okay.
+SS: Let's just go ahead and do the February month. And then if I go to the monthly view and February, James is assigned second shift,…
+MP: Yep. Okay.
+SS: And here that all the shift change request, kind of comes in. Some employees say that I can't work from and so date to so and so time or something like that and then it kind of comes in. Okay. Yep.
+MP: The cate yeah.
+MP: So we are having the department as well. So is it like when we are onboarding any of the employees so at that time we are going to allocate any of the department to them.
+SS: Yes, we need to whatever it is employee mail password designation right so basically this is…
+MP: Yeah, it's okay.
+SS: where he's a sage stone management and he is basically that we're going to say that at the department here right and then whosoever is a parent So it's support and he is under let's say nursing.
+SS: So automatically your workflow has built in. So every time that you need an approval you're going to go to the nursing head basically. Okay. Yep.
+MP: Mhm. Okay.
+SS: So, you can play with it a little bit, you and then you can delete the record. It should be fine here. Okay. Yep.
+MP: Can you please go to the holiday program in the only there is an option.
+SS: Yeah, this is the holiday calendar. we can just kind of add the holidays,…
+SS: We can import the calendar. yesterday you were talking about this thing, right? …
+MP: Okay.
+SS: and then, probably we can go ahead and do that, here. Connect I think this is across the board.
+MP: Understood. So here based on that in the calendar we can see when we are having the holiday. So for only clinical part will be changed and…
+SS: This HRMS is across the board. That is Everywhere the clinical part changes.
+MP: transportation and transportation and all for assisted living I don't think so we need that or do we need
+SS: No. I would keep it still assisted living the transportation…
+SS: but it's going to be a very basic transportation module because no var is involved and kind of those things. Okay but trip scheduling and kind of that I think we need to keep it. So on this one we also have a recruiting as well part of the HRMS completely.
+MP: Okay. Thank you.
+00:35:00
+SS: Yep. you can play with that one.
+MP: So specifically any other feature the messages I can see it do we have the feature…
+SS: Okay. yes.
+MP: where our employee can talk with each other using the portal message.
+SS: Yes. Yes. And that is going to be messages.
+MP: Yeah. Yeah.
+SS: 
+SS: Yeah. This is an internal message board that we need to do that. Okay. Yep.
+MP: Only the messages will be there. Not the group and all. Are we going to create a group and then kind of Yeah.
+SS: Yeah, we can do the group as well, New conversation to the whole group,
+MP: Okay.
+SS: Right now here it's a member, but we can choose a group or department or something like that. Okay. Yep.
+MP: Yeah. The department wise we can create a group.
+SS: And here is the notice board that you can add the notices. So they will see that to all employees to residents load is heading yeah we can have all the departments let's make sure
+SS: prepared for can supplies. yeah,…
+SS: because it's not sending out the email right now. So, that's fine. And then that's why it didn't pop up. But usually that if I go on my private dashboard then I would see here notices long weekend prep it already came in right long weekend prep and…
+MP: Uh-huh. Yep.
+SS: if I click on that let's meet up and make sure that we're prepared for the long weekend food supplies right it just didn't send the email but if you go on your dashboard you will see that too in the notices Yeah,…
+MP: This is the private dashboard where all the things related to you. Okay.
+SS: This is an employee dashboard. And this is the advanced dashboard where we are looking at the overview, the number of residents and employees and projects and invoices, pending task, leaves, income, time sheet by the project or by the resident wise earning, time logs, lead count by source, deal count by stages,…
+SS: pipeline, all those things, right? this is the HRMS dashboard,…
+MP: Yeah. yeah.
+SS: right? anything it's the finance right so we can create this multiple dashboards after that yeah go No,…
+MP: So Nuri wanted to ask something. She
+DV: So in this section I can see the orders and the product part also. So are we providing any product selling part and if it is so how we are mapping do we have any better support or…
+MP: Okay.
+DV: 
+SS: no, no, no. this products we're talking about is basically our assisted living product,…
+DV: all those …
+SS: right? Yeah. Yeah. …
+DV: Can you describe more like…
+DV: what kind of Do you know That was
+SS: if it's on our rate card, you will see that it's a shared bed or the private bed, If it's a private bed, then what's the base rate? 3,390. Then the next thing we have it is basically the level of care, So what is that level of care?
+SS: So as you can see that the product are basically the level of care the speed is semi-private then automatically it comes in that room and board how much discount how much security deposit how Okay. if they're getting the personal laundry service, the monitor monitoring basically diabetic management and kind of that every category basically a price is associated to that. So that's what the product is. So basically when they come on board we assign the multiple products to them. So basically when we generate an invoice right so let's go to the invoices right.
+00:40:00
+SS: So, I'm going to go to this invoice. And if I see this invoice, oops, yeah, let me just pull up the PDF for you guys. so this is the invoice that, we pulled up and it stays level 3 semi-private, right? And then 3390.
+MP: When they are using any of the services basically product so that order is going to generate for them right.
+SS: There was no discount. 00 3390. This is what the and…
+SS: basically the invoice is getting emailed out to them. Correct.
+DV: And what does the orders contain?
+DV: This is the part.
+SS: Correct. let me act.
+DV: So we are tracking the product orders particularly for a specific plant. I want to know why we are having it at site is it going to be the speciality specific or there also we are getting it per client at the HR portal.
+SS: Can you repeat your questions?
+SS: I'm sorry, I got lost.
+DV: So the orders…
+DV: which we have created and the invoice generation all these things we are managing at the client profile level right and…
+SS: That is correct.
+DV: when we are going to the HRMS platform there are two different tab for it like the order and…
+SS: Yeah. No,…
+DV: the purchase I think so
+SS: no, that is not part of the RM Those are separate. HRMS is here. The products are here and the orders are here.
+SS: 
+MP: Yeah. Basically the UI that Sam was show is showing us it's all the feature.
+MP: It included all the feature.
+SS: That is correct. Correct.
+MP: And orders and products is one of the feature and it is I know that this is the product that we are having the so in the product we are going to add the services that we are going to provide and for them they can have the different charges and when anyone is basically want that service so we are going to create an order for that and then we will fulfill that order when we are completing that particular service correct
+SS: So as you can see here these are the different products right proated December rate don't ask first month moving deposit betty new rate stay this much level two semi-private is this much respit stay discount discount for the ruined clothes the monitoring respit stay moving deposit
+DV: So these things will be more associated with the assistant living and…
+SS: That is correct.
+DV: not with the ads and…
+SS: This is going to be only ALF. This is not ADHD stuff, Assessive living,…
+DV: and this module will also available for the services or the facilities…
+MP: Yeah. Mhm.
+DV: which provide the services. test. Okay.
+SS: memory care, and independent living. Okay. Yep. And these are the line items right some of the line items that we need to add to that one right so that's how it gets added to the line item okay what else I was going to show you today since I have been able to share my
+DV: the ticket management system. If you can show us
+SS: management is a new concept that we're creating it that we're going to give an access to the resident side as well right even…
+SS: though when the resident say that a family member the AC is not working or the heater is not working, the bathroom flush is not working kind of that. So they can create the ticket like that. And those ticket can be assigned to the local manager. But where I am that from the corporate office I can kind of keep a tab on each facility what they're doing it kind of. Okay. So I do manage it.
+00:45:00
+SS: I mean this is another application that we're not doing it but the portion we're going to be doing it okay so how that I have 28 corporations that I have it right and then if I go into any one of them like this and let me know when you can see it Okay.
+MP: Oops. Shut.
+SS: And here I can see that active task that on the preventative maintenance that I have it the electrical task that I have it that need to be done. what is the asset number that I can go to the particular asset and I can see that this is the GMH communities here and the asset group is this one for the electrical right and this is the manual and how do I keep any repair orders so basically that I'll show you
+DV: So the ticket management will also be available for specific services.
+SS: Yeah. Yeah. Yeah. Yeah. So something like kind of maintenance, a combination is an automatic inventory.
+DV: And this will be for the guest or members and not for the staff.
+SS: Yeah. I mean, this is more of mine, but for the guest, it's going to be pretty simple. I want to show you that. Give me just a second. I will show you that. So the work orders right corrective maintenance plumbing. Okay. So this is basically the details.
+SS: Asset group and so location is Work order information is this. Corrective maintenance status is waiting. it's a low work order timeline basically when it ends maintenance information. The work order approver here the approver is going to put in who is the planner that's going to come that assign suspend or cancel labor requirements So basically that somebody creates that okay I need help with this then basically we take it from there so work order so basically a new work order request right then I'm going to go ahead and put in a new work order request right which is this one work order type is basically emergency maintenance right and then it's going to do you see that how it changes the work order subtype is the emergency
+SS: pair and then the priority is going to be critical and service request number there is no service request and help with fire alarm okay and the asset information is let's say it's going to be location this Ber senior home there's no
+SS: job building name if it was assigned any building name asset group is basically this one serial number there's none failure date was that yesterday right criticality possible reason low output failure reason the time today. Plan end date tomorrow. And tk request, plan tas Next step, add technician. So I can add here my technician, The employee name that I have it, and kind of that save and close.
+00:50:00
+SS: So basically that's how this whole work order got created right and now it's going to flow into the system for the approver and kind of that this guy is and his hourly cost what it's going to cost me and kind of that but the resident can just put in that this is what the help I need with it for the emergency maintenance or a staff member can put it in Right.
+DV: And how they can put it in their interface or their point of view.
+SS: I mean they will have the similar interface but Not a whole lot is available to them. They might see that only the first few tabs, right?
+SS: when they create the new work order.
+DV: Not like that.
+DV: From the portal or
+MP: We do have the ticketing system for them. So, isn't it like we are going to use the same system if they want to
+SS: Yes, we're going to use the same system, and once we build the workflow and if you need to add the few fields on the form, or we need to expand the form to 20 fields to 50 fields, that can be done, right? I mean, that's pretty simple once we do that, correct?
+DV: So other than order this ticket management system what is the clinical parts in the assistant living basically…
+DV: which is different from the ADS and we have not covered yet there is also the regular everyday attendance market the care plan setup.
+SS: Yeah.
+DV: So as we started for ADH can you give us an walk through for an assistant living client's chart also?
+SS: Basically so assisted living is also that they're maintaining the medication the progress notes the vitals alerts allergies care plans their assessment we talked about it incidents that we talked about that documents what they have it and invoices it's pretty simple but I think what we're going to add
+SS: on the assisted living basically there I will go ahead and do that which I don't have it a food manual activity manual right what activity they are doing it on a daily basis right today is their yoga classes or taichi classes they have painting class they have a singing class they have music class something like that. So activity calendar is going to get on to the adult I mean assist living memory care and independent living right. another thing that we need to add is the drill dates. Okay.
+SS: So what this drill dates are basically that every month this task is going to get created okay hey we need to do the fire drill we need to do this compliance stuff and kind of that that is what it's going to get created so that's not part of the clinical but the overall operation this is something that the room assignment right so here we're going to create by the facility we are going to create is that what is the facility looks like. So this is a 32 bed facility right?
+SS: So it's a 32 bed facility and then we are already marking it the suite number one and it's a private suite and right now it says that status is unoccupied correct if it is occupied then it's going to say that who is in that okay and the resident status is active okay kind of that so that is how this whole thing that room assignment is going to come on coming to the place so when you go to the resident right and…
+DV: What's
+SS: I want Go to let's say the active resident here, And then when you are creating this resident, you're going to go ahead and assign the room here, Add the room assignment. And then, basically it's going to come in as a private or semi-private like this sweet number, you're going to pull up and then resident you're going to associate to that resident status active.
+DV: So the lead flow for assistant flaming will also be the same.
+SS: that and the moving date is everything is going to come automatically filled in basically with their moving date modified record owner and kind of those things right but if it's a new resident you're going to get it first time everything okay pretty much similar and…
+DV: the sources save every so as we are registering the lead and…
+SS: the clinical is also similar but their vitals are getting checked I think depend depends on the requirement but might be on a daily basis that it gets checked. Okay.
+00:55:00
+SS: But here correct.
+DV: we are converting it to member so the prior authorization flow will stay for assistant claim right the transportation it can be the basic flow with no var approval and…
+SS: Correct. That's true. Yeah.
+DV: everything and the compliance for the brow authorization will stay the same at every one year they will need to renew it. So after that when we assign this service and we get the approval the prior authorization codes and everything. So what was happening in ADH we will be getting the number of how the frequency they are going to visit. So also for H in the prior authorization are we going to get the time period they are going to stay with us the approved time period for the assistant living and…
+DV: in assistant living there can be different services like personal care vital checking so that will be common for all of the member who are going to be a part of assistant living or is it going to vary based on the prior authorization?
+SS: Correct. Right.
+SS: It would be a mixed bag. Okay. I think you do have a medication management and M on this one, right? somewhere there is a MAR. So we need to integrate that MAR into this thing too. Okay.
+SS: Do you remember where the MAR module is?
+SS: Because I remember that he's seen that MAR medical the medications stuff.
+MP: Em.
+MP: No, I don't remember it. Maybe you can go to the explore. just simply check medication device integration.
+SS: it's a medication management right yeah you do have that I had seen that and…
+SS: I think on our requirement document we have medication management to M that we haven't talked about it so this is what I was wondering your digital
+SS: thing right digital patient check in increase the share of patient spend you're doing it through the app only right checkin so…
+MP: Yep. Yeah.
+SS: but this one is only the basic checkin but not the facial recognition correct okay gota
+MP: So, it's just a basic chicken. So I can't see that either. let us check this. So maybe tomorrow we can show you that. Yes.
+SS: But I like this the way this has been designed. So can we go and…
+MP: So yeah,…
+SS: get the design update where we are on that one?
+MP: So yeah maybe from our side.
+SS: How are we doing? It's almost 9:30. Okay. let's continue for a few minutes,…
+MP: So if you want we can continue we can show you tomorrow please.
+SS: let's continue for a few minutes.
+MP: Yeah yeah.
+SS: Okay.
+MP: Yeah. Sham, can you please share your screen and just show
+SP: Yes. Yes.
+SS: Let me go to stop sharing. yeah.
+SP: Is it visible?
+SS: Give me a second. Let me go. Yes, I can see it.
+01:00:00
+SP: So yeah lead related flow we are working on right now which is almost about to complete as well and the table is nothing but a id lead owner added by source and we have
+SP: this form here where we will be able to fill up all the new lead starting from the lead owner personal details contact information address details additional note and all after clicking on save that lead will be getting populated into the system and this is the kind of first view perspective from it's nothing but a kind of like no CRM perspective we have created where by
+SP: any step or any kind of decision point user will be able to do the necessary interactions and this is the kind of lead related information these are the kind of nothing but a quick actions we have available call SMS schedule visit taking notes overall activity starting from nothing but when the lead was created into the system and whatever phone SMS, visit done, phone call, whatever recent activity is there we will be able to see here.
+SS: Okay.
+SP: This element is nothing but shows the recent activity that has been successfully added by whom And these are the quick send rate card, move to resident and reject lead buttons we have available. And this is the blank form for the patient information.
+SP: Once we are having a call SMS and then manually user can add the patient information. This form will be getting developed we can focus on the detailing afterwards as well. But this is the overall information structure we will be able to have and after clicking on add edit patient info. this will be getting converted into the clickable form itself. Then call summary section we have available. whatever the call related interaction we are having here. once the call has been done then this will be the summary section we will be able to see and after getting done we will be able to see the call similar interaction for the SMS as well.
+SP: we start the chat and…
+SS: correct. Mhm.
+SP: end chat functionality. Then for the notes as well we will be able to see the list of as per the timeline it get develops and all activities is nothing but a kind of overall summary or whatever the kind of start to end processor we had been following so far for this lead conversion program. So this is the overall update We have the quick note functionality here as well. And recently is few more interaction we have added clicking on reject this lead. Are you sure you want to reject this lead or not? Then move to resident also we have the confirmation that we can move to resident.
+SP: We have all the confirmation related to all the discussions and…
+SS: Mhm.
+SP: all and send red card is nothing but this is the kind of the base structure of all the red card templates we have created. this can be getting changed but overall a kind of a subscription plan related stuff or the same view we have created so far. This is nothing but a kind of by default or selection process. We can show started, medium, large and whatever the kind of. Then clicking on we have the copy here. Send red card and welcome email. After clicking on send as we can see red card and welcome email has been sent successfully. So this is the kind of overall flow the recent update we can see.
+SP: So I guess from the lead step-wise procedure whatever things we had I guess we have covered up most of the things…
+SP: but a few minor updates are there but of course we can share this prototype with you. You can also have a detailed look into it and share your thoughts.
+SS: That would be great.
+SS: Yeah, if you can share this thing with me that would be awesome. Okay. yeah let me share my screen now.
+SP: Absolutely. But far whatever detailing or the structure or the stepwise interaction we have added so far I hope we are on right track right.
+01:05:00
+SS: Present now.
+SP: Yeah.
+MP: Yeah,…
+SS: Let me know when you can see my screen. Okay, good.
+MP: we can see the screen.
+SS: So this is what we get it right. when the new referral comes in this is the email we get it right new referral it says core guardas so it is new referral and this is for the location we're getting it hello just wanted to let please reach out to the family Howard Porter ASAP who is the lead generator Natalie Drury Sheena living advisor from coming from place for mom right this is what we need to basically capture right from the integration that email is exploring different option for her friend Howard.
+SP: This
+SS: All right. So now we know that so Howard is the patient who wants to move in and Gchin is basically the helper. Right. It could be he's in the hospital following a fall and will be discharged to the rehab. he has made great improvements blah blah blah. He recently lost his wife 60 years. So we are checking the temperature that what kind of mood the patient is in. A one-bedroom is fine. We would like to be independent living options for him. blah blah. This is the family sum Point of contact is Relation to the potential resident Howard. Desired location locus group Mcdona. Monthly budget and other resources 4,000 to 4,999. House to sell. Monthly income. Resident summary.
+SP: Yes.
+SS: Current living situation is Mobility is temporary. Immo due to Bathing assistance needed. Yes. Toileting blah blah blah. and this is how this whole thing kind of comes in. So, if you go back now, if you want to go ahead and share your screen and go to the first tab that
+SS: open up any lead no not the new just yeah Jeremy and…
+SS: this is where this whole thing is going to come in right what we saw that in the email some of those things that you're going to capture into the fields directly and…
+SP: Yes. Yes.
+SS: some of the notes you are going to do that original note from the caring.com or place from something like that. That is what it's going to cover it. So, we don't have to fill in all this information on our own. And…
+SP: Okay. So, that please go ahead.
+SS: and I'm going to present my screen and I'm going to take you here. All right. Okay. Stop.
+SS: I have to get you enrolled into this so you can go ahead and start getting all the please.
+01:10:00
+SS: So, here is the name of the person, Hila Kang. and then here is the document that I'm going to open it.
+MP: So when we integrate with them so we will get all these information from them correct.
+SS: I know I have all the information basically for you because we had started working on it.
+MP: So that's…
+SS: Okay. Yeah.
+MP: then based on that we are going to create that the lead form.
+SS: Customer web service integration APFM to the customer CRM and kind of that. So they already have it. All this documentation has been done really well. Okay. Yep.
+SS: As you can see that right
+SP: This is cool.
+SP: I think your screen share has been stopped I guess. Yes.
+SS: Really? hold on. stop sharing.
+SS: Can you see my screen? Can you see it now?
+MP: Let's close.
+MP: Yeah, We I don't know…
+SS: So you see that customer web service integration step one. They have done a great job, and how we can do that stack again.
+MP: but we can just see the APFP push notification.
+SP: It got stuck again. Yeah. Yeah.
+SS: I think because I'm moving it but can you see it now or not? That's fine.
+SS: I the nt. Don't worry about it. I will send you this document,…
+MP: Yeah, good.
+SS: forward and why I'm not getting your email?
+MP: Yeah, it's Moji Patel. Yeah, you can send it to Anita. It's fine. I'll get it from Anita.
+SS: M O G I V.
+MP: M O Jib M.
+SS: Yep. Yeah,…
+MP: Patel at think.com atink2.com think k a okay yeah i think K I T I V E.
+SS: it's N K A T I V E.
+SP: I actually keep I
+SS: Yep. T H I N K D E I V E, Okay. I think Thank you, Dave. no,…
+SP: So the moji is I M O J I B.
+MP: Yep. I'm just sending it in the chat.
+SP: Yeah. Yeah.
+SS: that's okay. Emoji Moib hinky.com. I think I got it. Okay, perfect.
+SS: Okay. Thank.
+MP: So the meantime…
+MP: what we will do we will review as we are having the all access so we will review the system and from your side what we can do we will continue the discussion of assisted living. So we just need to focus on that now and I believe for ADH we covered everything but for the assisted living then we are going to discuss more.
+SS: Yeah. Yeah,…
+MP: So let's connect tomorrow the same time and we'll continue session.
+SS: sounds good then.
+MP: Yep. Thanks.
+SS: Okay. Yeah.
+MP: Yeah. Thanks Sam.
+SS: Thank you.
+SP: Thank you.
+SS: Yeah. Bye.
+Meeting ended after 01:14:54 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

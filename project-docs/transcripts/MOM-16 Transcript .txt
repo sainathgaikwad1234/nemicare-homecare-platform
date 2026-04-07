@@ -1,0 +1,316 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/02/11 18:54 GMT+05:30 – Transcript
+Attendees
+ASK, DV, MP, NK, read.ai meeting notes, RD, SG, SS, SP, SRR, TM, Vikram Kotulkar
+Transcript
+MP: by this week this workflow will get completed HRMS assisted living with design and…
+SS: Okay. Right.
+MP: then we will talk about I don't know if you get chance to review the workflow as you said your team will going to revisit the workflows and there are some changes that you might need to do that's something that we will talk then but yeah firstly let's discuss with the design first yep yeah Vikram can you please share your screen?
+SS: Hi SH.
+SP: Shall I?
+MP: Yeah Yeah I thought like you you are not here. Yeah sorry.
+SP: Yeah. Yeah.
+MP: Yeah sure you can share your screen.
+SP: Hello Yes. So starting from the lead has been closed and we have marked from just a minute and we have came to the documentation part which already has been shared with you on last call. So from that perspective we consider the steps forward every single documentation stuff has been done and after clicking on the case manager ver request also has been done and every single interaction we have covered here after on after filling up all the billing setup and…
+SP: clearance data related stuff in the form We will be moving forward to the convert to new arrival. And after clicking on this button, it will be a redirecting message.
+MP: It was old like Yes.
+MP: You want to say something?
+SS: Yes. …
+SS: the ICD 10 code, it's going to be sequence first. 1 2 3 4 and then, you're going to put at least three codes. So I would go ahead and put four because sometimes some patient it requires not just the primary code but the secondary code to get the billing approved. So it cannot be just one single text box out there. Yeah. Okay.
+MP: Yeah sure we will update that. and this is like when we are converting the lead to the resident.
+SS: Sounds good.
+MP: So at that time whatever the things that we need to add so we are updating that and once all this updation has been done so we are converting them to the new arrival.
+SS: H. Okay.
+MP: So this flow is particularly for the one that is the first time we are on boarding. They don't have any of history of they are not transferring from the other facility.
+SP: Yeah. Yes.
+MP: It's just the new flow. Yep. yes.
+SP: 
+SP: So after that it will be landing us to the face sheet related to whatever the stuff we need to update on that particular profile related to care plan medication vitals progress not.
+SP: So from here itself we will be moving forward to add the detail
+MP: So basically as you also wanted the same thing.
+MP: So if we go to the patient this is the residence chart. So in one tab only everything will be there whether it's care plan or the allergies, medication, vitals or the progress notes or any activities or anything. So everything will be here and also on top if you see so we are also showing the transportation as well the number of time that has been given out of that and also the attendance as well monthly attendance that we are going to show let's say out of 30 31 that has been there availability is how many time he is available and also the frequency for this ADH patient.
+MP: So yeah these are at the one place only …
+SS: Should I give you the design input right now or…
+MP: if I want to do any activities so I can do it from here.
+MP: Yeah let me know your thought on you can give it right away it's fine.
+SS: later on? I can give it So, what I would like to see that on this one what is the age of the patient.
+MP: Okay. Yeah.
+SS: And how long he's been active.
+MP: We are showing it. If you see the date of birth,…
+SP: It's date of birth and…
+SS: Yeah. …
+SP: the age. Yes.
+SS: date of birth we don't want to show the full thing, data bars where you can go into the email and…
+MP: patient details and we can see
+SS: then you can see it but on the top as long as you can put it 72 years and then whatever the month you calculate and how long they have been associated with us since that start date okay so that is something very important because let's say that I have a new employee right who is looking at this face sheet and…
+00:05:00
+SS: then they open up the patient, And then, there was something going on, then, they have to talk to the family member, When you have a customer,…
+MP: Mhm. Yep.
+SS: who's been loyal to you and who's been with you, for three, four, five years and some complaints or some suggestions coming out, it's legitimate and then, basically that person who is looking at it and he or she can make the decision and say yeah, this person has been here, this patient has been here for us for a long time, So, that's something I would like to see it on that. I like that the care plan that you have it that we should be able to see that but somewhere that if it gives us the count that how many active medication they have it and how many events happened in the last 30 90 days
+MP: So we are Yeah.
+MP: So what we can do for every section that we have we are going to show the count for the care plan allergies medication everything.
+MP: So for active count we can show that.
+SS: Yeah. And…
+SS: then somehow that add button you can keep it and then it's add the care plan and something drop down and then basically something like add to that. yeah, but I'll let you work on the design, but I think the concept is right here.
+MP: And here basically so the first time this is the new patient or resident. So at that time this is how it is going to look but we are going to keep adding the detail. So yeah you can show that flow once we add the detail…
+SS: Yeah. Keep going.
+MP: how it is.
+SS: Yeah. Once you add, how does it look?
+MP: Yep. Yeah,…
+SP: Yeah, this is just a kind of blank one…
+SP: because it is a kind of like a first interaction with that particular patient but this is a kind of active one.
+SS: I should be able to go back to the face.
+SP: So the data will be changing here but field state we will be able to see we will be having the view all button at the end and in the care plan structure we will be having the kind of add button at the end as well. So yes,…
+SS: 
+SS: I should be able to add it from here. So you can on the right hand side underneath the attendance you can say add and…
+MP: exactly. Yeah.
+SS: then basically that …
+SS: if I click on that button it should give me an option that I want to add the care plan or activities or kind of that rather than dragging into that.
+MP: Yeah. Yeah.
+MP: Yeah. We will add that. So yeah, that's how we are going to implement it.
+SS: Yeah, correct.
+SP: you're dead.
+MP: So here we are going to provide an option because everything will be at face sheet only. But if I want to see the more details.
+MP: So we can directly go to that tab or we can come click on the view all and…
+MP: it will redirect me to that particular tab.
+SS: And then one more addition that I would do it out here that care plan that you are showing it. If you can show it into a tabular format like cat plan number one for this one what is the effective end date that what's the problem approach right format…
+SP: Mhm. Yes.
+MP: Yeah. for the idea.
+SS: if you show it and then I can click on any one of them so this would become basically my kind of a mini dashboard for that particular patient okay yep okay so rather than just getting out into each detail kind of that like you I would just have the tabular format and…
+SP: Yes. Yeah.
+SS: then I can click on any of those line and it would take me to that particular record then okay yeah so far so good yeah keep going Sham yeah so it would be rarely that somebody would have more than five care plans.
+MP: Correct. Bill
+SP: Yes. Thank you.
+MP: And here all the details the listing will be here for the care plans and…
+MP: the same way we are going to show the top five care plan let's say in the dashboard or face sheet and if I want to see the more I can using the view more it will redirect here. Yep. Okay.
+SS: I think maximum three or four care plans that patient would have it. Okay. Yeah.
+MP: Thanks for But yes, we are having a separate tab for that. But if I want to see the more details or…
+SS: Yeah. connect.
+MP: I want to edit it, I can come it here and then we do that too.
+SS: Yeah. Yeah,…
+MP: Yes.
+SP: Okay, into the activities tab here is the kind of record we have as per the date section and whatever activities has been marked here so it will be here and whatever the new activity I want to make a record of it that will be available here. So from this itself that will be marked the category and…
+00:10:00
+SS: which is good,…
+SP: I'll be able to view it as well for example on 11th of Jan or…
+SP: 7th of so here I'll be able to see the details of it what was marked who had added that and then everything.
+MP: And also one more thing just we can add the notes as well.
+MP: If I want to add particular notes to the day so I can add it.
+SS: but I want a better flow.
+MP: Yep. Mhm.
+SS: I don't want to scroll too much. So maybe figure it out from the design perspective how we can make it look better.
+SP: Okay, cool.
+SS: So gathering the information having the number of fails yes it's great but it should not look too clumsy because right now it's just looking too clumsy and then too many scrolls right look at that. I mean, it's just like, we're not using the real estate out here, I mean, think about it. If somebody's working activity manager is working on a 37 in screen and if you're just giving it into this much versus on a 37 34 in screen probably, we can just do it with a one scroll rather than doing multiples.
+MP: Yeah. Yeah. I got your point. So we can utilize whole screen instead of that part half screen only.
+SP: Okay. Yep.
+SS: Correct.
+MP: So yeah,…
+SS: Adding the vitals.
+MP: we correct.
+SS: You can do something like that because you're basically filling five to seven care plan. About less than 10 fields you can do it. But this one we're talking about hundreds of fields right?
+MP: Yeah, understood.
+SS: Yep. Okay.
+MP: We'll create a basically separate page for that instead of this popup and everything we'll rearrange these stuff activities.
+SS: And maybe you can do the subtab or something like that and…
+MP: Yes. Yes. Yeah.
+SS: something. So I'll leave it up to you the design.
+MP: And we can minimize that tab. And then I'll create that.
+MP: We'll show you that.
+SS: Okay, sounds good.
+MP: And yeah.
+SP: Yes, for the clinical data related to vitals and…
+SP: that has been done here.
+SS: Yeah, which this one is good. Yeah, you can kind of arrange it. Yep.
+MP: And also in the clinical only we have added both whiters and alerts and allergies in one section only we have added that…
+MP: because ideally what will happen 70 to 80% of the time using the face sheet only we are going to do all these activities hardly like we go here.
+SS: Okay. …
+MP: So if I want to see the historical data then I can go here. Yep.
+SP: Right. for example we have that here as well and…
+SP: also from that page also we will be adding a particular addition button and from that itself we will be open to form and user Mhm. Okay.
+SS: do me a favor. Go ahead and click add vitals.
+SS: So what's going to happen is that if this is a popup coming out correct this is a popup right so what's going to happen is that when I'm looking at the popup and…
+MP: Got it.
+SS: the pop-up is a full screen then I don't know that I'm entering the data but who is the patient right so probably when you add the vitals on the top you should just bring it out the patient name right as so that way that for this patient you are entering the data.
+MP: on top should show.
+MP: Yeah, we'll at least add his name and…
+SS: And that you're bringing it from the master record basically right from the parent record the patient name right.
+MP: Yeah.
+MP: Yeah. Yeah. Sure.
+SS: So any subrecord that you are adding it for that particular patient you should bring the house data from the parent record. Okay. Yep.
+SP: So yeah adding the patient data in the model itself and…
+SP: user should be clearer whose vitals they are adding right now. So that will be taken care. I'll be moving forward with the progress notes. yeah. Yeah.
+SS: One more thing,…
+SS: one more thing. Yeah. Yeah. just go back to that the main page on the vitals over here. when the BMI is out of the proportion, the pulse temperature is out of the proportion, it should basically flag you for that day to put the notes into it. And then when you're looking at this report, all those things should be looking at into the red color or something like that. So it's some significant behind those numbers.
+SP: Understood. Right.
+SS: So you can kind of go into the notes and look at it visually that it appeals you to look into that if somebody's temperature is 99 today right versus somebody's blood glucose the normal range is 150 right let's say…
+00:15:00
+SS: but if it is 200 then it should basically that flag you to do something about it what I mean to say we're not just collecting it we want to make a smart smart We need to show the alerts and…
+MP: Yeah. Yeah.
+MP: So what We can put the configuration in a way where we can set the base basically the normal values for all of them and whether it is getting higher than that and some of the cases in the blood pressure or if it is getting too much lower then we need to show the alerts or the Yep.
+SS: then we need to have some of the prompts basically done into the system. So what it does that the moment it does that it should go ahead and…
+MP: Okay. Yeah. Heat.
+SS: send out an email to the LPN RN the facility director that this is something we see it out the proportion at the same time ours AI should go ahead and give you the prompts that for how long you have been seeing it. So at that point we really want our caregiver to answer a few questions. Okay and say is it something happening just one of a kind event or it is happening multiple times do you need to do something you want to give basically a medication like a paracetamol ad or tal to see that how things are doing it.
+SS: Do you want to call 911? is there any other symptoms you are seeing it?
+SP: I understand. Yes.
+SS: And then it should ask the caregiver that do you want to report an incident or…
+SS: not. Okay, something more happened, think through the whole thing that …
+MP: Yep. Yeah.
+SS: what happens when your vitals are not in the if you go and visit the doctor and let's say that your body temperature is 98.2 two but now it's coming at 100. So think about it what doctors are going to ask you the questions and I can help you with those questions what are going to be those questions and what answers we're looking for right so it can help us this…
+MP: Yeah, sure.
+SS: because this is all preventative care right so even though yes we're not at a doctor's office but we are still doing a lot of things what doctor does as part of the preventative Okay.
+MP: And for particularly alerts we can do it in a two way.
+MP: one will be the automated we can configure it and based on that we are going to generate an alert another one will be the manually as well let's say if I want to somehow alert about the vitals of whether the nurse or…
+MP: like everyone so here I can just simply click some button and…
+MP: then that alert will get generated and the same mail will get sent to the respective person Yep.
+SS: That is correct.
+SS: Correct. Yeah,…
+SP: Okay.
+SP: I'll be updating the design accordingly afterwards. whatever reviews you have given and…
+SS: Yep.
+SP: we'll try to make it more intuitive at the end for the monthly progress notes or weekly progress notes whatever it is we have the form available here for sure yes yes the home section we have created so far quick links
+SS: Sounds good. Also that the same thing as an activity try to use the real estate as much as you can. With abs and Yep. …
+SP: we have added here. Then
+MP: Yeah, if you see the on top,…
+MP: so basically this will be the quick link. if I want to add any member or want to add any activities, so simply I can click over there to directly do the activities. just need to select the patient and…
+SS: Correct.
+MP: then I can directly add the activities of the patient. So all of them will be the quick link. So we'll discuss more in develop at the time of the development how you want it.
+MP: But the basic idea is in the dashboard we are going to provide that option.
+SS: 
+SS: So that's good. And then think about it that either we are going to have so from the design perspective you can create a master dashboard right you can create a master dashboard and from there you can pull up the modules based on the rules or you can create multiple dashboards I'm not sure that what makes sense from the design and development perspective so I'll let you decide that right
+MP: So so for the admin there will be one dashboard that will be accessible to the admin where all the clinics detail will be there all this stuff and another one is for the staff.
+00:20:00
+MP: So this dashboard that you can see it it's particularly for the staff only. Now as we are more on the ADH flow. So that point by this point only we created this dashboard.
+MP: If you see the details here particularly it is for the staff. So on daily basis the activities that they are going to provide. based on that we are showing that and for the master dashboard we'll discuss this and only we will design the dashboard.
+SS: …
+SS: what I'm doing it right now is basically that I'm in the current version that what we have done is that we have created the dashboard based on the roles right if let's say a facility director is looking at it then the facility director is going to be looking at everything basically right clinical data the financial data incidents everything basically they're going to be looking at it right including the transportation and whole 9 yard versus if I have an RN looking at it.
+SS: So RN doesn't need to see that basically basically today's members is fine attendance they don't need to go through that they more care about the clinical data okay so we're going to have more clinical stuff on their dashboard right the stuff they don't need it we really don't need to show them right I mean they don't care about the tips and…
+SP: Hey,
+SS: then the billing or that
+MP: Yeah, exactly.
+MP: So basically based on the roles so basically when we are setting up the roles and the permissions so at that time we are going to provide that enable and disable option to particular let's say here the member or the attendance all of them for the particular role if I want to give them an access then only we can enable it and then they will get this access going to if I'm disabling them then they won't have the access of that just
+MP: This is one of the dashboard that we created. So just wanted to show you the workflow in a way for ADH patient particularly when they are going to come. So there the prior authorization and standing order expiration is going to show it here whom the based on the 60 days or 90 days slab that we have. So this particular patients expire prior authorization will going to expire this particular date. So you can do it. So we are showing it in this particular dashboard and vital and progress notes div as well for today's number of patient who we needs to collect the vital or add the progress notes based on the weekly basis or monthly basis based on the date that we have.
+MP: So we are showing that and here you can see all the details and…
+SS: Okay.
+MP: we can simply click whit and then we can add it and by clicking on it so directly the vital will get added to data in the basically the vital record we are going to add. So for that reason we created these two calendar and the attendance so this will be more for the admin this will have the access of these attendance to see the overall picture of the number of patient currently we have and out of them how many has been attending those and the number of absentee. So at least for absentee.
+MP: So in the report we are going to show that details and maybe basically in the bulk we can send the case manager the details of the attendee all those details and what I can say they can basically update it to the state government then and for today's member as well we are going to show it the number of member that we have basically going to come for the ADH therapy. This is something. So based on that these four basically data that we have added in the dashboard…
+SS: Correct. Okay.
+MP: but for dashboard I think we need to discuss more for the master dashboard and how it will be. yeah and here there was some of the filteration as well. If I want to see just prior authorization simply I can clicked on the filter and just select the prior authorization.
+MP: So only prior authorization order expiration expiration will get shown here and same for the vital and progress notes as well. If I want to see only vital or the progress not so instead of basically the separate dh calendar for everyone.
+SS: Correct. Okay.
+00:25:00
+MP: So we are just binding two basically important aspect in one calendar like the priorization and standing order and vital and progress notes. Yep. So yeah these are basically some of the workflows that we created and we need to do the updation and for particularly dashboard we will discuss more Sam yeah yeah I think for design point of view currently we will do this updation and tomorrow we'll present you the flow and also tomorrow
+MP: We will present you the assisted living flow as well because there are some changes for the lead flow as well for assisted living and also for assisted living particularly we have that assessment feature where do basically nurse is going to do the assessment and based on that they will accept or reject it.
+SS: …
+MP: So this workflow we are working on that now in the design particularly and we'll update it and then maybe tomorrow I'll present to that. so basically today also we wanted to discuss roles hierarchy as you said in our previous call. So let me know if they are ready or we can discuss it later.
+SS: Give me just a second. So I'm not able to again hear my screen.
+SS: So it was giving me the problem. but let me do one thing to see that I've just pasted the table into the chat notes.
+SS: in call messages. Save. It's not looking.
+MP: So maybe you can just send me the mail…
+MP: because in the chat it is not looking like I don't know. Let me share my screen. I'll show you that how it is Looks like just a sec. Let me know once you see the screen. Can you see the screen?
+SS: It's coming up. Yeah. Yeah.
+MP: So if you see the screen, this is how it is look like.
+SS: Mhm. Yeah.
+MP: So maybe you can just send me the mail so I can just share.
+SS: Okay, give me a second.
+MP: Yeah.
+SS: I've just sent you the mail. So take a look at that.
+MP: Yeah, just a sec. Let me share my screen.
+SS: And I'll put it in Excel so it'll be a lot easier for you. Okay. Yeah.
+MP: Yeah, I think that Yeah,…
+SS: But at least you'll get an idea that what kind of we're looking for.
+MP: Just a sec. Let me share my screen.
+SS: Mhm. …
+MP: Let me know if you see my screen.
+SS: yes I do.
+MP: Okay, these are our role owner board CEO, executive director, administrator, admissions, billing, medical director, RN, LPN, CNA, therapist, social worker,…
+00:30:00
+MP: activities director, diretory, transport, facility, family portal, auditor and system admin. And what is this like UMFC?
+SS: if you go down the module codes these are the modules that you're creating it right pretty much something like that right so underneath you can see that user and…
+SS: role management facility configuration right management Right.
+MP: Yeah. Yeah, I can see that. Yeah.
+SS: So, you'll get some idea, with that and I think, we're going to be playing about 85 to 90% on this line and…
+SS: then I'm open for suggestions. Okay. I mean,…
+MP: Yeah sure.
+MP: So just one question when we are going to onboard these user in our application so the onboarding form will be different for them or we are just going to collect the basic information of all of them. Okay.
+SS: so onboarding will be the exact same, right? No matter what it is, like we still have to do the background check, we still have to do the TB test for everyone, we still have to check the driver's record, we still have to go through the drug screening, they still have to pay fill in the employment application kind of those things. Everything is going to be the same, right? As far as that, nothing changes.
+SS: If I'm hiring an admission person versus a system admin still everything is going to stay same right right and then in fact the CEO and executive and the owner will also go ahead and put the similar data into it okay yep R means read
+MP: Yeah and…
+MP: what is this the same read d r means read only Okay.
+SS: only. Correct.
+MP: And W means And what does A mean?
+SS: Right. A means adding.
+MP: Okay.
+SS: They can add.
+MP: They can add mean the same right and add is same.
+SS: Yeah. Give me No,…
+MP: And here if I see correctly so not like a
+SS: no, no, no. Hold on, hold on.
+SS: My bad. R W means write and update both. A means approve and finalize. And the dash is no access basically.
+MP: Okay.
+MP: So here role so not anyone can have the fully access So some have some access and some have some other access. Correct? Because I can't see that.
+SS: Yeah. I think what we can do is that we can create one super user right for the facility or…
+MP: for user. Yeah. yeah,…
+SS: something like that and then that would have all the access Right.
+MP: Sure. Understood. Yeah. and for user Okay. Sure.
+MP: Yeah, these roles permissions basically these stuff we will discuss in detail but yeah roles we come to know we understand that and…
+SS: That is correct.
+MP: onboarding any of our user so we are going to select these roles but data the onboarding form will be the same for everyone Okay,…
+SS: 
+SS: Onboarding There is no differentiation for HRMS. It's going to be the exact same across Any line of business.
+MP: fine. Understood.
+SS: Make sense?
+MP: Yeah, that makes sense. Yeah, Ashish going to ask
+ASK: Hey so I want to ask do you want to continue these roles and permission based on the module level or you want to break down into subm modules or…
+ASK: any activities actions like you mentioned here administrator building module. So these are very high level permission. So if someone don't have that he will not see that particular module. Yes.
+SS: Yeah, I know.
+SS: I know. And yeah,…
+SS: we'll have to figure that out. but if you have any suggestions, I'm open to listen.
+MP: Yeah, sure.
+MP: We'll think on it and maybe we will discuss this.
+ASK: And one more question do we want to have these roles defined by default we will provide predefined roles to you and then you will assign those roles to focus.
+MP: Yeah, this will be predefined roles only and this will be predefined permission and let's say if I want and we will going to add the super admin is one more roles and we are going to add one user for that as well but we are going to create a system in a way where we can create a custom roles as well let's say these are the predefined roles and if I want to create one separate role for some let's say frontage people or something like that
+00:35:00
+MP: So I can create a roles and I can set the permission for them whether I want to only write only permission for that particular feature and based on that once that person is going to loged in so they will only have the access based on the permission that we provided to them.
+ASK: Yes. Okay. Understood. Thanks.
+ASK: that sugar, you
+MP: Yeah for roles we are clear Sam. So we think on the thing that you wanted…
+SS: I just pasted that RW A and…
+MP: but yeah I think SAT wanted to ask something. Yes, I know.
+SG: Yeah so here Sam there is a role like R star war what is it means Okay.
+MP: We already discussed Okay.
+SS: dash what it means? R means read permission. W means write and audit I mean update. A means basically as approver. So a supervisory rights that they're going to approve something, right? Yep. And dash means no access. Sure.
+SG: Okay. Thank you.
+MP: Yes ma'am. so yeah that's one thing I believe we got this and also what I want to discuss. one of them is the assessment form that you shared with us. So yeah just a sec let me share that screen again with you.
+MP: So yeah I'm sharing my screen again. Let me share my full Entire screen. Let me know once you see the screen. Okay.
+SS: Yes, I do see the screen. Mhm. I think so.
+MP: So yeah, basically this is the assessment form for ASL assisted living and if I see it so one of them is the form started from 11 13. So just need to check do we have the more data previous instead of yeah this is the one.
+SS: I think so. Yeah. I think that would be better.
+MP: So just need to check if you can have the correct form and another one is when we are going to create this form. So do we need the images as well.
+SS: So that way you can just kind of put it out on the images where the problem is exactly right the dry screen a dry skin like skin condition you're looking at it like bruises right where do you have the bruises because what happens that this is very much important otherwise it becomes a liability issue right somebody would come back and sue the company and say when I got admitted I had no bruises now I've got the bruises all over the body or some
+SS: place that something happened and…
+SS: when I admitted I had no bruises and now you see the bruise right but this assessment will capture that and say yes there was a bruise out here so yeah it's better to have this as part of the assessment this image and then you can kind of click on the image and then kind of x mark or draw the circle or square something like Highlight that. Okay.
+MP: So for this assessment form and…
+MP: all other forms. So we are going to use the form builder to create this form because we can customize it for some of the cases maybe later the form will get changed. So we can basically edit the existing form only so I'll show you that how we are going to create it and particularly adding these images.
+MP: So we'll see because we need to figure it out how we are going to manage these images in the forms because now this is the print correct so using that print we can simply do it correctly…
+MP: but in the form if you want to add it so let me see how we can do it but that's the only question that I am having and just check if you can provide us the pro proper assisted living complete form basically Okay.
+SS: Update form.
+00:40:00
+SS: Okay. Connect.
+MP: These are and for the employee checklist and other form as well using the form builder only we can create all those forms. Yes. yeah.
+MP: So these are the things that we wanted to discuss with you and also as you wanted to ask you wanted the permit access of or some of the existing EHR or the work that we have done. So what I'll do after a call I'll send you the mail and I'll provide you two EHRs access one one of them is the primary care and another one is the forms and all that I was showing you previously that cipher which was the specially aabled kids for them we created that one so yeah here so
+SS: Okay,…
+MP: We'll send this and then you can review it and maybe we can discuss it more.
+SS: sounds good. yeah,…
+MP: So, Nish anything else you wanted to discuss? One more thing just need to check did you get chance to basically review the workflow that we shared with you as you suggested previously you are going to discuss this with the team and then we'll discuss some of the changes in the workflow. Okay.
+SS: we had discussed on Friday and I will ask Shiva to get in touch with you on the changes and some of the updates. Okay. Yep. Okay.
+MP: There were just the minor changes that I think Shiva sent the mail to the nanoari particularly for the form that we are going to use for the facility on boarding. That's the only thing that I know apart from this like anything else did we receive anything else?
+DV: No we have not received anything because as you mentioned you were going to update that folder with the operation stream and you will only input the documents which are relevant to the current flow. So we have not checked it so far. If it's updated, we can check it from our end and then if there is something which we think is new or we need to discuss with Sam, we can discuss that. But we will just need the confirmation that is the folder updated now so we can refer it for the documents.
+SS: Okay, sounds good.
+SS: Yeah. …
+MP: Yeah. …
+MP: yes, anything else you want to discuss?
+SS: I think we're good. Let's touch base in the morning tomorrow. Okay. Yep. All right.
+MP: Yeah, Yeah. Thanks. Bye.
+SS: Thanks. Yeah. Bye.
+Meeting ended after 00:46:34 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

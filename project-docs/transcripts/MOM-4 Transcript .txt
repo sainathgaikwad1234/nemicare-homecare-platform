@@ -1,0 +1,339 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/01/22 18:59 GMT+05:30 – Transcript
+Attendees
+AK, ASK, DV, Gv, MP, RD, SG, SS, SO, SD, SP, TM
+Transcript
+AK: Yeah, sorry.
+SS: Yeah, it'll be coming out soon.
+SS: Give me just few minutes. Yeah. All right, we're ready to start. Y Okay. Yep.
+AK: Yeah, thanks.
+DV: So today we have the agenda as we will go through the work for EDH as per our yesterday's discussion. after that we will continue the clinical part which we left over yesterday and after that we can show you the design updates from our end. So I will start with the workflow.
+SS: H yes.
+DV: Can you see my screen? Okay.
+DV: So based on yesterday we have the ADHD member in our system. So we will be having the transportation details for that specific member either they are traveling with family via valida or facility transport and accordingly the flow will start. So for the respective family member will be responsible at the service center at that specific time. for Berida you mentioned to have a 90 days valid order for a specific client that we will get in the prior authorization or…
+SS: All right.
+DV: the separate process.
+SS: No, no, that would be a separate process.
+DV: So what will be the stages to get an overview?
+SS: Once the person kind of comes on board, we will send them the request. and those templates I will provide you that what we send it out to them and after that they approve it and once they approve it we send them the standing order basically.
+DV: So we will share the information to valid first once they will approve it then the order will be in place and then we will providing the service to the client via valid and…
+SS: That is correct. Yeah. Yeah.
+DV: after every 90day do we need to renew it or how it works? Okay.
+SS: Every 90 days we need to renew the standing order.
+DV: So once we have the order in place valid is the one who is responsible to pick the patient from the respective address and drop it at facility.
+SS: 
+SS: No, no, no. VIA is just the brokering agency like case manager.
+DV: Mhm. So these are not two different thing like var is the one from…
+SS: We're the one who will be rendering the service. how do I once the standing order is approved…
+DV: which we will get an approval and the facility transport will be the responsible one to take them or to drop off and pick up is it something like that.
+SS: then facility takes over.
+SS: Wida is like a case management agency.
+DV: What…
+DV: what is the key difference for VA the state is going to pay and for facility transport is it the patient
+SS: A case manager. So Wida when we have a member on board we send the request to Wida that this member is a Medicaid member member and then they want to come to our facility. So please approve the transportation request. So based on the criterias they will say this member is approved and then they will give us the first standing order right and that within that standing order they will let us know the pickup from the respective home drop off address we already know right for the incoming trip…
+DV: Yes.
+SS: which is our facility for the outgoing trip on the same day we know the pickup address which is our facility And the drop off address will be their home wherever they're leaving, and then they will varate the mileage. Vera will give us the dollar figure and kind of that okay and what they will do is that they will approve it, and they will send us the manifest end of the day end of once a week. Okay, they send us the manifest for every approved member that we are picking up,…
+00:05:00
+DV: manifest.
+SS: dropping off and dropping off and picking up. So it's called the trip A and trip B. Trip A is incoming to the Trip B is outgoing to the facity. Manifest. Yeah, correct.
+MP: So the facility is going to provide that transportation right the approval part.
+SS: Correct.
+MP: So for approval so from the var we will get the approval and based on that we are going to proceed. Okay.
+SS: That is correct.
+MP: We will update flow.
+SS: And…
+MP: Okay.
+SS: then yes we assign the driver in the vehicle and…
+DV: So this will connect over here this part.
+SS: plan the pickup route for multiple members and dispatch the facility transport. So has their own tools right?
+MP: So this is the pickup drop and everything this management. So are we going to do it in the system only or this will be the offline or some other tool that we are going to use for the same? Okay. Yeah,…
+SS: VA has their own tool. We can do an API integration with them, So we will keep all the information into our system, And then if VIA says that we can do an integration then we don't have to so basically this manifest we can download directly into our system with the integrated API integration solution right and
+MP: those things that I understood we will get all the information that has been like we get the approval from the var and their tool as well. the only concern is let's say if we send the details of all the patient who needs to pick with the location. So then driver is going to obviously the pick them and then he will come to the clinic or…
+MP: the facility. So the only concern is the driver who's having all these route and everything. So is he going to use any app or something using that he come to know all okay understood.
+SS: They're right.
+SS: Right now they're using Var app. Okay. let me see…
+MP: Okay fine.
+SS: if I can do the share screen today. something is wrong with my screen sharing.
+SS: I would say why don't you share your screen and I can walk you through that what exactly we do it. Okay Ashish. Yeah.
+MP: Yeah sure let me share my screen. let me know once you see the screen.
+SS: Okay, just a second. Yes, I see the screen. go to the apps. I'm going to give you an access to one more app. Okay, give me a second.
+00:10:00
+MP: Look, this one just let me open this. Mhm.
+SS: Okay, I've given you an access.
+SS: Go ahead and refresh it. Yeah. Yeah. Perfect. I want you to go to the southeast strips at the bottom.
+MP: These are the field and…
+MP: it is showing search and if I can search Yep.
+SS: Just go ahead and…
+SS: search it by any go ahead.
+MP: Okay. Mhm.
+SS: and open one. Click on this is the manifest information. This is what we get. So basically the status is schedule the client is DCH Atlanta mobility type embulatory trip leg ID. This is a unique ID that we get there. This is also a unique ID. We get it from there. This is a subscription standing order ID is this.
+SS: Internal ID member name is this, blah blah blah,…
+MP: Mhm.
+SS: date of birth, member age and assigned driver. Okay, so in the pickup details it comes that on and so date at 7:48 p.m. that pickup address is the residence and this is the address that we have to pick up and the pickup phone number. Now go to drop-up details and then drop details is this one that it kind of comes out that this is where that person is getting dropped off any special instruction like attendance any car seats miles are 18.55 okay payment and assigned driver so
+SS: Here we can go ahead and…
+MP: Mhm. Yeah.
+SS: see that how the driver is assigned and what's the handle for that particular driver right and when the trip gets paid we also upload the data back into our system and then if the trip is paid then the paid status basically will be checked. Okay. Yeah.
+DV: The trip type subscription is for Medicaid and…
+DV: if it's a private pay is it going to change?
+SS: No, private pay.
+SS: We don't do Yep. We don't do this private pay.
+DV: Go ahead. So we provide transportation services to private pay clients also.
+SS: private pay we just generate one invoice and then we don't worry about anything else. Okay. We don't have to keep tab on everything.
+DV: It includes
+SS: Okay. Yep.
+SS: Got it.
+MP: So these are basically the member and their schedule.
+MP: 
+SS: Right. That's right.
+MP: The schedule that they let's say for 17 so…
+SS: Yeah. Yeah.
+MP: whatever the schedule so how we are generating this because I can't see anything here so yes…
+SS: Yeah. Yeah. Good. Meetings. Yeah. Yeah. Sure. Yeah. Okay. sorry.
+MP: what I was asking how we are generating these details from…
+SS: We get …
+MP: where Okay.
+SS: no, no, no.
+SS: The var generates this. We only import into our system.
+MP: So once we are done with the integration so we will get everything from them and…
+SS: Right now we're doing a manual process.
+MP: we just going to okay and…
+SS: We just go in, we download the basically CSV file and import into our system. Yep. As you can see,…
+MP: eventually we need to Mhm.
+SS: as you can see that what we have it we also have some sort of an automation into this.
+00:15:00
+SS: Okay, you see that plug? That means basically that what we do is that when we get the manifest on a weekly basis, we drop it off into the Dropbox and the Southeast trips, it picks up automatically from the Dropbox folder and update this upload this information, It creates the new record. Basically, every time we upload the new information, it creates a new record.
+MP: and southeast routes roots as well this is also we will get from the okay let me check that as well so just the trip leg ID member name employee
+SS: That is this is basically when you do the driver assignment, So r That handle you see that that is basically the driver assignment.
+SS: Okay. Yeah.
+MP: this. Okay.
+DV: Are the details…
+MP: Yeah. Yes.
+DV: which we are sharing to the transport for the transportation is it also in the system? Can we see that on the screen?
+SS: Yeah. Yeah. this is in the system. Yeah. And I will send you the manifest.
+MP: So basically in our application only we have all the member information. So we are going to send them for the approval basically and once we get the approval then roots and everything so we will get it from them right.
+SS: That's right. Yep.
+MP: Yeah. So nan we will update that workflow. but yeah we can continue other part and then after that we will move to the clinical part so I'm stopping my screen sharing you can share your screen…
+MP: and then we can continue the other workflow. Yes.
+SS: Yeah, this one we can come back into the detail later on.
+DV: Yes. is it visible?
+SS: Okay. Yep. Yeah.
+DV: So after the transportation either ways the driver the client is at facility. So when the member arrives the cl staff attends it verifies the member identity and you mentioned to have a facial recognization scan.
+DV: So on that part we will be using some other services.
+DV: So how our system will get the information regarding the facial recognization that this is the same client because it is autogenerating the yes status for the present
+SS: Yeah. …
+SS: so what I would do is that staff attends the member and…
+MP: Okay. Okay.
+SS: I verify member identity and that is where this workflow would stop. And then you're going to start a facial recognition scan as a brand new workflow. So I mean that's fine. Yeah. I mean I mean you're doing a kind of workflow on a daily basis. So it's okay. But this is where basically when they go in so the facial recognition system the terminal we have in the back end of that system that every member is been assigned with their member ID which is in our system right which is a unique ID. So we give them that ID and…
+MP: Okay.
+SS: then we scan their face when they come on board first time. Okay.
+SS: And every time they go in front of the terminal the face will be scanned in 3 seconds and…
+MP: I'm just Okay.
+SS: say okay if the face is scanned at that location that means the attendance is equal to yes.
+SS: Okay the time stamp that is correct.
+MP: Understood? So the member ID that we have so we are going to share that ID with them and…
+MP: the system and…
+SS: Yeah, we get the dump of the CSV and…
+MP: then based on that we will get a data like this for member ID basically this is yes and based on that in our application that will get automated.
+SS: then we import that into the attendance record automatically.
+MP: Okay.
+SS: …
+MP: Okay. Yeah.
+SS: so basically that if you go back and see on your screen by the attendance you're going to see the plug-in sign as well.
+SS: So we also drop that CSV into the Dropbox and…
+SS: the system picks up automatically. Okay. Yep.
+DV: So the attendance triggers two different workflows for yes and…
+DV: for no. So for yes we will mark the attendance present for full day or we can mark for partial day. Is it correct?
+SS: Current I think partial day we don't get it once in a while we get the partial so we just keep the manual process Thanks.
+DV: So how the partial day counts. Okay.
+00:20:00
+DV: So according to the status marked the system will create the record and there are the event the daily activities will be visible from we pick which services we have provided which these are some of the drop rooms I have picked from the screens yesterday. the rest will be replicating the designs and…
+SS: Good night. Connect.
+DV: when the daily activities are being recorded. So as you mentioned we will need a trigger over here if the multiple members have attended the same activities. So we should have the option to copy that activity template or that status to the multiple members and also we can create an individual record.
+DV: So that we are considering as of now and if needed we can also record vital after that…
+SS: Yeah.
+DV: what particular Yes.
+SS: So here I want you to stop for a second. Okay. So what you did is that go back to So that's activity is good right? So on a parallel case on activities we record the vitals for every member once a week. So that'll be a parallel track and then we also maintain the schedule that let's say if you have 100 people at the facility then we just put those 100 people on a daily basis that daily we have to do at least 20 people for the vitals and who are those 20 people? Okay. So we create that vital schedule. So that goes on a parallel as activity. Okay.
+SS: because activities is being done by a staff member.
+SS: And this is also being done by the vitals. So that happens once a week.
+DV: So this effects on the frequency of the client and…
+DV: the schedule we have.
+SS: Once a week we do it for every client. The record the vitals and…
+DV: Okay. I think. Yeah.
+SS: and Abishek that you also kind of keep your screen ready to share so that way I can show you basically what I'm talking about. yeah you Let me know when you share the screen.
+MP: Next move.
+MP: Yeah. Yeah. Sure. Yeah,…
+SS: Yeah. Yeah.
+MP: I'm just sharing my screen. Let me know once you see it.
+SS: I see it. Very good. go to members.
+SS: Pull up any member not There might be multiple guest. Just go to customer type to member. Perfect. And pull up the active member.
+MP: Maybe we can discuss the number.
+MP: Search it.
+SS: Yep. Go down.
+MP: Mhm.
+SS: And I want you to go to the vitals pull up any vital record right so this is how we create the vital record and if you do it let's say on 119 it automatically puts the next check on 126 automatically creates the schedule right…
+SS: because on a weekly basis
+MP: Okay.
+MP: I just Mhm.
+SS: Right. Got it.
+SS: And we run the report. The calendar shows basically that today this 10 people or 25 people basically are due for the vitals and then we record the vitals out here and then it also picks up who entered the vitals. so that is how we collect the vitals on a weekly basis. So I want you to go back now. you can click on the return on the right hand side. Yeah, that will take you back. So the other thing that besides the vitals we do it is basically the progress notes.
+00:25:00
+MP: So we don't have progress for this particular page.
+SS: Go and click on the progress notes. Okay.
+SS: Hold on. No, Give me a I think you're viewing at the management and then give me just a second. Okay. Manage roles level permission. Okay. And that is operations loving hand.
+SS: What I want you to do is that I want you to refresh your app. Go back LHSC at the top level. Yeah, I think you can Go ahead. You should be able to see that.
+MP: Just a sec.
+MP: Yeah, I'm just going to still I cannot see.
+SS: Why it's coming still management this form? No, no, no, no,…
+MP: Let me refresh it.
+SS: no. Just a second. I'll get that. the members give me a second table homepagement is default.
+MP: So,…
+SS: Okay, I want you to go back to the members and then pull up another member or the same member.
+MP: let me select the second one.
+SS: .
+SS: No, just a second. Don't pull it. Give me a second.
+MP: Which one I should select from?
+MP: Yeah, sure. Select this one.
+SS: Okay, you can pull up Any member should be okay.
+SS: Yeah. you're getting a totally different view. Okay. Yeah.
+MP: Yes. No.
+MP: No. But still for so just a sec.
+SS: Yeah. That's go to face tof face notes. behind that.
+MP: Okay. Yeah,…
+SS: Face to is this member active? Why? Oops. Looks like you don't have an access to this app. because you were part of the management. That's why. Give me a second. I will get you the access. Okay.
+SS: members and users. Click on any member 9,0001 s*. Yeah. And go to progress notes.
+MP: I Okay.
+SS: Yeah. Yeah. You can see it now. Go ahead and click. This is what we do it on a monthly basis. So this is the workflow and…
+MP: This one is the approach.
+SS: then basically that it is done by the LPN/ RN and that they put all the summary finding and we also have the approval process if it was done by CNA or LPN ultimately the RN needs to sign off on this. So we do an internal routing of that. Yep. Yeah.
+SS: approved and then we gather the electronic signature RN so here as we are talking about it so you go to the notes go up summary findings that's staff report summary findings this is…
+MP: Basically yeah, so staff is going to create this report or these nodes and who's going to approve this? Correct.
+SS: where we're going to use this AI script
+SS: Okay, Okay, it'll pull up the vital,…
+00:30:00
+MP: Yep. Okay.
+SS: it'll pull up the last face toface nodes and kind of those things and then basically that nurse can dictate and then probably the scribe AI will put the nodes together. Okay. So same thing go back and…
+MP: And…
+SS: go to the event or face to face. you can click on the return.
+SS: And you can pick up any note. If they walk in to the nurse and…
+MP: then Okay.
+SS: I want to talk and then nurse basically gathers all that information as an event face toface note. Okay. Yep. Got it.
+MP: And then RN approval here RN of so in the and…
+SS: Yes, that's right. If it was done by CNLP and RN needs to approve that note. If it was done by RN, he doesn't need to send it to anyone. Okay. Yep. return.
+SS: So these things are on.
+MP: 
+MP: face toface nodes. So all the events that basically happened to the particular or recorded or tracked by the particular the member. So everything is going to recorded here only whether
+SS: Correct.
+MP: since we have added and then type will be whether if we are adding a node then it will be the face to face and the other let's say if you are calling them all the stuff like whatever thing that we are provide so everything we are tracking here right Okay.
+SS: That is correct. basically on a parallel text so Danishwari so for your information basically that now we're talking about the vitals on a weekly basis event or face toface on demand basis progress notes on a monthly basis right and…
+MP: Uh-huh. Mhm.
+SS: then also I want you to go to the care plan.
+SS: These care plans are created when the member gets on board as part of the intake process,…
+MP: So, who's going to create their plan?
+SS: right? But then the nurse is going to create the care plan.
+MP: Okay. Yeah,…
+SS: Go ahead and open one care plan.
+MP: I just clicked on here. Okay. Mhm.
+SS: So this is a care plan and what happens that every month we have to review this care plan the nurse reviews the care plan during their face toface or…
+SS: the progress notes meeting right face toface meeting they review this care plan and updates and they sign off on that on a monthly basis.
+SS: Okay, most of this information is basically staying there problems and kind of those things. But if you change it, it should keep a trail that on what day who changed to what. Okay. So you see that in bracket on September 29, 25 2025, Kyong changed chronic pain related to the multiple pains including the back, knee and the joint pain and the approach is also changed.
+MP: Mhm. Yep.
+SS: the goal is also changed right so that's how basically that it picks up that when it was changed okay that is correct yeah it
+MP: Mhm.
+MP: Fine. So these are the care plan that we assigned to the patient and care plan will be the same the problem, approach, goal, target date. So only this. Mhm.
+SS: It doesn't change much, you just have to review it on a monthly basis and if it changes, you go ahead and update the problem approach and the goal. Okay. Yep.
+DV: And what will be the stage when the care plan is getting created from the first visit or
+SS: Intake when you get the paperwork from the case manager from the state, I want to return to the same Return to patient. Yeah. Yeah.
+MP: Yeah. Yeah.
+MP: Sorry, we'll open the patient again.
+SS: So when you receive the approval from the state,…
+SS: that's when you put the care plan as part of the assessment. Okay.
+MP: Okay. Yep.
+SS: So that is on a clinical side that we were talking about care plans review vitals on a weekly basis event or face-to-face notes on demand basis progress notes on a monthly basis.
+00:35:00
+SS: Okay. Yes.
+DV: but here are multiple care plans for a single patient.
+SS: That could be we have to create approval packet.
+DV: So in the approval packet we are getting it or it depends.
+SS: There will be some but then we need to create some as well.
+SS: But it'll be part of the approval package that …
+DV: So for single patient on the single approval packet we can create multiple care plans depending on the and…
+SS: what we need to create multiple corrections. That is correct.
+DV: it depends on the staff or the clinician who is assisting the client.
+SS: Yep. That's …
+DV: They have different end date can differ or…
+SS: yeah. Yeah. Yeah. Yeah. It could be different, too. Yes.
+DV: and they all can have different rules.
+SS: Just a second. Okay. Hey, we did a I don't remember. Maybe just call them. I think I did renew it. Yeah. I think I did renew it. I don't remember but I think last time after that brand The problem is I think she got a mail or something. the thing is now they want ID.
+SS: the AAA the one when one you have it you can show it to them yeah that should be there yeah they always say that we need ID but I think Cecilia has it the actual okay okay he's not sure Okay. All right. Yeah. Okay, man. Sorry about that.
+SS: Yep. No,…
+DV: Yeah, problem. So what I was asking we are having different treatment plans for a single patient. the goal is the only thing which is getting different and the So can we create a single care plan where we can add multiple goals at different dates because that's the only Yes.
+SS: no. We have to create the separate care plan. That's the statement. It Okay. Okay.
+MP: Yeah. for clinical so part of the clinical workflow is assigning a care plan and…
+MP: then adding all the monthly vital weekly basis we are adding the vital and we are going to create a event or schedule that every week and event face to face toface notes for every event or every basically discussion with the member. So those things will get recorded here. and also if you are changing anything whether the medication or…
+MP: anything so everything will get recorded here and for progress notes as well like basically the discussion with the patient. So based on that the AI AI basically just the record we will record everything and then we will send those for the AI and then from there we will get this summary correct fine so these are the things that are clear for us.
+SS: Correct.
+MP: Tell for the virtual a meeting we might use this right.
+SS: So why don't we take it tomorrow as part of when the approval package comes in what exactly we're doing it we can take that workflow tomorrow.
+MP: Uh-huh. Okay.
+SS: This was the clinical side.
+MP: Okay.
+SS: So we covered the transportation and…
+MP: Fine. Okay.
+SS: then clinical side. Okay.
+SS: today. …
+MP: So we also started working on the Figma the UI part. So there are a couple of things like one is the first thing did you get chance to review the lead onboarding flow that we shared with you the okay great and…
+SS: okay. I think that looks good. Yeah. Correct.
+MP: also we are going to update this flow as well attendance and all those flow that we were talking the transporting flow based on that we'll share that with you and also we send one email to you as we will need couple of things from your side. So yeah please …
+SS: I will get you those things. So, yep. Yeah.
+00:40:00
+MP: because those forms and then the data that we wanted which we needed as we are discussing on daily basis so I know you might not get time but whenever you get time so just send those to us because we will need the rate and data as well card data basically rate chart that we are going to send.
+SS: Yes. Okay,…
+MP: So how we are going to basically what currently the red card that we are sending to the patient and also that prior authorization transportation welcome email templates referral a agency all these forms so we will need that that's all from my side yeah and…
+SS: sounds good. Okay. How long is it going to take?
+MP: also from Figma design site we already started creating a Figma design. If you have time today we can show you to you the
+SS: Can we Okay.
+SP: Just few minutes only just to take a confirmation have you on a good direction or…
+SS: right. Go ahead. Yeah. Okay. Okay.
+SP: So a workflow which already mo has mentioned that it has been shared with you and you have already provided an approval. So from that perspective itself we are creating the Figma designs and only in between there are certain steps which we need to take under consideration and we just need a kind of a better clarity what kind of data you are also expecting in the design. Okay.
+SP: So just a minute I'm sharing my screen. So whatever the stuff I'm going to show that is in progress though but just to show you. So this is a screen for the list of leads whatever the data we are populating here contact name email lead owner…
+SS: Mhm. Okay.
+SP: then added by source created on status action and So clicking on new lead this will be the form we will be able to see this is a kind of also as per our understanding we have shortlisted the generic data.
+SP: This also needs to be getting verified from your side via adding a new lead into the system. What kind of input fields or what kind of information we are we need here basically so lead source selection we have available patient details…
+SS: Okay. Mhm.
+SP: then contact information all these information will be getting filled and after clicking on save that lead will be getting added into the system itself. so as we all know this has been added recently so that is why it has been added as So new lead is nothing but just a minute new lead is nothing but a kind of just from the general perspective we have given that scenario.
+SP: The new is the first step and a few of the certain steps we will be following going forward and we will be renaming those for example new then visit scheduled then red card rate card shared…
+SS: Mhm. Okay.
+SP: then whatever the different type of PA approval and all the steps will be there before converting all those leads into the restaurant itself potential customer itself. So we have some kind of added the profile picture scenario the information of that particular lead lead details or the added by lead owner and some kind of quick action button for the call SMS and some kind of quick action also we have available.
+SP: sometimes the scenario generates is nothing but we just convert that lead into the potential customer whatever things like for example…
+SP: if we are considering the scenario of the direct payment and all so yeah for that so not section we have available whatever the stuff we have available in terms of call SMS so this is the kind of element we have created from the timeline consideration So this is the kind of timeline lead created then phone call happened.
+SS: Okay.
+SS: Gotcha.
+SP: What was the summary of that particular phone call? So they can take some kind of notes under consideration. Then if any particular kind of so this is the kind of model we will be having before starting We can just set up the call type as well.
+SP: And after clicking on start call this window will be mentioned here this is going on and all call notes we can write here as well we can end the call and at the ending of the call call summary will be getting generated AI summary transcript key pointers discussed whatever the patient considers we can save the summary accordingly.
+00:45:00
+SS: Very good. Okay.
+SP: Similar type of interaction for the SMS also we have added and once the user will be getting the clarity that this new lead is kind of potential one to move for next step that will be getting forward. Okay. Yeah. So
+MP: Yeah. So these are the flow that we started working on from the design side. So based on the discussion only we are working on that. once we are done with the lead onboarding flow we'll share this flow with you. you can review it and then you can just give us the approval. But this is the kind of things that we are currently dealing with all the other stuff as well we are taking care of. So as we are going to go the flow workflow discussion.
+SS: Okay, sounds good.
+MP: So we will make sure from design side as well we are completing whatever thing that we are deciding or discussing. Okay.
+SP: So that has been already mentioned…
+SP: but just to clarify one thing in the workflow which you have given the approval in terms of lead generation and that flow the onboarding flow few certain steps are there which is nothing but while having the call with the call or SMS or the prior chat with
+SP: lead person there are some kind of certain steps to get the information from the patient side regarding the patient itself.
+SP: So we also needed a bit of clarity that what kind of information needs to be collected we need to collect between those steps before finalizing so how it is going to replicate into the system. So Naneshwari has already mentioned some pointers in the email with you itself…
+SS: That's it.
+SP: but I'm just letting those are needed to complete the further flows. Yeah but overall whatever the generation of the UI we are on in line I hope that is up to the mark. Cool.
+SS: Okay, sounds good.
+SS: Okay, very good.
+MP: Yeah,…
+MP: I think that's all for today from our side Sam. So let's connect tomorrow and just wanted to update you regarding a holiday on 26th January on Monday. So we won't be available. So we are going to basically connect tomorrow and then after that on Tuesday we are going to connect.
+SS: So tomorrow is Friday and then Yes, That is fine. Perfect. Okay,…
+MP: Okay fine then let's connect tomorrow and tomorrow we'll show you the remaining flow from the design's perspective as well and whatever thing that we discussed today we will update our workflow we'll present you and then next workflow then we will check it and then let's say once we are complete with the one service tab…
+SP: You're Play.
+MP: then we will move to the next one yeah thanks Sam bye
+SS: sounds good then. Thank you. All right. Bye. Yes.
+AK: Hi S. Hello. Yeah. Can I please wait for Ganesh is also going to join us.
+SS: Yes. No, it's just Yeah.
+AK: And also we got access now.
+SS: So, yeah, I think it's going at a good pace. Okay. Yes, you got the axis and
+Meeting ended after 00:49:05 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+

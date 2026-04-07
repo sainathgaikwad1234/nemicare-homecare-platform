@@ -1,0 +1,1 @@
+Read and follow the agent defined in agents/performance-test-agent.md

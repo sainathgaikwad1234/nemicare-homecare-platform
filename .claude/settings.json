@@ -1,0 +1,54 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh search:*)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(gh pr:*)",
+      "Bash(gh issue:*)",
+      "Bash(echo \"Feature branch deleted: EXIT:$?\")",
+      "Bash(echo \"Hotfix branch deleted: EXIT:$?\")",
+      "Bash(gh release:*)",
+      "Bash(ENV_CONTENT=\"BASE_URL=https://app.psynap-sys.com:*)",
+      "Bash(echo \"$ENV_CONTENT\")",
+      "Bash(while IFS= read -r line)",
+      "Bash(do echo:*)",
+      "Bash(done)",
+      "Bash(gh api:*)",
+      "Bash(npx newman:*)",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_wait_for",
+      "WebFetch(domain:demo.nopcommerce.com)",
+      "mcp__playwright__browser_network_requests",
+      "Bash(git commit -m ':*)",
+      "Bash(node -e \"process.stdin.on\\('data',d=>{const j=JSON.parse\\(d\\);j.data?.forEach\\(r=>console.log\\('ID:',r.id,'Name:',r.firstName,r.lastName,'Service:',r.primaryService,'Status:',r.status\\)\\)}\\)\")",
+      "Bash(taskkill //F //FI \"WINDOWTITLE eq *mcp*\")",
+      "Bash(taskkill //PID 25896 //F)",
+      "Read(//tmp/**)",
+      "mcp__playwright__browser_select_option",
+      "Bash(grep -r \"app.use\\\\|router\\\\.\" backend/src/index.ts backend/src/routes/*.ts)",
+      "Bash(taskkill //PID 19040 //F)",
+      "Bash(taskkill //PID 15488 //F)",
+      "Bash(curl -s http://localhost:3001/api-docs.json)",
+      "Bash(node -e \"process.stdin.on\\('data',d=>{try{const j=JSON.parse\\(d\\);console.log\\('Swagger loaded:',j.info?.title,'Version:',j.info?.version,'Paths:',Object.keys\\(j.paths||{}\\).length\\)}catch{console.log\\('Error:',d.toString\\(\\).substring\\(0,100\\)\\)}}\\)\")",
+      "Bash(grep -i \"discharge\" /c/Users/TTPL-LNV-0319/Desktop/HomeCare-Project-Development/project-docs/user-stories/*.csv)",
+      "Bash(grep -i \"discharge\" /c/Users/TTPL-LNV-0319/Desktop/HomeCare-Project-Development/project-docs/acceptance-criteria-test-scenarios/*.csv)",
+      "Read(//Discharge Process/{if \\(/^[0-9]+/**)",
+      "Bash(npm run:*)",
+      "Bash(taskkill //PID 17892 //F)",
+      "Bash(curl -s http://localhost:3001/api/health)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(taskkill //PID 33092 //F)",
+      "Bash(taskkill //PID 25960 //F)",
+      "Bash(taskkill //PID 34024 //F)",
+      "Bash(taskkill //PID 17648 //F)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\TTPL-LNV-0319\\Desktop\\Thinkitive - QA Agents\\BMAD-QA-AGENTS\\outputs",
+      "C:\\Users\\TTPL-LNV-0319\\AppData\\Local\\ms-playwright\\mcp-chrome-5353f96",
+      "\\tmp"
+    ]
+  },
+  "enabledMcpjsonServers": [
+    "playwright"
+  ]
+}

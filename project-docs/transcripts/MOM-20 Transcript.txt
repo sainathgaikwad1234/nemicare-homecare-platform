@@ -1,0 +1,188 @@
+Discovery call :: Home care - SS <> Thinkitive - 2026/02/18 18:55 GMT+05:30 – Transcript
+Attendees
+ASK, DV, MP, read.ai meeting notes, RD, SG, SS, SP, SRR, TM, VK
+Transcript
+MP: from our side Vikram or Shoubam. yeah, you guys can share the screen and just show us those things.
+VK: Yes, sharing my screen.
+SS: Okay. …
+SS: it does not pop up yet.
+VK: Yes. Is it now?
+SS: Yeah, it's coming up.
+VK: Just a minute. The screen is loading. Yes. I'll just show you the changes I've made according to our yesterday's discussion clicking on the ALF service type client and then yes from …
+SS: Please. Okay.
+VK: if you remember from here I have removed the
+VK: manager agency and the case manager then here it was the same flow confirm pay And yes those fields it's been added here now. So we'll need to first assign the agent agency and then from that agency we'll have to assign the case manager. Yes. And just a small update here that added a head header here as well.
+VK: You can switch. Yes.
+MP: And this case manager and…
+MP: case agency will be only shown for the only Medicaid plus. And the down.
+SS: So one thing that on the right hand side where do you see the room deposit and the payer one payer two right so right now I don't know who is my payer one and who is my payer two I mean it's split 50/50 so I don't care but then I would love to see that who is paying what right so payer one is a medicaid who is paying 50% % and payer two is the cay that 50%. So that I would love to see that who is what's the name of the player. Okay. Correct.
+SS: 
+VK: …
+VK: yeah, you want to see the pair who is paying them from Medicare and the pair who is paying from CO.
+SS: Room deposit.
+VK: Okay.
+SS: So you have Medicaid and copay at the top but when you come to the room deposit that you have payer payer 50/50 right. So you should see that the payer Medicaid and payer copay Yep. Yeah.
+VK: Right. and…
+SS: The label is missing.
+VK: the Yes.
+SS: Yeah. I'm sorry.
+VK: One question here that we are dividing this payment for the copia only. Right.
+SS: Can you repeat?
+VK: here we are dividing the total amount as a first pair and…
+VK: the second pair.
+SS: right.
+VK: This is only for the copay.
+SS: Correct.
+VK: Then I'll add here as a pair for the media. Then next assessment confirming the admission. Yes.
+VK: It was the same then the one change here in the discharge flow now.
+VK: Discharging the ALF client. then the notifi notifications. yes here for the case manager as we discussed we want to send an EDWP mail first and then we will be able to check in. So for that I have one question here. do we want to edit this form before sending in okay so I'm keeping it the fields will be populated from
+SS: Mhm. Yeah,…
+SS: I think we should, Correct. Yeah. Yeah.
+VK: the content we have taken while registering the client.
+SS: So to design this form right the services you don't have to make the check boxes and kind of show everything you can just convert it into a drop down to save the real estate right because when you're filling out the form if it's a drop down to select it it's fine I mean but when you print the form that you want to make sure that you print into their own format like EDWP is coming from the state of state,…
+00:05:00
+SS: So, we don't want to change that format. But on our form, you can make the number five services in a drop down and that's pretty much it, Yep. You can have multiple select in the drop down too.
+VK: But in the drop down there will be only single select.
+VK: Okay. Yes.
+SS: You can do that, But, you really don't need to I mean you can have multiple select and then you have these ADH and then you have half and full level one level two kind of those things that you can have if you select the ADH then the new field is going to pop up either half or full then it's another field is going to pop up is level one or…
+VK: All right.
+SS: level two and you can make the mandatory field…
+SS: but if you select ALS s nothing's going to pop up, something like that. you can have rule base drop down that way.
+VK: Yes, sure.
+SS: Okay. Yeah.
+VK: And we have now send that mail to that case manager and…
+SS: Okay. Good.
+VK: this is enabled now.
+VK: Moving to the next here nothing feedback works nothing change was required here and the next is about the confirmation here such just a little element that email is sent on this date and for the return deposit one addition here is that deduction detail and…
+VK: for adding deduction you will have to select the type first room cleaning, furniture damage or any other things. You can also add a description for that as well.
+VK: You can add a multiple deduction as well and after adding that you can see it in a summary in this way and after that the refer method and the processing details you can select the different method as well whether it is card Okay.
+SS: A different method is always going to be a check.
+SS: Don't worry about that.
+VK: Okay.
+SS: Yeah, you can just say check. That's fine, Yeah. so that's…
+VK: The process by is only the user who is using this
+SS: where I think we're going to have an approval flow kind of comes in and that's where our HRMS workflow is going to click in kick in. so whosoever is basically initiating it, it'll go through their manager,…
+VK: So for the confirmation of the discharge we need two approvals. Okay.
+SS: And then it'll go through their manager. So two levels of approval that we're going to build into that. Yep. No confirmation of discharge needs only two approvals like the user and the facility director but when they want to process the refund right so the user who's creating it then the facility director then that's going to be regional director who is going to be approved that kind of that and then it would notify the accounts
+SS: payable team as well to release the payment. Okay, so that's how the workflow Danish is she on the call today or not? Yeah,…
+VK: Yes, she is.
+DV: Yes, sir.
+SS: she is. All right. Okay. Sounds good.
+VK: And the research is confirmed Yes. And one thing I'd like to show I have one question here. the EDWP form is nothing but a kind of a conversation between the member and the case manager.
+SS: That is correct.
+VK: …
+SS: That is correct.
+VK: so can we add this in the patient charting and we can fill up the form whether it is for the initial or…
+00:10:00
+VK: the reason basically Okay.
+SS: So I mean you can kind of show it as an entity and…
+SS: then you can show that the lifetime EDWP while there are patient right as a communication right but you also need to keep it in mind that what are those events that trigger the EDWP right because EDWP you are not just as if you're sending it right if an incident happens you're sending out into the assisted living for the adult they held what happens that when there is an absent mark that's when you are sending the EDWP or…
+VK: Okay.
+SS: when there is an incident misbehavior or something like that that is the only two times you are sending out the EWP from the provide case manager to the provider. you are getting it for the PA update, service change, schedule change, kind of those things whenever they want to communicate, that's when the EDWP is coming in. So, yeah, I mean I like the idea about showing it as a separate tabs,
+SS: But what I would do is that under the documents I would put the EDWP as a sub tab. Yeah, I would show it under the documents and…
+SS: that's where all the documentation trail you can pick up and say I want to see how many DWPs are in and out for this particular individual and that's where I can go. Okay. So it looks more structured.
+VK: right? Yes.
+SS: Okay. Okay.
+VK: Yes, that will work. So, yeah. that was it for the ALF and the discharge flow. Now moving to HRM over is one.
+SP: Sharing. You can stop.
+SS: Mhm.
+SP: So basically we were at this flow yesterday which is nothing but a kind of starting with the roster. Mhm. So whatever the other options we had related to shift calendar staff directory and shift change request section the inteype is ready for it.
+SP: Bulk assign interaction also has been updated and…
+SP: if a user selects we will be able to select the month select date and after selecting the shift type we will be able to Update it. Yeah.
+SS: Okay. This one looks I mean,…
+SS: I'm talking from the design perspective. Workflow is fine. I have no issues with that. But this looks very clumsy right when I look at first of all that I need to be absolutely trained to look at it that what it's talking about right give me a second I would like to pause you there and I want to show you some other options that see if we can think from design perspective. Okay, give me just a second.
+00:15:00
+SS: I don't have that right now, but I will send you some of the screenshots on that. go for it. Yeah. Yeah.
+SS: 
+SP: Okay.
+SP: So I'll keep this variation for now. so you are talking about from this layout perspective right how okay okay so workflow has been updated yes sign
+SS: Layout perspective workflow. I'm okay with that. Yes. …
+SG: Sam for shift roster what validations do you need in current system like any conflicts that you are facing?
+SS: so what I did not get the question. Muji can you elaborate the question a little bit more or Sat?
+MP: No. Yeah, it's fine. so what he was asking basically so first this shift roster. So Validation means what are thing that we needed this is particular thing that should be there So yeah, I think the UI wise we need to change it. But apart from that Simon we can discuss this internally.
+SG: right? in your current system you are facing any conflicts that we can resolve here.
+SP: What? Yeah.
+MP: Yeah. Yeah. so Sam we'll discuss this internally first and then if needed clarification so we'll ask you…
+SS: Okay. Nice.
+MP: but yeah we are good I think here we'll see what we can do here but for the functionality wise we are good I believe and leave management as well maybe we can show you
+SP: So leave management a bit of it it's in progress but this is the kind of the leaves option we will be having at the sidenet and KPIs whatever the stats we have available will be available at the top and these are the kind of pro of request will be listed accordingly at the bottom of it where the days details reason leave kota and
+SP: that and there are two kind of like steps we have first supervisor will be approving then will be approving so these cell are so available and…
+SP: reject approve button we have at the end No no no no that's…
+SS: …
+SS: let me ask you that on this one. So, let's say the user employee has logged into the portal and now she wants to create a leave request. have you designed the screen on that one?
+SP: what I said the lead management stuff is in progress and whatever the different so right now we are just talking seeing from the supervisor's POV only so that is in progress and…
+SS: Okay. I got you. Okay. Okay.
+SP: once that flow is getting completed we'll be showcasing that as
+SP: So yeah you can later on share your thoughts as well from the layout perspective what you are having in your mind related to the shift roster stuff.
+SS: You okay? Yep.
+SP: We'll be evaluating that and reanalyzing the UI layout itself. Come on.
+MP: Yes Sam. So yeah I think that's all from our side for today. So just there are a couple of thing that maybe sign. Yeah.
+SG: Yeah I think u Sam mentioned previous calls we should discuss about the HRMS designation and…
+SG: appreciation mod what appreciation model do like is this for employee recognition?
+SS: All right.
+SS: Let me go ahead and share my screen. Got it. All Perfect. so this is the kind of designation basically that the hierarchy right that we can have it like the support staff basically on that then we have caregivers and then we have facility directors and kind of that
+00:20:00
+SS: administrative manager. these are the basically and LPN. Okay, that and the RN. So these are the four things that we're going to have it and they all will go into the facility director role. I mean they will report to the parent designation is Facility director is going to be reporting it to the management company and management team will be reporting it to the executive management. That's how it's going to come. Okay.
+SG: Okay. Yes.
+SS: the appreciation is such basically that sometimes let's say I'm an owner here sitting in Atlanta and then I wanted to add the appreciation for somebody who did a great job in Washington right so I'm going to go ahead and do the award and say add and I'm going to say that the employee of the month or something like that all appreciate the hard work during long weekend, Something like that. And then I'm going to say that thumbs up and kind of that summary I can put it in, right?
+SS: and then given to the employee Anita and then I can type it whatever I want to or I can just go ahead and create the photo that's how I kind of added the appreciation basically okay and…
+SG: Okay.
+SS: then it's going to pop up here but it's also going to pop up on Anita's screen as a user okay and then when I come to my private dashboard that I could see that here right my task projects my week time logs employee appreciation I have already created the employee appreciation appreciate the hard work during so every employee that I have it that I'm reporting to it or the employees who are reporting to me right I can go ahead and kind of create that over here so that's what the appreciation is right so it keeps a tab so whenever we do basically where is
+SS: that. I think we have somewhere appreciation is fine.
+SG: ciation there coming. which is that right side? We can see that appreciation coming. Okay.
+SS: Appreciation is what I wanted to show you is that I think we have this over here or not. I think it was in the process but to do the evaluation end of the year. Yeah. So you can count and then if I'm doing an evaluation right and then we're using the AI and then it's going to pull up and say how many appreciation I had why I think kind of that so we have this employee appreciation give me a second I will show you something
+SG: Okay.
+SS: Just a second. Okay. Yes. I think but can I give you a call back u after reconfirming it in few minutes? All right. Thank So this is an evaluation kind of coming out. Okay.
+SS: So right now they're filling it out manually as you can see that. Can you see it on my screen?
+00:25:00
+SG: Yeah, we can
+SS: So with resident care rate yourself and kind of that why my strengths I want to do that. So this is where that the AI is going to help us that if they have any awards appreciation and kind of that it'll pull it into some of the categories and help them kind of write it together and then we can create such forms that they have to fill it in Yep.
+SG: That's
+SS: So when we're doing the evaluation end of the year basically for the pay raise or something like that this person is asking hey for my request pay increase I initially submitted my evolation and also I have been requesting a raise since October 2024 right thank you for your time and consideration right yes yep so here it's coming out here but I can
+SS: if it was in the popup it'll automatically create as basically the task here right as a manager right so if I look at my private dashboard it's going to come up as my task to finish the evaluation right and…
+SG: This
+SS: then I should be able to finish the evaluation and then kind of come up if it's a pay raise or not and then I can read out to the right team and say okay this has already been approved and it's going to get adjusted by and so pay cycle Sorry.
+SG: Thank you. you mentioned previously u you will send us the sample resident inventory list. Did you get a chance to get that? Okay. So,…
+SS: Your voice is very thin.
+SG: So, you mentioned you will send us a sample resident inventory list.
+SG: Did you get a chance to u get it? Sorry. I'm audible.
+SS: Yeah. Yeah.
+SS: It's a little bit but not too good. Would you can repeat it.
+MP: So he was asking about the resident inventory sample basically that you mentioned but yeah I think not now sign can please repeat it.
+SG: Yeah. Hi. I was asking u Sam was sending us the sample of resident inventory list from his facilities.
+MP: So he was saying resident inventory list sample that you were supposed to send us from your facility…
+MP: but you didn't send.
+SS: Okay. to say the resident inventory,…
+SG: Okay.
+MP: Yes. Yeah. Right.
+SS: Okay. Okay. Yeah, I'll send you the sample of it. But I think you got the gist of it that I saw that on that one you have it how the inventory I mean I saw that in the workflow and say okay this is furniture item and then if you want to upload the image and kind of that so I think that should be okay I think more or less worst case scenario we can just give them the free text box and…
+SG: Yeah. Thank you.
+SS: then they can type it in that this is what I'm bringing in. I mean if there is any item that we don't have it on our drop down then they can put it as a free text. Yep. Okay.
+MP: Yeah, I think that's all for today. Nan, do you have anything?
+DV: Zoom not for today.
+MP: Okay, so yeah, Sam, so tomorrow are we going to connect or you won't be available?
+SS: No, tomorrow we're not going to connect tomorrow…
+MP: Okay, bye.
+SS: because yeah,…
+SS: tomorrow we're going to skip and what did I say on Thursday?
+MP: Tomorrow is Thursday.
+SS: Thursday we are going to connect at 9:30 instead of 8:30 because I'm going to be 3 hours behind Friday we are going to connect late Thursday we're skipping the call okay Friday 1 hour late correct
+MP: And Okay, fine.
+MP: And what time you want us to connect on Friday? 1 hour. Which is fine. That will 8:00 p.m. for us.
+00:30:00
+MP: Yeah. Then let's connect on Friday. And meantime we'll complete the UI design and we'll show you that and maybe on Monday or something we can connect to discuss about the EHR module that you wanted. So based on that we will note it down and update the figma.
+SS: Okay,…
+SS: perfect. Sounds good.
+MP: Okay. Yeah. Thanks. Okay.
+SS: And then starting we are not going to have any call on Tuesday and Wednesday I will let you know that for 2 weeks what time we can keep the call because I'm going to be in India okay yeah something like that so I will let on Monday that
+MP: And maybe we can connect in the morning as well if you are Yeah.
+SS: what time we're going to connect while I'm in India and then I'll be in the office on the fourth fifth and sixth Wednesday Thursday Yep.
+MP: Yep.
+SS: Okay. Yeah.
+MP: Thanks. Thanks,…
+SS: All right then.
+MP: sir. Bye.
+SS: Thanks. Bye.
+Meeting ended after 00:31:54 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
+
