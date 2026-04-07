@@ -15,6 +15,10 @@ import authRoutes from './routes/auth.routes';
 import { leadRoutes } from './routes/lead.routes';
 import { leadActivityRoutes } from './routes/leadActivity.routes';
 import { residentRoutes } from './routes/resident.routes';
+import { chartingRoutes } from './routes/charting.routes';
+import { attendanceRoutes } from './routes/attendance.routes';
+import { dischargeRoutes } from './routes/discharge.routes';
+import { patientSetupRoutes } from './routes/patientSetup.routes';
 
 // Import Swagger
 import swaggerUi from 'swagger-ui-express';
@@ -115,9 +119,10 @@ app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/leads', leadRoutes);
 app.use('/api/v1/leads', leadActivityRoutes);
 app.use('/api/v1/residents', residentRoutes);
-// app.use('/api/v1/rooms', authenticate, roomsRoutes);
-// app.use('/api/v1/visits', authenticate, visitsRoutes);
-// etc.
+app.use('/api/v1/residents/:residentId/charting', chartingRoutes);
+app.use('/api/v1/residents/:residentId/discharge-full', dischargeRoutes);
+app.use('/api/v1/residents/:residentId/setup', patientSetupRoutes);
+app.use('/api/v1/attendance', attendanceRoutes);
 
 // ============================================
 // ERROR HANDLING - MUST BE LAST

@@ -42,6 +42,8 @@ import {
 } from '@mui/icons-material';
 import { useParams, useNavigate } from 'react-router-dom';
 import { residentService } from '../services/resident.service';
+import { DischargeWizard } from '../components/Discharge/DischargeWizard';
+import { ResidentProvider } from '../contexts/ResidentContext';
 
 /* ========== Constants ========== */
 
@@ -126,6 +128,7 @@ export const ResidentDetailPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'info' as 'success' | 'error' | 'info' });
   const [editProfileOpen, setEditProfileOpen] = useState(false);
+  const [dischargeOpen, setDischargeOpen] = useState(false);
 
   const fetchResident = useCallback(async () => {
     if (!id) return;
@@ -317,6 +320,14 @@ export const ResidentDetailPage: React.FC = () => {
             </Button>
           </Box>
         )}
+        {resident.status === 'ACTIVE' && (
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', px: 2, py: 1, borderBottom: '1px solid #f3f4f6' }}>
+            <Button size="small" variant="contained" onClick={() => setDischargeOpen(true)}
+              sx={{ fontSize: '11px', textTransform: 'none', bgcolor: '#ef4444', borderRadius: '6px', '&:hover': { bgcolor: '#dc2626' } }}>
+              Discharge Resident
+            </Button>
+          </Box>
+        )}
 
         {/* Tab Bar — Different for ADH vs ALF per user stories */}
         <Tabs
@@ -338,11 +349,13 @@ export const ResidentDetailPage: React.FC = () => {
       </Box>
 
       {/* ====== TAB CONTENT ====== */}
-      <Box sx={{ p: 2.5 }}>
-        {getTabsForService(isALF, isInProgress, resident, handleTabNavigate, () => setEditProfileOpen(true)).map((tab, idx) => (
-          activeTab === idx ? <Box key={tab.key}>{tab.content}</Box> : null
-        ))}
-      </Box>
+      <ResidentProvider residentId={resident?.id}>
+        <Box sx={{ p: 2.5 }}>
+          {getTabsForService(isALF, isInProgress, resident, handleTabNavigate, () => setEditProfileOpen(true)).map((tab, idx) => (
+            activeTab === idx ? <Box key={tab.key}>{tab.content}</Box> : null
+          ))}
+        </Box>
+      </ResidentProvider>
 
       {/* Snackbar */}
       <Snackbar open={snackbar.open} autoHideDuration={3000} onClose={() => setSnackbar({ ...snackbar, open: false })} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
@@ -415,6 +428,13 @@ export const ResidentDetailPage: React.FC = () => {
           <Button onClick={() => { setEditProfileOpen(false); setSnackbar({ open: true, message: 'Profile updated successfully', severity: 'success' }); }} variant="contained" size="small" sx={{ textTransform: 'none', fontSize: '12px', bgcolor: '#1e3a5f' }}>Save Changes</Button>
         </DialogActions>
       </Dialog>
+
+      <DischargeWizard
+        resident={resident}
+        open={dischargeOpen}
+        onClose={() => setDischargeOpen(false)}
+        onComplete={() => { setSnackbar({ open: true, message: 'Resident discharged successfully', severity: 'success' }); fetchResident(); }}
+      />
     </Box>
   );
 };

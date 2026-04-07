@@ -348,7 +348,24 @@ model Resident {
   billings            Billing[]
   chartings           Charting[]
   documents           Document[]
-  
+
+  // Charting relations
+  vitals              Vital[]
+  allergyRecords      Allergy[]
+  medicationRecords   Medication[]
+  carePlans           CarePlan[]
+  events              ResidentEvent[]
+  progressNotes       ProgressNote[]
+  services            ResidentService[]
+  tickets             Ticket[]
+  inventoryItems      InventoryItem[]
+  incidents           Incident[]
+  painScales          PainScale[]
+  faceToFaceNotes     FaceToFaceNote[]
+  attendanceRecords   Attendance[]
+  dischargeRecord     DischargeRecord?
+  patientSetup        PatientSetup?
+
   notes               String?
   
   createdAt           DateTime @default(now())
@@ -913,4 +930,318 @@ enum IntegrationStatus {
   FAILURE
   RETRY
   PENDING
+}
+
+enum AttendanceStatus {
+  PRESENT
+  ABSENT
+  CHECKED_IN
+  HALF_DAY
+  PARTIAL
+}
+
+// ============================================
+// CHARTING: VITALS
+// ============================================
+model Vital {
+  id                  Int      @id @default(autoincrement())
+  residentId          Int
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId           Int
+  date                DateTime
+  time                String?
+  temperature         Decimal?
+  bloodPressure       String?
+  heartRate           Int?
+  respiratoryRate     Int?
+  oxygenSaturation    Decimal?
+  weight              Decimal?
+  height              Decimal?
+  bmi                 Decimal?
+  notes               String?
+  addedById           Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  @@index([residentId])
+  @@index([date])
+}
+
+model Allergy {
+  id                  Int      @id @default(autoincrement())
+  residentId          Int
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId           Int
+  type                String
+  allergen            String
+  reaction            String?
+  severity            String
+  status              String     @default("Active")
+  onsetDate           DateTime?
+  notes               String?
+  addedById           Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  @@index([residentId])
+}
+
+model Medication {
+  id                  Int      @id @default(autoincrement())
+  residentId          Int
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId           Int
+  name                String
+  sig                 String?
+  dosage              String?
+  frequency           String?
+  route               String?
+  quantity            Int?
+  startDate           DateTime?
+  endDate             DateTime?
+  refillDate          DateTime?
+  prescriber          String?
+  status              String     @default("Active")
+  notes               String?
+  addedById           Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  @@index([residentId])
+}
+
+model CarePlan {
+  id                  Int      @id @default(autoincrement())
+  residentId          Int
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId           Int
+  problem             String
+  goal                String?
+  approach            String?
+  targetDate          DateTime?
+  provider            String?
+  status              String     @default("Active")
+  notes               String?
+  addedById           Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  @@index([residentId])
+}
+
+model ResidentEvent {
+  id                  Int      @id @default(autoincrement())
+  residentId          Int
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId           Int
+  date                DateTime
+  noteType            String?
+  description         String
+  category            String?
+  addedById           Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  @@index([residentId])
+  @@index([date])
+}
+
+model ProgressNote {
+  id                  Int      @id @default(autoincrement())
+  residentId          Int
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId           Int
+  date                DateTime
+  staffName           String?
+  findings            String?
+  interventions       String?
+  level               String?
+  status              String     @default("Draft")
+  notes               String?
+  addedById           Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  @@index([residentId])
+}
+
+model ResidentService {
+  id                  Int      @id @default(autoincrement())
+  residentId          Int
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId           Int
+  serviceName         String
+  type                String?
+  frequency           String?
+  startDate           DateTime?
+  endDate             DateTime?
+  provider            String?
+  status              String     @default("Active")
+  notes               String?
+  addedById           Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  @@index([residentId])
+}
+
+model Ticket {
+  id                  Int      @id @default(autoincrement())
+  residentId          Int
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId           Int
+  title               String
+  category            String?
+  priority            String     @default("Medium")
+  status              String     @default("Open")
+  assignedTo          String?
+  description         String?
+  resolution          String?
+  addedById           Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  @@index([residentId])
+}
+
+model InventoryItem {
+  id                  Int      @id @default(autoincrement())
+  residentId          Int
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId           Int
+  itemName            String
+  category            String?
+  quantity            Int        @default(1)
+  condition           String?
+  location            String?
+  status              String     @default("Active")
+  notes               String?
+  addedById           Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  @@index([residentId])
+}
+
+model Incident {
+  id                  Int      @id @default(autoincrement())
+  residentId          Int
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId           Int
+  date                DateTime
+  time                String?
+  type                String
+  category            String?
+  location            String?
+  severity            String     @default("Minor")
+  status              String     @default("Open")
+  description         String?
+  actionTaken         String?
+  witnesses           String?
+  followUp            String?
+  reportedById        Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  @@index([residentId])
+  @@index([date])
+}
+
+model PainScale {
+  id                  Int      @id @default(autoincrement())
+  residentId          Int
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId           Int
+  date                DateTime
+  painLevel           Int
+  location            String?
+  intervention        String?
+  postScore           Int?
+  notes               String?
+  addedById           Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  @@index([residentId])
+}
+
+model FaceToFaceNote {
+  id                  Int      @id @default(autoincrement())
+  residentId          Int
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId           Int
+  date                DateTime
+  type                String?
+  memberName          String?
+  findings            String?
+  cnaSignature        Boolean    @default(false)
+  rnApproval          Boolean    @default(false)
+  status              String     @default("Pending")
+  notes               String?
+  addedById           Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  @@index([residentId])
+}
+
+model Attendance {
+  id                  Int      @id @default(autoincrement())
+  residentId          Int
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId           Int
+  facilityId          Int
+  date                DateTime
+  checkInTime         DateTime?
+  checkOutTime        DateTime?
+  status              AttendanceStatus @default(ABSENT)
+  type                String?
+  absenceReason       String?
+  notes               String?
+  markedById          Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  @@unique([residentId, date])
+  @@index([residentId])
+  @@index([date])
+  @@index([facilityId, date])
+}
+
+model DischargeRecord {
+  id                  Int      @id @default(autoincrement())
+  residentId          Int      @unique
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId           Int
+  dischargeDate       DateTime
+  dischargeTime       String?
+  dischargeType       String
+  dischargeReason     String
+  notifiedContacts    Json?
+  edwpSent            Boolean    @default(false)
+  edwpSentDate        DateTime?
+  overallBehavior     String?
+  participationTherapy String?
+  medicationCompliance String?
+  strengthsObserved   String?
+  areasOfConcern      String?
+  depositAmount       Decimal    @default(0)
+  deductions          Json?
+  totalDeductions     Decimal    @default(0)
+  refundTotal         Decimal    @default(0)
+  processedBy         String?
+  approvalStatus      String     @default("PENDING")
+  createdById         Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  @@index([residentId])
+}
+
+model PatientSetup {
+  id                  Int      @id @default(autoincrement())
+  residentId          Int      @unique
+  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId           Int
+  currentStep         Int        @default(0)
+  serviceType         String
+  caseAgencyData      Json?
+  documentsData       Json?
+  caseManagerData     Json?
+  transportationData  Json?
+  billingData         Json?
+  bedAvailabilityData Json?
+  assessmentData      Json?
+  completedSteps      Json?
+  status              String     @default("IN_PROGRESS")
+  createdById         Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  @@index([residentId])
 }
