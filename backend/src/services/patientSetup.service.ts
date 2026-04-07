@@ -28,15 +28,10 @@ export const patientSetupService = {
         data: {
           residentId: Number(residentId),
           companyId: Number(companyId),
+          serviceType: resident.primaryService,
+          createdById: 0,
           currentStep: 0,
           completedSteps: [],
-          caseAgencyData: {},
-          documentsData: {},
-          caseManagerData: {},
-          transportationData: {},
-          billingData: {},
-          bedAvailabilityData: {},
-          assessmentData: {},
         },
       });
     }
@@ -55,7 +50,6 @@ export const patientSetupService = {
       where: { id: setup.id },
       data: {
         [stepKey]: data,
-        updatedById: Number(userId),
       },
     });
   },
@@ -76,7 +70,6 @@ export const patientSetupService = {
       data: {
         completedSteps,
         currentStep,
-        updatedById: Number(userId),
       },
     });
   },

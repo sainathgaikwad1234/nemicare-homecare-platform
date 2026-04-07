@@ -21,7 +21,6 @@ export const attendanceService = {
         id: true,
         firstName: true,
         lastName: true,
-        photoUrl: true,
         primaryService: true,
       },
       orderBy: { lastName: 'asc' },
@@ -86,7 +85,7 @@ export const attendanceService = {
       update: {
         checkInTime: new Date(),
         status: 'PRESENT',
-        checkedInById: Number(userId),
+        markedById: Number(userId),
       },
       create: {
         residentId: Number(residentId),
@@ -95,7 +94,7 @@ export const attendanceService = {
         date: targetDate,
         checkInTime: new Date(),
         status: 'PRESENT',
-        checkedInById: Number(userId),
+        markedById: Number(userId),
       },
     });
   },
@@ -130,7 +129,7 @@ export const attendanceService = {
       },
       data: {
         checkOutTime: new Date(),
-        checkedOutById: Number(userId),
+        markedById: Number(userId),
       },
     });
   },
@@ -155,7 +154,7 @@ export const attendanceService = {
         status: 'ABSENT',
         absenceReason: reason,
         notes: notes || null,
-        checkedInById: Number(userId),
+        markedById: Number(userId),
       },
       create: {
         residentId: Number(residentId),
@@ -165,7 +164,7 @@ export const attendanceService = {
         status: 'ABSENT',
         absenceReason: reason,
         notes: notes || null,
-        checkedInById: Number(userId),
+        markedById: Number(userId),
       },
     });
   },
