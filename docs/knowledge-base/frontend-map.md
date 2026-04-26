@@ -17,6 +17,7 @@
 | Dashboard | `pages/Dashboard.tsx` | `/dashboard` | (static demo data) | Yes |
 | Lead Management | `pages/LeadManagement.tsx` | `/leads` | GET/POST/PUT/DELETE `/leads` (API-connected, search/filter/paginate) | Yes |
 | Resident Management | `pages/ResidentManagement.tsx` | `/residents` | GET/POST/PUT/DELETE `/residents`, POST `/residents/:id/discharge` | Yes |
+| Resident Detail | `pages/ResidentDetail.tsx` | `/residents/:id` | GET `/residents/:id`, charting, discharge, setup APIs | Yes |
 
 ## Layout Components
 
@@ -59,6 +60,25 @@
 | FormDialog | `components/FormDialog.tsx` | Generic modal form dialog |
 | LeadForm | `components/Forms/LeadForm.tsx` | Old lead form (superseded by inline dialog in LeadManagement) |
 
+## Charting Components
+
+| Component | File | Charting Type |
+|-----------|------|---------------|
+| VitalsTab | `components/Charting/VitalsTab.tsx` | vitals |
+| AllergiesTab | `components/Charting/AllergiesTab.tsx` | allergies |
+| MedicationTab | `components/Charting/MedicationTab.tsx` | medications |
+| CarePlansTab | `components/Charting/CarePlansTab.tsx` | care-plans |
+| EventsTab | `components/Charting/EventsTab.tsx` | events |
+| ProgressNotesTab | `components/Charting/ProgressNotesTab.tsx` | progress-notes |
+| ServicesTab | `components/Charting/ServicesTab.tsx` | services |
+| TicketsTab | `components/Charting/TicketsTab.tsx` | tickets |
+| InventoryTab | `components/Charting/InventoryTab.tsx` | inventory |
+| IncidentsTab | `components/Charting/IncidentsTab.tsx` | incidents |
+| PainScaleTab | `components/Charting/PainScaleTab.tsx` | pain-scale |
+| FaceToFaceNotesTab | `components/Charting/FaceToFaceNotesTab.tsx` | face-to-face |
+| DocumentsTab | `components/Charting/DocumentsTab.tsx` | documents |
+| DischargeWizard | `components/Discharge/DischargeWizard.tsx` | discharge workflow |
+
 ## Services
 
 | Service | File | API Endpoints |
@@ -67,9 +87,18 @@
 | AuthService | `services/auth.service.ts` | `/auth/login`, `/auth/refresh`, `/auth/me`, `/auth/logout` |
 | LeadService | `services/lead.service.ts` | `/leads` CRUD + search/filter/paginate |
 | ResidentService | `services/resident.service.ts` | `/residents` CRUD + discharge + search/filter/paginate |
+| AttendanceService | `services/attendance.service.ts` | `/attendance` daily/weekly roster, check-in/out, mark absent |
+| ChartingService | `services/charting.service.ts` | `/residents/:id/charting/:type` CRUD for 12 charting types |
+
+## Hooks
+
+| Hook | File | Purpose |
+|------|------|---------|
+| useChartingData | `hooks/useChartingData.ts` | Fetch/add/update/delete charting records, fallback to sample data |
 
 ## State Management
 - **Auth**: React Context (`contexts/AuthContext.tsx`) — user, tokens, permissions
+- **Resident**: React Context (`contexts/ResidentContext.tsx`) — provides residentId to charting tabs
 - **Data**: Services call API directly (no Redux for API data yet, RTK installed but unused)
 
 ## Auth Flow
@@ -81,9 +110,9 @@
 
 ## Not Yet Built
 - Scheduling/Calendar pages
-- Charting/clinical pages
 - Billing pages
-- Document management
+- Document management (standalone page — documents tab exists in charting)
 - Employee/HRMS pages
+- Attendance page (standalone — backend API exists, no dedicated frontend page yet)
 - Family Portal
 - Super Admin Portal

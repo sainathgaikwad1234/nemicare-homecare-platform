@@ -46,7 +46,13 @@
       "Bash(cp \".claude/worktrees/agent-a2996425/outputs/story-description-agent/alf-part1.js\" \"outputs/story-description-agent/alf-part1.js\")",
       "Bash(cp \".claude/worktrees/agent-a7b8df9b/outputs/story-description-agent/alf-part2.js\" \"outputs/story-description-agent/alf-part2.js\")",
       "Bash(cp \".claude/worktrees/agent-a7752b8f/outputs/story-description-agent/alf-part3.js\" \"outputs/story-description-agent/alf-part3.js\")",
-      "Bash(cp \".claude/worktrees/agent-a88ad2c2/outputs/story-description-agent/alf-part4.js\" \"outputs/story-description-agent/alf-part4.js\")"
+      "Bash(cp \".claude/worktrees/agent-a88ad2c2/outputs/story-description-agent/alf-part4.js\" \"outputs/story-description-agent/alf-part4.js\")",
+      "Bash(tasklist //FI \"PID eq 26656\" //FO CSV //NH)",
+      "Bash(tasklist //FI \"PID eq 29832\" //FO CSV //NH)",
+      "Bash(tasklist //FI \"PID eq 36540\" //FO CSV //NH)",
+      "Bash(taskkill //F //PID 26656)",
+      "Bash(taskkill //F //PID 29832)",
+      "Bash(taskkill //F //PID 36540)"
     ],
     "additionalDirectories": [
       "c:\\Users\\TTPL-LNV-0319\\Desktop\\Thinkitive - QA Agents\\BMAD-QA-AGENTS\\project-docs",

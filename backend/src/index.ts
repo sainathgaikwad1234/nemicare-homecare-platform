@@ -19,6 +19,29 @@ import { chartingRoutes } from './routes/charting.routes';
 import { attendanceRoutes } from './routes/attendance.routes';
 import { dischargeRoutes } from './routes/discharge.routes';
 import { patientSetupRoutes } from './routes/patientSetup.routes';
+import { employeeRoutes } from './routes/employee.routes';
+import { onboardingRoutes } from './routes/onboarding.routes';
+import { shiftRoutes } from './routes/shift.routes';
+import { leaveRoutes } from './routes/leave.routes';
+import { meRoutes } from './routes/me.routes';
+import { taskRoutes, meTaskRoutes, reviewRoutes, exitRoutes } from './routes/phase4.routes';
+import {
+  employeeAttendanceRoutes,
+  meTimecardRoutes,
+  supervisorTimecardRoutes,
+  payrollRoutes,
+  facilityConfigRoutes,
+} from './routes/phase5.routes';
+import { jobsRoutes } from './routes/jobs.routes';
+import { meShiftChangeRoutes, supervisorShiftChangeRoutes } from './routes/shiftChange.routes';
+import { onboardingExtrasRoutes } from './routes/onboardingExtras.routes';
+import { noticeBoardRoutes, messageRoutes, reportsRoutes } from './routes/phase5b.routes';
+import { dashboardRoutes } from './routes/dashboard.routes';
+import {
+  activityLogRoutes, incidentRoutes, recognitionRoutes, payrollSettingsRoutes,
+  trainingRoutes, employeeTrainingRoutes, peerSwapRoutes, docSignRoutes,
+} from './routes/phase5c.routes';
+import { startCronJobs, stopCronJobs } from './jobs';
 
 // Import Swagger
 import swaggerUi from 'swagger-ui-express';
@@ -58,10 +81,10 @@ app.use(requestMetadata);
 // Logging
 app.use(loggerMiddleware);
 
-// Rate limiting
+// Rate limiting (skipped in development to avoid blocking active testing)
 const limiter = rateLimit({
   windowMs: RATE_LIMIT.WINDOW_MS,
-  max: RATE_LIMIT.MAX_REQUESTS,
+  max: NODE_ENV === 'production' ? RATE_LIMIT.MAX_REQUESTS : 10000,
   message: 'Too many requests from this IP, please try again later.',
   standardHeaders: true,
   legacyHeaders: false,
@@ -123,6 +146,36 @@ app.use('/api/v1/residents/:residentId/charting', chartingRoutes);
 app.use('/api/v1/residents/:residentId/discharge-full', dischargeRoutes);
 app.use('/api/v1/residents/:residentId/setup', patientSetupRoutes);
 app.use('/api/v1/attendance', attendanceRoutes);
+app.use('/api/v1/employees', employeeRoutes);
+app.use('/api/v1/onboarding', onboardingRoutes);
+app.use('/api/v1/shifts', shiftRoutes);
+app.use('/api/v1/leaves', leaveRoutes);
+app.use('/api/v1/me', meRoutes);
+app.use('/api/v1/me/tasks', meTaskRoutes);
+app.use('/api/v1/tasks', taskRoutes);
+app.use('/api/v1/performance-reviews', reviewRoutes);
+app.use('/api/v1/exits', exitRoutes);
+app.use('/api/v1/me/attendance', employeeAttendanceRoutes);
+app.use('/api/v1/me/timecards', meTimecardRoutes);
+app.use('/api/v1/timecards', supervisorTimecardRoutes);
+app.use('/api/v1/payroll', payrollRoutes);
+app.use('/api/v1/facility-config', facilityConfigRoutes);
+app.use('/api/v1/jobs', jobsRoutes);
+app.use('/api/v1/me/shift-change-requests', meShiftChangeRoutes);
+app.use('/api/v1/shift-change-requests', supervisorShiftChangeRoutes);
+app.use('/api/v1/employees', onboardingExtrasRoutes);
+app.use('/api/v1/notices', noticeBoardRoutes);
+app.use('/api/v1/messages', messageRoutes);
+app.use('/api/v1/reports', reportsRoutes);
+app.use('/api/v1/dashboard', dashboardRoutes);
+app.use('/api/v1/activity-log', activityLogRoutes);
+app.use('/api/v1/incidents', incidentRoutes);
+app.use('/api/v1/recognitions', recognitionRoutes);
+app.use('/api/v1/payroll-settings', payrollSettingsRoutes);
+app.use('/api/v1/training', trainingRoutes);
+app.use('/api/v1/employees', employeeTrainingRoutes);
+app.use('/api/v1/shift-change-requests', peerSwapRoutes);
+app.use('/api/v1/employees', docSignRoutes);
 
 // ============================================
 // ERROR HANDLING - MUST BE LAST
@@ -144,11 +197,13 @@ const server = app.listen(PORT, () => {
     environment: NODE_ENV,
     timestamp: new Date().toISOString(),
   });
+  startCronJobs();
 });
 
 // Graceful shutdown
 process.on('SIGTERM', () => {
   logger.info('SIGTERM received, shutting down gracefully');
+  stopCronJobs();
   server.close(() => {
     logger.info('Server closed');
     process.exit(0);
@@ -157,6 +212,7 @@ process.on('SIGTERM', () => {
 
 process.on('SIGINT', () => {
   logger.info('SIGINT received, shutting down gracefully');
+  stopCronJobs();
   server.close(() => {
     logger.info('Server closed');
     process.exit(0);

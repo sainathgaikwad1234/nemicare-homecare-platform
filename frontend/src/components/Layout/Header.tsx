@@ -1,6 +1,6 @@
 /**
  * Header Component - Dark blue top navigation bar matching Figma exactly
- * Selected tab has pill/rounded-rect background highlight
+ * Selected tab uses outlined rectangle highlight, brand uses cursive Pacifico font.
  */
 
 import React, { useState } from 'react';
@@ -17,31 +17,52 @@ import {
 } from '@mui/material';
 import {
   Home as HomeIcon,
-  People as LeadsIcon,
-  PersonOutline as ResidentsIcon,
-  CalendarMonth as ScheduleIcon,
+  PersonSearch as LeadsIcon,
+  PeopleAlt as ResidentsIcon,
+  Schedule as ScheduleIcon,
   Description as DocumentsIcon,
-  Business as HRIcon,
+  Badge as HRIcon,
   Search as SearchIcon,
   Notifications as NotificationsIcon,
   Logout as LogoutIcon,
-  CheckCircleOutline as AttendanceIcon,
-  Label as LabelIcon,
+  HowToReg as AttendanceIcon,
+  AttachMoney as LabelIcon,
+  Settings as SettingsIcon,
+  HelpOutline as HelpIcon,
+  KeyboardArrowDown as ChevronDownIcon,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 
 const navTabs = [
-  { label: 'Home', path: '/dashboard', icon: <HomeIcon sx={{ fontSize: 15 }} /> },
-  { label: 'Co Leads', path: '/leads', icon: <LeadsIcon sx={{ fontSize: 15 }} /> },
-  { label: 'Residents', path: '/residents', icon: <ResidentsIcon sx={{ fontSize: 15 }} /> },
-  { label: 'Schedule', path: '/scheduling', icon: <ScheduleIcon sx={{ fontSize: 15 }} /> },
-  { label: 'All HRMS', path: '/hr', icon: <HRIcon sx={{ fontSize: 15 }} /> },
-  { label: 'Documents', path: '/documents', icon: <DocumentsIcon sx={{ fontSize: 15 }} /> },
-  { label: 'Attendance', path: '/attendance', icon: <AttendanceIcon sx={{ fontSize: 15 }} /> },
-  { label: 'Billing', path: '/billing', icon: <LabelIcon sx={{ fontSize: 15 }} /> },
-  { label: 'Settings', path: '/settings', icon: <LabelIcon sx={{ fontSize: 15 }} /> },
+  { label: 'Home', path: '/dashboard', icon: <HomeIcon sx={{ fontSize: 17 }} /> },
+  { label: 'Leads', path: '/leads', icon: <LeadsIcon sx={{ fontSize: 17 }} /> },
+  { label: 'Residents', path: '/residents', icon: <ResidentsIcon sx={{ fontSize: 17 }} /> },
+  { label: 'Schedule', path: '/scheduling', icon: <ScheduleIcon sx={{ fontSize: 17 }} /> },
+  { label: 'HRMS', path: '/hrms', icon: <HRIcon sx={{ fontSize: 17 }} /> },
+  { label: 'Documents', path: '/documents', icon: <DocumentsIcon sx={{ fontSize: 17 }} /> },
+  { label: 'Attendance', path: '/attendance', icon: <AttendanceIcon sx={{ fontSize: 17 }} /> },
+  { label: 'Label', path: '/billing', icon: <LabelIcon sx={{ fontSize: 17 }} /> },
+  { label: 'Settings', path: '/settings', icon: <SettingsIcon sx={{ fontSize: 17 }} /> },
 ];
+
+// Brand mark — overlapping orange + blue petal shapes (matches Figma "Nemi Care" logo)
+const NemiLogoMark: React.FC = () => (
+  <Box sx={{ width: 40, height: 40, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <svg viewBox="0 0 40 40" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+      {/* Large dark blue petal (top-left) */}
+      <ellipse cx="14" cy="14" rx="11" ry="11" fill="#1e3a8a" />
+      {/* Orange/gold accent petal (bottom-left, overlapping) */}
+      <ellipse cx="11" cy="26" rx="7" ry="7" fill="#f97316" />
+      {/* Yellow highlight bud (small) */}
+      <ellipse cx="22" cy="22" rx="4" ry="4" fill="#fbbf24" />
+      {/* Small dark blue dot (bottom-right) */}
+      <ellipse cx="29" cy="30" rx="4" ry="4" fill="#1e40af" />
+      {/* White cross/plus glint in the center to suggest "care" / medical */}
+      <circle cx="18" cy="18" r="2" fill="#fff" opacity="0.9" />
+    </svg>
+  </Box>
+);
 
 export const Header: React.FC = () => {
   const { user, logout } = useAuth();
@@ -73,7 +94,7 @@ export const Header: React.FC = () => {
       position="fixed"
       sx={{
         backgroundColor: '#1e3a5f',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+        boxShadow: '0 2px 4px rgba(0,0,0,0.15)',
         zIndex: (theme) => theme.zIndex.drawer + 1,
       }}
     >
@@ -81,57 +102,47 @@ export const Header: React.FC = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          padding: '0 12px !important',
-          minHeight: '42px !important',
+          padding: '0 16px !important',
+          minHeight: '56px !important',
           gap: 0,
         }}
       >
-        {/* Logo */}
+        {/* Logo + brand */}
         <Box
           sx={{
             display: 'flex',
             alignItems: 'center',
-            gap: 0.6,
-            mr: 1.5,
+            gap: 1,
+            mr: 2.5,
             cursor: 'pointer',
             flexShrink: 0,
           }}
           onClick={() => navigate('/dashboard')}
         >
-          <Box
-            sx={{
-              width: 24,
-              height: 24,
-              backgroundColor: '#fff',
-              borderRadius: '4px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '13px',
-            }}
-          >
-            🏥
-          </Box>
+          <NemiLogoMark />
           <Typography
             sx={{
+              fontFamily: '"Dancing Script", "Brush Script MT", cursive',
               fontWeight: 700,
-              fontSize: '14px',
+              fontStyle: 'italic',
+              fontSize: '26px',
               color: '#fff',
               whiteSpace: 'nowrap',
-              fontStyle: 'italic',
+              letterSpacing: '0.5px',
+              lineHeight: 1,
             }}
           >
             Nemi Care
           </Typography>
         </Box>
 
-        {/* Navigation Tabs - Custom pills instead of MUI Tabs */}
+        {/* Navigation Tabs */}
         <Box
           sx={{
             flex: 1,
             display: 'flex',
             alignItems: 'center',
-            gap: 0.25,
+            gap: 0.5,
             overflow: 'auto',
             '&::-webkit-scrollbar': { display: 'none' },
             msOverflowStyle: 'none',
@@ -147,27 +158,29 @@ export const Header: React.FC = () => {
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 0.4,
-                  px: 1.2,
-                  py: 0.5,
-                  borderRadius: '6px',
+                  gap: 0.6,
+                  px: 1.4,
+                  py: 0.75,
+                  borderRadius: '8px',
                   cursor: 'pointer',
                   whiteSpace: 'nowrap',
-                  backgroundColor: active ? 'rgba(255,255,255,0.15)' : 'transparent',
-                  transition: 'background-color 0.15s',
+                  border: active ? '1px solid rgba(255,255,255,0.4)' : '1px solid transparent',
+                  backgroundColor: active ? 'rgba(255,255,255,0.08)' : 'transparent',
+                  transition: 'background-color 0.15s, border-color 0.15s',
                   '&:hover': {
-                    backgroundColor: active ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.08)',
+                    backgroundColor: 'rgba(255,255,255,0.1)',
                   },
                 }}
               >
-                <Box sx={{ color: active ? '#fff' : 'rgba(255,255,255,0.6)', display: 'flex', alignItems: 'center' }}>
+                <Box sx={{ color: '#fff', display: 'flex', alignItems: 'center' }}>
                   {tab.icon}
                 </Box>
                 <Typography
                   sx={{
-                    fontSize: '12px',
-                    fontWeight: active ? 600 : 400,
-                    color: active ? '#fff' : 'rgba(255,255,255,0.6)',
+                    fontFamily: '"Inter", "Roboto", sans-serif',
+                    fontSize: '14px',
+                    fontWeight: active ? 600 : 500,
+                    color: '#fff',
                   }}
                 >
                   {tab.label}
@@ -178,18 +191,22 @@ export const Header: React.FC = () => {
         </Box>
 
         {/* Right Side */}
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, flexShrink: 0, ml: 1 }}>
-          <IconButton size="small" sx={{ color: 'rgba(255,255,255,0.75)', p: 0.4 }}>
-            <SearchIcon sx={{ fontSize: 18 }} />
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexShrink: 0, ml: 1.5 }}>
+          <IconButton size="small" sx={{ color: '#fff', p: 0.6 }}>
+            <SearchIcon sx={{ fontSize: 20 }} />
           </IconButton>
 
-          <IconButton size="small" sx={{ color: 'rgba(255,255,255,0.75)', p: 0.4 }}>
+          <IconButton size="small" sx={{ color: '#fff', p: 0.6 }}>
+            <HelpIcon sx={{ fontSize: 20 }} />
+          </IconButton>
+
+          <IconButton size="small" sx={{ color: '#fff', p: 0.6 }}>
             <Badge
-              badgeContent={3}
+              variant="dot"
               color="error"
-              sx={{ '& .MuiBadge-badge': { fontSize: '8px', minWidth: '14px', height: '14px', p: 0 } }}
+              sx={{ '& .MuiBadge-badge': { minWidth: 8, height: 8, top: 4, right: 4 } }}
             >
-              <NotificationsIcon sx={{ fontSize: 18 }} />
+              <NotificationsIcon sx={{ fontSize: 20 }} />
             </Badge>
           </IconButton>
 
@@ -198,22 +215,27 @@ export const Header: React.FC = () => {
             sx={{
               display: 'flex',
               alignItems: 'center',
-              gap: 0.5,
+              gap: 0.25,
               cursor: 'pointer',
-              ml: 0.25,
+              ml: 0.5,
+              p: 0.25,
+              borderRadius: '20px',
+              '&:hover': { backgroundColor: 'rgba(255,255,255,0.08)' },
             }}
           >
             <Avatar
               sx={{
-                width: 26,
-                height: 26,
+                width: 32,
+                height: 32,
                 backgroundColor: '#f59e0b',
-                fontSize: '10px',
+                fontSize: '12px',
                 fontWeight: 600,
+                border: '2px solid rgba(255,255,255,0.2)',
               }}
             >
               {getInitials(user?.firstName, user?.lastName)}
             </Avatar>
+            <ChevronDownIcon sx={{ fontSize: 18, color: '#fff' }} />
           </Box>
 
           <Menu
@@ -222,7 +244,7 @@ export const Header: React.FC = () => {
             onClose={handleMenuClose}
             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            PaperProps={{ sx: { mt: 0.5, minWidth: 180 } }}
+            PaperProps={{ sx: { mt: 0.5, minWidth: 200 } }}
           >
             <MenuItem disabled>
               <Typography sx={{ fontSize: '13px' }}>{user?.email}</Typography>

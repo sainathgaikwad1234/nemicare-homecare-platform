@@ -38,17 +38,18 @@ HomeCare-Project-Development/
 │   ├── src/
 │   │   ├── config/   # Constants, settings
 │   │   ├── middleware/# auth, rbac, audit, validation, errors, logger
-│   │   ├── routes/   # auth, lead, resident (full CRUD + search/filter/paginate)
-│   │   ├── services/ # auth, lead, resident (business logic)
+│   │   ├── routes/   # auth, lead, resident, charting, attendance, discharge, patientSetup
+│   │   ├── services/ # auth, lead, resident, charting, attendance, discharge, patientSetup
 │   │   ├── types/    # TypeScript types
 │   │   └── utils/    # bcrypt, jwt, helpers
 │   └── Dockerfile
 ├── frontend/         # React SPA (port 3000)
 │   └── src/
 │       ├── components/  # DataTable, FormDialog, Layout, ProtectedRoute
-│       ├── contexts/    # AuthContext
+│       ├── contexts/    # AuthContext, ResidentContext
 │       ├── pages/       # Login, Dashboard, LeadManagement, ResidentManagement
-│       └── services/    # api client, auth service, lead service, resident service
+│       ├── hooks/       # useChartingData (API-connected charting data hook)
+│       └── services/    # api client, auth, lead, resident, attendance, charting services
 ├── automation/       # Playwright test framework
 │   ├── pages/        # Page Object Model (BasePage, LoginPage)
 │   ├── tests/        # e2e, api, visual
@@ -78,7 +79,12 @@ HomeCare-Project-Development/
 - **Residents Page**: Data table with tabs, CRUD, discharge, search, pagination, API-driven filtering
 - **DB Seed**: 3 users (admin/manager/staff), sample leads + resident, `prisma.seed` configured in package.json
 - **Docker**: PostgreSQL + Redis running via docker-compose
-- **Visits, Billing, Charting, Documents, Employees**: Schema defined, routes NOT implemented
+- **Charting**: Full CRUD for 12 charting types (vitals, allergies, medications, care plans, events, progress notes, services, tickets, inventory, incidents, pain scale, face-to-face) — DONE
+- **Attendance**: Daily/weekly roster, check-in/out, mark absent — DONE
+- **Discharge**: Full discharge workflow with approval — DONE
+- **Patient Setup**: 7-step onboarding wizard (case/agency, documents, case manager, transportation, billing, bed availability, assessment) — DONE
+- **Resident Detail**: Face sheet page with 11+ tabs, Figma-matched — DONE
+- **Visits, Billing, Documents, Employees**: Schema defined, routes NOT implemented
 - **Rooms**: Schema defined, route commented out
 
 ## Key Ports

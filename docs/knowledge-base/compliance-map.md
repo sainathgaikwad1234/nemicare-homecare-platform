@@ -13,6 +13,17 @@ This is a healthcare application managing PHI (Protected Health Information) for
 | Charting | content (clinical notes), vitals | High |
 | Billing | medicaidNumber, paNumber | Medium |
 | MedicaidConfig | apiKey, passwordEncrypted | High (credentials) |
+| Vital | temperature, bloodPressure, heartRate, oxygenSaturation, weight | High |
+| Allergy | allergen, reaction, severity | High |
+| Medication | name, dosage, prescriber | High |
+| CarePlan | problem, goal, approach | High |
+| ProgressNote | findings, interventions | High |
+| PainScale | painLevel, location, intervention | High |
+| FaceToFaceNote | findings | High |
+| Incident | description, actionTaken, witnesses | High |
+| Attendance | checkInTime, checkOutTime (tracks presence) | Medium |
+| DischargeRecord | dischargeReason, overallBehavior, medicationCompliance, financials | High |
+| PatientSetup | all step JSON data (case, documents, billing, assessment) | High |
 | Visit | serviceCode (CPT codes) | Medium |
 
 ## HIPAA Safeguards Check

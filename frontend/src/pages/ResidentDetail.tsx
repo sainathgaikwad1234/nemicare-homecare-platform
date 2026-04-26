@@ -177,7 +177,7 @@ export const ResidentDetailPage: React.FC = () => {
   }; // ON_HOLD = In-progress in the system
 
   return (
-    <Box sx={{ bgcolor: '#f5f6fa', minHeight: 'calc(100vh - 42px)' }}>
+    <Box sx={{ bgcolor: '#f5f6fa', minHeight: 'calc(100vh - 56px)' }}>
 
       {/* ====== STICKY HEADER — Figma: Face Sheet.png top section ====== */}
       <Box sx={{

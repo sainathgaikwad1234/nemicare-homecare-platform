@@ -17,6 +17,21 @@
 | Document | documentType, fileUrl, requiresSignature, signedBy, signatureEnvelopeId | → Company, Facility, Resident?, User | Yes | Schema only |
 | Employee | employeeIdNumber, positionTitle, licenseType, baseSalary, hourlyRate | → Company, Facility, User (1:1), Timesheet[] | Yes (PII) | Schema only |
 | Timesheet | periodStart/End, regularHours, overtimeHours, status | → Company, Facility, Employee, User (approvedBy) | No | Schema only |
+| Vital | date, temperature, bloodPressure, heartRate, respiratoryRate, oxygenSaturation, weight, height, bmi | → Resident, Company | Yes (clinical) | Active |
+| Allergy | type, allergen, reaction, severity, status, onsetDate | → Resident, Company | Yes (clinical) | Active |
+| Medication | name, sig, dosage, frequency, route, quantity, startDate, endDate, prescriber | → Resident, Company | Yes (clinical) | Active |
+| CarePlan | problem, goal, approach, targetDate, provider, status | → Resident, Company | Yes (clinical) | Active |
+| ResidentEvent | date, noteType, description, category | → Resident, Company | Yes | Active |
+| ProgressNote | date, staffName, findings, interventions, level, status | → Resident, Company | Yes (clinical) | Active |
+| ResidentService | serviceName, type, frequency, startDate, endDate, provider | → Resident, Company | Yes | Active |
+| Ticket | title, category, priority, status, assignedTo, description, resolution | → Resident, Company | No | Active |
+| InventoryItem | itemName, category, quantity, condition, location | → Resident, Company | No | Active |
+| Incident | date, type, category, location, severity, status, actionTaken, witnesses, reportedById | → Resident, Company | Yes | Active |
+| PainScale | date, painLevel (0-10), location, intervention, postScore | → Resident, Company | Yes (clinical) | Active |
+| FaceToFaceNote | date, type, memberName, findings, cnaSignature, rnApproval | → Resident, Company | Yes (clinical) | Active |
+| Attendance | date, checkInTime, checkOutTime, status (enum), absenceReason | → Resident, Company, Facility | No | Active |
+| DischargeRecord | dischargeDate, dischargeType, dischargeReason, approvalStatus, financials (deposit/deductions/refund) | → Resident (1:1), Company | Yes | Active |
+| PatientSetup | currentStep, serviceType, 7 JSON step data fields, completedSteps, status | → Resident (1:1), Company | Yes | Active |
 | AuditLog | actionType, entityType, entityId, oldValues, newValues, ipAddress | → Company, User? | No (metadata) | Active |
 | MedicaidConfig | state, paRequired, apiUrl, serviceCodes, autoSubmitClaims | → Company, Facility | Yes (credentials) | Schema only |
 | IntegrationLog | integrationType, status, requestBody, responseBody, errorMessage | → Company | No | Schema only |
@@ -32,6 +47,7 @@
 | BillingType | MEDICAID, PRIVATE_PAY, INSURANCE, MIXED |
 | ServiceType | ALF, ADH, HOME_CARE, MC, IL |
 | VisitType | MEDICAL, SOCIAL, THERAPY, ACTIVITY, MEAL, OTHER |
+| AttendanceStatus | PRESENT, ABSENT, CHECKED_IN, HALF_DAY, PARTIAL |
 | ChartType | PROGRESS_NOTE, DAILY_LOG, ASSESSMENT, CARE_PLAN, INCIDENT_REPORT |
 | ActionType | CREATE, READ, UPDATE, DELETE, LOGIN, LOGOUT, EXPORT |
 

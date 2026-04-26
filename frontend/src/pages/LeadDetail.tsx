@@ -245,7 +245,7 @@ export const LeadDetailPage: React.FC = () => {
   /* ========== RENDER ========== */
 
   return (
-    <Box sx={{ display: 'flex', minHeight: 'calc(100vh - 42px)', bgcolor: '#f5f6fa' }}>
+    <Box sx={{ display: 'flex', minHeight: 'calc(100vh - 56px)', bgcolor: '#f5f6fa' }}>
 
       {/* ====== LEFT SIDEBAR ====== */}
       <Box

@@ -73,11 +73,47 @@
 | q | string | - | Search query (name, email, phone) |
 | facilityId | string | - | Filter by facility |
 
+## Charting (nested under resident)
+
+| Method | Path | Handler | Auth | Permission | Description |
+|--------|------|---------|------|------------|-------------|
+| GET | `/residents/:residentId/charting/:type` | charting.routes → chartingService[type].list | Bearer JWT | charting.read | List charting records (paginated) |
+| POST | `/residents/:residentId/charting/:type` | charting.routes → chartingService[type].create | Bearer JWT | charting.create | Create charting record |
+| PUT | `/residents/:residentId/charting/:type/:recordId` | charting.routes → chartingService[type].update | Bearer JWT | charting.create | Update charting record |
+| DELETE | `/residents/:residentId/charting/:type/:recordId` | charting.routes → chartingService[type].remove | Bearer JWT | charting.create | Delete charting record |
+
+**Charting types**: `vitals`, `allergies`, `medications`, `care-plans`, `events`, `progress-notes`, `services`, `tickets`, `inventory`, `incidents`, `pain-scale`, `face-to-face`
+
+## Attendance
+
+| Method | Path | Handler | Auth | Permission | Description |
+|--------|------|---------|------|------------|-------------|
+| GET | `/attendance/daily` | attendance.routes → attendanceService.getDailyRoster | Bearer JWT | residents.read | Get daily attendance roster |
+| GET | `/attendance/weekly` | attendance.routes → attendanceService.getWeeklyRoster | Bearer JWT | residents.read | Get weekly attendance roster |
+| POST | `/attendance/check-in` | attendance.routes → attendanceService.checkIn | Bearer JWT | residents.update | Check in a resident |
+| POST | `/attendance/check-out` | attendance.routes → attendanceService.checkOut | Bearer JWT | residents.update | Check out a resident |
+| POST | `/attendance/mark-absent` | attendance.routes → attendanceService.markAbsent | Bearer JWT | residents.update | Mark resident absent |
+
+## Discharge (nested under resident)
+
+| Method | Path | Handler | Auth | Permission | Description |
+|--------|------|---------|------|------------|-------------|
+| POST | `/residents/:residentId/discharge-full` | discharge.routes → dischargeService.createDischargeRecord | Bearer JWT | residents.update | Create discharge record (sets resident DISCHARGED) |
+| GET | `/residents/:residentId/discharge-full` | discharge.routes → dischargeService.getDischargeRecord | Bearer JWT | residents.read | Get discharge record |
+| PUT | `/residents/:residentId/discharge-full/:recordId/approval` | discharge.routes → dischargeService.updateApproval | Bearer JWT | residents.update | Update discharge approval status |
+
+## Patient Setup (nested under resident)
+
+| Method | Path | Handler | Auth | Permission | Description |
+|--------|------|---------|------|------------|-------------|
+| GET | `/residents/:residentId/setup` | patientSetup.routes → patientSetupService.getSetup | Bearer JWT | residents.read | Get/create patient setup |
+| PUT | `/residents/:residentId/setup/step/:stepKey` | patientSetup.routes → patientSetupService.updateStep | Bearer JWT | residents.update | Update setup step data |
+| POST | `/residents/:residentId/setup/complete/:stepIndex` | patientSetup.routes → patientSetupService.completeStep | Bearer JWT | residents.update | Mark setup step complete |
+
 ## Not Yet Implemented
 - `/rooms` (commented out in index.ts)
 - `/visits`
 - `/billing`
-- `/charting`
 - `/documents`
 - `/employees`
 - `/timesheets`

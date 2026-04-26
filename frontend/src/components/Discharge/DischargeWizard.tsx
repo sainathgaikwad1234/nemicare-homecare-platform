@@ -1012,4 +1012,5 @@ const DischargeWizard: React.FC<DischargeWizardProps> = ({ resident, open, onClo
   );
 };
 
+export { DischargeWizard };
 export default DischargeWizard;

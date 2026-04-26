@@ -15,9 +15,15 @@
 - **Multi-tenancy**: All queries scoped by `companyId` from JWT payload
 - **Audit logging**: HIPAA-compliant, middleware intercepts all responses
 
+## Charting Pattern (generic CRUD factory)
+- `makeChartingCrud(modelName)` in `charting.service.ts` generates list/getById/create/update/remove for any Prisma model
+- Route uses `typeMap` + `resolveType` middleware to dispatch `:type` param to correct service
+- Frontend `useChartingData` hook wraps charting service with state management + optimistic fallback
+- `ResidentContext` provides `residentId` to all charting tab components
+
 ## Frontend Patterns
 
-- **State**: Context for auth, services for API calls (no Redux for data yet)
+- **State**: Context for auth + resident, services for API calls (no Redux for data yet)
 - **API Client**: Singleton class with auto token refresh and 401 handling
 - **Protected routes**: `<ProtectedRoute requiredPermission="PERM">` wrapper
 - **Forms**: React Hook Form + Yup validation

@@ -378,7 +378,7 @@ export const DashboardPage: React.FC = () => {
 
       {/* Add Activities Drawer */}
       <Drawer anchor="right" open={showActivities} onClose={() => setShowActivities(false)}
-        PaperProps={{ sx: { width: 280, mt: '42px', p: 2 } }}>
+        PaperProps={{ sx: { width: 280, mt: '56px', p: 2 } }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
           <Typography sx={{ fontSize: '14px', fontWeight: 600 }}>Add Activities</Typography>
           <IconButton size="small" onClick={() => setShowActivities(false)}><CloseIcon sx={{ fontSize: 16 }} /></IconButton>

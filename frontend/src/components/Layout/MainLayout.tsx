@@ -19,7 +19,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         component="main"
         sx={{
           flex: 1,
-          mt: '42px',
+          mt: '56px',
           p: 2,
         }}
       >

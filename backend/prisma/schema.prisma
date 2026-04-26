@@ -16,90 +16,93 @@ datasource db {
 // ============================================
 
 model Company {
-  id                  Int      @id @default(autoincrement())
-  name                String   @unique
-  legalName           String?
-  ein                 String?
-  website             String?
-  phone               String?
-  address             String?
-  city                String?
-  state               String?
-  zip                 String?
-  country             String   @default("USA")
-  timezone            String   @default("America/Chicago")
-  active              Boolean  @default(true)
-  
+  id        Int     @id @default(autoincrement())
+  name      String  @unique
+  legalName String?
+  ein       String?
+  website   String?
+  phone     String?
+  address   String?
+  city      String?
+  state     String?
+  zip       String?
+  country   String  @default("USA")
+  timezone  String  @default("America/Chicago")
+  active    Boolean @default(true)
+
   // Relations
-  facilities          Facility[]
-  users               User[]
-  roles               Role[]
-  leads               Lead[]
-  residents           Resident[]
-  visits              Visit[]
-  billings            Billing[]
-  chartings           Charting[]
-  documents           Document[]
-  employees           Employee[]
-  timesheets          Timesheet[]
-  auditLogs           AuditLog[]
-  medicaidConfigs     MedicaidConfig[]
-  integrationLogs     IntegrationLog[]
-  
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  deletedAt           DateTime?
-  
+  facilities      Facility[]
+  users           User[]
+  roles           Role[]
+  leads           Lead[]
+  residents       Resident[]
+  visits          Visit[]
+  billings        Billing[]
+  chartings       Charting[]
+  documents       Document[]
+  employees       Employee[]
+  timesheets      Timesheet[]
+  auditLogs       AuditLog[]
+  medicaidConfigs MedicaidConfig[]
+  integrationLogs IntegrationLog[]
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
   @@index([name])
   @@index([createdAt])
 }
 
 model Facility {
-  id                  Int      @id @default(autoincrement())
-  companyId           Int
-  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  
-  name                String
-  facilityType        FacilityType
-  licenseNumber       String?
-  licenseExpiry       DateTime?
-  address             String
-  city                String
-  state               String
-  zip                 String
-  phone               String?
-  email               String?
-  
+  id        Int     @id @default(autoincrement())
+  companyId Int
+  company   Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  name          String
+  facilityType  FacilityType
+  licenseNumber String?
+  licenseExpiry DateTime?
+  address       String
+  city          String
+  state         String
+  zip           String
+  phone         String?
+  email         String?
+
   // Capacity
-  capacityAlf         Int      @default(0)
-  capacityAdh         Int      @default(0)
-  capacityHomeCare    Int      @default(0)
-  
+  capacityAlf      Int @default(0)
+  capacityAdh      Int @default(0)
+  capacityHomeCare Int @default(0)
+
   // Certification
-  medicaidApproved    Boolean  @default(false)
-  stateLicenseNumber  String?
-  npiNumber           String?
-  
-  active              Boolean  @default(true)
-  brandingLogoUrl     String?
-  
+  medicaidApproved   Boolean @default(false)
+  stateLicenseNumber String?
+  npiNumber          String?
+
+  active          Boolean @default(true)
+  brandingLogoUrl String?
+
   // Relations
-  users               User[]
-  rooms               Room[]
-  leads               Lead[]
-  residents           Resident[]
-  visits              Visit[]
-  billings            Billing[]
-  chartings           Charting[]
-  documents           Document[]
-  employees           Employee[]
-  timesheets          Timesheet[]
-  medicaidConfigs     MedicaidConfig[]
-  
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  deletedAt           DateTime?
-  
+  users           User[]
+  rooms           Room[]
+  leads           Lead[]
+  residents       Resident[]
+  visits          Visit[]
+  billings        Billing[]
+  chartings       Charting[]
+  documents       Document[]
+  employees       Employee[]
+  timesheets      Timesheet[]
+  medicaidConfigs MedicaidConfig[]
+  ipWhitelist     FacilityIpWhitelist[]
+  geofence        FacilityGeofence?
+  payrollBatches  PayrollBatch[]
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
   @@unique([companyId, name])
   @@index([companyId])
   @@index([state, city])
@@ -110,66 +113,66 @@ model Facility {
 // ============================================
 
 model Role {
-  id                  Int      @id @default(autoincrement())
-  companyId           Int?
-  company             Company? @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  
-  name                String
-  description         String?
-  permissions         Json     // Array of permission keys: ["leads.read", "leads.write", "residents.read", etc.]
-  active              Boolean  @default(true)
-  
-  users               User[]
-  
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  
+  id        Int      @id @default(autoincrement())
+  companyId Int?
+  company   Company? @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  name        String
+  description String?
+  permissions Json // Array of permission keys: ["leads.read", "leads.write", "residents.read", etc.]
+  active      Boolean @default(true)
+
+  users User[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@unique([companyId, name])
 }
 
 model User {
-  id                  Int      @id @default(autoincrement())
-  companyId           Int
-  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  facilityId          Int?
-  facility            Facility? @relation(fields: [facilityId], references: [id], onDelete: SetNull)
-  
-  email               String   @unique
-  firstName           String
-  lastName            String
-  phone               String?
-  
+  id         Int       @id @default(autoincrement())
+  companyId  Int
+  company    Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId Int?
+  facility   Facility? @relation(fields: [facilityId], references: [id], onDelete: SetNull)
+
+  email     String  @unique
+  firstName String
+  lastName  String
+  phone     String?
+
   // Authentication
-  passwordHash        String
-  passwordResetToken  String?
+  passwordHash         String
+  passwordResetToken   String?
   passwordResetExpires DateTime?
-  otpSecure           String?
-  otpEnabled          Boolean  @default(false)
-  
+  otpSecure            String?
+  otpEnabled           Boolean   @default(false)
+
   // Session
-  lastLogin           DateTime?
-  loginAttempts       Int      @default(0)
-  accountLocked       Boolean  @default(false)
-  accountLockedUntil  DateTime?
-  
-  active              Boolean  @default(true)
-  
+  lastLogin          DateTime?
+  loginAttempts      Int       @default(0)
+  accountLocked      Boolean   @default(false)
+  accountLockedUntil DateTime?
+
+  active Boolean @default(true)
+
   // Relations
-  roleId              Int
-  role                Role     @relation(fields: [roleId], references: [id])
-  leads               Lead[]   @relation("AssignedLeads")
-  residents           Resident[] @relation("NextOfKin")
-  caseManagerFor      Resident[] @relation("CaseManager")
-  chartingSigned      Charting[] @relation("SignedBy")
-  documentsSigned     Document[] @relation("SignedBy")
-  timesheetsApproved  Timesheet[] @relation("ApprovedBy")
-  auditLogs           AuditLog[]
-  employee            Employee?
-  
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  deletedAt           DateTime?
-  
+  roleId             Int
+  role               Role        @relation(fields: [roleId], references: [id])
+  leads              Lead[]      @relation("AssignedLeads")
+  residents          Resident[]  @relation("NextOfKin")
+  caseManagerFor     Resident[]  @relation("CaseManager")
+  chartingSigned     Charting[]  @relation("SignedBy")
+  documentsSigned    Document[]  @relation("SignedBy")
+  timesheetsApproved Timesheet[] @relation("ApprovedBy")
+  auditLogs          AuditLog[]
+  employee           Employee?
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
   @@index([companyId])
   @@index([facilityId])
   @@index([email])
@@ -180,53 +183,53 @@ model User {
 // ============================================
 
 model Lead {
-  id                  Int      @id @default(autoincrement())
-  companyId           Int
-  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  facilityId          Int
-  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
-  
-  firstName           String
-  lastName            String
-  phone               String?
-  email               String?
-  dob                 DateTime?
-  gender              Gender?
-  
+  id         Int      @id @default(autoincrement())
+  companyId  Int
+  company    Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId Int
+  facility   Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+
+  firstName String
+  lastName  String
+  phone     String?
+  email     String?
+  dob       DateTime?
+  gender    Gender?
+
   // Lead source & qualification
-  source              LeadSource
-  referredBy          String?
-  status              LeadStatus
-  qualificationScore  Int      @default(0)
-  qualifiedAt         DateTime?
-  
+  source             LeadSource
+  referredBy         String?
+  status             LeadStatus
+  qualificationScore Int        @default(0)
+  qualifiedAt        DateTime?
+
   // Assignment
-  assignedToId        Int?
-  assignedTo          User?    @relation("AssignedLeads", fields: [assignedToId], references: [id], onDelete: SetNull)
-  
+  assignedToId Int?
+  assignedTo   User? @relation("AssignedLeads", fields: [assignedToId], references: [id], onDelete: SetNull)
+
   // Service interest
-  interestedIn        ServiceType?
-  requiredServices    Json?    // Array of ServiceType
-  
+  interestedIn     ServiceType?
+  requiredServices Json? // Array of ServiceType
+
   // Activity tracking
-  lastContactDate     DateTime?
-  nextFollowupDate    DateTime?
-  notes               String?
-  
+  lastContactDate  DateTime?
+  nextFollowupDate DateTime?
+  notes            String?
+
   // Conversion
-  convertedToResidentId Int? @unique
-  resident            Resident? @relation("ConvertedLead", fields: [convertedToResidentId], references: [id], onDelete: SetNull)
-  convertedAt         DateTime?
-  
-  active              Boolean  @default(true)
+  convertedToResidentId Int?      @unique
+  resident              Resident? @relation("ConvertedLead", fields: [convertedToResidentId], references: [id], onDelete: SetNull)
+  convertedAt           DateTime?
+
+  active Boolean @default(true)
 
   // Relations
-  activities          LeadActivity[]
-  leadNotes           LeadNote[]
+  activities LeadActivity[]
+  leadNotes  LeadNote[]
 
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  deletedAt           DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
 
   @@index([companyId])
   @@index([facilityId])
@@ -240,18 +243,18 @@ model Lead {
 // ============================================
 
 model LeadActivity {
-  id                  Int      @id @default(autoincrement())
-  companyId           Int
-  leadId              Int
-  lead                Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  id        Int  @id @default(autoincrement())
+  companyId Int
+  leadId    Int
+  lead      Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
 
-  activityType        LeadActivityType
-  title               String
-  description         String?
-  metadata            Json?    // Flexible data per activity type (call duration, sms content, etc.)
+  activityType LeadActivityType
+  title        String
+  description  String?
+  metadata     Json? // Flexible data per activity type (call duration, sms content, etc.)
 
-  createdById         Int
-  createdAt           DateTime @default(now())
+  createdById Int
+  createdAt   DateTime @default(now())
 
   @@index([leadId])
   @@index([activityType])
@@ -259,19 +262,19 @@ model LeadActivity {
 }
 
 model LeadNote {
-  id                  Int      @id @default(autoincrement())
-  companyId           Int
-  leadId              Int
-  lead                Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  id        Int  @id @default(autoincrement())
+  companyId Int
+  leadId    Int
+  lead      Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
 
-  content             String
-  isPrivate           Boolean  @default(false)
+  content   String
+  isPrivate Boolean @default(false)
 
-  createdById         Int
-  editedAt            DateTime?
+  createdById Int
+  editedAt    DateTime?
 
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([leadId])
   @@index([createdById])
@@ -283,95 +286,95 @@ model LeadNote {
 // ============================================
 
 model Resident {
-  id                  Int      @id @default(autoincrement())
-  companyId           Int
-  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  facilityId          Int
-  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
-  
+  id         Int      @id @default(autoincrement())
+  companyId  Int
+  company    Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId Int
+  facility   Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+
   // Demographics
-  firstName           String
-  lastName            String
-  middleName          String?
-  dob                 DateTime
-  gender              Gender
-  ssn                 String?  // Would be encrypted in production
-  
+  firstName  String
+  lastName   String
+  middleName String?
+  dob        DateTime
+  gender     Gender
+  ssn        String? // Would be encrypted in production
+
   // Contact
-  phone               String?
-  email               String?
-  address             String?
-  city                String?
-  state               String?
-  zip                 String?
-  
+  phone   String?
+  email   String?
+  address String?
+  city    String?
+  state   String?
+  zip     String?
+
   // Emergency contact
-  emergencyContactName String?
-  emergencyContactPhone String?
+  emergencyContactName         String?
+  emergencyContactPhone        String?
   emergencyContactRelationship String?
-  
+
   // Medical
-  allergies           Json?    // Array
-  medicalConditions   Json?    // Array
-  currentMedications  Json?    // Array
-  primaryPhysicianName String?
+  allergies             Json? // Array
+  medicalConditions     Json? // Array
+  currentMedications    Json? // Array
+  primaryPhysicianName  String?
   primaryPhysicianPhone String?
-  
+
   // Lifecycle
-  admissionDate       DateTime
-  admissionType       AdmissionType
-  status              ResidentStatus
-  dischargeDate       DateTime?
-  dischargeReason     String?
-  
+  admissionDate   DateTime
+  admissionType   AdmissionType
+  status          ResidentStatus
+  dischargeDate   DateTime?
+  dischargeReason String?
+
   // Billing
-  billingType         BillingType
-  medicaidNumber      String?
-  insuranceCompany    String?
+  billingType           BillingType
+  medicaidNumber        String?
+  insuranceCompany      String?
   insurancePolicyNumber String?
-  
+
   // Service
-  primaryService      ServiceType
-  visitFrequency      Int      @default(1)
-  
+  primaryService ServiceType
+  visitFrequency Int         @default(1)
+
   // Relations
-  nextOfKinId         Int?
-  nextOfKin           User?    @relation("NextOfKin", fields: [nextOfKinId], references: [id], onDelete: SetNull)
-  
-  caseManagerId       Int?
-  caseManager         User?    @relation("CaseManager", fields: [caseManagerId], references: [id], onDelete: SetNull)
-  
-  createdById         Int
-  
-  convertedFromLead   Lead?    @relation("ConvertedLead")
-  visits              Visit[]
-  billings            Billing[]
-  chartings           Charting[]
-  documents           Document[]
+  nextOfKinId Int?
+  nextOfKin   User? @relation("NextOfKin", fields: [nextOfKinId], references: [id], onDelete: SetNull)
+
+  caseManagerId Int?
+  caseManager   User? @relation("CaseManager", fields: [caseManagerId], references: [id], onDelete: SetNull)
+
+  createdById Int
+
+  convertedFromLead Lead?      @relation("ConvertedLead")
+  visits            Visit[]
+  billings          Billing[]
+  chartings         Charting[]
+  documents         Document[]
 
   // Charting relations
-  vitals              Vital[]
-  allergyRecords      Allergy[]
-  medicationRecords   Medication[]
-  carePlans           CarePlan[]
-  events              ResidentEvent[]
-  progressNotes       ProgressNote[]
-  services            ResidentService[]
-  tickets             Ticket[]
-  inventoryItems      InventoryItem[]
-  incidents           Incident[]
-  painScales          PainScale[]
-  faceToFaceNotes     FaceToFaceNote[]
-  attendanceRecords   Attendance[]
-  dischargeRecord     DischargeRecord?
-  patientSetup        PatientSetup?
+  vitals            Vital[]
+  allergyRecords    Allergy[]
+  medicationRecords Medication[]
+  carePlans         CarePlan[]
+  events            ResidentEvent[]
+  progressNotes     ProgressNote[]
+  services          ResidentService[]
+  tickets           Ticket[]
+  inventoryItems    InventoryItem[]
+  incidents         Incident[]
+  painScales        PainScale[]
+  faceToFaceNotes   FaceToFaceNote[]
+  attendanceRecords Attendance[]
+  dischargeRecord   DischargeRecord?
+  patientSetup      PatientSetup?
 
-  notes               String?
-  
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  deletedAt           DateTime?
-  
+  notes String?
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
   @@index([companyId])
   @@index([facilityId])
   @@index([status])
@@ -383,18 +386,18 @@ model Resident {
 // ============================================
 
 model Room {
-  id                  Int      @id @default(autoincrement())
-  facilityId          Int
-  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
-  
-  roomNumber          String
-  description         String?
-  capacity            Int      @default(1)
-  status              RoomStatus @default(AVAILABLE)
-  
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  
+  id         Int      @id @default(autoincrement())
+  facilityId Int
+  facility   Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+
+  roomNumber  String
+  description String?
+  capacity    Int        @default(1)
+  status      RoomStatus @default(AVAILABLE)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@unique([facilityId, roomNumber])
 }
 
@@ -403,40 +406,40 @@ model Room {
 // ============================================
 
 model Visit {
-  id                  Int      @id @default(autoincrement())
-  companyId           Int
-  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  facilityId          Int
-  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
-  residentId          Int
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  
+  id         Int      @id @default(autoincrement())
+  companyId  Int
+  company    Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId Int
+  facility   Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  residentId Int
+  resident   Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+
   // Scheduling
-  scheduledDate       DateTime
-  scheduledTimeStart  DateTime?
-  scheduledTimeEnd    DateTime?
-  durationMinutes     Int?
-  
+  scheduledDate      DateTime
+  scheduledTimeStart DateTime?
+  scheduledTimeEnd   DateTime?
+  durationMinutes    Int?
+
   // Actual attendance
-  actualCheckinTime   DateTime?
-  actualCheckoutTime  DateTime?
-  attended            Boolean?
-  
+  actualCheckinTime  DateTime?
+  actualCheckoutTime DateTime?
+  attended           Boolean?
+
   // Details
-  visitType           VisitType
-  serviceCode         String?  // CPT code
-  
+  visitType   VisitType
+  serviceCode String? // CPT code
+
   // Assignment
-  assignedStaffId     Int?
-  
+  assignedStaffId Int?
+
   // Status
-  status              VisitStatus
-  cancellationReason  String?
-  notes               String?
-  
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  
+  status             VisitStatus
+  cancellationReason String?
+  notes              String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@index([residentId])
   @@index([scheduledDate])
   @@index([facilityId])
@@ -448,48 +451,48 @@ model Visit {
 // ============================================
 
 model Billing {
-  id                  Int      @id @default(autoincrement())
-  companyId           Int
-  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  facilityId          Int
-  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
-  residentId          Int
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  
+  id         Int      @id @default(autoincrement())
+  companyId  Int
+  company    Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId Int
+  facility   Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  residentId Int
+  resident   Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+
   // Period
-  billingPeriodStart  DateTime
-  billingPeriodEnd    DateTime
-  
+  billingPeriodStart DateTime
+  billingPeriodEnd   DateTime
+
   // Amounts
-  totalVisits         Int      @default(0)
-  totalUnits          Decimal  @default(0) // 15-min units
-  unitRate            Decimal
-  subtotal            Decimal
-  tax                 Decimal  @default(0)
-  adjustments         Decimal  @default(0)
-  totalAmount         Decimal
-  
+  totalVisits Int     @default(0)
+  totalUnits  Decimal @default(0) // 15-min units
+  unitRate    Decimal
+  subtotal    Decimal
+  tax         Decimal @default(0)
+  adjustments Decimal @default(0)
+  totalAmount Decimal
+
   // Type
-  billingType         BillingType
-  splitConfig         Json?    // Multiple payers
-  
+  billingType BillingType
+  splitConfig Json? // Multiple payers
+
   // Payment
-  status              BillingStatus
-  invoiceNumber       String?  @unique
-  sentDate            DateTime?
-  paidDate            DateTime?
-  amountPaid          Decimal  @default(0)
-  paymentMethod       String?
-  
+  status        BillingStatus
+  invoiceNumber String?       @unique
+  sentDate      DateTime?
+  paidDate      DateTime?
+  amountPaid    Decimal       @default(0)
+  paymentMethod String?
+
   // Medicaid
-  paNumber            String?  // Prior Auth
-  
-  notes               String?
-  createdById         Int
-  
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  
+  paNumber String? // Prior Auth
+
+  notes       String?
+  createdById Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@index([residentId])
   @@index([billingPeriodStart])
   @@index([status])
@@ -501,32 +504,32 @@ model Billing {
 // ============================================
 
 model Charting {
-  id                  Int      @id @default(autoincrement())
-  companyId           Int
-  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  facilityId          Int
-  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
-  residentId          Int
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  
-  chartDate           DateTime
-  chartTime           DateTime
-  
-  chartType           ChartType
-  content             String   // Rich text/HTML
-  vitals              Json?    // { bp, heart_rate, temperature, etc }
-  observations        String?
-  
-  signedById          Int?
-  signedBy            User?    @relation("SignedBy", fields: [signedById], references: [id], onDelete: SetNull)
-  signatureDate       DateTime?
-  
-  status              ChartingStatus
-  
-  createdById         Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  
+  id         Int      @id @default(autoincrement())
+  companyId  Int
+  company    Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId Int
+  facility   Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  residentId Int
+  resident   Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+
+  chartDate DateTime
+  chartTime DateTime
+
+  chartType    ChartType
+  content      String // Rich text/HTML
+  vitals       Json? // { bp, heart_rate, temperature, etc }
+  observations String?
+
+  signedById    Int?
+  signedBy      User?     @relation("SignedBy", fields: [signedById], references: [id], onDelete: SetNull)
+  signatureDate DateTime?
+
+  status ChartingStatus
+
+  createdById Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
   @@index([residentId])
   @@index([chartDate])
   @@index([chartType])
@@ -537,35 +540,35 @@ model Charting {
 // ============================================
 
 model Document {
-  id                  Int      @id @default(autoincrement())
-  companyId           Int
-  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  facilityId          Int
-  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
-  residentId          Int?
-  resident            Resident? @relation(fields: [residentId], references: [id], onDelete: SetNull)
-  
-  documentType        DocumentType
-  title               String
-  version             Int      @default(1)
-  
-  fileUrl             String   // S3 or local
-  fileSize            Int?
-  mimeType            String?
-  
-  status              DocumentStatus
-  requiresSignature   Boolean  @default(false)
-  
+  id         Int       @id @default(autoincrement())
+  companyId  Int
+  company    Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId Int
+  facility   Facility  @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  residentId Int?
+  resident   Resident? @relation(fields: [residentId], references: [id], onDelete: SetNull)
+
+  documentType DocumentType
+  title        String
+  version      Int          @default(1)
+
+  fileUrl  String // S3 or local
+  fileSize Int?
+  mimeType String?
+
+  status            DocumentStatus
+  requiresSignature Boolean        @default(false)
+
   signedById          Int?
-  signedBy            User?    @relation("SignedBy", fields: [signedById], references: [id], onDelete: SetNull)
+  signedBy            User?     @relation("SignedBy", fields: [signedById], references: [id], onDelete: SetNull)
   signedAt            DateTime?
-  signatureProvider   String?  // DocuSign, Adobe Sign
+  signatureProvider   String? // DocuSign, Adobe Sign
   signatureEnvelopeId String?
-  
-  createdById         Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  
+
+  createdById Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
   @@index([residentId])
   @@index([documentType])
   @@index([status])
@@ -576,75 +579,157 @@ model Document {
 // ============================================
 
 model Employee {
-  id                  Int      @id @default(autoincrement())
-  companyId           Int
-  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  facilityId          Int
-  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
-  userId              Int      @unique
-  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
-  employeeIdNumber    String?
-  positionTitle       String?
-  department          String?
-  employmentType      EmploymentType
-  hireDate            DateTime
-  terminationDate     DateTime?
-  
+  id         Int      @id @default(autoincrement())
+  companyId  Int
+  company    Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId Int
+  facility   Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  userId     Int      @unique
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Personal
+  firstName         String?
+  lastName          String?
+  middleName        String?
+  salutation        String?
+  email             String?
+  phone             String?
+  dob               DateTime?
+  gender            String?
+  profilePictureUrl String?
+  address           String?
+  addressLine2      String?
+  city              String?
+  state             String?
+  zip               String?
+  country           String?
+  language          String?
+  about             String?
+  ssn               String? // app-encrypted in production
+  maritalStatus     String?
+  businessAddress   String?
+  slackMemberId     String?
+  socialLinks       Json? // [{platform, url}]
+
+  // Emergency contact
+  emergencyContactName     String?
+  emergencyContactPhone    String?
+  emergencyContactRelation String?
+
+  // Employment
+  employeeIdNumber   String?
+  positionTitle      String?
+  designation        String?
+  clinicalRole       String? // LPN, RN, CNA, etc.
+  department         String?
+  employmentType     EmploymentType
+  userRole           HrmsRole       @default(EMPLOYEE)
+  hrmsRole           HrmsRole       @default(EMPLOYEE)
+  hireDate           DateTime
+  terminationDate    DateTime?
+  reportingManagerId Int?
+  reportingManager   Employee?      @relation("EmployeeReportingManager", fields: [reportingManagerId], references: [id], onDelete: SetNull)
+  directReports      Employee[]     @relation("EmployeeReportingManager")
+  probationEndDate   DateTime?
+  noticeEndDate      DateTime?
+  overtimeAllowed    Boolean        @default(false)
+
+  // Onboarding
+  onboardingStatus    OnboardingStatus @default(IN_PROGRESS)
+  onboardingStep      Int              @default(1)
+  officialStartDate   DateTime?
+  welcomeEmailHistory Json? // [{sentAt, sentById, subject}]
+
   // Licensing
-  licenseType         String?
-  licenseNumber       String?
-  licenseExpiry       DateTime?
-  
+  licenseType   String?
+  licenseNumber String?
+  licenseExpiry DateTime?
+
   // Compensation
-  baseSalary          Decimal?
-  hourlyRate          Decimal?
-  payFrequency        PayFrequency
-  
-  status              EmploymentStatus
-  
-  timesheets          Timesheet[]
-  
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  
+  baseSalary   Decimal?
+  hourlyRate   Decimal?
+  payFrequency PayFrequency
+
+  status             EmploymentStatus
+  welcomeEmailSentAt DateTime?
+  activatedAt        DateTime?
+
+  timesheets              Timesheet[]
+  documents               EmployeeDocument[]
+  leaveRequests           LeaveRequest[]
+  shifts                  ShiftSchedule[]
+  reviewsAsEmployee       PerformanceReview[]      @relation("PerfReviewEmployee")
+  reviewsAsReviewer       PerformanceReview[]      @relation("PerfReviewReviewer")
+  tasksAssigned           EmployeeTask[]           @relation("TaskAssignee")
+  tasksCreated            EmployeeTask[]           @relation("TaskCreator")
+  exitRecord              EmployeeExit?
+  leaveBalance            LeaveBalance?
+  trainingAssignments     TrainingAssignment[]
+  onboardingDocuments     OnboardingDocument[]
+  onboardingMandatoryDocs OnboardingMandatoryDoc[]
+  punches                 EmployeePunch[]
+  shiftChangeRequests     ShiftChangeRequest[]
+  tests                   EmployeeTest[]
+  bgCheckDispatches       BgCheckDispatch[]
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
   @@index([facilityId])
   @@index([employeeIdNumber])
   @@index([status])
+  @@index([userRole])
+  @@index([onboardingStatus])
+  @@index([reportingManagerId])
 }
 
 model Timesheet {
-  id                  Int      @id @default(autoincrement())
-  companyId           Int
-  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  facilityId          Int
-  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
-  employeeId          Int
-  employee            Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
-  
-  periodStart         DateTime
-  periodEnd           DateTime
-  
-  regularHours        Decimal  @default(0)
-  overtimeHours       Decimal  @default(0)
-  paidLeaveHours      Decimal  @default(0)
-  unpaidLeaveHours    Decimal  @default(0)
-  totalHours          Decimal  @default(0)
-  
-  status              TimesheetStatus
-  submittedById       Int?
-  submittedAt         DateTime?
-  approvedById        Int?
-  approvedBy          User?    @relation("ApprovedBy", fields: [approvedById], references: [id], onDelete: SetNull)
-  approvedAt          DateTime?
-  
-  notes               String?
-  
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  
+  id         Int      @id @default(autoincrement())
+  companyId  Int
+  company    Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId Int
+  facility   Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  employeeId Int
+  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+
+  periodStart DateTime
+  periodEnd   DateTime
+
+  regularHours     Decimal @default(0)
+  overtimeHours    Decimal @default(0)
+  paidLeaveHours   Decimal @default(0)
+  unpaidLeaveHours Decimal @default(0)
+  totalHours       Decimal @default(0)
+
+  status        TimesheetStatus
+  flags         Json?     // ["OVERTIME", "SHORT", "MISSING_PUNCH"]
+  tasksByDay    Json?     // [{date, workingHr, workedHr, tasks: [{title, description}]}]
+  rejectionReason String?
+  submittedById Int?
+  submittedAt   DateTime?
+  approvedById  Int?
+  approvedBy    User?           @relation("ApprovedBy", fields: [approvedById], references: [id], onDelete: SetNull)
+  approvedAt    DateTime?
+
+  // Sprint 5.1 EVV/timecard additions
+  breakMinutes  Int      @default(0)
+  netHours      Decimal  @default(0)
+  taskDetails   String?  // "What Work Performed" — diagram step
+  overtimeApproved Boolean @default(false) // supervisor approved 1.5x rate
+  payrollBatchId   Int?
+  payrollBatch     PayrollBatch? @relation(fields: [payrollBatchId], references: [id], onDelete: SetNull)
+  // Phase 5.10 — late-clock-in detection
+  lateMinutes      Int      @default(0)
+
+  notes String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@index([employeeId])
   @@index([periodStart, periodEnd])
+  @@index([payrollBatchId])
 }
 
 // ============================================
@@ -652,25 +737,25 @@ model Timesheet {
 // ============================================
 
 model AuditLog {
-  id                  Int      @id @default(autoincrement())
-  companyId           Int
-  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  
-  userId              Int?
-  user                User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
-  
-  actionType          ActionType
-  entityType          String
-  entityId            Int?
-  
-  oldValues           Json?
-  newValues           Json?
-  
-  ipAddress           String?
-  userAgent           String?
-  
-  timestamp           DateTime @default(now())
-  
+  id        Int     @id @default(autoincrement())
+  companyId Int
+  company   Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  userId Int?
+  user   User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  actionType ActionType
+  entityType String
+  entityId   Int?
+
+  oldValues Json?
+  newValues Json?
+
+  ipAddress String?
+  userAgent String?
+
+  timestamp DateTime @default(now())
+
   @@index([userId])
   @@index([entityType, entityId])
   @@index([timestamp])
@@ -681,52 +766,52 @@ model AuditLog {
 // ============================================
 
 model MedicaidConfig {
-  id                  Int      @id @default(autoincrement())
-  companyId           Int
-  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  facilityId          Int
-  facility            Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
-  
-  state               String
-  programName         String?
-  paRequired          Boolean  @default(true)
-  paLeadTimeDays      Int      @default(5)
-  
-  apiUrl              String?
-  apiKey              String?  // Would be encrypted
-  username            String?
-  passwordEncrypted   String?
-  
-  serviceCodes        Json?    // CPT/ICD mapping
-  
-  autoSubmitClaims    Boolean  @default(false)
-  claimSubmissionFrequency String @default("MONTHLY")
-  
-  active              Boolean  @default(true)
-  
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-  
+  id         Int      @id @default(autoincrement())
+  companyId  Int
+  company    Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  facilityId Int
+  facility   Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+
+  state          String
+  programName    String?
+  paRequired     Boolean @default(true)
+  paLeadTimeDays Int     @default(5)
+
+  apiUrl            String?
+  apiKey            String? // Would be encrypted
+  username          String?
+  passwordEncrypted String?
+
+  serviceCodes Json? // CPT/ICD mapping
+
+  autoSubmitClaims         Boolean @default(false)
+  claimSubmissionFrequency String  @default("MONTHLY")
+
+  active Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@unique([companyId, facilityId])
 }
 
 model IntegrationLog {
-  id                  Int      @id @default(autoincrement())
-  companyId           Int
-  company             Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  
-  integrationType     IntegrationType
-  status              IntegrationStatus
-  
-  requestBody         Json?
-  responseBody        Json?
-  errorMessage        String?
-  
-  retryCount          Int      @default(0)
-  nextRetry           DateTime?
-  
-  timestamp           DateTime @default(now())
-  
+  id        Int     @id @default(autoincrement())
+  companyId Int
+  company   Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  integrationType IntegrationType
+  status          IntegrationStatus
+
+  requestBody  Json?
+  responseBody Json?
+  errorMessage String?
+
+  retryCount Int       @default(0)
+  nextRetry  DateTime?
+
+  timestamp DateTime @default(now())
+
   @@index([integrationType])
   @@index([status])
   @@index([timestamp])
@@ -944,251 +1029,264 @@ enum AttendanceStatus {
 // CHARTING: VITALS
 // ============================================
 model Vital {
-  id                  Int      @id @default(autoincrement())
-  residentId          Int
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  companyId           Int
-  date                DateTime
-  time                String?
-  temperature         Decimal?
-  bloodPressure       String?
-  heartRate           Int?
-  respiratoryRate     Int?
-  oxygenSaturation    Decimal?
-  weight              Decimal?
-  height              Decimal?
-  bmi                 Decimal?
-  notes               String?
-  addedById           Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  id               Int      @id @default(autoincrement())
+  residentId       Int
+  resident         Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId        Int
+  date             DateTime
+  time             String?
+  temperature      Decimal?
+  bloodPressure    String?
+  heartRate        Int?
+  respiratoryRate  Int?
+  oxygenSaturation Decimal?
+  weight           Decimal?
+  height           Decimal?
+  bmi              Decimal?
+  notes            String?
+  addedById        Int
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
   @@index([residentId])
   @@index([date])
 }
 
 model Allergy {
-  id                  Int      @id @default(autoincrement())
-  residentId          Int
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  companyId           Int
-  type                String
-  allergen            String
-  reaction            String?
-  severity            String
-  status              String     @default("Active")
-  onsetDate           DateTime?
-  notes               String?
-  addedById           Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  id         Int       @id @default(autoincrement())
+  residentId Int
+  resident   Resident  @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId  Int
+  type       String
+  allergen   String
+  reaction   String?
+  severity   String
+  status     String    @default("Active")
+  onsetDate  DateTime?
+  notes      String?
+  addedById  Int
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
   @@index([residentId])
 }
 
 model Medication {
-  id                  Int      @id @default(autoincrement())
-  residentId          Int
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  companyId           Int
-  name                String
-  sig                 String?
-  dosage              String?
-  frequency           String?
-  route               String?
-  quantity            Int?
-  startDate           DateTime?
-  endDate             DateTime?
-  refillDate          DateTime?
-  prescriber          String?
-  status              String     @default("Active")
-  notes               String?
-  addedById           Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  id         Int       @id @default(autoincrement())
+  residentId Int
+  resident   Resident  @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId  Int
+  name       String
+  sig        String?
+  dosage     String?
+  frequency  String?
+  route      String?
+  quantity   Int?
+  startDate  DateTime?
+  endDate    DateTime?
+  refillDate DateTime?
+  prescriber String?
+  status     String    @default("Active")
+  notes      String?
+  addedById  Int
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
   @@index([residentId])
 }
 
 model CarePlan {
-  id                  Int      @id @default(autoincrement())
-  residentId          Int
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  companyId           Int
-  problem             String
-  goal                String?
-  approach            String?
-  targetDate          DateTime?
-  provider            String?
-  status              String     @default("Active")
-  notes               String?
-  addedById           Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  id         Int       @id @default(autoincrement())
+  residentId Int
+  resident   Resident  @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId  Int
+  problem    String
+  goal       String?
+  approach   String?
+  targetDate DateTime?
+  provider   String?
+  status     String    @default("Active")
+  notes      String?
+  addedById  Int
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
   @@index([residentId])
 }
 
 model ResidentEvent {
-  id                  Int      @id @default(autoincrement())
-  residentId          Int
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  companyId           Int
-  date                DateTime
-  noteType            String?
-  description         String
-  category            String?
-  addedById           Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  id          Int      @id @default(autoincrement())
+  residentId  Int
+  resident    Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId   Int
+  date        DateTime
+  noteType    String?
+  description String
+  category    String?
+  addedById   Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
   @@index([residentId])
   @@index([date])
 }
 
 model ProgressNote {
-  id                  Int      @id @default(autoincrement())
-  residentId          Int
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  companyId           Int
-  date                DateTime
-  staffName           String?
-  findings            String?
-  interventions       String?
-  level               String?
-  status              String     @default("Draft")
-  notes               String?
-  addedById           Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  id            Int      @id @default(autoincrement())
+  residentId    Int
+  resident      Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId     Int
+  date          DateTime
+  staffName     String?
+  findings      String?
+  interventions String?
+  level         String?
+  status        String   @default("Draft")
+  notes         String?
+  addedById     Int
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
   @@index([residentId])
 }
 
 model ResidentService {
-  id                  Int      @id @default(autoincrement())
-  residentId          Int
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  companyId           Int
-  serviceName         String
-  type                String?
-  frequency           String?
-  startDate           DateTime?
-  endDate             DateTime?
-  provider            String?
-  status              String     @default("Active")
-  notes               String?
-  addedById           Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  id          Int       @id @default(autoincrement())
+  residentId  Int
+  resident    Resident  @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId   Int
+  serviceName String
+  type        String?
+  frequency   String?
+  startDate   DateTime?
+  endDate     DateTime?
+  provider    String?
+  status      String    @default("Active")
+  notes       String?
+  addedById   Int
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
   @@index([residentId])
 }
 
 model Ticket {
-  id                  Int      @id @default(autoincrement())
-  residentId          Int
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  companyId           Int
-  title               String
-  category            String?
-  priority            String     @default("Medium")
-  status              String     @default("Open")
-  assignedTo          String?
-  description         String?
-  resolution          String?
-  addedById           Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  id          Int      @id @default(autoincrement())
+  residentId  Int
+  resident    Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId   Int
+  title       String
+  category    String?
+  priority    String   @default("Medium")
+  status      String   @default("Open")
+  assignedTo  String?
+  description String?
+  resolution  String?
+  addedById   Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
   @@index([residentId])
 }
 
 model InventoryItem {
-  id                  Int      @id @default(autoincrement())
-  residentId          Int
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  companyId           Int
-  itemName            String
-  category            String?
-  quantity            Int        @default(1)
-  condition           String?
-  location            String?
-  status              String     @default("Active")
-  notes               String?
-  addedById           Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  id         Int      @id @default(autoincrement())
+  residentId Int
+  resident   Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId  Int
+  itemName   String
+  category   String?
+  quantity   Int      @default(1)
+  condition  String?
+  location   String?
+  status     String   @default("Active")
+  notes      String?
+  addedById  Int
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
   @@index([residentId])
 }
 
 model Incident {
-  id                  Int      @id @default(autoincrement())
-  residentId          Int
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  companyId           Int
-  date                DateTime
-  time                String?
-  type                String
-  category            String?
-  location            String?
-  severity            String     @default("Minor")
-  status              String     @default("Open")
-  description         String?
-  actionTaken         String?
-  witnesses           String?
-  followUp            String?
-  reportedById        Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  id           Int      @id @default(autoincrement())
+  residentId   Int
+  resident     Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId    Int
+  date         DateTime
+  time         String?
+  type         String
+  category     String?
+  location     String?
+  severity     String   @default("Minor")
+  status       String   @default("Open")
+  description  String?
+  actionTaken  String?
+  witnesses    String?
+  followUp     String?
+  reportedById Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
   @@index([residentId])
   @@index([date])
 }
 
 model PainScale {
-  id                  Int      @id @default(autoincrement())
-  residentId          Int
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  companyId           Int
-  date                DateTime
-  painLevel           Int
-  location            String?
-  intervention        String?
-  postScore           Int?
-  notes               String?
-  addedById           Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  id           Int      @id @default(autoincrement())
+  residentId   Int
+  resident     Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId    Int
+  date         DateTime
+  painLevel    Int
+  location     String?
+  intervention String?
+  postScore    Int?
+  notes        String?
+  addedById    Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
   @@index([residentId])
 }
 
 model FaceToFaceNote {
-  id                  Int      @id @default(autoincrement())
-  residentId          Int
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  companyId           Int
-  date                DateTime
-  type                String?
-  memberName          String?
-  findings            String?
-  cnaSignature        Boolean    @default(false)
-  rnApproval          Boolean    @default(false)
-  status              String     @default("Pending")
-  notes               String?
-  addedById           Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  id           Int      @id @default(autoincrement())
+  residentId   Int
+  resident     Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId    Int
+  date         DateTime
+  type         String?
+  memberName   String?
+  findings     String?
+  cnaSignature Boolean  @default(false)
+  rnApproval   Boolean  @default(false)
+  status       String   @default("Pending")
+  notes        String?
+  addedById    Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
   @@index([residentId])
 }
 
 model Attendance {
-  id                  Int      @id @default(autoincrement())
-  residentId          Int
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  companyId           Int
-  facilityId          Int
-  date                DateTime
-  checkInTime         DateTime?
-  checkOutTime        DateTime?
-  status              AttendanceStatus @default(ABSENT)
-  type                String?
-  absenceReason       String?
-  notes               String?
-  markedById          Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  id            Int              @id @default(autoincrement())
+  residentId    Int
+  resident      Resident         @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId     Int
+  facilityId    Int
+  date          DateTime
+  checkInTime   DateTime?
+  checkOutTime  DateTime?
+  status        AttendanceStatus @default(ABSENT)
+  type          String?
+  absenceReason String?
+  notes         String?
+  markedById    Int
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+
   @@unique([residentId, date])
   @@index([residentId])
   @@index([date])
@@ -1196,31 +1294,32 @@ model Attendance {
 }
 
 model DischargeRecord {
-  id                  Int      @id @default(autoincrement())
-  residentId          Int      @unique
-  resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
-  companyId           Int
-  dischargeDate       DateTime
-  dischargeTime       String?
-  dischargeType       String
-  dischargeReason     String
-  notifiedContacts    Json?
-  edwpSent            Boolean    @default(false)
-  edwpSentDate        DateTime?
-  overallBehavior     String?
+  id                   Int       @id @default(autoincrement())
+  residentId           Int       @unique
+  resident             Resident  @relation(fields: [residentId], references: [id], onDelete: Cascade)
+  companyId            Int
+  dischargeDate        DateTime
+  dischargeTime        String?
+  dischargeType        String
+  dischargeReason      String
+  notifiedContacts     Json?
+  edwpSent             Boolean   @default(false)
+  edwpSentDate         DateTime?
+  overallBehavior      String?
   participationTherapy String?
   medicationCompliance String?
-  strengthsObserved   String?
-  areasOfConcern      String?
-  depositAmount       Decimal    @default(0)
-  deductions          Json?
-  totalDeductions     Decimal    @default(0)
-  refundTotal         Decimal    @default(0)
-  processedBy         String?
-  approvalStatus      String     @default("PENDING")
-  createdById         Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  strengthsObserved    String?
+  areasOfConcern       String?
+  depositAmount        Decimal   @default(0)
+  deductions           Json?
+  totalDeductions      Decimal   @default(0)
+  refundTotal          Decimal   @default(0)
+  processedBy          String?
+  approvalStatus       String    @default("PENDING")
+  createdById          Int
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
   @@index([residentId])
 }
 
@@ -1229,7 +1328,7 @@ model PatientSetup {
   residentId          Int      @unique
   resident            Resident @relation(fields: [residentId], references: [id], onDelete: Cascade)
   companyId           Int
-  currentStep         Int        @default(0)
+  currentStep         Int      @default(0)
   serviceType         String
   caseAgencyData      Json?
   documentsData       Json?
@@ -1239,9 +1338,830 @@ model PatientSetup {
   bedAvailabilityData Json?
   assessmentData      Json?
   completedSteps      Json?
-  status              String     @default("IN_PROGRESS")
+  status              String   @default("IN_PROGRESS")
   createdById         Int
   createdAt           DateTime @default(now())
   updatedAt           DateTime @updatedAt
+
   @@index([residentId])
+}
+
+// ============================================
+// HRMS — EXTENDED MODELS
+// ============================================
+
+enum HrmsRole {
+  HR_ADMIN
+  SUPERVISOR
+  EMPLOYEE
+}
+
+enum LeaveType {
+  ANNUAL
+  SICK
+  PERSONAL
+  UNPAID
+  MATERNITY
+  BEREAVEMENT
+  OTHER
+}
+
+enum LeaveStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  CANCELLED
+}
+
+enum ShiftStatus {
+  SCHEDULED
+  COMPLETED
+  CANCELLED
+  DAY_OFF
+  LEAVE
+  LEAVE_BLOCKED // System-blocked because employee's leave was approved
+}
+
+enum ShiftType {
+  FIRST
+  SECOND
+  THIRD
+  CUSTOM
+}
+
+enum ReviewStatus {
+  DRAFT
+  SUBMITTED
+  APPROVED
+  REJECTED
+}
+
+enum TaskPriority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum TaskStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum EmployeeDocumentType {
+  LICENSE
+  VISA
+  BACKGROUND_CHECK
+  DRUG_SCREEN
+  CERTIFICATION
+  ID_PROOF
+  ADDRESS_PROOF
+  RESUME
+  OFFER_LETTER
+  OTHER
+}
+
+enum EmployeeDocumentStatus {
+  PENDING
+  UPLOADED
+  EXPIRED
+  REJECTED
+  APPROVED
+}
+
+model EmployeeDocument {
+  id         Int      @id @default(autoincrement())
+  companyId  Int
+  employeeId Int
+  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+
+  documentType EmployeeDocumentType
+  documentName String
+  fileUrl      String?
+  expiryDate   DateTime?
+  status       EmployeeDocumentStatus @default(PENDING)
+  notes        String?
+  uploadedById Int
+
+  // Phase 5.10 — Digital signature for compliance docs
+  requiresSignature Boolean   @default(false)
+  signedAt          DateTime?
+  signedById        Int?
+  signatureText     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([employeeId])
+  @@index([documentType])
+  @@index([status])
+  @@index([expiryDate])
+}
+
+model LeaveBalance {
+  id         Int      @id @default(autoincrement())
+  companyId  Int
+  employeeId Int      @unique
+  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+
+  annualBalance   Decimal @default(0)
+  sickBalance     Decimal @default(0)
+  personalBalance Decimal @default(0)
+  unpaidBalance   Decimal @default(0)
+
+  year Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([year])
+}
+
+model LeaveRequest {
+  id         Int      @id @default(autoincrement())
+  companyId  Int
+  employeeId Int
+  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+
+  leaveType LeaveType
+  fromDate  DateTime
+  toDate    DateTime
+  totalDays Decimal
+  reason    String?
+  status    LeaveStatus @default(PENDING)
+
+  approvedById          Int?
+  approvedAt            DateTime?
+  rejectionReason       String?
+  replacementEmployeeId Int?
+
+  // Phase 2: Dual-approval workflow
+  supervisorApprovalStatus DualApprovalStatus @default(PENDING)
+  supervisorApprovedById   Int?
+  supervisorApprovedAt     DateTime?
+  hrApprovalStatus         DualApprovalStatus @default(WAITING)
+  hrApprovedById           Int?
+  hrApprovedAt             DateTime?
+
+  // Sprint 5.4: Need-Info loopback (supervisor asks employee for clarification)
+  infoRequestMessage  String?
+  infoRequestedById   Int?
+  infoRequestedAt     DateTime?
+  infoResponseMessage String?
+  infoRespondedAt     DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([employeeId])
+  @@index([status])
+  @@index([fromDate, toDate])
+  @@index([supervisorApprovalStatus])
+  @@index([hrApprovalStatus])
+}
+
+enum DualApprovalStatus {
+  WAITING      // not yet eligible (HR is WAITING until supervisor decides)
+  PENDING      // awaiting decision
+  APPROVED
+  REJECTED
+}
+
+model ShiftSchedule {
+  id         Int      @id @default(autoincrement())
+  companyId  Int
+  facilityId Int
+  employeeId Int
+  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+
+  shiftDate DateTime
+  shiftType ShiftType
+  startTime String
+  endTime   String
+  status    ShiftStatus @default(SCHEDULED)
+  notes     String?
+
+  backupEmployeeId       Int?
+  appliedLeaveRequestId  Int?
+  createdById            Int
+
+  changeRequests         ShiftChangeRequest[] @relation("ShiftChangeOriginal")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([employeeId])
+  @@index([facilityId, shiftDate])
+  @@index([shiftDate])
+  @@index([status])
+}
+
+model PerformanceReview {
+  id         Int      @id @default(autoincrement())
+  companyId  Int
+  employeeId Int
+  employee   Employee @relation("PerfReviewEmployee", fields: [employeeId], references: [id], onDelete: Cascade)
+  reviewerId Int
+  reviewer   Employee @relation("PerfReviewReviewer", fields: [reviewerId], references: [id], onDelete: Cascade)
+
+  periodStart         DateTime
+  periodEnd           DateTime
+  overallRating       Decimal?
+  strengths           String?
+  areasForImprovement String?
+  goals               String?
+  comments            String?
+  status              ReviewStatus @default(DRAFT)
+
+  // Sprint 5.5 — Supervisor signature + HR tier fields + lock + PDF
+  supervisorSignature   String?   // employee name typed as e-signature
+  supervisorSignedAt    DateTime?
+  compensationNotes     String?   // HR-only
+  trainingNeeds         String?   // HR-only
+  lockedAt              DateTime? // when HR finalizes
+  lockedById            Int?
+  pdfPath               String?   // generated PDF location
+  employeeViewedAt      DateTime? // when employee first opens the locked review
+
+  approvedById Int?
+  approvedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([employeeId])
+  @@index([reviewerId])
+  @@index([status])
+}
+
+model EmployeeTask {
+  id           Int      @id @default(autoincrement())
+  companyId    Int
+  facilityId   Int
+  assignedToId Int
+  assignedTo   Employee @relation("TaskAssignee", fields: [assignedToId], references: [id], onDelete: Cascade)
+  createdById  Int
+  createdBy    Employee @relation("TaskCreator", fields: [createdById], references: [id], onDelete: Cascade)
+
+  title       String
+  description String?
+  priority    TaskPriority @default(MEDIUM)
+  status      TaskStatus   @default(PENDING)
+  dueDate     DateTime?
+  completedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([assignedToId])
+  @@index([status])
+  @@index([dueDate])
+}
+
+model EmployeeExit {
+  id         Int      @id @default(autoincrement())
+  companyId  Int
+  employeeId Int      @unique
+  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+
+  exitReason          String
+  exitType            String
+  noticeDate          DateTime
+  lastWorkingDay      DateTime
+  exitInterviewNotes  String?
+  exitInterviewDate   DateTime?
+  finalPayAmount      Decimal?
+  benefitsTerminated  Boolean   @default(false)
+  portalAccessRevoked Boolean   @default(false)
+  status              String    @default("INITIATED")
+
+  initiatedById Int
+  completedAt   DateTime?
+
+  // Sprint 5.7 additions
+  propertyCollected      Json?     // checklist: [{item, returned, condition, notes}]
+  finalPayCalculatedAt   DateTime?
+  finalPayBreakdown      Json?     // {unpaidTimecards, accruedLeavePayout, deductions}
+  benefitsTerminationDate DateTime?
+  systemRemovalLog       Json?     // [{system, removedAt}]
+  // Phase 5.10 — Asset return checklist
+  assetReturns           Json?     // [{item: 'Laptop', returned, condition, notes}]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+}
+
+model TrainingModule {
+  id            Int      @id @default(autoincrement())
+  companyId     Int
+  title         String
+  description   String?
+  category      String?
+  durationHours Decimal?
+  isMandatory   Boolean  @default(false)
+
+  assignments TrainingAssignment[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([category])
+}
+
+model TrainingAssignment {
+  id               Int            @id @default(autoincrement())
+  companyId        Int
+  employeeId       Int
+  employee         Employee       @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  trainingModuleId Int
+  trainingModule   TrainingModule @relation(fields: [trainingModuleId], references: [id], onDelete: Cascade)
+
+  assignedAt  DateTime  @default(now())
+  dueDate     DateTime?
+  completedAt DateTime?
+  status      String    @default("ASSIGNED")
+  score       Decimal?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([employeeId])
+  @@index([status])
+}
+
+model NoticeBoard {
+  id         Int       @id @default(autoincrement())
+  companyId  Int
+  facilityId Int?
+  title      String
+  body       String
+  category   String?
+  postedById Int
+  expiresAt  DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([facilityId])
+  @@index([category])
+}
+
+// ============================================
+// HRMS — ONBOARDING
+// ============================================
+
+enum OnboardingStatus {
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum OnboardingDocumentType {
+  BACKGROUND_CHECK_REPORT
+  DRUG_SCREEN_REPORT
+  DMV_BACKGROUND_CHECK
+}
+
+enum OnboardingDocumentStatus {
+  PENDING
+  SENT
+  COMPLETE
+}
+
+enum MandatoryDocSlot {
+  LICENSES
+  CPR_CERTIFICATES
+  TB_TESTS
+  I9_W4_FORMS
+  VISA_DETAILS
+}
+
+model BackgroundCheckAgency {
+  id           Int     @id @default(autoincrement())
+  companyId    Int
+  location     String
+  agencyName   String
+  contactEmail String?
+  contactPhone String?
+  active       Boolean @default(true)
+
+  dispatches   BgCheckDispatch[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([companyId, location])
+  @@index([active])
+}
+
+model OnboardingDocument {
+  id           Int                      @id @default(autoincrement())
+  companyId    Int
+  employeeId   Int
+  employee     Employee                 @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  documentType OnboardingDocumentType
+  status       OnboardingDocumentStatus @default(PENDING)
+  fileUrl      String?
+  agencyId     Int?
+  sentAt       DateTime?
+  completedAt  DateTime?
+  createdById  Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([employeeId])
+  @@index([documentType])
+  @@index([status])
+}
+
+model OnboardingMandatoryDoc {
+  id           Int              @id @default(autoincrement())
+  companyId    Int
+  employeeId   Int
+  employee     Employee         @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  slot         MandatoryDocSlot
+  fileUrl      String
+  uploadedById Int
+
+  uploadedAt DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([employeeId, slot])
+  @@index([employeeId])
+}
+
+// ============================================
+// SPRINT 5.1 — EVV / TIMECARD / PAYROLL
+// (Per HRMS workflow diagram, Lane 4: login = IP-validated clock-in,
+// then break/clockout, supervisor approves, payroll cron compiles to ADP)
+// ============================================
+
+model FacilityIpWhitelist {
+  id          Int      @id @default(autoincrement())
+  facilityId  Int
+  facility    Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  cidr        String   // e.g. "192.168.1.0/24" or single IP "203.0.113.5/32"
+  description String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([facilityId])
+}
+
+model FacilityGeofence {
+  id           Int      @id @default(autoincrement())
+  facilityId   Int      @unique
+  facility     Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  lat          Float
+  lng          Float
+  radiusMeters Int      @default(100)
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model EmployeePunch {
+  id           Int       @id @default(autoincrement())
+  employeeId   Int
+  employee     Employee  @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  punchType    PunchType
+  timestamp    DateTime  @default(now())
+  ipAddress    String?
+  ipValidated  Boolean   @default(false)
+  geoLat       Float?
+  geoLng       Float?
+  geoValidated Boolean   @default(false)
+  notes        String?
+  createdAt    DateTime  @default(now())
+
+  @@index([employeeId, timestamp])
+  @@index([punchType])
+}
+
+enum PunchType {
+  CLOCK_IN
+  BREAK_START
+  BREAK_END
+  CLOCK_OUT
+}
+
+model PayrollBatch {
+  id                 Int                @id @default(autoincrement())
+  companyId          Int
+  facilityId         Int?
+  facility           Facility?          @relation(fields: [facilityId], references: [id], onDelete: SetNull)
+  payPeriodStart     DateTime
+  payPeriodEnd       DateTime
+  runDate            DateTime           @default(now())
+  status             PayrollBatchStatus @default(COMPILING)
+  totalRegularHours  Decimal            @default(0)
+  totalOvertimeHours Decimal            @default(0)
+  totalEmployees     Int                @default(0)
+  adpExportPath      String?
+  adpTransferAt      DateTime?
+  errors             Json? // [{employeeId, reason}]
+  createdById        Int?
+
+  timesheets Timesheet[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([companyId, payPeriodStart, payPeriodEnd])
+  @@index([status])
+}
+
+enum PayrollBatchStatus {
+  COMPILING
+  VALIDATING
+  EXPORTED
+  SENT_TO_ADP
+  COMPLETE
+  FAILED
+}
+
+// ============================================
+// SPRINT 5.2 — Automated System Operations (cron jobs)
+// ============================================
+
+model JobRunLog {
+  id          Int          @id @default(autoincrement())
+  companyId   Int?
+  jobName     String       // e.g. "monitorDocExpiry", "runWeeklyPayroll"
+  status      JobRunStatus @default(RUNNING)
+  startedAt   DateTime     @default(now())
+  finishedAt  DateTime?
+  durationMs  Int?
+  itemsProcessed Int       @default(0)
+  alertsSent  Int          @default(0)
+  errors      Json?
+  summary     String?
+  triggeredBy String?      // "cron" | "manual:<userId>"
+
+  @@index([jobName, startedAt])
+  @@index([status])
+}
+
+enum JobRunStatus {
+  RUNNING
+  SUCCESS
+  PARTIAL
+  FAILED
+}
+
+// ============================================
+// SPRINT 5.3 — Shift Change Request
+// (Per workflow diagram: Employee submits change → Supervisor approves → roster updates)
+// ============================================
+
+model ShiftChangeRequest {
+  id                 Int                 @id @default(autoincrement())
+  companyId          Int
+  employeeId         Int
+  employee           Employee            @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  originalShiftId    Int
+  originalShift      ShiftSchedule       @relation("ShiftChangeOriginal", fields: [originalShiftId], references: [id], onDelete: Cascade)
+  requestedDate      DateTime?           // null = swap to OFF; non-null = move to this date
+  requestedShiftType ShiftType?          // null = keep original type
+  requestedStartTime String?
+  requestedEndTime   String?
+  reason             String              // required
+  status             ShiftChangeStatus   @default(PENDING)
+  decidedById        Int?
+  decidedAt          DateTime?
+  rejectionReason    String?
+
+  // Phase 5.10 — Peer-to-peer swap (optional target employee)
+  targetEmployeeId    Int?
+  targetAcceptedAt    DateTime?
+  targetDeclinedAt    DateTime?
+  targetDeclineReason String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([employeeId])
+  @@index([originalShiftId])
+  @@index([status])
+  @@index([targetEmployeeId])
+}
+
+enum ShiftChangeStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+// ============================================
+// SPRINT 5.6 — Employee Tests with Expiry + Background Check Dispatch
+// (Per workflow diagram HR Admin lane: "Employee Tests with Expiry",
+// "ONCE Consent submitted it should be sent out to background check agency",
+// and "Upload the Background verification report")
+// ============================================
+
+model EmployeeTest {
+  id            Int                @id @default(autoincrement())
+  companyId     Int
+  employeeId    Int
+  employee      Employee           @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  testType      EmployeeTestType
+  testName      String?            // e.g. "TB Skin Test (PPD)"
+  passedDate    DateTime?
+  expiryDate    DateTime?
+  status        EmployeeTestStatus @default(PENDING)
+  fileUrl       String?
+  notes         String?
+  recordedById  Int?
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
+
+  @@index([employeeId, testType])
+  @@index([expiryDate])
+  @@index([status])
+}
+
+enum EmployeeTestType {
+  TB_TEST
+  DRUG_SCREEN
+  PHYSICAL_EXAM
+  FINGERPRINT_DMV
+  CPR_CERTIFICATION
+  HIV_TEST
+  COVID_TEST
+  HEPATITIS_B
+  OTHER
+}
+
+enum EmployeeTestStatus {
+  PENDING       // scheduled but not yet completed
+  PASSED
+  FAILED
+  EXPIRED
+  WAIVED
+}
+
+model BgCheckDispatch {
+  id              Int      @id @default(autoincrement())
+  companyId       Int
+  employeeId      Int
+  employee        Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  agencyId        Int?
+  agency          BackgroundCheckAgency? @relation(fields: [agencyId], references: [id], onDelete: SetNull)
+  consentDate     DateTime
+  dispatchedAt    DateTime @default(now())
+  dispatchedById  Int?
+  reportReceivedAt DateTime?
+  reportFileUrl   String?
+  status          BgCheckDispatchStatus @default(SENT)
+  notes           String?
+
+  @@index([employeeId])
+  @@index([status])
+}
+
+enum BgCheckDispatchStatus {
+  SENT
+  IN_PROGRESS
+  REPORT_RECEIVED
+  CLEARED
+  FAILED
+  CANCELLED
+}
+
+// ============================================
+// SPRINT 5.8 — Internal Messaging
+// ============================================
+
+model MessageThread {
+  id          Int       @id @default(autoincrement())
+  companyId   Int
+  subject     String?
+  // For 1:1 threads, participants are stored in MessageThreadParticipant
+  threadType  MessageThreadType @default(DIRECT)
+  lastMessageAt DateTime @default(now())
+  createdById Int
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  participants MessageThreadParticipant[]
+  messages     Message[]
+
+  @@index([companyId])
+  @@index([lastMessageAt])
+}
+
+enum MessageThreadType {
+  DIRECT
+  DEPARTMENT
+  ANNOUNCEMENT
+}
+
+model MessageThreadParticipant {
+  id        Int           @id @default(autoincrement())
+  threadId  Int
+  thread    MessageThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  userId    Int
+  joinedAt  DateTime      @default(now())
+  lastReadAt DateTime?
+
+  @@unique([threadId, userId])
+  @@index([userId])
+}
+
+model Message {
+  id        Int           @id @default(autoincrement())
+  threadId  Int
+  thread    MessageThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  senderId  Int
+  body      String
+  createdAt DateTime      @default(now())
+
+  @@index([threadId, createdAt])
+}
+
+// ============================================
+// PHASE 5.10 — Closing remaining gaps from project docs
+// ============================================
+
+model IncidentReport {
+  id                 Int                 @id @default(autoincrement())
+  companyId          Int
+  facilityId         Int?
+  reportedById       Int                 // user id (supervisor / HR)
+  involvedEmployeeId Int?                // employee involved (optional)
+  incidentDate       DateTime
+  category           IncidentCategory
+  severity           IncidentSeverity
+  title              String
+  description        String
+  actionTaken        String?
+  status             IncidentStatus      @default(OPEN)
+  resolvedAt         DateTime?
+  attachmentUrl      String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([companyId, status])
+  @@index([involvedEmployeeId])
+}
+
+enum IncidentCategory {
+  ATTENDANCE
+  PERFORMANCE
+  CONDUCT
+  SAFETY
+  POLICY_VIOLATION
+  COMPLAINT
+  OTHER
+}
+
+enum IncidentSeverity {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum IncidentStatus {
+  OPEN
+  UNDER_REVIEW
+  RESOLVED
+  CLOSED
+}
+
+model EmployeeRecognition {
+  id            Int      @id @default(autoincrement())
+  companyId     Int
+  employeeId    Int
+  recognizedById Int     // recognizer (supervisor/HR/peer)
+  category      String   // "Excellence" | "Teamwork" | "Innovation" | etc.
+  title         String
+  description   String?
+  visibility    String   @default("TEAM") // TEAM | PUBLIC | PRIVATE
+  createdAt     DateTime @default(now())
+
+  @@index([employeeId])
+  @@index([recognizedById])
+}
+
+model CompanyPayrollSettings {
+  id                  Int      @id @default(autoincrement())
+  companyId           Int      @unique
+  payPeriodType       String   @default("BIWEEKLY") // WEEKLY | BIWEEKLY | SEMIMONTHLY | MONTHLY
+  workweekStartDay    Int      @default(1) // 0=Sunday..6=Saturday
+  dailyOtThresholdHours    Decimal @default(8)
+  weeklyOtThresholdHours   Decimal @default(40)
+  doubletimeThresholdHours Decimal @default(12)
+  nightShiftDifferentialPercent  Decimal @default(0)  // % bonus for THIRD shifts
+  weekendDifferentialPercent     Decimal @default(0)  // % bonus for Sat/Sun
+  holidayMultiplier              Decimal @default(2.0) // 2x for holidays
+  payrollProvider                String  @default("ADP") // ADP | GUSTO | PAYCHEX | QUICKBOOKS
+
+  updatedAt DateTime @updatedAt
+  updatedById Int?
 }

@@ -13,6 +13,7 @@ interface ApiResponse<T> {
   data?: T;
   message?: string;
   error?: string;
+  pagination?: PaginationMeta;
 }
 
 interface PaginationMeta {
@@ -233,6 +234,13 @@ class ApiClient {
    */
   public async put<T>(endpoint: string, data: any): Promise<ApiResponse<T>> {
     return this.request<T>(endpoint, 'PUT', { data });
+  }
+
+  /**
+   * PATCH request
+   */
+  public async patch<T>(endpoint: string, data: any): Promise<ApiResponse<T>> {
+    return this.request<T>(endpoint, 'PATCH', { data });
   }
 
   /**

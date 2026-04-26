@@ -16,6 +16,33 @@ interface AuthContextType {
   hasPermission: (permission: string) => boolean;
 }
 
+/**
+ * Backend `/auth/login` and `/auth/me` don't return a flat `permissions` array on the user object —
+ * permissions live in the JWT (and nested in role.permissions on /me). Hydrate the user with both
+ * sources so `hasPermission` works regardless of which endpoint produced it.
+ */
+function decodeJwtPermissions(token: string): string[] {
+  try {
+    const payloadB64 = token.split('.')[1];
+    const padded = payloadB64 + '='.repeat((4 - (payloadB64.length % 4)) % 4);
+    const json = atob(padded.replace(/-/g, '+').replace(/_/g, '/'));
+    const payload = JSON.parse(json);
+    return Array.isArray(payload?.permissions) ? payload.permissions : [];
+  } catch {
+    return [];
+  }
+}
+
+function hydrateUser(raw: any, token?: string | null): User {
+  // Prefer flat user.permissions if backend ever populates it; otherwise pull from role.permissions or JWT
+  const fromUser = Array.isArray(raw?.permissions) ? raw.permissions : null;
+  const fromRole = Array.isArray(raw?.role?.permissions) ? raw.role.permissions : null;
+  const fromToken = token ? decodeJwtPermissions(token) : null;
+  const permissions: string[] = fromUser ?? fromRole ?? fromToken ?? [];
+  const roleName = typeof raw?.role === 'string' ? raw.role : raw?.role?.name ?? '';
+  return { ...raw, role: roleName, permissions };
+}
+
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -34,7 +61,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         // Verify token by fetching current user
         const response = await authService.getProfile();
         if (response.success && response.data) {
-          setUser(response.data);
+          setUser(hydrateUser(response.data, token));
         } else {
           // Token is invalid, clear it
           apiClient.clearTokens();
@@ -72,7 +99,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
       // Save tokens and set API client
       apiClient.setTokens(accessToken, refreshToken);
-      setUser(userData);
+      setUser(hydrateUser(userData, accessToken));
 
       // Redirect to dashboard
       window.location.href = '/dashboard';
