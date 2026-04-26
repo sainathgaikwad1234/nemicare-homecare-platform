@@ -24,6 +24,17 @@ export const messageService = {
     const userMap = new Map(users.map((u: any) => [u.id, u]));
     for (const t of threads) {
       t.participants = t.participants.map((p: any) => ({ ...p, user: userMap.get(p.userId) || null }));
+      // Per-thread unread count: messages from others created after my lastReadAt
+      const me = t.participants.find((p: any) => p.userId === userId);
+      const lastRead = me?.lastReadAt || new Date(0);
+      const unread = await (prisma as any).message.count({
+        where: {
+          threadId: t.id,
+          senderId: { not: userId },
+          createdAt: { gt: lastRead },
+        },
+      });
+      t.unreadCount = unread;
     }
     return threads;
   },

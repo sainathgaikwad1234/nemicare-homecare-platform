@@ -9,6 +9,7 @@ import {
   incidentService, recognitionService, payrollSettingsService, trainingService, activityLogService,
 } from '../services/incident.service';
 import { shiftChangeService } from '../services/shiftChange.service';
+import { employeeService } from '../services/employee.service';
 
 const meta = (req: AuthRequest) => ({ timestamp: new Date().toISOString(), requestId: (req as any).requestId });
 
@@ -179,6 +180,20 @@ docSign.post('/:employeeId/documents/:docId/sign', authenticate,
   })
 );
 
+// =========== Cross-employee Documents dashboard (Phase 5.13) ===========
+const documents = Router();
+documents.get('/', authenticate,
+  asyncHandler(async (req: AuthRequest, res: Response) => {
+    const result = await employeeService.listAllDocuments(req.user!.companyId, {
+      status: (req as any).query.status as any,
+      search: (req as any).query.search as string | undefined,
+      page: parseInt((req as any).query.page) || 1,
+      pageSize: parseInt((req as any).query.pageSize) || 10,
+    });
+    res.json({ success: true, status: 200, data: result.data, pagination: result.pagination, meta: meta(req) });
+  })
+);
+
 export const activityLogRoutes = activity;
 export const incidentRoutes = incidents;
 export const recognitionRoutes = recognitions;
@@ -187,3 +202,4 @@ export const trainingRoutes = training;
 export const employeeTrainingRoutes = employeeTraining;
 export const peerSwapRoutes = peerSwap;
 export const docSignRoutes = docSign;
+export const documentsRoutes = documents;

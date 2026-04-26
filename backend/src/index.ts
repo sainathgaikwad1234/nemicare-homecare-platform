@@ -37,9 +37,11 @@ import { meShiftChangeRoutes, supervisorShiftChangeRoutes } from './routes/shift
 import { onboardingExtrasRoutes } from './routes/onboardingExtras.routes';
 import { noticeBoardRoutes, messageRoutes, reportsRoutes } from './routes/phase5b.routes';
 import { dashboardRoutes } from './routes/dashboard.routes';
+import { familyRoutes } from './routes/family.routes';
 import {
   activityLogRoutes, incidentRoutes, recognitionRoutes, payrollSettingsRoutes,
   trainingRoutes, employeeTrainingRoutes, peerSwapRoutes, docSignRoutes,
+  documentsRoutes,
 } from './routes/phase5c.routes';
 import { startCronJobs, stopCronJobs } from './jobs';
 
@@ -63,10 +65,13 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 // Security middleware
 app.use(helmet());
 
-// CORS
+// CORS — supports comma-separated list for multiple frontend origins (dev: 3000 + 5173)
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+    origin: (process.env.CORS_ORIGIN || 'http://localhost:3000,http://localhost:5173')
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean),
     credentials: true,
   })
 );
@@ -171,11 +176,13 @@ app.use('/api/v1/dashboard', dashboardRoutes);
 app.use('/api/v1/activity-log', activityLogRoutes);
 app.use('/api/v1/incidents', incidentRoutes);
 app.use('/api/v1/recognitions', recognitionRoutes);
+app.use('/api/v1/family', familyRoutes);
 app.use('/api/v1/payroll-settings', payrollSettingsRoutes);
 app.use('/api/v1/training', trainingRoutes);
 app.use('/api/v1/employees', employeeTrainingRoutes);
 app.use('/api/v1/shift-change-requests', peerSwapRoutes);
 app.use('/api/v1/employees', docSignRoutes);
+app.use('/api/v1/documents', documentsRoutes);
 
 // ============================================
 // ERROR HANDLING - MUST BE LAST

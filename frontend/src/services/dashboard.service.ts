@@ -81,6 +81,24 @@ export interface StaffingChartDay {
   byShift: { FIRST: number; SECOND: number; THIRD: number };
 }
 
+export interface WeekShiftCell {
+  shiftType: 'FIRST' | 'SECOND' | 'THIRD';
+  startTime: string;
+  endTime: string;
+}
+export interface WeekShiftEmployee {
+  id: number;
+  firstName: string;
+  lastName: string;
+  designation: string | null;
+  profilePictureUrl: string | null;
+  cells: (WeekShiftCell | null)[];
+}
+export interface WeekShiftMatrix {
+  days: { date: string; label: string; weekday: string }[];
+  employees: WeekShiftEmployee[];
+}
+
 export interface SupervisorDashboard {
   supervisor: { id: number; name: string } | null;
   kpis: { pendingApprovals: number; myReviewsToComplete: number; directReports: number };
@@ -92,10 +110,31 @@ export interface SupervisorDashboard {
   staffingChart: StaffingChartDay[];
   coveragePercent: number;
   overtimeAlertsThisWeek: number;
+  weekShiftMatrix: WeekShiftMatrix;
+}
+
+export interface FacilityDashboardKpis {
+  activeMembers: number; newLeads: number; attendanceMtd: number; visitsToday: number;
+}
+export interface FacilityTodayMember {
+  id: number; name: string; avatar: string; time: string;
+  serviceType: 'ADH' | 'ALF' | 'Home Care'; transport: string; status: string;
+  profilePictureUrl?: string | null;
+}
+export interface FacilityAttendanceDay {
+  day: string; adh: number; alf: number; homeCare: number;
+}
+export interface FacilityDashboard {
+  kpis: FacilityDashboardKpis;
+  todaysMembers: FacilityTodayMember[];
+  attendanceChart: FacilityAttendanceDay[];
+  paAuthorizations: any[];
+  vitalsDue: any[];
 }
 
 class DashboardService {
   hrAdmin(): Promise<ApiResponse<HrAdminDashboard>> { return apiClient.get('/api/v1/dashboard/hr-admin'); }
   supervisor(): Promise<ApiResponse<SupervisorDashboard>> { return apiClient.get('/api/v1/dashboard/supervisor'); }
+  facility(): Promise<ApiResponse<FacilityDashboard>> { return apiClient.get('/api/v1/dashboard/facility'); }
 }
 export const dashboardService = new DashboardService();

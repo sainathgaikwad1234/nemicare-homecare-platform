@@ -280,11 +280,51 @@ class ShiftChangeService {
     if (status) p.append('status', status);
     return apiClient.get(`/api/v1/shift-change-requests?${p.toString()}`);
   }
-  approve(id: number): Promise<ApiResponse<ShiftChangeRequestItem>> {
-    return apiClient.patch(`/api/v1/shift-change-requests/${id}/approve`, {});
+  approve(id: number, replacementEmployeeId?: number | null): Promise<ApiResponse<ShiftChangeRequestItem>> {
+    return apiClient.patch(`/api/v1/shift-change-requests/${id}/approve`, { replacementEmployeeId });
   }
   reject(id: number, reason: string): Promise<ApiResponse<ShiftChangeRequestItem>> {
     return apiClient.patch(`/api/v1/shift-change-requests/${id}/reject`, { reason });
   }
+  availability(id: number): Promise<ApiResponse<ShiftAvailability>> {
+    return apiClient.get(`/api/v1/shift-change-requests/${id}/availability`);
+  }
 }
+
+export interface AvailableEmployee {
+  id: number;
+  firstName: string;
+  lastName: string;
+  profilePictureUrl: string | null;
+  employeeIdNumber: string | null;
+  designation: string | null;
+  facilityId: number | null;
+  shiftId?: number;
+  shiftType?: string;
+  startTime?: string;
+  endTime?: string;
+  phone?: string | null;
+  email?: string | null;
+}
+
+export interface ExistingSwapRequest {
+  id: number;
+  reason: string;
+  createdAt: string;
+  firstName: string;
+  lastName: string;
+  designation: string | null;
+  profilePictureUrl: string | null;
+  phone?: string | null;
+  originalShift?: { id: number; shiftDate: string; shiftType: string; startTime: string; endTime: string };
+}
+
+export interface ShiftAvailability {
+  request: { id: number; status: string; reason: string; createdAt: string; requestedDate: string | null; requestedShiftType: string | null };
+  requester: { id: number; firstName: string; lastName: string; designation: string | null; profilePictureUrl: string | null; employeeIdNumber: string | null; email?: string; phone?: string };
+  originalShift: { id: number; shiftDate: string; shiftType: string; startTime: string; endTime: string };
+  existingSwapRequests: ExistingSwapRequest[];
+  employeesByShift: Record<string, AvailableEmployee[]>;
+}
+
 export const shiftChangeService = new ShiftChangeService();

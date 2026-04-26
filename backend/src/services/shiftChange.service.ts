@@ -124,7 +124,131 @@ export const shiftChangeService = {
     return { data, pagination: { page, pageSize, total, totalPages: Math.ceil(total / pageSize) } };
   },
 
-  async approve(supervisorUserId: number, id: number) {
+  // Phase 5.12 — Check availability before approving a swap
+  // Returns: requester, original shift, existing pending swap requests for same role,
+  // and available employees on the requested shift type + alternate shift types.
+  async getAvailability(supervisorUserId: number, id: number) {
+    const sup = await (prisma as any).user.findUnique({
+      where: { id: supervisorUserId },
+      select: { companyId: true, facilityId: true },
+    });
+    if (!sup) throw new AppError(HTTP_STATUS.NOT_FOUND, ERROR_CODES.RESOURCE_NOT_FOUND, 'User not found');
+
+    const req = await (prisma as any).shiftChangeRequest.findUnique({
+      where: { id: Number(id) },
+      include: {
+        employee: { select: { id: true, firstName: true, lastName: true, designation: true, profilePictureUrl: true, facilityId: true, employeeIdNumber: true, user: { select: { email: true, phone: true } } } },
+        originalShift: true,
+      },
+    });
+    if (!req) throw new AppError(HTTP_STATUS.NOT_FOUND, ERROR_CODES.RESOURCE_NOT_FOUND, 'Request not found');
+
+    const designation = req.employee?.designation || null;
+    const facilityFilter: any = req.employee?.facilityId ? { facilityId: req.employee.facilityId } : {};
+
+    // Determine which shift types to look in
+    const shiftDate = req.requestedDate || req.originalShift?.shiftDate;
+    const requestedShiftType = req.requestedShiftType || null;
+
+    const allShiftTypes = ['FIRST', 'SECOND', 'THIRD'];
+    const otherShiftTypes = allShiftTypes.filter(
+      (s) => s !== req.originalShift?.shiftType
+    );
+
+    // Existing swap requests (other PENDING requests in the same facility / role)
+    const existingSwapRequests = await (prisma as any).shiftChangeRequest.findMany({
+      where: {
+        companyId: sup.companyId,
+        status: 'PENDING',
+        id: { not: req.id },
+        employee: {
+          ...facilityFilter,
+          ...(designation ? { designation } : {}),
+        },
+      },
+      include: {
+        employee: { select: { id: true, firstName: true, lastName: true, profilePictureUrl: true, employeeIdNumber: true, designation: true, user: { select: { phone: true } } } },
+        originalShift: true,
+      },
+      orderBy: { createdAt: 'desc' },
+      take: 10,
+    });
+
+    // For each non-original shift type, find employees scheduled on that shift type
+    // who match the role and are not the requester
+    const employeesByShift: Record<string, any[]> = {};
+    if (shiftDate) {
+      const dayStart = new Date(shiftDate);
+      dayStart.setHours(0, 0, 0, 0);
+      const dayEnd = new Date(shiftDate);
+      dayEnd.setHours(23, 59, 59, 999);
+
+      for (const stype of otherShiftTypes) {
+        const shifts = await (prisma as any).shiftSchedule.findMany({
+          where: {
+            companyId: sup.companyId,
+            shiftType: stype,
+            shiftDate: { gte: dayStart, lte: dayEnd },
+            status: { in: ['SCHEDULED', 'COMPLETED'] },
+            employeeId: { not: req.employeeId },
+          },
+          include: {
+            employee: {
+              select: {
+                id: true, firstName: true, lastName: true, profilePictureUrl: true,
+                employeeIdNumber: true, designation: true, facilityId: true,
+                user: { select: { phone: true, email: true } },
+              },
+            },
+          },
+          take: 20,
+        });
+        // Filter by role + facility
+        employeesByShift[stype] = shifts
+          .filter((s: any) => {
+            if (!s.employee) return false;
+            if (designation && s.employee.designation !== designation) return false;
+            if (req.employee?.facilityId && s.employee.facilityId !== req.employee.facilityId) return false;
+            return true;
+          })
+          .map((s: any) => ({
+            shiftId: s.id,
+            shiftType: s.shiftType,
+            startTime: s.startTime,
+            endTime: s.endTime,
+            ...s.employee,
+          }));
+      }
+    }
+
+    return {
+      request: {
+        id: req.id,
+        status: req.status,
+        reason: req.reason,
+        createdAt: req.createdAt,
+        requestedDate: req.requestedDate,
+        requestedShiftType,
+      },
+      requester: {
+        ...req.employee,
+        email: req.employee?.user?.email,
+        phone: req.employee?.user?.phone,
+      },
+      originalShift: req.originalShift,
+      existingSwapRequests: existingSwapRequests.map((r: any) => ({
+        id: r.id,
+        reason: r.reason,
+        createdAt: r.createdAt,
+        ...r.employee,
+        phone: r.employee?.user?.phone,
+        originalShift: r.originalShift,
+      })),
+      employeesByShift, // { SECOND: [...], THIRD: [...] }
+    };
+  },
+
+  async approve(supervisorUserId: number, id: number, replacementEmployeeId?: number | null) {
     const req = await (prisma as any).shiftChangeRequest.findUnique({
       where: { id: Number(id) },
       include: { originalShift: true, employee: true },
@@ -135,19 +259,40 @@ export const shiftChangeService = {
         `Cannot approve a request in status ${req.status}.`);
     }
 
-    // Atomically: update the underlying shift with the requested values, mark request APPROVED
+    // If replacement provided, validate
+    let replacement: any = null;
+    if (replacementEmployeeId) {
+      replacement = await (prisma as any).employee.findUnique({
+        where: { id: Number(replacementEmployeeId) },
+        select: { id: true, firstName: true, lastName: true, companyId: true, facilityId: true, status: true, deletedAt: true, user: { select: { email: true } } },
+      });
+      if (!replacement || replacement.companyId !== req.companyId || replacement.deletedAt) {
+        throw new AppError(HTTP_STATUS.BAD_REQUEST, ERROR_CODES.VALIDATION_ERROR, 'Replacement employee invalid.');
+      }
+      if (replacement.status !== 'ACTIVE') {
+        throw new AppError(HTTP_STATUS.BAD_REQUEST, ERROR_CODES.VALIDATION_ERROR, 'Replacement employee is not ACTIVE.');
+      }
+    }
+
+    // Atomically: update the underlying shift with the requested values + (optional) reassign to replacement, mark request APPROVED
     const result = await prisma.$transaction(async (tx: any) => {
       const shiftUpdate: any = {};
       if (req.requestedDate) shiftUpdate.shiftDate = req.requestedDate;
       if (req.requestedShiftType) shiftUpdate.shiftType = req.requestedShiftType;
       if (req.requestedStartTime) shiftUpdate.startTime = req.requestedStartTime;
       if (req.requestedEndTime) shiftUpdate.endTime = req.requestedEndTime;
+      if (replacement) shiftUpdate.employeeId = replacement.id;
       if (Object.keys(shiftUpdate).length > 0) {
         await tx.shiftSchedule.update({ where: { id: req.originalShiftId }, data: shiftUpdate });
       }
       return tx.shiftChangeRequest.update({
         where: { id: req.id },
-        data: { status: 'APPROVED', decidedById: supervisorUserId, decidedAt: new Date() },
+        data: {
+          status: 'APPROVED',
+          decidedById: supervisorUserId,
+          decidedAt: new Date(),
+          ...(replacement ? { targetEmployeeId: replacement.id, targetAcceptedAt: new Date() } : {}),
+        },
         include: { originalShift: true, employee: true },
       });
     });
@@ -157,10 +302,22 @@ export const shiftChangeService = {
       companyId: req.companyId,
       facilityId: req.employee.facilityId,
       title: 'Your shift change was approved',
-      body: `Your request for ${new Date(req.originalShift.shiftDate).toLocaleDateString()} has been approved. Check My Shifts for the updated schedule.`,
+      body: `Your request for ${new Date(req.originalShift.shiftDate).toLocaleDateString()} has been approved.${replacement ? ` ${replacement.firstName} ${replacement.lastName} will cover.` : ''} Check My Shifts for the updated schedule.`,
       category: 'shift-change-decision',
       emailTo: req.employee.email ? [req.employee.email] : undefined,
     });
+
+    // Notify replacement if assigned
+    if (replacement) {
+      await notificationService.send({
+        companyId: req.companyId,
+        facilityId: replacement.facilityId,
+        title: 'You have been assigned a new shift',
+        body: `You have been assigned to cover ${req.employee.firstName}'s shift on ${new Date(req.originalShift.shiftDate).toLocaleDateString()}. Check My Shifts.`,
+        category: 'shift-assignment',
+        emailTo: replacement.user?.email ? [replacement.user.email] : undefined,
+      });
+    }
 
     return result;
   },

@@ -45,12 +45,23 @@ supRouter.get(
   })
 );
 
+supRouter.get(
+  '/:id/availability',
+  authenticate,
+  asyncHandler(async (req: AuthRequest, res: Response) => {
+    const id = parseInt((req as any).params.id);
+    const result = await shiftChangeService.getAvailability((req as any).user.userId, id);
+    res.json({ success: true, status: 200, data: result, meta: meta(req) });
+  })
+);
+
 supRouter.patch(
   '/:id/approve',
   authenticate,
   asyncHandler(async (req: AuthRequest, res: Response) => {
     const id = parseInt((req as any).params.id);
-    const result = await shiftChangeService.approve((req as any).user.userId, id);
+    const replacementEmployeeId = (req as any).body?.replacementEmployeeId ?? null;
+    const result = await shiftChangeService.approve((req as any).user.userId, id, replacementEmployeeId);
     res.json({ success: true, status: 200, data: result, meta: meta(req) });
   })
 );

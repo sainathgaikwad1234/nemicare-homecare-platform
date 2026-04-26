@@ -346,6 +346,63 @@ export const employeeService = {
     });
   },
 
+  // Phase 5.13 — Cross-employee Documents dashboard (HR Admin)
+  async listAllDocuments(companyId: number, opts: { status?: 'ALL' | 'ACTIVE' | 'SOON' | 'EXPIRED'; search?: string; page?: number; pageSize?: number } = {}) {
+    const page = opts.page || 1;
+    const pageSize = opts.pageSize || 10;
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const in30 = new Date(today); in30.setDate(in30.getDate() + 30);
+
+    const where: any = { companyId };
+    if (opts.status === 'ACTIVE') {
+      where.OR = [{ expiryDate: null }, { expiryDate: { gt: in30 } }];
+    } else if (opts.status === 'SOON') {
+      where.expiryDate = { gte: today, lte: in30 };
+    } else if (opts.status === 'EXPIRED') {
+      where.expiryDate = { lt: today };
+    }
+
+    if (opts.search?.trim()) {
+      where.OR = [
+        ...(where.OR || []),
+        { documentName: { contains: opts.search, mode: 'insensitive' } },
+        { documentType: { contains: opts.search, mode: 'insensitive' } },
+        { employee: {
+          OR: [
+            { firstName: { contains: opts.search, mode: 'insensitive' } },
+            { lastName: { contains: opts.search, mode: 'insensitive' } },
+            { employeeIdNumber: { contains: opts.search, mode: 'insensitive' } },
+          ],
+        } },
+      ];
+    }
+
+    const total = await (prisma as any).employeeDocument.count({ where });
+    const docs = await (prisma as any).employeeDocument.findMany({
+      where,
+      include: {
+        employee: { select: { id: true, firstName: true, lastName: true, employeeIdNumber: true, designation: true, profilePictureUrl: true } },
+      },
+      orderBy: [{ expiryDate: 'asc' }, { createdAt: 'desc' }],
+      skip: (page - 1) * pageSize,
+      take: pageSize,
+    });
+
+    const enriched = docs.map((d: any) => {
+      let computedStatus: 'Active' | 'Soon' | 'Expired' = 'Active';
+      let daysLeft: number | null = null;
+      if (d.expiryDate) {
+        const exp = new Date(d.expiryDate).getTime();
+        daysLeft = Math.ceil((exp - today.getTime()) / (1000 * 60 * 60 * 24));
+        if (daysLeft < 0) computedStatus = 'Expired';
+        else if (daysLeft <= 30) computedStatus = 'Soon';
+      }
+      return { ...d, computedStatus, daysLeft };
+    });
+
+    return { data: enriched, pagination: { page, pageSize, total, totalPages: Math.ceil(total / pageSize) } };
+  },
+
   async addEmployeeDocument(employeeId: number, companyId: number, input: any, userId: number) {
     const employee = await this.getEmployeeById(employeeId, companyId);
     return (prisma as any).employeeDocument.create({

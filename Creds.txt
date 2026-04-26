@@ -1,0 +1,4 @@
+Logins
+HR Admin: admin@demo.nemicare.local / Admin@123456
+Supervisor (Eleanor): supervisor@demo.nemicare.local / Supervisor@123456
+Employee (Sarah): sarah.johnson@nemicare.test / Sarah@123456

@@ -96,7 +96,7 @@ export const ShiftCalendarPage: React.FC = () => {
             onClick={() => setOpenBulk(true)}
             sx={{ bgcolor: '#1e3a5f', '&:hover': { bgcolor: '#1a3354' }, textTransform: 'none' }}
           >
-            Bulk Assign
+            Shift Assign
           </Button>
         </Box>
 

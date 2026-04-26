@@ -6,9 +6,10 @@ import {
   Dialog, DialogTitle, DialogContent, DialogActions, TextField,
 } from '@mui/material';
 import {
-  SwapHoriz as SwapIcon, Check as CheckIcon, Close as CloseIcon,
+  SwapHoriz as SwapIcon, Close as CloseIcon, Visibility as ViewIcon,
 } from '@mui/icons-material';
 import { shiftChangeService, ShiftChangeRequestItem, ShiftChangeStatus } from '../../services/phase5.service';
+import { CheckAvailabilityDialog } from './CheckAvailabilityDialog';
 
 const STATUS_STYLES: Record<ShiftChangeStatus, { bg: string; color: string }> = {
   PENDING:  { bg: '#fef3c7', color: '#92400e' },
@@ -35,6 +36,7 @@ export const ShiftChangeQueuePage: React.FC = () => {
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' as 'success' | 'error' });
   const [rejectTarget, setRejectTarget] = useState<ShiftChangeRequestItem | null>(null);
   const [reason, setReason] = useState('');
+  const [checkTarget, setCheckTarget] = useState<ShiftChangeRequestItem | null>(null);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -51,11 +53,18 @@ export const ShiftChangeQueuePage: React.FC = () => {
 
   useEffect(() => { load(); }, [load]);
 
-  const handleApprove = async (r: ShiftChangeRequestItem) => {
+  const handleApprove = async (id: number, replacementEmployeeId: number | null = null) => {
     try {
-      const res = await shiftChangeService.approve(r.id);
+      const res = await shiftChangeService.approve(id, replacementEmployeeId);
       if (!res.success) throw new Error(res.error || 'Approve failed');
-      setSnackbar({ open: true, message: 'Approved — roster updated and employee notified', severity: 'success' });
+      setSnackbar({
+        open: true,
+        message: replacementEmployeeId
+          ? 'Approved with replacement assigned — roster updated and both employees notified'
+          : 'Approved — roster updated and employee notified',
+        severity: 'success',
+      });
+      setCheckTarget(null);
       load();
     } catch (e: any) {
       setSnackbar({ open: true, message: e.message || 'Approve failed', severity: 'error' });
@@ -156,11 +165,11 @@ export const ShiftChangeQueuePage: React.FC = () => {
                       <TableCell>
                         {isPending ? (
                           <Box sx={{ display: 'flex', gap: 0.5 }}>
-                            <Button size="small" startIcon={<CheckIcon fontSize="small" />}
+                            <Button size="small" startIcon={<ViewIcon fontSize="small" />}
                               variant="contained"
-                              onClick={() => handleApprove(r)}
-                              sx={{ bgcolor: '#10b981', '&:hover': { bgcolor: '#059669' }, textTransform: 'none', fontSize: '0.7rem' }}>
-                              Approve
+                              onClick={() => setCheckTarget(r)}
+                              sx={{ bgcolor: '#1e3a5f', '&:hover': { bgcolor: '#1a3354' }, textTransform: 'none', fontSize: '0.7rem' }}>
+                              Check Availability
                             </Button>
                             <Button size="small" startIcon={<CloseIcon fontSize="small" />}
                               onClick={() => setRejectTarget(r)}
@@ -218,6 +227,18 @@ export const ShiftChangeQueuePage: React.FC = () => {
           </Button>
         </DialogActions>
       </Dialog>
+
+      <CheckAvailabilityDialog
+        open={!!checkTarget}
+        requestId={checkTarget?.id ?? null}
+        onClose={() => setCheckTarget(null)}
+        onApprove={(replacementEmployeeId) => handleApprove(checkTarget!.id, replacementEmployeeId)}
+        onReject={() => {
+          const target = checkTarget;
+          setCheckTarget(null);
+          setRejectTarget(target);
+        }}
+      />
 
       <Snackbar
         open={snackbar.open}

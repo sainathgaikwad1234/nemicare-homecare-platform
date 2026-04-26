@@ -45,6 +45,24 @@ import MessagesPage from './pages/hrms/Messages'
 import HrAdminDashboardPage from './pages/hrms/HrAdminDashboard'
 import SupervisorDashboardPage from './pages/hrms/SupervisorDashboard'
 import HrAdminConsolePage from './pages/hrms/HrAdminConsole'
+import DocumentsDashboardPage from './pages/hrms/DocumentsDashboard'
+import TasksPage from './pages/hrms/Tasks'
+import AppreciationPage from './pages/hrms/Appreciation'
+import BillingPage from './pages/Billing'
+import SettingsPage from './pages/Settings'
+import FamilyLayout from './components/Layout/FamilyLayout'
+import FamilySignInPage from './pages/family/FamilySignIn'
+import FamilyDashboardPage from './pages/family/FamilyDashboard'
+import {
+  FamilyAppointmentsPage, FamilyChatPage, FamilyMedicationPage, FamilyVitalsPage,
+  FamilyDocumentsPage, FamilyTicketsPage, FamilyInventoryPage, FamilyIncidentPage,
+  FamilyNotificationsPage, FamilyProfilePage,
+  FamilyStatementPage, FamilyPaymentPage, FamilyHistoryPage,
+  FamilyForgotPasswordPage,
+} from './pages/family/FamilyStubs'
+import {
+  FamilyOtpPage, FamilySetPasswordPage, FamilyCompleteProfilePage, FamilySelectResidentPage,
+} from './pages/family/FamilyAuth'
 
 // Material-UI Theme - Matching Figma dark blue design system
 const theme = createTheme({
@@ -399,6 +417,50 @@ function AppContent() {
       />
 
       <Route
+        path="/hrms/documents"
+        element={
+          <ProtectedRoute>
+            <MainLayout>
+              <HrmsLayout><DocumentsDashboardPage /></HrmsLayout>
+            </MainLayout>
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/documents"
+        element={
+          <ProtectedRoute>
+            <MainLayout>
+              <DocumentsDashboardPage />
+            </MainLayout>
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/hrms/tasks"
+        element={
+          <ProtectedRoute>
+            <MainLayout>
+              <HrmsLayout><TasksPage /></HrmsLayout>
+            </MainLayout>
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/hrms/appreciation"
+        element={
+          <ProtectedRoute>
+            <MainLayout>
+              <HrmsLayout><AppreciationPage /></HrmsLayout>
+            </MainLayout>
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
         path="/hrms/notices"
         element={
           <ProtectedRoute>
@@ -470,6 +532,83 @@ function AppContent() {
           <ProtectedRoute>
             <MainLayout>
               <HrmsLayout><HrAdminConsolePage /></HrmsLayout>
+            </MainLayout>
+          </ProtectedRoute>
+        }
+      />
+
+      {/* ============ Family Portal ============ */}
+      <Route path="/family" element={<Navigate to="/family/dashboard" replace />} />
+      <Route path="/family/login" element={<FamilySignInPage />} />
+      <Route path="/family/forgot-password" element={<FamilyForgotPasswordPage />} />
+      <Route path="/family/otp" element={<FamilyOtpPage />} />
+      <Route path="/family/set-password" element={<FamilySetPasswordPage />} />
+      <Route path="/family/complete-profile" element={<FamilyCompleteProfilePage />} />
+      <Route path="/family/select-resident" element={<FamilySelectResidentPage />} />
+
+      <Route path="/family/dashboard" element={
+        <ProtectedRoute><FamilyLayout><FamilyDashboardPage /></FamilyLayout></ProtectedRoute>
+      } />
+      <Route path="/family/appointments" element={
+        <ProtectedRoute><FamilyLayout><FamilyAppointmentsPage /></FamilyLayout></ProtectedRoute>
+      } />
+      <Route path="/family/chat" element={
+        <ProtectedRoute><FamilyLayout><FamilyChatPage /></FamilyLayout></ProtectedRoute>
+      } />
+      <Route path="/family/medication" element={
+        <ProtectedRoute><FamilyLayout><FamilyMedicationPage /></FamilyLayout></ProtectedRoute>
+      } />
+      <Route path="/family/vitals" element={
+        <ProtectedRoute><FamilyLayout><FamilyVitalsPage /></FamilyLayout></ProtectedRoute>
+      } />
+      <Route path="/family/documents" element={
+        <ProtectedRoute><FamilyLayout><FamilyDocumentsPage /></FamilyLayout></ProtectedRoute>
+      } />
+      <Route path="/family/statement" element={
+        <ProtectedRoute><FamilyLayout><FamilyStatementPage /></FamilyLayout></ProtectedRoute>
+      } />
+      <Route path="/family/payment" element={
+        <ProtectedRoute><FamilyLayout><FamilyPaymentPage /></FamilyLayout></ProtectedRoute>
+      } />
+      <Route path="/family/history" element={
+        <ProtectedRoute><FamilyLayout><FamilyHistoryPage /></FamilyLayout></ProtectedRoute>
+      } />
+      <Route path="/family/inventory" element={
+        <ProtectedRoute><FamilyLayout><FamilyInventoryPage /></FamilyLayout></ProtectedRoute>
+      } />
+      <Route path="/family/tickets" element={
+        <ProtectedRoute><FamilyLayout><FamilyTicketsPage /></FamilyLayout></ProtectedRoute>
+      } />
+      <Route path="/family/incident" element={
+        <ProtectedRoute><FamilyLayout><FamilyIncidentPage /></FamilyLayout></ProtectedRoute>
+      } />
+      <Route path="/family/notifications" element={
+        <ProtectedRoute><FamilyLayout><FamilyNotificationsPage /></FamilyLayout></ProtectedRoute>
+      } />
+      <Route path="/family/profile" element={
+        <ProtectedRoute><FamilyLayout><FamilyProfilePage /></FamilyLayout></ProtectedRoute>
+      } />
+
+      {/* Top-nav routes — Scheduling redirects to HRMS shift calendar (master schedule) */}
+      <Route path="/scheduling" element={<Navigate to="/hrms/shifts" replace />} />
+
+      <Route
+        path="/billing"
+        element={
+          <ProtectedRoute>
+            <MainLayout>
+              <BillingPage />
+            </MainLayout>
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/settings"
+        element={
+          <ProtectedRoute>
+            <MainLayout>
+              <SettingsPage />
             </MainLayout>
           </ProtectedRoute>
         }

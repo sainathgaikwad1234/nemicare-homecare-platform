@@ -168,6 +168,10 @@ model User {
   timesheetsApproved Timesheet[] @relation("ApprovedBy")
   auditLogs          AuditLog[]
   employee           Employee?
+  familyResidentLinks FamilyResidentLink[] @relation("FamilyContactLinks")
+  familyAppointmentRequests FamilyAppointment[] @relation("FamilyAppointmentRequests")
+  familyNotifications FamilyNotification[] @relation("FamilyNotifications")
+  familyNotificationSettings FamilyNotificationSetting? @relation("FamilyNotificationSettings")
 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -367,6 +371,8 @@ model Resident {
   faceToFaceNotes   FaceToFaceNote[]
   attendanceRecords Attendance[]
   dischargeRecord   DischargeRecord?
+  familyContactLinks FamilyResidentLink[] @relation("FamilyContactLinks")
+  familyAppointments FamilyAppointment[] @relation("FamilyAppointments")
   patientSetup      PatientSetup?
 
   notes String?
@@ -2164,4 +2170,124 @@ model CompanyPayrollSettings {
 
   updatedAt DateTime @updatedAt
   updatedById Int?
+}
+
+
+// ============================================
+// FAMILY PORTAL
+// ============================================
+
+model FamilyResidentLink {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  user         User     @relation("FamilyContactLinks", fields: [userId], references: [id], onDelete: Cascade)
+  residentId   Int
+  resident     Resident @relation("FamilyContactLinks", fields: [residentId], references: [id], onDelete: Cascade)
+  companyId    Int
+  relation     String   // Brother, Sister, Daughter, Son, Spouse, Other
+  isPrimary    Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([userId, residentId])
+  @@index([userId])
+  @@index([residentId])
+}
+
+
+// ============================================
+// FAMILY PORTAL — Appointments + Notifications
+// ============================================
+
+enum AppointmentMode {
+  IN_PERSON
+  VIRTUAL
+}
+
+enum AppointmentStatus {
+  REQUESTED   // family submitted, staff hasn't confirmed
+  SCHEDULED   // confirmed by staff
+  COMPLETED
+  CANCELLED
+}
+
+model FamilyAppointment {
+  id              Int               @id @default(autoincrement())
+  companyId       Int
+  residentId      Int
+  resident        Resident          @relation("FamilyAppointments", fields: [residentId], references: [id], onDelete: Cascade)
+  requestedById   Int               // family contact user
+  requestedBy     User              @relation("FamilyAppointmentRequests", fields: [requestedById], references: [id], onDelete: Cascade)
+
+  mode            AppointmentMode   @default(IN_PERSON)
+  status          AppointmentStatus @default(REQUESTED)
+
+  scheduledDate   DateTime
+  scheduledTime   String            // "HH:MM-HH:MM" range
+  durationMinutes Int               @default(60)
+
+  preferredProvider String?
+  assignedProviderId Int?
+  reason          String?
+  notes           String?
+
+  facilityName    String?
+  facilityAddress String?
+  telehealthUrl   String?
+
+  cancelledAt     DateTime?
+  cancelledReason String?
+
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  @@index([residentId])
+  @@index([requestedById])
+  @@index([status])
+  @@index([scheduledDate])
+}
+
+enum FamilyNotificationType {
+  PASSWORD
+  DOCUMENT
+  ALERT
+  INCIDENT
+  MESSAGE
+  TICKET
+  INVOICE
+  APPOINTMENT
+}
+
+model FamilyNotification {
+  id          Int                    @id @default(autoincrement())
+  companyId   Int
+  userId      Int                    // recipient family contact
+  user        User                   @relation("FamilyNotifications", fields: [userId], references: [id], onDelete: Cascade)
+  residentId  Int?                   // optional resident scope
+  type        FamilyNotificationType
+  title       String
+  description String?
+  link        String?                // optional deep link
+  readAt      DateTime?
+  createdAt   DateTime               @default(now())
+
+  @@index([userId, readAt])
+  @@index([createdAt])
+}
+
+model FamilyNotificationSetting {
+  id      Int                       @id @default(autoincrement())
+  userId  Int                       @unique
+  user    User                      @relation("FamilyNotificationSettings", fields: [userId], references: [id], onDelete: Cascade)
+  // Per-type opt-in flags; default everything ON
+  password    Boolean @default(true)
+  document    Boolean @default(true)
+  alert       Boolean @default(true)
+  incident    Boolean @default(true)
+  message     Boolean @default(true)
+  ticket      Boolean @default(true)
+  invoice     Boolean @default(true)
+  appointment Boolean @default(true)
+  allowAll    Boolean @default(true)
+  updatedAt   DateTime @updatedAt
 }

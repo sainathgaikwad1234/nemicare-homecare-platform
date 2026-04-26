@@ -127,3 +127,37 @@ class PeerSwapService {
   decline(id: number, reason?: string): Promise<ApiResponse<any>> { return apiClient.post(`/api/v1/shift-change-requests/${id}/peer-decline`, { reason }); }
 }
 export const peerSwapService = new PeerSwapService();
+
+// =============== Cross-employee Documents (Phase 5.13) ===============
+export interface DocumentRow {
+  id: number;
+  documentType: string;
+  documentName: string;
+  fileUrl: string | null;
+  expiryDate: string | null;
+  status: string;
+  notes: string | null;
+  createdAt: string;
+  computedStatus: 'Active' | 'Soon' | 'Expired';
+  daysLeft: number | null;
+  employee: {
+    id: number;
+    firstName: string;
+    lastName: string;
+    employeeIdNumber: string | null;
+    designation: string | null;
+    profilePictureUrl: string | null;
+  };
+}
+
+class DocumentsDashboardService {
+  list(opts: { status?: 'ALL' | 'ACTIVE' | 'SOON' | 'EXPIRED'; search?: string; page?: number; pageSize?: number } = {}): Promise<ApiResponse<DocumentRow[]>> {
+    const p = new URLSearchParams();
+    if (opts.status && opts.status !== 'ALL') p.append('status', opts.status);
+    if (opts.search) p.append('search', opts.search);
+    if (opts.page) p.append('page', String(opts.page));
+    if (opts.pageSize) p.append('pageSize', String(opts.pageSize));
+    return apiClient.get(`/api/v1/documents${p.toString() ? '?' + p.toString() : ''}`);
+  }
+}
+export const documentsDashboardService = new DocumentsDashboardService();

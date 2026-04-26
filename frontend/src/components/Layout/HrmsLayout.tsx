@@ -19,6 +19,7 @@ import {
   TrendingUp as ProgressIcon,
   Schedule as JobsIcon,
   SwapHoriz as ShiftChangeIcon,
+  EmojiEvents as TrophyIcon,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
@@ -38,6 +39,7 @@ const HR_ADMIN_ITEMS: NavItem[] = [
   { label: 'Payroll', path: '/hrms/payroll', icon: <PayrollIcon fontSize="small" /> },
   { label: 'Messages', path: '/hrms/messages', icon: <ChatIcon fontSize="small" /> },
   { label: 'Reviews', path: '/hrms/reviews', icon: <ReviewsIcon fontSize="small" /> },
+  { label: 'Tasks', path: '/hrms/tasks', icon: <TasksIcon fontSize="small" /> },
   { label: 'Documents', path: '/hrms/documents', icon: <DocumentsIcon fontSize="small" /> },
   { label: 'Exits', path: '/hrms/exits', icon: <ExitsIcon fontSize="small" /> },
   { label: 'Reports', path: '/hrms/reports', icon: <ReportsIcon fontSize="small" /> },
@@ -67,7 +69,10 @@ const SUPERVISOR_ITEMS: NavItem[] = [
   { label: 'Leaves', path: '/hrms/leaves', icon: <LeavesIcon fontSize="small" /> },
   { label: 'Timecards', path: '/hrms/timecards', icon: <TimecardIcon fontSize="small" /> },
   { label: 'Reviews', path: '/hrms/reviews', icon: <ReviewsIcon fontSize="small" /> },
+  { label: 'Tasks', path: '/hrms/tasks', icon: <TasksIcon fontSize="small" /> },
+  { label: 'Appreciation', path: '/hrms/appreciation', icon: <TrophyIcon fontSize="small" /> },
   { label: 'Messages', path: '/hrms/messages', icon: <ChatIcon fontSize="small" /> },
+  { label: 'Profile', path: '/hrms/me/profile', icon: <ProfileIcon fontSize="small" /> },
 ];
 
 const settingsItem: NavItem = { label: 'Settings', path: '/hrms/settings', icon: <SettingsIcon fontSize="small" /> };

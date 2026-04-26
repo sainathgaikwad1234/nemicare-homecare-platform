@@ -22,4 +22,11 @@ router.get('/supervisor', authenticate,
   })
 );
 
+router.get('/facility', authenticate,
+  asyncHandler(async (req: AuthRequest, res: Response) => {
+    const result = await dashboardService.facility(req.user!.companyId, req.user!.facilityId ?? null);
+    res.json({ success: true, status: 200, data: result, meta: meta(req) });
+  })
+);
+
 export const dashboardRoutes = router;

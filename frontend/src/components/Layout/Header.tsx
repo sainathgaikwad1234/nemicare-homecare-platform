@@ -46,22 +46,14 @@ const navTabs = [
   { label: 'Settings', path: '/settings', icon: <SettingsIcon sx={{ fontSize: 17 }} /> },
 ];
 
-// Brand mark — overlapping orange + blue petal shapes (matches Figma "Nemi Care" logo)
+// Brand mark — actual Nemi Care logo asset
 const NemiLogoMark: React.FC = () => (
-  <Box sx={{ width: 40, height: 40, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-    <svg viewBox="0 0 40 40" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
-      {/* Large dark blue petal (top-left) */}
-      <ellipse cx="14" cy="14" rx="11" ry="11" fill="#1e3a8a" />
-      {/* Orange/gold accent petal (bottom-left, overlapping) */}
-      <ellipse cx="11" cy="26" rx="7" ry="7" fill="#f97316" />
-      {/* Yellow highlight bud (small) */}
-      <ellipse cx="22" cy="22" rx="4" ry="4" fill="#fbbf24" />
-      {/* Small dark blue dot (bottom-right) */}
-      <ellipse cx="29" cy="30" rx="4" ry="4" fill="#1e40af" />
-      {/* White cross/plus glint in the center to suggest "care" / medical */}
-      <circle cx="18" cy="18" r="2" fill="#fff" opacity="0.9" />
-    </svg>
-  </Box>
+  <Box
+    component="img"
+    src="/nemicare-logo.png"
+    alt="Nemi Care"
+    sx={{ width: 40, height: 40, flexShrink: 0, objectFit: 'contain' }}
+  />
 );
 
 export const Header: React.FC = () => {

@@ -41,8 +41,9 @@ export interface MessageThread {
   subject: string | null;
   threadType: 'DIRECT' | 'DEPARTMENT' | 'ANNOUNCEMENT';
   lastMessageAt: string;
-  participants: Array<{ userId: number; lastReadAt: string | null; user?: { id: number; firstName: string; lastName: string } }>;
-  messages: Array<{ id: number; senderId: number; body: string; createdAt: string; sender?: { id: number; firstName: string; lastName: string } }>;
+  unreadCount?: number;
+  participants: Array<{ userId: number; lastReadAt: string | null; user?: { id: number; firstName: string; lastName: string; avatar?: string | null } }>;
+  messages: Array<{ id: number; senderId: number; body: string; createdAt: string; sender?: { id: number; firstName: string; lastName: string; avatar?: string | null } }>;
 }
 
 class MessageService {

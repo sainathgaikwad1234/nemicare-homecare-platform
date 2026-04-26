@@ -3,7 +3,8 @@
  * Layout: Quick links -> Stats bar -> [Members Table | Attendance Chart] -> [PA Auth | Vitals Due]
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { dashboardService, FacilityDashboard } from '../services/dashboard.service';
 import {
   Box,
   Grid,
@@ -48,6 +49,16 @@ interface CalendarCell {
 export const DashboardPage: React.FC = () => {
   const [selectedPatient, setSelectedPatient] = useState<string>('');
   const [showActivities, setShowActivities] = useState(false);
+  const [apiData, setApiData] = useState<FacilityDashboard | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    dashboardService.facility().then((res) => {
+      if (cancelled) return;
+      if (res.success && res.data) setApiData(res.data);
+    }).catch(() => { /* keep mock */ });
+    return () => { cancelled = true; };
+  }, []);
 
   const quickLinks = [
     { label: 'Quick Links', type: 'text' },
@@ -60,29 +71,41 @@ export const DashboardPage: React.FC = () => {
     { label: 'Templates', type: 'outlined' },
   ];
 
+  const k = apiData?.kpis;
   const metricCards = [
-    { title: 'Active Members', value: '456', up: 17, down: 6, icon: <PeopleIcon sx={{ fontSize: 14, color: '#9ca3af' }} /> },
-    { title: 'New Leads', value: '456', up: 17, down: 6, icon: <LeadsIcon sx={{ fontSize: 14, color: '#9ca3af' }} /> },
-    { title: 'Attendance (MTD)', value: '456', up: 17, down: 6, icon: <AttendIcon sx={{ fontSize: 14, color: '#9ca3af' }} /> },
-    { title: 'Visits Today', value: '08', up: 0, down: 0, icon: <VisitsIcon sx={{ fontSize: 14, color: '#9ca3af' }} /> },
+    { title: 'Active Members', value: k ? String(k.activeMembers) : '456', up: 17, down: 6, icon: <PeopleIcon sx={{ fontSize: 14, color: '#9ca3af' }} /> },
+    { title: 'New Leads', value: k ? String(k.newLeads) : '456', up: 17, down: 6, icon: <LeadsIcon sx={{ fontSize: 14, color: '#9ca3af' }} /> },
+    { title: 'Attendance (MTD)', value: k ? String(k.attendanceMtd) : '456', up: 17, down: 6, icon: <AttendIcon sx={{ fontSize: 14, color: '#9ca3af' }} /> },
+    { title: 'Visits Today', value: k ? String(k.visitsToday).padStart(2, '0') : '08', up: 0, down: 0, icon: <VisitsIcon sx={{ fontSize: 14, color: '#9ca3af' }} /> },
   ];
 
-  const todaysMembers = [
+  // Mock fallback when API is unavailable
+  const FALLBACK_MEMBERS = [
     { id: 1, name: 'Devon Lane', avatar: 'DL', time: '00:00 AM', serviceType: 'ADH', transport: '🚗', status: 'New Arrival' as const },
     { id: 2, name: 'Esther Howard', avatar: 'EH', time: '00:00 AM', serviceType: 'Vitals', transport: 'Home Care', status: 'Active' as const },
     { id: 3, name: 'Annette Black', avatar: 'AB', time: '00:00 AM', serviceType: 'Vitals, Pro...', transport: 'ADH', status: 'Active' as const },
     { id: 4, name: 'Kathryn Murphy', avatar: 'KM', time: '00:00 AM', serviceType: 'Progress...', transport: 'Home Care', status: 'Active' as const },
   ];
+  const todaysMembers = apiData?.todaysMembers?.length
+    ? apiData.todaysMembers.map((m) => ({
+        id: m.id, name: m.name, avatar: m.avatar, time: m.time,
+        serviceType: m.serviceType, transport: m.transport,
+        status: (m.status === 'New Arrival' ? 'New Arrival' : 'Active') as 'New Arrival' | 'Active',
+      }))
+    : FALLBACK_MEMBERS;
 
-  const attendanceData = [
-    { day: 'Mon', s: [70, 18, 7] },
-    { day: 'Tue', s: [75, 20, 8] },
-    { day: 'Wed', s: [65, 16, 10] },
-    { day: 'Thu', s: [80, 14, 5] },
-    { day: 'Fri', s: [60, 22, 9] },
-    { day: 'Sat', s: [35, 12, 4] },
-    { day: 'Sun', s: [25, 10, 4] },
-  ];
+  // Convert API attendance to bar chart format (s = [adh, alf, homeCare])
+  const attendanceData = apiData?.attendanceChart?.length
+    ? apiData.attendanceChart.map((d) => ({ day: d.day, s: [d.adh, d.alf, d.homeCare] }))
+    : [
+        { day: 'Mon', s: [70, 18, 7] },
+        { day: 'Tue', s: [75, 20, 8] },
+        { day: 'Wed', s: [65, 16, 10] },
+        { day: 'Thu', s: [80, 14, 5] },
+        { day: 'Fri', s: [60, 22, 9] },
+        { day: 'Sat', s: [35, 12, 4] },
+        { day: 'Sun', s: [25, 10, 4] },
+      ];
 
   const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 

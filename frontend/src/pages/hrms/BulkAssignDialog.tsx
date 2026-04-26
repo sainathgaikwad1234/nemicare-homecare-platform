@@ -4,7 +4,7 @@ import {
   IconButton, FormControl, InputLabel, Select, MenuItem, Button,
   Checkbox, TextField, Avatar, Chip, Snackbar, Alert,
 } from '@mui/material';
-import { Close as CloseIcon, Search as SearchIcon } from '@mui/icons-material';
+import { Close as CloseIcon, Search as SearchIcon, EventNote as ShiftTypeEmptyIcon } from '@mui/icons-material';
 import { shiftService, ShiftType } from '../../services/shift.service';
 
 interface Props {
@@ -81,7 +81,7 @@ export const BulkAssignDialog: React.FC<Props> = ({ open, onClose, onSuccess, em
   return (
     <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth>
       <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Typography sx={{ fontWeight: 600 }}>Bulk Assign Shifts</Typography>
+        <Typography sx={{ fontWeight: 600 }}>Shift Assignment</Typography>
         <IconButton onClick={onClose} size="small"><CloseIcon /></IconButton>
       </DialogTitle>
       <DialogContent dividers>
@@ -96,6 +96,19 @@ export const BulkAssignDialog: React.FC<Props> = ({ open, onClose, onSuccess, em
           </Select>
         </FormControl>
 
+        {!shiftType && (
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', py: 8, color: '#6b7280' }}>
+            <ShiftTypeEmptyIcon sx={{ fontSize: 96, color: '#cbd5e1', mb: 2 }} />
+            <Typography sx={{ fontSize: '1rem', fontWeight: 600, color: '#1e3a5f' }}>
+              Select Shift Type First
+            </Typography>
+            <Typography sx={{ fontSize: '0.85rem', color: '#9ca3af', mt: 0.5 }}>
+              Pick a shift type above to start assigning staff and dates.
+            </Typography>
+          </Box>
+        )}
+
+        {shiftType && <>
         {/* Staff selector */}
         <Box sx={{ mb: 3 }}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1 }}>
@@ -166,6 +179,7 @@ export const BulkAssignDialog: React.FC<Props> = ({ open, onClose, onSuccess, em
             ))}
           </Box>
         </Box>
+        </>}
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose} sx={{ textTransform: 'none' }}>Cancel</Button>

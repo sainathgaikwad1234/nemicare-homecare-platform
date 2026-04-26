@@ -5,6 +5,101 @@ const endOfDay = (d: Date) => { const x = new Date(d); x.setHours(23, 59, 59, 99
 const addDays = (d: Date, n: number) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
 
 export const dashboardService = {
+  // ============================================
+  // FACILITY DASHBOARD — Care/Operations view
+  // ============================================
+  async facility(companyId: number, facilityId: number | null) {
+    const today = startOfDay(new Date());
+    const todayEnd = endOfDay(new Date());
+    const startMonth = new Date(today); startMonth.setDate(1);
+    const startWeek = startOfDay(addDays(today, -6));
+
+    const facilityFilter = facilityId ? { facilityId } : {};
+
+    // Wrap each query in its own try/catch so one failure doesn't kill the whole dashboard
+    const safe = async <T>(promise: Promise<T>, fallback: T): Promise<T> => {
+      try { return await promise; } catch (e) { console.error('facility-dashboard query failed:', (e as Error).message); return fallback; }
+    };
+
+    const activeResidents = await safe(
+      (prisma as any).resident.count({
+        where: { companyId, ...facilityFilter, status: 'ACTIVE', deletedAt: null },
+      }), 0);
+
+    const newLeadsCount = await safe(
+      (prisma as any).lead.count({
+        where: { companyId, ...facilityFilter, createdAt: { gte: startMonth }, status: { in: ['PROSPECT', 'QUALIFIED', 'DOCUMENTATION'] } },
+      }), 0);
+
+    const attendanceMtd = await safe(
+      (prisma as any).attendance.count({
+        where: { companyId, ...facilityFilter, date: { gte: startMonth, lte: todayEnd }, status: 'PRESENT' },
+      }), 0);
+
+    const visitsToday = await safe(
+      (prisma as any).visit.count({
+        where: { companyId, ...facilityFilter, scheduledDate: { gte: today, lte: todayEnd } },
+      }), 0);
+
+    const todaysMembersRaw = await safe(
+      (prisma as any).resident.findMany({
+        where: { companyId, ...facilityFilter, status: 'ACTIVE', deletedAt: null },
+        select: {
+          id: true, firstName: true, lastName: true, primaryService: true,
+          billingType: true, status: true,
+          admissionDate: true, dob: true,
+        },
+        orderBy: { admissionDate: 'desc' },
+        take: 8,
+      }), [] as any[]);
+
+    const weekShifts: any[] = await safe(
+      (prisma as any).attendance.findMany({
+        where: { companyId, ...facilityFilter, date: { gte: startWeek, lte: todayEnd } },
+        select: { date: true, status: true, resident: { select: { primaryService: true } } },
+      }), []);
+
+    // Group attendance by day + service type
+    const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const weekData: Record<string, { day: string; adh: number; alf: number; homeCare: number }> = {};
+    for (let i = 6; i >= 0; i--) {
+      const d = addDays(today, -i);
+      const key = d.toISOString().slice(0, 10);
+      weekData[key] = { day: dayLabels[d.getDay()], adh: 0, alf: 0, homeCare: 0 };
+    }
+    for (const a of weekShifts) {
+      const key = startOfDay(a.date).toISOString().slice(0, 10);
+      const bucket = weekData[key];
+      if (!bucket) continue;
+      const svc = a.resident?.primaryService;
+      if (svc === 'ADULT_DAY_HEALTH') bucket.adh++;
+      else if (svc === 'ASSISTED_LIVING') bucket.alf++;
+      else bucket.homeCare++;
+    }
+
+    return {
+      kpis: {
+        activeMembers: activeResidents,
+        newLeads: newLeadsCount,
+        attendanceMtd: attendanceMtd,
+        visitsToday: visitsToday,
+      },
+      todaysMembers: todaysMembersRaw.map((r: any) => ({
+        id: r.id,
+        name: `${r.firstName} ${r.lastName}`,
+        avatar: `${r.firstName?.[0] || ''}${r.lastName?.[0] || ''}`.toUpperCase(),
+        time: r.admissionDate ? new Date(r.admissionDate).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) : '—',
+        serviceType: r.primaryService === 'ADULT_DAY_HEALTH' ? 'ADH' : r.primaryService === 'ASSISTED_LIVING' ? 'ALF' : 'Home Care',
+        transport: r.primaryService === 'ADULT_DAY_HEALTH' ? '🚐' : '—',
+        status: 'Active',
+        profilePictureUrl: null,
+      })),
+      attendanceChart: Object.values(weekData),
+      paAuthorizations: [], // TODO: Phase 2 — derive from billing.paNumber expiration
+      vitalsDue: [],         // TODO: Phase 2 — derive from charting due-date schedule
+    };
+  },
+
   async hrAdmin(companyId: number) {
     const today = startOfDay(new Date());
     const todayEnd = endOfDay(new Date());
@@ -342,6 +437,64 @@ export const dashboardService = {
           periodStart: { gte: startOfDay(addDays(new Date(), -7)) },
         },
       }),
+      // Figma — weekly per-employee shift matrix (employees as rows, 7 days as columns)
+      weekShiftMatrix: await (async () => {
+        const start = startOfDay(new Date());
+        const end = endOfDay(addDays(start, 6));
+        const dayList: { date: string; label: string; weekday: string }[] = [];
+        for (let i = 0; i < 7; i++) {
+          const d = addDays(start, i);
+          dayList.push({
+            date: d.toISOString().slice(0, 10),
+            label: String(d.getDate()).padStart(2, '0'),
+            weekday: d.toLocaleDateString('en-US', { weekday: 'short' }),
+          });
+        }
+        // Active employees in the supervisor's facility (or whole company for HR Admin)
+        const employees = await (prisma as any).employee.findMany({
+          where: {
+            companyId, ...facilityFilter, deletedAt: null, status: 'ACTIVE',
+          },
+          select: { id: true, firstName: true, lastName: true, designation: true, profilePictureUrl: true },
+          orderBy: { firstName: 'asc' },
+          take: 8,
+        });
+        if (employees.length === 0) return { days: dayList, employees: [] };
+        const employeeIds = employees.map((e: any) => e.id);
+        const shifts = await (prisma as any).shiftSchedule.findMany({
+          where: {
+            companyId, ...facilityFilter,
+            employeeId: { in: employeeIds },
+            shiftDate: { gte: start, lte: end },
+            status: { in: ['SCHEDULED', 'COMPLETED', 'IN_PROGRESS'] },
+          },
+          select: {
+            id: true, employeeId: true, shiftDate: true, shiftType: true, startTime: true, endTime: true,
+          },
+        });
+        // Build empId -> dateISO -> shift cell
+        const matrix: Record<number, Record<string, any>> = {};
+        for (const e of employees) matrix[e.id] = {};
+        for (const s of shifts) {
+          const dKey = startOfDay(s.shiftDate).toISOString().slice(0, 10);
+          matrix[s.employeeId][dKey] = {
+            shiftType: s.shiftType,
+            startTime: s.startTime,
+            endTime: s.endTime,
+          };
+        }
+        return {
+          days: dayList,
+          employees: employees.map((e: any) => ({
+            id: e.id,
+            firstName: e.firstName,
+            lastName: e.lastName,
+            designation: e.designation,
+            profilePictureUrl: e.profilePictureUrl,
+            cells: dayList.map((d) => matrix[e.id][d.date] || null),
+          })),
+        };
+      })(),
     };
   },
 };

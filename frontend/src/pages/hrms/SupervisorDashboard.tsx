@@ -1,23 +1,36 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import {
   Box, Typography, Paper, Chip, Button, CircularProgress, Avatar,
-  Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
 } from '@mui/material';
 import {
-  Dashboard as DashboardIcon, AssignmentLate as PendingIcon,
-  StarBorder as ReviewIcon, Groups as TeamIcon,
-  ArrowForward as ArrowIcon, Warning as WarningIcon,
   TrendingUp as CoverageIcon,
+  EventBusy as LeaveIcon,
+  SwapHoriz as SwapIcon,
+  AccessTime as OtIcon,
+  ArrowForward as ArrowIcon,
+  Add as AddIcon,
+  PersonAdd as AddEmployeeIcon,
+  Label as LabelIcon,
+  KeyboardArrowDown as ChevronDownIcon,
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import { dashboardService, SupervisorDashboard } from '../../services/dashboard.service';
-
-const SHIFT_LABEL: Record<string, string> = { FIRST: '1st Shift', SECOND: '2nd Shift', THIRD: '3rd Shift' };
-const SHIFT_BG: Record<string, string> = { FIRST: '#fff7ed', SECOND: '#d1fae5', THIRD: '#dbeafe' };
-const SHIFT_BAR: Record<string, string> = { FIRST: '#f59e0b', SECOND: '#10b981', THIRD: '#3b82f6' };
+import { dashboardService, SupervisorDashboard, WeekShiftCell } from '../../services/dashboard.service';
 
 const initials = (firstName?: string, lastName?: string) =>
   `${(firstName || '?').charAt(0)}${(lastName || '?').charAt(0)}`.toUpperCase();
+
+const fmtDate = (iso: string) => {
+  const d = new Date(iso);
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${m}/${day}/${d.getFullYear()}`;
+};
+
+const SHIFT_LABEL: Record<string, string> = { FIRST: '1st', SECOND: '2nd', THIRD: '3rd' };
+// Cells in Figma: pastel bg with thick left-border in shift accent color
+const SHIFT_BG: Record<string, string> = { FIRST: '#fff7ed', SECOND: '#d1fae5', THIRD: '#dbeafe' };
+const SHIFT_FG: Record<string, string> = { FIRST: '#9a3412', SECOND: '#065f46', THIRD: '#1e40af' };
+const SHIFT_BORDER: Record<string, string> = { FIRST: '#f59e0b', SECOND: '#10b981', THIRD: '#3b82f6' };
 
 export const SupervisorDashboardPage: React.FC = () => {
   const navigate = useNavigate();
@@ -29,273 +42,362 @@ export const SupervisorDashboardPage: React.FC = () => {
     try {
       const r = await dashboardService.supervisor();
       if (r.success && r.data) setData(r.data);
-    } catch (e: any) {
-      console.error('Dashboard load failed', e);
-    } finally {
-      setLoading(false);
-    }
+    } finally { setLoading(false); }
   }, []);
 
   useEffect(() => { load(); }, [load]);
 
   if (loading || !data) return <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}><CircularProgress /></Box>;
 
-  const maxStaffing = Math.max(
-    1,
-    ...data.staffingChart.map((d) => Math.max(d.assigned, d.required)),
-  );
+  const matrix = data.weekShiftMatrix;
+  const employees = matrix?.employees || [];
+  const days = matrix?.days || [];
+  const maxStaffing = Math.max(1, ...data.staffingChart.map((d) => Math.max(d.assigned, d.required)));
 
   return (
-    <Box sx={{ p: 3 }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
-        <DashboardIcon sx={{ color: '#1e3a5f' }} />
-        <Typography sx={{ fontWeight: 600, color: '#1e3a5f', fontSize: '1.1rem' }}>
-          Supervisor Dashboard{data.supervisor ? ` — ${data.supervisor.name}` : ''}
+    <Box sx={{ p: 3, bgcolor: '#f5f6fa' }}>
+      {/* Quick Links bar */}
+      <Paper sx={{
+        p: 1, mb: 2, border: '1px solid #e5e7eb', boxShadow: 'none', borderRadius: '8px',
+        display: 'flex', alignItems: 'center', gap: 0.75, flexWrap: 'wrap',
+      }}>
+        <Typography sx={{ fontSize: '0.78rem', color: '#6b7280', fontWeight: 600, ml: 1, mr: 1 }}>
+          Quick Links
         </Typography>
-      </Box>
-
-      {/* Quick Links action bar */}
-      <Paper sx={{ p: 1.5, mb: 2.5, border: '1px solid #e5e7eb', boxShadow: 'none', borderRadius: '8px', display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-        <Button size="small" variant="outlined" onClick={() => navigate('/hrms/leaves')} sx={{ textTransform: 'none' }}>
-          Approve Leaves
-        </Button>
-        <Button size="small" variant="outlined" onClick={() => navigate('/hrms/timecards')} sx={{ textTransform: 'none' }}>
-          Approve Timecards
-        </Button>
-        <Button size="small" variant="outlined" onClick={() => navigate('/hrms/shift-changes')} sx={{ textTransform: 'none' }}>
-          Shift Changes
-        </Button>
-        <Button size="small" variant="outlined" onClick={() => navigate('/hrms/shifts')} sx={{ textTransform: 'none' }}>
-          Shift Calendar
-        </Button>
-        <Button size="small" variant="outlined" onClick={() => navigate('/hrms/reviews')} sx={{ textTransform: 'none' }}>
-          My Reviews
-        </Button>
-        <Button size="small" variant="outlined" onClick={() => navigate('/hrms/notices')} sx={{ textTransform: 'none' }}>
-          Notice Board
-        </Button>
+        <QuickLinkChip icon={<AddIcon sx={{ fontSize: 14 }} />} label="New Shift" onClick={() => navigate('/hrms/shifts')} />
+        <QuickLinkChip icon={<AddEmployeeIcon sx={{ fontSize: 14 }} />} label="New Employee" onClick={() => navigate('/hrms/onboarding')} />
+        <QuickLinkChip icon={<LabelIcon sx={{ fontSize: 14 }} />} label="Approvals" onClick={() => navigate('/hrms/leaves')} />
+        <QuickLinkChip icon={<LabelIcon sx={{ fontSize: 14 }} />} label="Timecards" onClick={() => navigate('/hrms/timecards')} />
+        <QuickLinkChip icon={<LabelIcon sx={{ fontSize: 14 }} />} label="Reviews" onClick={() => navigate('/hrms/reviews')} />
+        <QuickLinkChip icon={<LabelIcon sx={{ fontSize: 14 }} />} label="Reports" onClick={() => navigate('/hrms/reports')} />
       </Paper>
 
-      {/* 4-KPI bar including Today's Coverage % */}
-      <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, mb: 3 }}>
-        <Kpi icon={<PendingIcon />} label="Pending Approvals" value={data.kpis.pendingApprovals}
-          sub="Leaves + Timecards + Shift Changes" color={data.kpis.pendingApprovals > 0 ? '#f59e0b' : '#10b981'} />
-        <Kpi icon={<ReviewIcon />} label="Reviews to Complete" value={data.kpis.myReviewsToComplete}
-          sub="Drafts assigned to me" color={data.kpis.myReviewsToComplete > 0 ? '#1e3a5f' : '#10b981'} />
-        <Kpi icon={<TeamIcon />} label="Direct Reports" value={data.kpis.directReports}
-          sub="Active employees on my team" color="#1e3a5f" />
-        <Kpi icon={<CoverageIcon />} label="Today's Coverage" value={`${data.coveragePercent}%`}
-          sub={`OT this week: ${data.overtimeAlertsThisWeek}`} color={data.coveragePercent >= 100 ? '#10b981' : data.coveragePercent >= 80 ? '#f59e0b' : '#dc2626'} />
+      {/* KPI Row */}
+      <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, mb: 2 }}>
+        <KpiCard
+          label="Today's Coverage"
+          value={`${data.coveragePercent}%`}
+          icon={<CoverageIcon />}
+          iconBg="#d1fae5"
+          iconColor="#10b981"
+          trend={data.coveragePercent >= 90 ? '+2%' : undefined}
+          trendColor="#10b981"
+        />
+        <KpiCard
+          label="Pending Leave Requests"
+          value={data.pendingBreakdown.leaves}
+          icon={<LeaveIcon />}
+          iconBg="#fef3c7"
+          iconColor="#f59e0b"
+          onClick={() => navigate('/hrms/leaves')}
+        />
+        <KpiCard
+          label="Shift Swap Requests"
+          value={data.pendingBreakdown.shiftChanges}
+          icon={<SwapIcon />}
+          iconBg="#dbeafe"
+          iconColor="#1e40af"
+          onClick={() => navigate('/hrms/shift-changes')}
+        />
+        <KpiCard
+          label="Overtime Alerts (This Week)"
+          value={String(data.overtimeAlertsThisWeek).padStart(2, '0')}
+          icon={<OtIcon />}
+          iconBg="#fee2e2"
+          iconColor="#dc2626"
+          onClick={() => navigate('/hrms/timecards')}
+        />
       </Box>
 
-      {/* 7-day Staffing Coverage chart */}
-      <Paper sx={{ p: 2, border: '1px solid #e5e7eb', boxShadow: 'none', borderRadius: '8px', mb: 3 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1.5 }}>
-          <Typography sx={{ fontWeight: 600, color: '#1e3a5f' }}>Staffing Coverage — Next 7 Days</Typography>
-          <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-              <Box sx={{ width: 10, height: 10, bgcolor: '#10b981', borderRadius: 0.5 }} />
-              <Typography sx={{ fontSize: '0.7rem', color: '#6b7280' }}>Assigned</Typography>
+      {/* Main Grid: Shift Calendar (2fr) + Staffing Coverage (1fr) */}
+      <Box sx={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 2, mb: 2 }}>
+        {/* Employee × Day Shift Calendar */}
+        <Paper sx={{ border: '1px solid #e5e7eb', boxShadow: 'none', borderRadius: '8px', overflow: 'hidden' }}>
+          <Box sx={{ p: 1.5, borderBottom: '1px solid #f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Typography sx={{ fontSize: '0.9rem', fontWeight: 600, color: '#1e3a5f' }}>Shift Calendar</Typography>
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-              <Box sx={{ width: 10, height: 10, bgcolor: '#cbd5e1', borderRadius: 0.5 }} />
-              <Typography sx={{ fontSize: '0.7rem', color: '#6b7280' }}>Required</Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
+              <FilterPill label="ALF" />
+              <FilterPill label="Week" />
+              <Button size="small" endIcon={<ArrowIcon sx={{ fontSize: 14 }} />}
+                onClick={() => navigate('/hrms/shifts')}
+                sx={{ textTransform: 'none', fontSize: '0.72rem', color: '#1e3a5f', fontWeight: 600, p: 0.5 }}>
+                View All
+              </Button>
             </Box>
           </Box>
-        </Box>
-        <Box sx={{ display: 'grid', gridTemplateColumns: `repeat(${data.staffingChart.length}, 1fr)`, gap: 1, alignItems: 'end', height: 160 }}>
-          {data.staffingChart.map((day) => {
-            const assignedHeight = (day.assigned / maxStaffing) * 120;
-            const requiredHeight = (day.required / maxStaffing) * 120;
-            const meetsRequired = day.assigned >= day.required;
-            return (
-              <Box key={day.date} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.5 }}>
-                <Box sx={{ display: 'flex', alignItems: 'end', gap: 0.5, height: 120 }}>
-                  <Box sx={{
-                    width: 14,
-                    height: assignedHeight,
-                    bgcolor: meetsRequired ? '#10b981' : '#dc2626',
-                    borderRadius: '2px 2px 0 0',
-                    transition: 'height 0.3s',
-                  }} title={`Assigned: ${day.assigned}`} />
-                  <Box sx={{
-                    width: 14,
-                    height: requiredHeight,
-                    bgcolor: '#cbd5e1',
-                    borderRadius: '2px 2px 0 0',
-                  }} title={`Required: ${day.required}`} />
-                </Box>
-                <Typography sx={{ fontSize: '0.7rem', fontWeight: 600, color: '#1e3a5f' }}>{day.label}</Typography>
-                <Typography sx={{ fontSize: '0.65rem', color: '#6b7280' }}>{day.assigned}/{day.required}</Typography>
-              </Box>
-            );
-          })}
-        </Box>
-      </Paper>
-
-      {/* Pending breakdown + Today's coverage */}
-      <Box sx={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 2, mb: 3 }}>
-        <Paper sx={{ p: 2, border: '1px solid #e5e7eb', boxShadow: 'none', borderRadius: '8px' }}>
-          <Typography sx={{ fontWeight: 600, color: '#1e3a5f', mb: 1.5 }}>Pending Approvals</Typography>
-          <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1.5 }}>
-            <PendingTile label="Leaves (Level 1)" count={data.pendingBreakdown.leaves} onClick={() => navigate('/hrms/leaves')} />
-            <PendingTile label="Timecards" count={data.pendingBreakdown.timecards} onClick={() => navigate('/hrms/timecards')} />
-            <PendingTile label="Shift Changes" count={data.pendingBreakdown.shiftChanges} onClick={() => navigate('/hrms/shift-changes')} />
-          </Box>
-        </Paper>
-
-        <Paper sx={{ p: 2, border: '1px solid #e5e7eb', boxShadow: 'none', borderRadius: '8px' }}>
-          <Typography sx={{ fontWeight: 600, color: '#1e3a5f', mb: 1.5 }}>Today's Coverage</Typography>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-            {data.coverage.today.map((c) => (
-              <Box key={c.shiftType} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', p: 1, bgcolor: c.adequate ? '#d1fae5' : '#fee2e2', borderRadius: 1 }}>
-                <Typography sx={{ fontSize: '0.85rem', fontWeight: 500 }}>{SHIFT_LABEL[c.shiftType] || c.shiftType}</Typography>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <Typography sx={{ fontSize: '0.85rem', fontWeight: 600, color: c.adequate ? '#065f46' : '#991b1b' }}>
-                    {c.current}/{c.minimum}
-                  </Typography>
-                  {!c.adequate && <WarningIcon sx={{ fontSize: 16, color: '#991b1b' }} />}
-                </Box>
-              </Box>
-            ))}
-          </Box>
-        </Paper>
-      </Box>
-
-      {/* Named-employee Leave Approval Queue */}
-      <Paper sx={{ p: 2, border: '1px solid #e5e7eb', boxShadow: 'none', borderRadius: '8px', mb: 3 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1.5 }}>
-          <Typography sx={{ fontWeight: 600, color: '#1e3a5f' }}>Leave Approval Queue (Level 1)</Typography>
-          <Button size="small" endIcon={<ArrowIcon fontSize="small" />} onClick={() => navigate('/hrms/leaves')}
-            sx={{ textTransform: 'none', fontSize: '0.75rem' }}>View all</Button>
-        </Box>
-        {(!data.pendingLeaveQueue || data.pendingLeaveQueue.length === 0) ? (
-          <Typography sx={{ fontSize: '0.85rem', color: '#6b7280' }}>No pending leaves at supervisor level.</Typography>
-        ) : (
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.75 }}>
-            {data.pendingLeaveQueue.map((lr) => (
-              <Box key={lr.id} onClick={() => navigate('/hrms/leaves')}
-                sx={{ p: 1, display: 'flex', alignItems: 'center', gap: 1, borderRadius: 1, cursor: 'pointer', '&:hover': { bgcolor: '#f5f6fa' } }}>
-                <Avatar src={lr.employee.profilePictureUrl || undefined} sx={{ width: 32, height: 32, fontSize: '0.75rem', bgcolor: '#1e3a5f' }}>
-                  {initials(lr.employee.firstName, lr.employee.lastName)}
-                </Avatar>
-                <Box sx={{ flex: 1, minWidth: 0 }}>
-                  <Typography sx={{ fontSize: '0.85rem', fontWeight: 500, color: '#1e3a5f' }} noWrap>
-                    {lr.employee.firstName} {lr.employee.lastName}
-                    {lr.employee.designation && (
-                      <Typography component="span" sx={{ fontSize: '0.7rem', color: '#6b7280', ml: 1 }}>
-                        ({lr.employee.designation})
-                      </Typography>
-                    )}
-                  </Typography>
-                  <Typography sx={{ fontSize: '0.7rem', color: '#6b7280' }} noWrap>
-                    {lr.leaveType} • {lr.numberOfDays}d • {new Date(lr.fromDate).toLocaleDateString()} → {new Date(lr.toDate).toLocaleDateString()}
-                    {lr.reason && ` — ${lr.reason}`}
-                  </Typography>
-                </Box>
-                <Chip label="L1 PENDING" size="small" sx={{ height: 18, fontSize: '0.6rem', bgcolor: '#fef3c7', color: '#92400e' }} />
-              </Box>
-            ))}
-          </Box>
-        )}
-      </Paper>
-
-      {/* Today's roster */}
-      <Paper sx={{ p: 2, border: '1px solid #e5e7eb', boxShadow: 'none', borderRadius: '8px', mb: 3 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1.5 }}>
-          <Typography sx={{ fontWeight: 600, color: '#1e3a5f' }}>Today's Roster</Typography>
-          <Button size="small" endIcon={<ArrowIcon fontSize="small" />} onClick={() => navigate('/hrms/shifts')}
-            sx={{ textTransform: 'none', fontSize: '0.75rem' }}>Full calendar</Button>
-        </Box>
-        {data.todayRoster.length === 0 ? (
-          <Typography sx={{ fontSize: '0.85rem', color: '#6b7280', py: 2, textAlign: 'center' }}>No shifts scheduled today.</Typography>
-        ) : (
-          <TableContainer><Table size="small"><TableHead>
-            <TableRow sx={{ bgcolor: '#f9fafb' }}>
-              <TableCell sx={{ fontWeight: 600 }}>Shift</TableCell>
-              <TableCell sx={{ fontWeight: 600 }}>Time</TableCell>
-              <TableCell sx={{ fontWeight: 600 }}>Employee</TableCell>
-              <TableCell sx={{ fontWeight: 600 }}>Designation</TableCell>
-            </TableRow>
-          </TableHead><TableBody>
-            {data.todayRoster.map((r) => (
-              <TableRow key={r.id} hover>
-                <TableCell>
-                  <Chip label={SHIFT_LABEL[r.shiftType] || r.shiftType} size="small"
-                    sx={{ bgcolor: SHIFT_BG[r.shiftType], color: SHIFT_BAR[r.shiftType], height: 20, fontSize: '0.7rem', fontWeight: 600 }} />
-                </TableCell>
-                <TableCell sx={{ fontSize: '0.85rem' }}>{r.startTime} – {r.endTime}</TableCell>
-                <TableCell sx={{ fontSize: '0.85rem', fontWeight: 500 }}>{r.employee}</TableCell>
-                <TableCell sx={{ fontSize: '0.85rem' }}>{r.designation || '—'}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody></Table></TableContainer>
-        )}
-      </Paper>
-
-      {/* Tomorrow coverage + Recent notices */}
-      <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: 2 }}>
-        <Paper sx={{ p: 2, border: '1px solid #e5e7eb', boxShadow: 'none', borderRadius: '8px' }}>
-          <Typography sx={{ fontWeight: 600, color: '#1e3a5f', mb: 1.5 }}>Tomorrow's Coverage</Typography>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-            {data.coverage.tomorrow.map((c) => (
-              <Box key={c.shiftType} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', p: 1, bgcolor: c.adequate ? '#d1fae5' : '#fee2e2', borderRadius: 1 }}>
-                <Typography sx={{ fontSize: '0.85rem', fontWeight: 500 }}>{SHIFT_LABEL[c.shiftType] || c.shiftType}</Typography>
-                <Typography sx={{ fontSize: '0.85rem', fontWeight: 600, color: c.adequate ? '#065f46' : '#991b1b' }}>
-                  {c.current}/{c.minimum}
-                </Typography>
-              </Box>
-            ))}
-          </Box>
-        </Paper>
-
-        <Paper sx={{ p: 2, border: '1px solid #e5e7eb', boxShadow: 'none', borderRadius: '8px' }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1.5 }}>
-            <Typography sx={{ fontWeight: 600, color: '#1e3a5f' }}>Recent Notices</Typography>
-            <Button size="small" endIcon={<ArrowIcon fontSize="small" />} onClick={() => navigate('/hrms/notices')}
-              sx={{ textTransform: 'none', fontSize: '0.75rem' }}>View all</Button>
-          </Box>
-          {data.recentNotices.length === 0 ? (
-            <Typography sx={{ fontSize: '0.85rem', color: '#6b7280' }}>No notices.</Typography>
+          {employees.length === 0 ? (
+            <Box sx={{ py: 6, textAlign: 'center', color: '#9ca3af' }}>
+              <Typography sx={{ fontSize: '0.85rem' }}>No team members assigned.</Typography>
+            </Box>
           ) : (
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-              {data.recentNotices.map((n) => (
-                <Box key={n.id} sx={{ p: 1, bgcolor: '#f5f6fa', borderRadius: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <Box>
-                    <Typography sx={{ fontSize: '0.85rem', fontWeight: 500 }}>{n.title}</Typography>
-                    <Typography sx={{ fontSize: '0.7rem', color: '#6b7280' }}>{new Date(n.createdAt).toLocaleString()}</Typography>
+            <Box sx={{ overflowX: 'auto' }}>
+              {/* Header row: empty corner + employee avatars */}
+              <Box sx={{
+                display: 'grid',
+                gridTemplateColumns: `64px repeat(${employees.length}, minmax(120px, 1fr))`,
+                borderBottom: '1px solid #f3f4f6',
+                bgcolor: '#fafbfc',
+              }}>
+                <Box sx={{ p: 1 }} />
+                {employees.map((emp) => (
+                  <Box key={emp.id} sx={{ p: 1, display: 'flex', alignItems: 'center', gap: 0.75, borderLeft: '1px solid #f3f4f6' }}>
+                    <Avatar src={emp.profilePictureUrl || undefined} sx={{ width: 26, height: 26, fontSize: '0.7rem', bgcolor: '#1e3a5f' }}>
+                      {initials(emp.firstName, emp.lastName)}
+                    </Avatar>
+                    <Box sx={{ minWidth: 0 }}>
+                      <Typography sx={{ fontSize: '0.72rem', fontWeight: 600, color: '#1e3a5f' }} noWrap>
+                        {emp.firstName} {emp.lastName.charAt(0)}.
+                      </Typography>
+                      <Typography sx={{ fontSize: '0.62rem', color: '#9ca3af' }} noWrap>
+                        {emp.designation || '—'}
+                      </Typography>
+                    </Box>
                   </Box>
-                  {n.category && <Chip label={n.category} size="small" sx={{ height: 18, fontSize: '0.65rem' }} />}
+                ))}
+              </Box>
+              {/* Day rows */}
+              {days.map((day, dayIdx) => (
+                <Box key={day.date}
+                  sx={{
+                    display: 'grid',
+                    gridTemplateColumns: `64px repeat(${employees.length}, minmax(120px, 1fr))`,
+                    borderBottom: dayIdx < days.length - 1 ? '1px solid #f3f4f6' : 'none',
+                  }}>
+                  <Box sx={{
+                    p: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                    bgcolor: '#fafbfc',
+                  }}>
+                    <Typography sx={{ fontSize: '0.78rem', fontWeight: 700, color: '#1e3a5f' }}>
+                      {day.label}
+                    </Typography>
+                    <Typography sx={{ fontSize: '0.62rem', color: '#9ca3af' }}>
+                      {day.weekday}
+                    </Typography>
+                  </Box>
+                  {employees.map((emp) => {
+                    const cell = emp.cells[dayIdx];
+                    return (
+                      <Box key={emp.id}
+                        onClick={() => navigate('/hrms/shifts')}
+                        sx={{
+                          p: 0.75, borderLeft: '1px solid #f3f4f6', minHeight: 60,
+                          cursor: 'pointer', '&:hover': { bgcolor: '#f9fafb' },
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        }}>
+                        {cell ? <ShiftCell cell={cell} /> : (
+                          <Typography sx={{ fontSize: '0.7rem', color: '#9ca3af', fontStyle: 'italic' }}>
+                            Day Off
+                          </Typography>
+                        )}
+                      </Box>
+                    );
+                  })}
                 </Box>
               ))}
             </Box>
           )}
         </Paper>
+
+        {/* Staffing Coverage chart */}
+        <Paper sx={{ border: '1px solid #e5e7eb', boxShadow: 'none', borderRadius: '8px', overflow: 'hidden' }}>
+          <Box sx={{ p: 1.5, borderBottom: '1px solid #f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <Typography sx={{ fontSize: '0.9rem', fontWeight: 600, color: '#1e3a5f' }}>Staffing Coverage</Typography>
+            <FilterPill label="ALF" />
+          </Box>
+          <Box sx={{ p: 2 }}>
+            <Box sx={{ display: 'flex', gap: 1.5, mb: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
+              <LegendDot color="#3b82f6" label="Required" />
+              <LegendDot color="#10b981" label="Assigned" />
+              <LegendDot color="#dc2626" label="Surplus" />
+            </Box>
+            <Box sx={{
+              display: 'grid',
+              gridTemplateColumns: `repeat(${data.staffingChart.length}, 1fr)`,
+              gap: 0.5, alignItems: 'end', height: 180,
+            }}>
+              {data.staffingChart.map((day) => {
+                const reqH = (day.required / maxStaffing) * 150;
+                const assH = (day.assigned / maxStaffing) * 150;
+                const surplus = Math.max(0, day.assigned - day.required);
+                const surH = (surplus / maxStaffing) * 150;
+                return (
+                  <Box key={day.date} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.5 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'end', gap: 0.25, height: 150 }}>
+                      <Box sx={{ width: 6, height: reqH, bgcolor: '#3b82f6', borderRadius: '2px 2px 0 0' }} />
+                      <Box sx={{ width: 6, height: assH, bgcolor: '#10b981', borderRadius: '2px 2px 0 0' }} />
+                      {surplus > 0 && (
+                        <Box sx={{ width: 6, height: surH, bgcolor: '#dc2626', borderRadius: '2px 2px 0 0' }} />
+                      )}
+                    </Box>
+                    <Typography sx={{ fontSize: '0.65rem', color: '#6b7280' }}>{day.label}</Typography>
+                  </Box>
+                );
+              })}
+            </Box>
+          </Box>
+        </Paper>
       </Box>
+
+      {/* Approval Queue */}
+      <Paper sx={{ border: '1px solid #e5e7eb', boxShadow: 'none', borderRadius: '8px', overflow: 'hidden' }}>
+        <Box sx={{ p: 1.5, borderBottom: '1px solid #f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Typography sx={{ fontSize: '0.9rem', fontWeight: 600, color: '#1e3a5f' }}>Approval Queue</Typography>
+            {data.pendingLeaveQueue?.length > 0 && (
+              <Chip label={String(data.pendingLeaveQueue.length).padStart(2, '0')} size="small"
+                sx={{ bgcolor: '#eff4fb', color: '#1e3a5f', fontWeight: 600, height: 20, fontSize: '0.68rem' }} />
+            )}
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
+            <FilterPill label="All" />
+            <Button size="small" endIcon={<ArrowIcon sx={{ fontSize: 14 }} />}
+              onClick={() => navigate('/hrms/leaves')}
+              sx={{ textTransform: 'none', fontSize: '0.72rem', color: '#1e3a5f', fontWeight: 600, p: 0.5 }}>
+              View All
+            </Button>
+          </Box>
+        </Box>
+        <Box sx={{ p: 1.5 }}>
+          {(!data.pendingLeaveQueue || data.pendingLeaveQueue.length === 0) ? (
+            <Box sx={{ py: 3, textAlign: 'center' }}>
+              <Typography sx={{ fontSize: '0.8rem', color: '#9ca3af' }}>No pending approvals.</Typography>
+            </Box>
+          ) : (
+            data.pendingLeaveQueue.slice(0, 5).map((lr, idx) => (
+              <Box key={lr.id} onClick={() => navigate('/hrms/leaves')}
+                sx={{
+                  display: 'flex', alignItems: 'center', gap: 1.5, py: 1.25, px: 0.5,
+                  cursor: 'pointer', '&:hover': { bgcolor: '#f9fafb' },
+                  borderBottom: idx < Math.min(data.pendingLeaveQueue.length, 5) - 1 ? '1px solid #f3f4f6' : 'none',
+                }}>
+                <Avatar src={lr.employee.profilePictureUrl || undefined} sx={{ width: 36, height: 36, fontSize: '0.78rem', bgcolor: '#1e3a5f' }}>
+                  {initials(lr.employee.firstName, lr.employee.lastName)}
+                </Avatar>
+                <Box sx={{ flex: 1, minWidth: 0 }}>
+                  <Typography sx={{ fontSize: '0.85rem', fontWeight: 600, color: '#1e3a5f' }} noWrap>
+                    {lr.employee.firstName} {lr.employee.lastName}
+                  </Typography>
+                  <Typography sx={{ fontSize: '0.7rem', color: '#6b7280' }}>
+                    From: {fmtDate(lr.fromDate)} &nbsp;&nbsp;To: {fmtDate(lr.toDate)}
+                  </Typography>
+                </Box>
+                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 0.5 }}>
+                  <Typography sx={{ fontSize: '0.72rem', color: '#6b7280' }} noWrap>
+                    Leave Request • {lr.leaveType.replace(/_/g, ' ').toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())}
+                  </Typography>
+                  <Chip label="Pending" size="small"
+                    sx={{ bgcolor: '#fef3c7', color: '#92400e', fontWeight: 600, height: 20, fontSize: '0.68rem' }} />
+                </Box>
+              </Box>
+            ))
+          )}
+        </Box>
+      </Paper>
     </Box>
   );
 };
 
-const Kpi: React.FC<{ icon: React.ReactNode; label: string; value: any; sub?: string; color: string }> = ({ icon, label, value, sub, color }) => (
-  <Paper sx={{ p: 2, border: '1px solid #e5e7eb', boxShadow: 'none', borderRadius: '8px' }}>
-    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1, color }}>
-      {icon}
-      <Typography sx={{ fontSize: '0.7rem', color: '#6b7280', textTransform: 'uppercase' }}>{label}</Typography>
+const ShiftCell: React.FC<{ cell: WeekShiftCell }> = ({ cell }) => (
+  <Box sx={{
+    bgcolor: SHIFT_BG[cell.shiftType],
+    borderLeft: `3px solid ${SHIFT_BORDER[cell.shiftType]}`,
+    color: SHIFT_FG[cell.shiftType],
+    borderRadius: '4px',
+    px: 0.75, py: 0.5,
+    width: '100%',
+    display: 'flex', flexDirection: 'column', gap: 0.25,
+  }}>
+    <Typography sx={{ fontSize: '0.7rem', fontWeight: 700 }}>
+      {SHIFT_LABEL[cell.shiftType]}
+    </Typography>
+    <Typography sx={{ fontSize: '0.62rem', color: '#374151', fontWeight: 500 }} noWrap>
+      {cell.startTime}–{cell.endTime}
+    </Typography>
+  </Box>
+);
+
+interface KpiCardProps {
+  label: string;
+  value: string | number;
+  icon: React.ReactNode;
+  iconBg: string;
+  iconColor: string;
+  trend?: string;
+  trendColor?: string;
+  onClick?: () => void;
+}
+const KpiCard: React.FC<KpiCardProps> = ({ label, value, icon, iconBg, iconColor, trend, trendColor, onClick }) => (
+  <Paper
+    onClick={onClick}
+    sx={{
+      p: 2, border: '1px solid #e5e7eb', boxShadow: 'none', borderRadius: '8px',
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      cursor: onClick ? 'pointer' : 'default',
+      transition: 'box-shadow 150ms ease',
+      '&:hover': onClick ? { boxShadow: '0 1px 3px rgba(0,0,0,0.06)' } : {},
+    }}
+  >
+    <Box>
+      <Typography sx={{ fontSize: '0.7rem', color: '#6b7280', fontWeight: 500, mb: 0.5 }}>
+        {label}
+      </Typography>
+      <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 0.75 }}>
+        <Typography sx={{ fontSize: '1.6rem', fontWeight: 700, color: '#1e3a5f', lineHeight: 1.1 }}>
+          {value}
+        </Typography>
+        {trend && (
+          <Chip label={trend} size="small"
+            sx={{
+              bgcolor: '#d1fae5', color: trendColor || '#065f46',
+              fontWeight: 600, height: 18, fontSize: '0.62rem',
+            }} />
+        )}
+      </Box>
     </Box>
-    <Typography sx={{ fontSize: '1.7rem', fontWeight: 600, color }}>{value}</Typography>
-    {sub && <Typography sx={{ fontSize: '0.7rem', color: '#6b7280' }}>{sub}</Typography>}
+    <Box sx={{
+      width: 40, height: 40, borderRadius: '8px',
+      bgcolor: iconBg, color: iconColor, flexShrink: 0,
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+    }}>
+      {icon}
+    </Box>
   </Paper>
 );
 
-const PendingTile: React.FC<{ label: string; count: number; onClick: () => void }> = ({ label, count, onClick }) => (
-  <Box onClick={onClick}
+const QuickLinkChip: React.FC<{ icon: React.ReactNode; label: string; onClick: () => void }> = ({ icon, label, onClick }) => (
+  <Button
+    onClick={onClick}
+    startIcon={icon}
+    size="small"
+    variant="outlined"
     sx={{
-      p: 1.5, border: '1px solid #e5e7eb', borderRadius: 1, textAlign: 'center', cursor: 'pointer',
-      bgcolor: count > 0 ? '#fff7ed' : '#f5f6fa',
-      '&:hover': { bgcolor: count > 0 ? '#fed7aa' : '#eff4fb' },
-    }}>
-    <Typography sx={{ fontSize: '1.4rem', fontWeight: 600, color: count > 0 ? '#92400e' : '#6b7280' }}>{count}</Typography>
-    <Typography sx={{ fontSize: '0.7rem', color: '#6b7280', textTransform: 'uppercase' }}>{label}</Typography>
+      textTransform: 'none', fontSize: '0.74rem', fontWeight: 500,
+      color: '#1e3a5f', borderColor: '#e5e7eb', borderRadius: '6px', px: 1.25, py: 0.25,
+      '&:hover': { bgcolor: '#eff4fb', borderColor: '#1e3a5f' },
+    }}
+  >
+    {label}
+  </Button>
+);
+
+const FilterPill: React.FC<{ label: string }> = ({ label }) => (
+  <Box sx={{
+    display: 'flex', alignItems: 'center', gap: 0.5,
+    px: 1, py: 0.4, borderRadius: '6px', border: '1px solid #e5e7eb',
+    cursor: 'pointer', bgcolor: '#fff',
+    '&:hover': { bgcolor: '#f9fafb' },
+  }}>
+    <Typography sx={{ fontSize: '0.72rem', color: '#6b7280', fontWeight: 500 }}>{label}</Typography>
+    <ChevronDownIcon sx={{ fontSize: 14, color: '#9ca3af' }} />
+  </Box>
+);
+
+const LegendDot: React.FC<{ color: string; label: string }> = ({ color, label }) => (
+  <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+    <Box sx={{ width: 10, height: 10, bgcolor: color, borderRadius: '2px' }} />
+    <Typography sx={{ fontSize: '0.68rem', color: '#6b7280' }}>{label}</Typography>
   </Box>
 );
 
